@@ -21,3 +21,31 @@
     background: linear-gradient(180deg, #d8b4a0 0%, #cd6f43 100%);
     font-family: 'Roboto Slab', serif;
 }
+
+nav {
+    height: 2%;
+}
+
+nav li {
+    float: left;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: #cd6f43; 
+  }
