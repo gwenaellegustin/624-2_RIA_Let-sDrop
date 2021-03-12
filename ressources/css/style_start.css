@@ -2,4 +2,22 @@
 
 * {
     box-sizing: border-box;
+    padding:0; 
+    border:none; 
+    margin:0;
+}
+
+.mainTitle {
+    padding-bottom: 2%;
+    background: #c5572f;
+}
+
+.mainTitle > h1 {
+    padding-top: 4%;
+    padding-bottom: -1%;
+    text-align: center;
+    color: white;
+    background: rgb(221,185,163);
+    background: linear-gradient(180deg, #d8b4a0 0%, #cd6f43 100%);
+    font-family: 'Roboto Slab', serif;
 }
