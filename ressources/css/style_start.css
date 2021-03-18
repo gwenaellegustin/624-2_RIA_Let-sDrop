@@ -1,5 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
 
-* {
+body {
     box-sizing: border-box;
+    padding:0; 
+    border:none; 
+    margin:0;
 }
+
+.mainTitle {
+    padding-bottom: 2%;
+    background: #c5572f;
+}
+
+h1 {
+    padding-top: 4%;
+    padding-bottom: -1%;
+    text-align: center;
+    color: white;
+    background: rgb(221,185,163);
+    background: linear-gradient(180deg, #d8b4a0 0%, #cd6f43 100%);
+    font-family: 'Roboto Slab', serif;
+}
+
+nav {
+    height: 2%;
+}
+
+nav li {
+    float: left;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: #cd6f43; 
+  }
