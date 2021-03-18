@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
 
-* {
+body {
     box-sizing: border-box;
     padding:0; 
     border:none; 
@@ -12,7 +12,7 @@
     background: #c5572f;
 }
 
-.mainTitle > h1 {
+h1 {
     padding-top: 4%;
     padding-bottom: -1%;
     text-align: center;
