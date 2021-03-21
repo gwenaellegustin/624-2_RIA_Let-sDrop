@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
+
+* {
+    box-sizing: border-box;
+    padding:0; 
+    border:none; 
+    margin:0;
+}
+
+/* Eléments principaux de la page */
+
+body {
+    font-family: 'Montserrat', 'Trebuchet MS', Arial, sans-serif;
+    font-size: medium;
+    color: black;
+}
+
+header h1, h2, h3 {
+    font-family: 'Roboto Slab', 'Trebuchet MS', Arial, sans-serif;
+}
+
+/* header (repris tel quel ancienne version Antony - la police qui est dans éléments principaux) */
+
+h1 {
+    padding-top: 4%;
+    padding-bottom: 1.1%;
+    text-align: center;
+    color: white;
+    background: rgb(221,185,163);
+    background: linear-gradient(180deg, #d8b4a0 0%, #d35013 100%);
+}
+
+.hamburger {
+    display:none;
+}
+
+/* navigation (attention, ancienne version Antony + quelques détails SB */
+
+nav {
+    height: 2%;
+    /* rajouts SB */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+nav li {
+    float: left;
+}
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: #ca5018; 
+  }
+
+
+/* corps */
+
+main header {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+header h2 {
+    font-size: 1.8em;
+    line-height: 1.1em;
+    border-bottom: 2px rgb(228, 226, 226) solid;
+    margin-bottom: -0.3em;
+}
+
+header p {
+    font-size: 1.1em;
+    color: grey;
+    font-style: italic;
+    text-align: right;
+}
+
+main {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+main a {
+    color:#ca5018;
+    text-decoration: none;
+}
+
+main p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+article {
+    margin-left: 20px;
+    width: 95%;
+}
+
+aside {
+    width: 55%;
+    height: 185px;
+    box-shadow: 0px 0px 10px grey;
+    margin: 20px 20px 20px 20px ;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0px 10px 6px 10px;
+}
+
+aside h3 {
+    font-size: 1.3em;
+    background: rgb(223, 98, 21);
+    padding: 6px 10px 6px 10px;
+    color: white;
+}
+
+/* footer */
+
+footer {
+    background-color: #333;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
