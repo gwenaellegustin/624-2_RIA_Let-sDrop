@@ -14,7 +14,7 @@ body {
     font-size: medium;
     color: black;
     max-width: 1240px;
-    height: 800px;
+    min-height: 900px; /* à voir encore ensemble pour la hauteur */
     box-shadow: 0px 0px 20px 0px;
     position: relative;
 }
@@ -23,7 +23,7 @@ header h1, h2, h3 {
     font-family: 'Roboto Slab', 'Trebuchet MS', Arial, sans-serif;
 }
 
-/* header (repris tel quel ancienne version Antony - la police qui est dans éléments principaux) */
+/* header (new version Anto) */
 
 h1 {
     padding-top: 7%;
@@ -33,7 +33,7 @@ h1 {
     background: linear-gradient(180deg, #d8b4a0 0%, #db4d21 100%);
 }
 
-/* navigation (version Stéph + Gwen + Anto) */
+/* navigation (version Stéph + Gwen + Anto updated) */
 
 @media (max-width: 640px) {
     .hamburger{
@@ -112,7 +112,6 @@ main {
     background-color: white;
     display: flex;
     justify-content: space-between;
-    /*margin-bottom: 10%;*/
 }
 
 main a {
@@ -130,7 +129,7 @@ article {
 }
 
 aside {
-    width: 50%;
+    width: 70%;
     height: 220%;
     box-shadow: 0px 0px 10px grey;
     margin: 20px 20px 20px 20px ;
@@ -159,5 +158,10 @@ footer {
     padding-bottom: 15px;
     position: absolute;
     bottom: 0px;
+}
+
+footer img {
+    width: 25%;
+    max-width: 200px;
 }
 
