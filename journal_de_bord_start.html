@@ -4,7 +4,7 @@
     <title>624-2 - HTML/CSS/JavaScript</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="ressources/css/css_SB.css">
+    <link rel="stylesheet" href="ressources/css/style_start.css">
 </head>
 <body>
 
@@ -40,14 +40,156 @@
     <section id="articles">
         <article>
             <header>
-                <h2>Journal de bord de votre projet</h2>
-                <p>Par Jean Dupont le 5/02/2019 à 09:00</p>
+                <h2>Journal de bord</h2>
+                <p>Par Stéphanie Baechler le 04/04/2021 à 11:35</p>
             </header>
-            <p>Lorem ipsum dolor sit amet... <a href="http://www.hevs.ch/">http://www.hevs.ch/</a>,
-                 Ut non eros scelerisque, varius diam a, pulvinar arcu. Phasellus fermentum non arcu ornare ornare. Sed libero mi, rutrum et felis commodo, molestie tempor leo. Duis sit amet erat ut elit faucibus tincidunt sit amet non leo. Quisque dapibus ultricies cursus.</p>
-            <p> Aenean elit nisi, maximus sit amet vulputate non, molestie non odio. Quisque in dolor vel libero <strong>lobortis commodo</strong> ultricies sed nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut pretium ipsum in ipsum venenatis, id elementum quam ultrices. Nam nec enim sagittis, ultrices massa eu, fermentum sem.</p>
-            <p><strong>Nam sed justo tortor:</strong>Aliquam eros ex, porttitor vel aliquam in, imperdiet id felis. Aliquam sed est quis nibh vestibulum porta. Nam ipsum quam, dapibus quis felis quis, pharetra auctor sapien</p>
-                <p>Le code source de l'application est disponible sur le <a href="https://github.com/">github du projet</a>.</p>
+            <p>Nous avons regroupé ci-dessous les différentes heures effectuées, problèmes et solutions, ainsi que les différentes interrogations rencontrées 
+                tout au long du développement de notre projet :</p>
+            <table>
+                <caption>Synthèse de nos logbooks</caption>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Who</th>
+                        <th>Working on</th>
+                        <th>Main topic</th>
+                        <th>Problem</th>
+                        <th>Solution</th>
+                        <th>Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date">03.03.2021</td>
+                        <td class="who">Tous</td>
+                        <td class="what">Meeting</td>
+                        <td>Organisation du projet</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h30</td>
+                    </tr>
+                    <tr>
+                        <td class="date">10.03.2021</td>
+                        <td class="who">Tous</td>
+                        <td class="what">Meeting</td>
+                        <td>Brainstorming sur les idées de jeu</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">2h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">12.03.2021</td>
+                        <td class="who">Antony</td>
+                        <td class="what">CSS</td>
+                        <td>Titre et Navbar</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">2h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">18.03.2021</td>
+                        <td class="who">Tous</td>
+                        <td class="what">Meeting</td>
+                        <td>Organisation</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h30</td>
+                    </tr>
+                    <tr>
+                        <td class="date">20.03.2021</td>
+                        <td class="who">Antony</td>
+                        <td class="what">CSS</td>
+                        <td>Title and Navbar</td>
+                        <td>Gradient dans le mockup n'est pas clair si 2 différentes sections ou pas</td>
+                        <td>Gradient OK</td>
+                        <td class="hours">2h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">21.03.2021</td>
+                        <td class="who">Stéph</td>
+                        <td class="what">CSS</td>
+                        <td>Body and Footer</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">3h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">24.03.2021</td>
+                        <td class="who">Stéph</td>
+                        <td class="what">CSS</td>
+                        <td>Body and Footer</td>
+                        <td>Impossible to have the footer at the bottom of the page, I tried different things (flexbox, margin, ...) for a while</td>
+                        <td>With Openclassrooms course : put the #contener in relative position and #insideElement in a absolute position</td>
+                        <td class="hours">2h30</td>
+                    </tr>
+                    <tr>
+                        <td class="date">25.03.2021</td>
+                        <td class="who">Tous</td>
+                        <td class="what">Meeting</td>
+                        <td>Organisation</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h30</td>
+                    </tr>
+                    <tr>
+                        <td class="date">25.03.2021</td>
+                        <td class="who">Anto+Gwen</td>
+                        <td class="what">Game</td>
+                        <td>Thinking about processus at each level</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">26.03.2021</td>
+                        <td class="who">Antony</td>
+                        <td class="what">Game</td>
+                        <td>Thinking about processus at each level + sitemap</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">2h30</td>
+                    </tr>
+                    <tr>
+                        <td class="date">29.03.2021</td>
+                        <td class="who">Antony</td>
+                        <td class="what">Game</td>
+                        <td>Check visuels</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">0h15</td>
+                    </tr>
+                    <tr>
+                        <td class="date">30.03.2021</td>
+                        <td class="who">Stéph</td>
+                        <td class="what">Meeting</td>
+                        <td>Questions about the project to be answered by the teacher</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">01.04.2021</td>
+                        <td class="who">Tous</td>
+                        <td class="what">Meeting</td>
+                        <td>Validation + organisation</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">03.04.2021</td>
+                        <td class="who">Antony</td>
+                        <td class="what">Game + website</td>
+                        <td>Version 1 game + sitemap + processus de jeu</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="hours">1h45</td>
+                    </tr>
+                    
+                </tbody>
+
+            </table>
+            <p>Le logbook détaillé de notre projet se trouve sur <a href="https://gitlab.com/hesantonymarques/604_3/624-2-ria/-/wikis/home">gitlab</a>.</p>
         </article>
     </section>
     <!-- >Fin zone pour votre contenu -->

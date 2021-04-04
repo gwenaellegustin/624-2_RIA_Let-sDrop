@@ -29,6 +29,7 @@ h1 {
     padding-top: 7%;
     padding-bottom: 2%;
     text-align: center;
+    /* font-size: 1.5em; pour le mobile */
     color: white;
     background: linear-gradient(180deg, #d8b4a0 0%, #db4d21 100%);
 }
@@ -49,6 +50,10 @@ h1 {
     }
     nav:hover li:not(.hamburger){
         display: block;
+    }
+    main {
+        flex-wrap: wrap; 
+        align-items: flex-start;
     }
 }
 
@@ -78,8 +83,9 @@ nav li a{
     display: block;
     color: white;
     text-align: center;
-    padding: 10px 8px;
+    padding: 8px;
     text-decoration: none;
+    /* font-size: 1em; pour le mobile */
 }
 
 nav li a:hover, li.active a {
@@ -96,6 +102,7 @@ main header {
 
 header h2 {
     font-size: 1.8em;
+    /* font-size: 1.4em; pour le mobile */
     line-height: 1.1em;
     border-bottom: 2px rgb(228, 226, 226) solid;
     margin-bottom: -0.3em;
@@ -103,6 +110,7 @@ header h2 {
 
 header p {
     font-size: 1.1em;
+    /* font-size: 0.9em; pour le mobile */
     color: grey;
     font-style: italic;
     text-align: right;
@@ -112,6 +120,7 @@ main {
     background-color: white;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 107px;
 }
 
 main a {
@@ -122,6 +131,7 @@ main a {
 main p {
     margin-top: 1em;
     margin-bottom: 1em;
+    
 }
 
 article {
