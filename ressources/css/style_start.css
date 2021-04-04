@@ -24,18 +24,17 @@ header h1, h2, h3, table caption {
 }
 
 
-/* header (new version Anto) */
+/* header */
 
 h1 {
     padding-top: 7%;
     padding-bottom: 2%;
     text-align: center;
-    /* font-size: 1.5em; pour le mobile */
     color: white;
     background: linear-gradient(180deg, #d8b4a0 0%, #db4d21 100%);
 }
 
-/* navigation (version Stéph + Gwen + Anto updated) */
+/* navigation */
 
 @media (max-width: 640px) {
     .hamburger {
@@ -47,6 +46,10 @@ h1 {
         filter: invert(100%);
     }
 
+    header h1 {
+        font-size: 1.5em;
+    }
+
     nav li:not(.hamburger) {
         transition: display;
         display: none;
@@ -55,6 +58,18 @@ h1 {
     nav:hover li:not(.hamburger) {
         display: block;
     }
+
+    nav li a {
+        font-size: 1em;
+    }
+
+    main header h2 {
+        font-size: 1.4em;
+    }
+
+    main header p {
+        font-size: 0.8em;
+    }
     
     main {
         flex-wrap: wrap; 
@@ -62,19 +77,24 @@ h1 {
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 641px) {
     .hamburger{
         display: none;
     }
+    
     nav li {
         float: left;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    nav li:nth-child(2) {
         padding-left: 15px;
     }
 }
 
 nav {
     height: 2%;
-    /* rajouts SB */
     font-size: 1.1em;
     font-weight: bold;
 }
@@ -91,7 +111,6 @@ nav li a{
     text-align: center;
     padding: 8px;
     text-decoration: none;
-    /* font-size: 1em; pour le mobile */
 }
 
 nav li a:hover, li.active a {
@@ -108,7 +127,6 @@ main header {
 
 header h2 {
     font-size: 1.8em;
-    /* font-size: 1.4em; pour le mobile */
     line-height: 1.1em;
     border-bottom: 2px rgb(228, 226, 226) solid;
     margin-bottom: -0.3em;
@@ -116,7 +134,6 @@ header h2 {
 
 header p {
     font-size: 1.1em;
-    /* font-size: 0.9em; pour le mobile */
     color: grey;
     font-style: italic;
     text-align: right;
@@ -137,7 +154,6 @@ main a {
 main p {
     margin-top: 1em;
     margin-bottom: 1em;
-    
 }
 
 article {
@@ -163,6 +179,16 @@ aside h3 {
     color: white;
 }
 
+/* images */
+
+article div {
+    display: flex;
+}
+
+img {
+    max-width: 95%;    
+}
+
 /* tableau */
 
 table {
@@ -186,9 +212,7 @@ th {
 td {
     border: 1px solid lightgrey;
     font-size: small;
-    padding-left: 4px;
-    padding-right: 10px;
-    height: 30px;
+    padding: 6px 10px 6px 5px;
 }
 
 .date {
