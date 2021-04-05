@@ -84,13 +84,11 @@ h1 {
     
     nav li {
         float: left;
-        padding-left: 8px;
-        padding-right: 8px;
     }
 
-    nav li:nth-child(2) {
+    /*nav li:nth-child(2) {
         padding-left: 15px;
-    }
+    }*/
 }
 
 nav {
@@ -103,13 +101,14 @@ nav ul {
     list-style-type: none;
     overflow: hidden;
     background-color: #454545;
+    padding-left: 15px; /*add*/
 }
 
-nav li a{
+nav li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 8px;
+    padding: 10px 15px;
     text-decoration: none;
 }
 
@@ -160,6 +159,27 @@ article {
     margin: 0px 20px 30px 20px;
 }
 
+article h3 {
+    padding-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey
+}
+
+article ul li {
+    margin-left: 25px;
+    font-size: 0.9em;
+}
+
+article ul li + ul li {
+    margin-left: 50px;
+}
+
+.link {
+    font-size: 0.8em;
+    text-align: right;
+    padding-right: 25px;
+}
+
 aside {
     width: 70%;
     height: 220%;
@@ -195,6 +215,7 @@ table {
     border-collapse: collapse;
     text-align: left;
     width: 95%;
+    margin-bottom: 35px;
 }
 
 table caption {
