@@ -203,10 +203,28 @@ aside h3 {
 
 article div {
     display: flex;
+    flex-wrap: wrap;
 }
 
-img {
-    max-width: 95%;    
+article div a {
+    text-align: center;
+}
+
+.around {
+    width: 400px;
+    padding-left: 15px;
+    border-left: 1px solid lightgrey;
+}
+
+.flux {
+    padding-top: 25px;
+    max-width: 90%;    
+}
+
+.sequence {
+    padding-top: 25px;
+    width: 600px;
+    
 }
 
 /* tableau */
