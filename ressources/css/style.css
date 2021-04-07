@@ -7,14 +7,14 @@
     margin:auto;
 }
 
-/* Eléments principaux de la page */
+/* éléments principaux de la page */
 
 body {
     font-family: 'Montserrat', 'Trebuchet MS', Arial, sans-serif;
     font-size: medium;
     color: black;
     max-width: 1240px;
-    min-height: 900px; /* à voir encore ensemble pour la hauteur */
+    height: auto; 
     box-shadow: 0px 0px 20px 0px;
     position: relative;
 }
@@ -22,7 +22,6 @@ body {
 header h1, h2, h3, table caption {
     font-family: 'Roboto Slab', 'Trebuchet MS', Arial, sans-serif;
 }
-
 
 /* header */
 
@@ -36,7 +35,7 @@ h1 {
 
 /* navigation */
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .hamburger {
         text-align: center;
         padding-top: 5px;
@@ -77,7 +76,8 @@ h1 {
     }
 }
 
-@media (min-width: 641px) {
+@media all and (min-width: 769px) {
+    
     .hamburger{
         display: none;
     }
@@ -161,12 +161,14 @@ article {
 
 article h3 {
     padding-top: 20px;
+    padding-left: 20px;
     margin-bottom: 10px;
     border-bottom: 1px solid lightgrey
 }
 
 article ul li {
-    margin-left: 25px;
+    margin-left: 30px;
+    padding-left: 5px;;
     font-size: 0.9em;
 }
 
@@ -182,9 +184,11 @@ article ul li + ul li {
 
 aside {
     width: 70%;
+    min-width: 320px;
+    max-width: 320px;
     height: 220%;
     box-shadow: 0px 0px 10px grey;
-    margin: 20px 20px 20px 20px ;
+    margin: 20px ;
 }
 
 aside ul {
@@ -209,6 +213,15 @@ article div {
 article div a {
     text-align: center;
 }
+
+figure img {
+    max-width: 100%;
+}
+
+figcaption {
+    margin-bottom: 25px;
+}
+
 
 .around {
     width: 400px;
