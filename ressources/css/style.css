@@ -11,7 +11,6 @@
 
 body {
     font-family: 'Montserrat', 'Trebuchet MS', Arial, sans-serif;
-    font-size: medium;
     color: black;
     max-width: 1240px;
     height: auto; 
@@ -35,7 +34,12 @@ h1 {
 
 /* navigation */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+
+    body {
+        font-size: small;
+    }
+
     .hamburger {
         text-align: center;
         padding-top: 5px;
@@ -45,10 +49,6 @@ h1 {
         filter: invert(100%);
     }
 
-    header h1 {
-        font-size: 1.5em;
-    }
-
     nav li:not(.hamburger) {
         transition: display;
         display: none;
@@ -56,6 +56,10 @@ h1 {
 
     nav:hover li:not(.hamburger) {
         display: block;
+    } 
+
+    header h1 {
+        font-size: 1.5em;
     }
 
     nav li a {
@@ -76,19 +80,43 @@ h1 {
     }
 }
 
-@media all and (min-width: 769px) {
+
+@media (min-width: 601px) {
     
     .hamburger{
         display: none;
     }
-    
+
+    body {
+        font-size: small;
+    }
+
     nav li {
         float: left;
     }
 
-    /*nav li:nth-child(2) {
+    nav ul {
         padding-left: 15px;
-    }*/
+    }
+    
+    main {
+        flex-wrap: wrap; 
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 769px) { 
+    body {
+        font-size: medium;
+    }
+    
+    main  {
+        flex-wrap: nowrap;
+    }
+
+    .around {
+        border-left: 1px solid lightgrey;
+    }
 }
 
 nav {
@@ -101,14 +129,14 @@ nav ul {
     list-style-type: none;
     overflow: hidden;
     background-color: #454545;
-    padding-left: 15px; /*add*/
+     /*padding-left: 15px;add*/
 }
 
 nav li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 10px 15px;
+    padding: 11px 15px;
     text-decoration: none;
 }
 
@@ -142,7 +170,7 @@ main {
     background-color: white;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 107px;
+    padding-bottom: 100px;
 }
 
 main a {
@@ -215,29 +243,32 @@ article div a {
 }
 
 figure img {
-    max-width: 100%;
+    width: 100%;
+    padding: 6px;
 }
 
 figcaption {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
+    padding-left: 6px;
 }
 
 
 .around {
-    width: 400px;
-    padding-left: 15px;
-    border-left: 1px solid lightgrey;
+    width: 40%;
+    min-width: 320px;
+    padding-left: 25px;
+    margin-left: 15px;
 }
 
 .flux {
     padding-top: 25px;
-    max-width: 90%;    
+    width: 95%;    
 }
 
 .sequence {
     padding-top: 25px;
-    width: 600px;
-    
+    width: 55%;
+    min-width: 320px;   
 }
 
 /* tableau */
