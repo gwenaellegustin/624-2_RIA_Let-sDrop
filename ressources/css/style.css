@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
+
+* {
+    box-sizing: border-box;
+    padding:0; 
+    border:none; 
+    margin:auto;
+}
+
+/* éléments principaux de la page */
+
+html {
+    background-color: lightgray;
+}
+
+body {
+    font-family: 'Montserrat', 'Trebuchet MS', Arial, sans-serif;
+    color: black;
+    max-width: 1240px;
+    height: auto; 
+    box-shadow: 0px 0px 25px black;
+    position: relative;
+}
+
+header h1, h2, h3, table caption {
+    font-family: 'Roboto Slab', 'Trebuchet MS', Arial, sans-serif;
+}
+
+/* header */
+
+h1 {
+    padding-top: 7%;
+    padding-bottom: 2%;
+    text-align: center;
+    color: white;
+    background: linear-gradient(180deg, #d8b4a0 0%, #db4d21 100%);
+}
+
+/* responsive design */
+
+/* --- mobile ---*/
+@media screen and (max-width: 600px) {
+
+    body {
+        font-size: small;
+    }
+
+    .hamburger {
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    .hamburger img {
+        filter: invert(100%);
+    }
+
+    nav li:not(.hamburger) {
+        transition: display;
+        display: none;
+    }
+
+    nav:hover li:not(.hamburger) {
+        display: block;
+    } 
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav li a {
+        font-size: 1em;
+    }
+
+    main header h2 {
+        font-size: 1.4em;
+    }
+
+    main header p {
+        font-size: 0.8em;
+    }
+    
+    main {
+        flex-wrap: wrap; 
+        align-items: flex-start;
+    }
+
+    th, td {
+        font-size: x-small;
+    }
+}
+
+/* --- tablette ---*/
+@media screen and (min-width: 601px) {
+    
+    .hamburger{
+        display: none;
+    }
+
+    body, figcaption, th, td {
+        font-size: small;
+    }
+
+    nav li {
+        float: left;
+    }
+
+    nav ul {
+        padding-left: 15px;
+    }
+    
+    main {
+        flex-wrap: wrap; 
+        align-items: flex-start;
+    }
+}
+
+/* --- plus grand ---*/
+@media screen and (min-width: 769px) { 
+    body, figcaption {
+        font-size: medium;
+    }
+    
+    main  {
+        flex-wrap: nowrap;
+    }
+
+    .around {
+        border-left: 1px solid lightgrey;
+    }
+
+    th, td {
+        font-size: medium;
+    }
+}
+
+/* navigation */
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #454545;
+}
+
+nav li a {
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+nav li a:hover, li.active a {
+    background-color: rgb(255, 255, 255);
+    color: #d9481a; 
+}
+
+/* corps */
+
+main header {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+header h2 {
+    font-size: 1.8em;
+    line-height: 1.1em;
+    border-bottom: 2px rgb(228, 226, 226) solid;
+    margin-bottom: -0.3em;
+}
+
+header p {
+    font-size: 1.1em;
+    color: grey;
+    font-style: italic;
+    text-align: right;
+}
+
+main {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 100px;
+}
+
+main a {
+    color:#db4d21;
+    text-decoration: none;
+}
+
+main p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+article {
+    margin: 0px 20px 30px 20px;
+}
+
+article h3 {
+    padding-top: 20px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey
+}
+
+article ul li {
+    margin-left: 30px;
+    padding-left: 5px;;
+    font-size: 1em;
+}
+
+article ul li + ul li {
+    margin-left: 53px;
+}
+
+.title {
+    list-style-type: none;
+    font-weight: bold;
+    margin-left: 0px;
+    margin-bottom: 15px;
+}
+
+.nope {
+    list-style-type: none;
+}
+
+.link {
+    font-size: 0.8em;
+    text-align: right;
+    padding-right: 20px;
+}
+
+aside {
+    min-width: 320px;
+    max-width: 320px;
+    height: 220%;
+    box-shadow: 0px 0px 10px grey;
+    margin: 20px ;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0px 10px 6px 10px;
+}
+
+aside h3 {
+    font-size: 1.3em;
+    background:#db4d21;
+    padding: 6px 10px 6px 10px;
+    color: white;
+}
+
+/* images */
+
+article div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article div a {
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    padding: 6px;
+}
+
+.maquette figcaption {
+    margin-bottom: 35px;
+    padding-left: 5%;
+}
+
+.mockup figcaption {
+    text-align: center;
+}
+
+.around {
+    width: 40%;
+    min-width: 310px;
+    padding-left: 25px;
+    margin-left: 15px;
+}
+
+.flux {
+    padding-top: 25px;
+    width: 95%;    
+}
+
+.sequence {
+    padding-top: 25px;
+    width: 55%;
+    min-width: 310px;   
+}
+
+/* tableau */
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 95%;
+    margin-bottom: 35px;
+}
+
+table caption {
+    text-align: left;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+th {
+    color:#454545;
+    padding-left: 4px;
+}
+
+td {
+    border: 1px solid lightgrey;
+    padding: 6px 10px 6px 5px;
+}
+
+.date {
+    width: 75px;
+    text-align: center;
+}
+
+.who {
+    width: 100px;
+}
+
+.what {
+    width: 110px;
+}
+
+.hours {
+    width: 55px;
+    text-align: center;
+}
+
+/* footer */
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: absolute;
+    bottom: 0px;
+}
+
+footer img {
+    width: 25%;
+    max-width: 200px;
+}
+

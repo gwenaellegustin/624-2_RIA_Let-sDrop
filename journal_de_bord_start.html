@@ -1,61 +1,422 @@
 <!doctype html>
-<html>
+<html lang="fr">
+
 <head>
     <title>624-2 - HTML/CSS/JavaScript</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="ressources/css/style_start.css">
+    <link rel="stylesheet" href="ressources/css/style.css">
 </head>
+
 <body>
+    <header>
+        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+        <nav>
+            <!-- Hamburger -->
+            <ul>
+                <li class="hamburger">
+                    <img src="ressources/images/hamburger_icon.svg" alt="icone hamburger">
+                </li>
+                <li>
+                    <a href="description_start.html">Description</a>
+                </li>
+                <li>
+                    <a href="maquettes_start.html">Maquettes</a>
+                </li>
+                <li>
+                    <a href="mockup_start.html">Mockup</a>
+                </li>
+                <li>
+                    <a href="flux_start.html">Flux</a>
+                </li>
+                <li class="active">
+                    <a href="journal_de_bord_start.html">Journal de bord</a>
+                </li>
+                <li>
+                    <a href="jeu.html">Jeu</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-    <nav>
-        <!-- Hamburger -->
-        <ul>
-            <li class="hamburger">
-                <img src="ressources/images/hamburger_icon.svg">
-            </li>
-            <li>
-                <a href="description_start.html">Description</a>
-            </li>
-            <li>
-                <a href="maquettes_start.html">Maquettes</a>
-            </li>
-            <li>
-                <a href="mockup_start.html">Mockup</a>
-            </li>
-            <li>
-                <a href="flux_start.html">Flux</a>
-            </li>
-            <li class="active">
-                <a href="journal_de_bord_start.html">Journal de bord</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+    <main>
+        <!-- Début zone pour votre contenu -->
+        <section id="articles">
+            <article>
+                <header>
+                    <h2>Journal de bord</h2>
+                    <p>Par Stéphanie Baechler le 04/04/2021 à 11:35</p>
+                </header>
+                <p>Nous avons regroupé ci-dessous les différentes heures effectuées, problèmes et solutions, ainsi que
+                    les différentes interrogations rencontrées
+                    tout au long du développement de notre projet :</p>
+                <table>
+                    <caption>Synthèse de nos logbooks
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Date
+                            </th>
+                            <th>Who
+                            </th>
+                            <th>Topic
+                            </th>
+                            <th>Working on
+                            </th>
+                            <th>Hours
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="date">03.03
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Organisation du projet
+                            </td>
+                            <td class="hours">1h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">10.03
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Concept jeu et premiers niveaux
+                            </td>
+                            <td class="hours">1h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">10.03
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Brainstorming sur les idées de jeu et sur les niveaux supplémentaires
+                            </td>
+                            <td class="hours">2h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">12.03
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">CSS
+                            </td>
+                            <td>Titre et Navbar
+                            </td>
+                            <td class="hours">2h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">18.03
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Organisation
+                            </td>
+                            <td class="hours">1h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">20.03
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">CSS
+                            </td>
+                            <td>Title and Navbar
+                            </td>
+                            <td class="hours">2h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">21.03
+                            </td>
+                            <td class="who">Stéphanie
+                            </td>
+                            <td class="what">CSS
+                            </td>
+                            <td>Body and Footer
+                            </td>
+                            <td class="hours">3h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">23.03
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">CSS
+                            </td>
+                            <td>Menu hamburger mobile
+                            </td>
+                            <td class="hours">2h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">24.03
+                            </td>
+                            <td class="who">Stéphanie
+                            </td>
+                            <td class="what">CSS
+                            </td>
+                            <td>Body and Footer
+                            </td>
+                            <td class="hours">2h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">24.03
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">CSS
+                            </td>
+                            <td>Menu interactif et responsive design
+                            </td>
+                            <td class="hours">2h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">25.03
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Organisation
+                            </td>
+                            <td class="hours">1h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">25.03
+                            </td>
+                            <td class="who">Anto+Gwen
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Thinking about processus at each level
+                            </td>
+                            <td class="hours">1h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">26.03
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Thinking about processus at each level + sitemap
+                            </td>
+                            <td class="hours">2h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">29.03
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Game mockup: level 1 to 4
+                            </td>
+                            <td class="hours">3h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">29.03
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Check visuels
+                            </td>
+                            <td class="hours">0h15
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">30.03
+                            </td>
+                            <td class="who">Stéphanie
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Questions about the project to be answered by the teacher
+                            </td>
+                            <td class="hours">1h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">01.04
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Validation + organisation
+                            </td>
+                            <td class="hours">1h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">03.04
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">Game + website
+                            </td>
+                            <td>Version 1 game + sitemap + processus de jeu
+                            </td>
+                            <td class="hours">1h45
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">04.04
+                            </td>
+                            <td class="who">Stéphanie
+                            </td>
+                            <td class="what">HTML + CSS
+                            </td>
+                            <td>Logbook + Flux + Game
+                            </td>
+                            <td class="hours">4h15
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">05.04
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Game mockup : level 1 to 3 wider
+                            </td>
+                            <td class="hours">3h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">05.04
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Mise en commun des différentes parties
+                            </td>
+                            <td class="hours">1h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">05.04
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">Website
+                            </td>
+                            <td>SiteMap + processus jeu
+                            </td>
+                            <td class="hours">2h
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">06.04
+                            </td>
+                            <td class="who">Stéphanie
+                            </td>
+                            <td class="what">HTML + CSS
+                            </td>
+                            <td>Finish Flux + Process page
+                            </td>
+                            <td class="hours">2h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">06.04
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Game mockup : level 4 to 6 + ending + test js
+                            </td>
+                            <td class="hours">6h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">07.04
+                            </td>
+                            <td class="who">Stéphanie
+                            </td>
+                            <td class="what">HTML + CSS
+                            </td>
+                            <td>Finish Maquette + jeu + check sitemap and process
+                            </td>
+                            <td class="hours">3h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">08.04
+                            </td>
+                            <td class="who">Tous
+                            </td>
+                            <td class="what">Meeting
+                            </td>
+                            <td>Validation + présentation CSS
+                            </td>
+                            <td class="hours">2h00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">08.04
+                            </td>
+                            <td class="who">Antony
+                            </td>
+                            <td class="what">Site
+                            </td>
+                            <td>Finir processus + logbook
+                            </td>
+                            <td class="hours">0h30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date">08.04
+                            </td>
+                            <td class="who">Gwenaëlle
+                            </td>
+                            <td class="what">Game
+                            </td>
+                            <td>Game mockup : snail + hall of fame + player + lvl2 pipe
+                            </td>
+                            <td class="hours">2h30
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="link">Nos trois logbooks détaillés se trouvent sur <a
+                        href="https://gitlab.com/hesantonymarques/604_3/624-2-ria/-/wikis/home">ici</a> sur gitlab.</p>
+            </article>
+        </section>
+        <!-- >Fin zone pour votre contenu -->
+    </main>
 
-<main>
-    <!-- Début zone pour votre contenu -->
-    <section id="articles">
-        <article>
-            <header>
-                <h2>Journal de bord de votre projet</h2>
-                <p>Par Jean Dupont le 5/02/2019 à 09:00</p>
-            </header>
-            <p>Lorem ipsum dolor sit amet... <a href="http://www.hevs.ch/">http://www.hevs.ch/</a>,
-                 Ut non eros scelerisque, varius diam a, pulvinar arcu. Phasellus fermentum non arcu ornare ornare. Sed libero mi, rutrum et felis commodo, molestie tempor leo. Duis sit amet erat ut elit faucibus tincidunt sit amet non leo. Quisque dapibus ultricies cursus.</p>
-            <p> Aenean elit nisi, maximus sit amet vulputate non, molestie non odio. Quisque in dolor vel libero <strong>lobortis commodo</strong> ultricies sed nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut pretium ipsum in ipsum venenatis, id elementum quam ultrices. Nam nec enim sagittis, ultrices massa eu, fermentum sem.</p>
-            <p><strong>Nam sed justo tortor:</strong>Aliquam eros ex, porttitor vel aliquam in, imperdiet id felis. Aliquam sed est quis nibh vestibulum porta. Nam ipsum quam, dapibus quis felis quis, pharetra auctor sapien</p>
-                <p>Le code source de l'application est disponible sur le <a href="https://github.com/">github du projet</a>.</p>
-        </article>
-    </section>
-    <!-- >Fin zone pour votre contenu -->
-</main>
-    
     <footer>
-        <img id="logo" src="ressources/images/logo.png">
+        <img id="logo" src="ressources/images/logo.png" alt="logo HES-SO Valais Wallis">
     </footer>
 
 </body>
+
 </html>
