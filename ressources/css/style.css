@@ -9,12 +9,16 @@
 
 /* éléments principaux de la page */
 
+html {
+    background-color: lightgray;
+}
+
 body {
     font-family: 'Montserrat', 'Trebuchet MS', Arial, sans-serif;
     color: black;
     max-width: 1240px;
     height: auto; 
-    box-shadow: 0px 0px 20px 0px;
+    box-shadow: 0px 0px 25px black;
     position: relative;
 }
 
@@ -32,9 +36,10 @@ h1 {
     background: linear-gradient(180deg, #d8b4a0 0%, #db4d21 100%);
 }
 
-/* navigation */
+/* responsive design */
 
-@media (max-width: 600px) {
+/* --- mobile ---*/
+@media screen and (max-width: 600px) {
 
     body {
         font-size: small;
@@ -78,16 +83,20 @@ h1 {
         flex-wrap: wrap; 
         align-items: flex-start;
     }
+
+    th, td {
+        font-size: x-small;
+    }
 }
 
-
-@media (min-width: 601px) {
+/* --- tablette ---*/
+@media screen and (min-width: 601px) {
     
     .hamburger{
         display: none;
     }
 
-    body {
+    body, figcaption, th, td {
         font-size: small;
     }
 
@@ -105,8 +114,9 @@ h1 {
     }
 }
 
+/* --- plus grand ---*/
 @media screen and (min-width: 769px) { 
-    body {
+    body, figcaption {
         font-size: medium;
     }
     
@@ -117,26 +127,27 @@ h1 {
     .around {
         border-left: 1px solid lightgrey;
     }
+
+    th, td {
+        font-size: medium;
+    }
 }
 
-nav {
-    height: 2%;
-    font-size: 1.1em;
-    font-weight: bold;
-}
+/* navigation */
 
 nav ul {
     list-style-type: none;
     overflow: hidden;
     background-color: #454545;
-     /*padding-left: 15px;add*/
 }
 
 nav li a {
+    font-size: 1.1em;
+    font-weight: bold;
     display: block;
     color: white;
     text-align: center;
-    padding: 11px 15px;
+    padding: 10px 15px;
     text-decoration: none;
 }
 
@@ -189,7 +200,7 @@ article {
 
 article h3 {
     padding-top: 20px;
-    padding-left: 20px;
+    padding-left: 15px;
     margin-bottom: 10px;
     border-bottom: 1px solid lightgrey
 }
@@ -197,21 +208,20 @@ article h3 {
 article ul li {
     margin-left: 30px;
     padding-left: 5px;;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 article ul li + ul li {
-    margin-left: 50px;
+    margin-left: 53px;
 }
 
 .link {
     font-size: 0.8em;
     text-align: right;
-    padding-right: 25px;
+    padding-right: 20px;
 }
 
 aside {
-    width: 70%;
     min-width: 320px;
     max-width: 320px;
     height: 220%;
@@ -247,15 +257,18 @@ figure img {
     padding: 6px;
 }
 
-figcaption {
+.maquette figcaption {
     margin-bottom: 35px;
-    padding-left: 6px;
+    padding-left: 5%;
 }
 
+.mockup figcaption {
+    text-align: center;
+}
 
 .around {
     width: 40%;
-    min-width: 320px;
+    min-width: 310px;
     padding-left: 25px;
     margin-left: 15px;
 }
@@ -268,7 +281,7 @@ figcaption {
 .sequence {
     padding-top: 25px;
     width: 55%;
-    min-width: 320px;   
+    min-width: 310px;   
 }
 
 /* tableau */
@@ -282,27 +295,24 @@ table {
 
 table caption {
     text-align: left;
+    font-size: 1.2em;
     margin-bottom: 15px;
     margin-top: 15px;
 }
 
 th {
     color:#454545;
-    font-size: 0.9em;
     padding-left: 4px;
 }
 
 td {
     border: 1px solid lightgrey;
-    font-size: small;
     padding: 6px 10px 6px 5px;
 }
 
 .date {
     width: 75px;
     text-align: center;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .who {
@@ -316,8 +326,6 @@ td {
 .hours {
     width: 55px;
     text-align: center;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 /* footer */
