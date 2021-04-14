@@ -84,8 +84,32 @@ h1 {
         align-items: flex-start;
     }
 
+    article div ul li {
+        font-size: 0.9em;
+    }
+
+    .around {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 25px;
+        margin-left: 15px;
+    }
+
+    .sequence {
+        width: 100%;
+        padding-top: 25px;
+    }
+
     th, td {
         font-size: x-small;
+    }
+
+    .title {
+        margin-top: 15px;
+    }
+
+    .date, .hours {
+        width: 50px;
     }
 }
 
@@ -112,6 +136,34 @@ h1 {
         flex-wrap: wrap; 
         align-items: flex-start;
     }
+
+    article div ul li {
+        font-size: small;
+    }
+
+    .around {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 25px;
+        margin-left: 15px;
+    }
+
+    .sequence {
+        width: 90%;
+        padding-top: 25px;
+    }
+
+    .date, .hours {
+        width: 55px;
+    }
+
+    .who {
+        width: 100px;
+    }
+
+    .what {
+        width: 90px;
+    }
 }
 
 /* --- plus grand ---*/
@@ -125,11 +177,33 @@ h1 {
     }
 
     .around {
+        width: 40%;
+        min-width: 310px;
+        padding-left: 25px;
+        margin-left: 15px;
         border-left: 1px solid lightgrey;
+    }
+
+    .sequence {
+        padding-top: 25px;
+        width: 55%;
+        min-width: 310px;   
     }
 
     th, td {
         font-size: medium;
+    }
+
+    .date, .hours {
+        width: 75px;
+    }
+
+    .who {
+        width: 120px;
+    }
+
+    .what {
+        width: 130px;
     }
 }
 
@@ -277,22 +351,9 @@ figure img {
     text-align: center;
 }
 
-.around {
-    width: 40%;
-    min-width: 310px;
-    padding-left: 25px;
-    margin-left: 15px;
-}
-
 .flux {
     padding-top: 25px;
     width: 95%;    
-}
-
-.sequence {
-    padding-top: 25px;
-    width: 55%;
-    min-width: 310px;   
 }
 
 /* tableau */
@@ -300,7 +361,7 @@ figure img {
 table {
     border-collapse: collapse;
     text-align: left;
-    width: 95%;
+    width: 99%;
     margin-bottom: 35px;
 }
 
@@ -321,22 +382,9 @@ td {
     padding: 6px 10px 6px 5px;
 }
 
-.date {
-    width: 75px;
+.date, .hours {
     text-align: center;
-}
-
-.who {
-    width: 100px;
-}
-
-.what {
-    width: 110px;
-}
-
-.hours {
-    width: 55px;
-    text-align: center;
+    padding: 6px 0px 6px 0px;
 }
 
 /* footer */
