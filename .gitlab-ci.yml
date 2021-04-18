@@ -22,6 +22,6 @@ deploy:
     - build
   script:
     - az storage blob delete-batch -s "\$web" --connection-string $AZ_STORAGE_CONNECTION_STRING
-    - az storage blob upload-batch -d "\$web" --connection-string $AZ_STORAGE_CONNECTION_STRING
+    - az storage blob upload-batch -d "\$web" -s public --connection-string $AZ_STORAGE_CONNECTION_STRING
   only:
     - master
