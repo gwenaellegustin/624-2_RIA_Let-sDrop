@@ -1,3 +1,4 @@
+var context = this.canvas.getContext('2d');
 class Game{
     constructor(canvasId){
         this.canvas = null;
@@ -5,19 +6,23 @@ class Game{
         this.oldTimeStamp = 0;
         this.gameObjects = [];
 
+
         this.init(canvasId)
     }
 
     init(canvasId){
         this.canvas = document.getElementById(canvasId);
-        this.context = this.canvas.getContext('2d');
+        
     
         //TODO Create objects to display
+        
 
         // Request an animation frame for the first time
         // The gameLoop() function will be called as a callback of this request
         window.requestAnimationFrame((timeStamp) => {this.gameLoop(timeStamp)});
     }
+
+
 
     gameLoop(timeStamp) {
 
@@ -26,6 +31,13 @@ class Game{
         this.oldTimeStamp = timeStamp;
     
         // TODO Loop over all game objects to update
+        // Timer
+	    context.fillStyle = "rgb(250, 250, 250)";
+	    context.font = "24px Helvetica";
+	    context.textAlign = "left";
+	    context.textBaseline = "top";
+	    context.fillStyle = "white";
+	    context.fillText("Timer: " + Date.now(), 32, 32);
         
         // TODO detecter collisions with monsters and edges
     

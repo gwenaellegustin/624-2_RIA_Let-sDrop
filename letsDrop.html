@@ -2,13 +2,16 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <title>Let's Drop</title>
+        <link rel="stylesheet" href="ressources/css/game.css">
     </head>
     <body>
-        <canvas id="canvas" width="1400" height="700" style="border:1px solid lightgrey;">
+        <div class="bg">
+            <canvas>
             Your browser does not support the HTML5 canvas tag.
-        </canvas>
+            </canvas>
+        </div>
 
         <script src="ressources/js/game.js"></script>
         <script>
@@ -16,5 +19,6 @@
                 var game = new Game('canvas');
             }
         </script>
+        
     </body>
 </html>
