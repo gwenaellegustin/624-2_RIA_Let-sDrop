@@ -8,12 +8,13 @@
     </head>
     <body>
         <div class="bg">
-            <canvas>
+            <canvas id="canvas">
             Your browser does not support the HTML5 canvas tag.
             </canvas>
         </div>
-
         <script src="ressources/js/game.js"></script>
+        <script src="ressources/js/drop.js"></script>
+        <script src="ressources/js/timer.js"></script>
         <script>
             window.onload = function(){
                 var game = new Game('canvas');

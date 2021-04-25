@@ -1,4 +1,3 @@
-var context = this.canvas.getContext('2d');
 class Game{
     constructor(canvasId){
         this.canvas = null;
@@ -6,49 +5,53 @@ class Game{
         this.oldTimeStamp = 0;
         this.gameObjects = [];
 
-
         this.init(canvasId)
     }
 
     init(canvasId){
         this.canvas = document.getElementById(canvasId);
-        
+        this.context = this.canvas.getContext('2d');
     
         //TODO Create objects to display
-        
+        this.createLevel();
 
         // Request an animation frame for the first time
         // The gameLoop() function will be called as a callback of this request
         window.requestAnimationFrame((timeStamp) => {this.gameLoop(timeStamp)});
     }
 
-
+    createLevel(){
+        this.gameObjects = [
+            new Drop(this.context, 0, 40, 1), //TODO why 40 ? + drop too big
+            new Timer(this.context, 0)
+        ];
+    }
 
     gameLoop(timeStamp) {
-
         // Calculate the number of seconds passed since the last frame
         var secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
-    
-        // TODO Loop over all game objects to update
-        // Timer
-	    context.fillStyle = "rgb(250, 250, 250)";
-	    context.font = "24px Helvetica";
-	    context.textAlign = "left";
-	    context.textBaseline = "top";
-	    context.fillStyle = "white";
-	    context.fillText("Timer: " + Date.now(), 32, 32);
+
+        
+        // Loop over all game objects to update
+        for(var i=0;i <  this.gameObjects.length;i++){
+            this.gameObjects[i].update(this.oldTimeStamp);
+        }
         
         // TODO detecter collisions with monsters and edges
     
         // Clear canvas
         this.clearCanvas();
     
-        // TODO Loop over all game objects to draw
-    
+        // Loop over all game objects to draw
+        for(var i=0;i < this.gameObjects.length; i++){
+            this.gameObjects[i].draw();
+        }
+        
+        
         // The loop function has reached it's end
         // Keep requesting new frames
-        window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
+        window.requestAnimationFrame((timeStamp) => this.gameLoop(secondsPassed));
     }
 
     clearCanvas() {

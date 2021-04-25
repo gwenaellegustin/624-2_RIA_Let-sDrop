@@ -36,6 +36,5 @@ canvas {
     display: block;
     border-style: solid;
     border-width: 1px;
-    border-color: red;
-    
+    border-color: greenyellow;
 }
