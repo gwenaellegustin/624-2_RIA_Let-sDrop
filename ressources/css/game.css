@@ -32,7 +32,5 @@ canvas {
     margin: auto;
     margin-top: 0;
     display: block;
-    border-style: solid;
-    border-width: 1px;
-    border-color: greenyellow;
+    border: 1px solid greenyellow;
 }

@@ -1,5 +1,4 @@
-class Drop 
-{
+class Drop {
     constructor (context, x, y, size){
         this.context = context;
         this.dropReady = false;

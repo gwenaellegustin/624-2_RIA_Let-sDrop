@@ -1,4 +1,4 @@
-class Game{
+class Game {
     constructor(canvasId){
         this.canvas = null;
         this.context = null;
@@ -10,7 +10,11 @@ class Game{
 
     init(canvasId){
         this.canvas = document.getElementById(canvasId);
+        this.canvas.width = 1000;
+        this.canvas.height = 550;
+        this.canvas.bord
         this.context = this.canvas.getContext('2d');
+        
     
         //TODO Create objects to display
         this.createLevel();
@@ -23,6 +27,15 @@ class Game{
     createLevel(){
         this.gameObjects = [
             new Drop(this.context, 2, 148, 4), //TODO why 40 ? + drop too big
+            new Soap(this.context, 100, Math.random()*(this.canvas.height-96-148)), //Random between space usable
+            new Soap(this.context, 200, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 300, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 400, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 500, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 600, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 700, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 800, Math.random()*(this.canvas.height-96-148)),
+            new Soap(this.context, 900, Math.random()*(this.canvas.height-96-148)),
             new Timer(this.context, 0)
         ];
     }
