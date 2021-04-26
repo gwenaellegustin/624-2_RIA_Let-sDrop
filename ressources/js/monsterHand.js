@@ -1,11 +1,11 @@
 class MonsterHand {
-    constructor (context, x, y, directionX, directionY){
+    constructor (context, x, y, directionX, directionY, speed){
         this.context = context;
         this.monsterReady = false;
         this.monsterImage = new Image();
         this.x = x;
         this.y = y + 148;  //The soap can't appear on a edge of the canvas
-        this.speed = 30;
+        this.speed = speed;
         this.directionX = directionX;
         this.directionY = directionY;
 

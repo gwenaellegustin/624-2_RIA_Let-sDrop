@@ -8,7 +8,7 @@ class Drop {
         this.width;
         this.height;
         this.size = size;
-        this.speed = this.size * 15;
+        this.speed = this.size * 50;
 
         //this.isColliding = false;
     }
@@ -16,7 +16,7 @@ class Drop {
     draw(){
         this.dropImage.addEventListener('load', (event) => {
             this.width = this.dropImage.width; //Reduce width of the drop
-            this.height = (this.dropImage.height / this.dropImage.width) * this.width; //Reduce height of the drop by keeping same ratio
+            this.height = this.dropImage.height;
             this.dropReady = true; //The image has been load, we can draw it
         });
 
@@ -30,45 +30,52 @@ class Drop {
         this.context.fill();
 
         if(this.dropReady){
-            this.context.drawImage(this.dropImage, this.x, this.y, this.width, this.height);
+            this.context.drawImage(this.dropImage, this.x, this.y);
         }
     }
 
     update(secondsPassed){
         // TODO keyboard reaction
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        window.addEventListener('keydown', (event) => {
-            if (event.defaultPrevented) {
-              return; // Do nothing if event already handled
-            }
-          
-            switch(event.code) {
-              case "KeyS":
-              case "ArrowDown":
-                // Handle "down"
-                this.y += this.speed * secondsPassed;
-                break;
-              case "KeyW":
-              case "ArrowUp":
-                // Handle "up"
-                this.y -= this.speed * secondsPassed;
-                break;
-              case "KeyA":
-              case "ArrowLeft":
-                // Handle "left"
-                this.x -= this.speed * secondsPassed;
-                break;
-              case "KeyD":
-              case "ArrowRight":
-                // Handle "right"
-                this.x += this.speed * secondsPassed;
-                break;
-            }
-
-           // Consume the event so it doesn't get handled twice
-            event.preventDefault();
-        }, 'true');
+        if (Key.isDown(Key.UP)){
+            this.y -= this.speed * secondsPassed;
+        }
+        if (Key.isDown(Key.LEFT)){
+            this.x -= this.speed * secondsPassed;
+        }
+        if (Key.isDown(Key.DOWN)){
+            this.y += this.speed * secondsPassed;
+        }
+        if (Key.isDown(Key.RIGHT)){
+            this.x += this.speed * secondsPassed;
+        }
     }
 
     
 }
+
+let Key = {
+    pressed: {},
+
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    
+
+    isDown: function(keyCode) {
+        return this.pressed[keyCode];
+    },
+
+    onKeydown: function(event) {
+        this.pressed[event.keyCode] = true;
+        console.log(event.keyCode);
+    },
+
+    onKeyup: function(event) {
+        delete this.pressed[event.keyCode];
+    }
+};
+
+window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
+window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
