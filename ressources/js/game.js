@@ -35,7 +35,7 @@ class Game{
         
         // Loop over all game objects to update
         for(var i=0;i <  this.gameObjects.length;i++){
-            this.gameObjects[i].update(this.oldTimeStamp);
+            this.gameObjects[i].update(secondsPassed);
         }
         
         // TODO detecter collisions with monsters and edges
@@ -51,7 +51,7 @@ class Game{
         
         // The loop function has reached it's end
         // Keep requesting new frames
-        window.requestAnimationFrame((timeStamp) => this.gameLoop(secondsPassed));
+        window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
     }
 
     clearCanvas() {
