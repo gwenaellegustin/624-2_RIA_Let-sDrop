@@ -10,7 +10,7 @@ class Timer
 
     draw(){
         this.context.beginPath();
-        this.context.font = "10px Helvetica";
+        this.context.font = "50px Helvetica";
 	    this.context.textAlign = "left";
 	    this.context.textBaseline = "top";
 	    this.context.fillStyle = "white";
@@ -18,10 +18,10 @@ class Timer
     }
 
     update(secondsPassed){
-        let d = new Date(secondsPassed+Date.now());
-        var h = addZero(d.getHours());
-        var m = addZero(d.getMinutes());
-        var s = addZero(d.getSeconds());
+        let d = new Date(secondsPassed + Date.now());
+        let h = addZero(d.getHours());
+        let m = addZero(d.getMinutes());
+        let s = addZero(d.getSeconds());
         let timer = h + ":" + m + ":" + s;
         this.time = timer;
         this.context.fillText(secondsPassed, 32, 32 + "\nTitle")
