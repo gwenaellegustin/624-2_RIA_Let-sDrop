@@ -8,7 +8,7 @@ class Drop {
         this.width;
         this.height;
         this.size = size;
-        this.speed = this.size * 50;
+        this.speed = this.size * 30 + 60;
 
         //this.isColliding = false;
     }
