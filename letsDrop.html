@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>Let's Drop</title>
+        <link rel="stylesheet" href="ressources/css/game.css">
+    </head>
+    <body>
+        <div class="bg">
+            <canvas id="canvas">
+            Your browser does not support the HTML5 canvas tag.
+            </canvas>
+        </div>
+        <script src="ressources/js/game.js"></script>
+        <script src="ressources/js/drop.js"></script>
+        <script src="ressources/js/timer.js"></script>
+        <script>
+            window.onload = function(){
+                var game = new Game('canvas');
+            }
+        </script>
+        
+    </body>
+</html>
