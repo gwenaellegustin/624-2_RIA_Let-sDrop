@@ -22,7 +22,7 @@ class Game{
 
     createLevel(){
         this.gameObjects = [
-            new Drop(this.context, 2, 148, 1), //TODO why 40 ? + drop too big
+            new Drop(this.context, 2, 148, 4), //TODO why 40 ? + drop too big
             new Timer(this.context, 0)
         ];
     }
