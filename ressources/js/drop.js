@@ -37,18 +37,44 @@ class Drop {
     update(secondsPassed){
         // TODO keyboard reaction
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        if (Key.isDown(Key.UP)){
-            this.y -= this.speed * secondsPassed;
+        
+        
+        if(Key.pressed.length==2){
+            if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){
+                this.y += this.speed * secondsPassed;
+                this.x += this.speed * secondsPassed;
+            }
+    
+            if (Key.isDown(Key.DOWN) && Key.isDown(Key.LEFT)){
+                this.y += this.speed * secondsPassed;
+                this.x -= this.speed * secondsPassed;
+            }
+    
+            if (Key.isDown(Key.UP) && Key.isDown(Key.RIGHT)){
+                this.y -= this.speed * secondsPassed;
+                this.x += this.speed * secondsPassed;
+            }
+    
+            if (Key.isDown(Key.UP) && Key.isDown(Key.LEFT)){
+                this.y -= this.speed * secondsPassed;
+                this.x -= this.speed * secondsPassed;
+            }
+        } else{
+            if (Key.isDown(Key.UP)){
+                this.y -= this.speed * secondsPassed;
+            }
+            if (Key.isDown(Key.LEFT)){
+                this.x -= this.speed * secondsPassed;
+            }
+            if (Key.isDown(Key.DOWN)){
+                this.y += this.speed * secondsPassed;
+            }
+            if (Key.isDown(Key.RIGHT)){
+                this.x += this.speed * secondsPassed;
+            }
         }
-        if (Key.isDown(Key.LEFT)){
-            this.x -= this.speed * secondsPassed;
-        }
-        if (Key.isDown(Key.DOWN)){
-            this.y += this.speed * secondsPassed;
-        }
-        if (Key.isDown(Key.RIGHT)){
-            this.x += this.speed * secondsPassed;
-        }
+
+        
     }
 
     
