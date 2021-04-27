@@ -1,4 +1,4 @@
-class Game{
+class Game {
     constructor(canvasId){
         this.canvas = null;
         this.context = null;
@@ -10,7 +10,10 @@ class Game{
 
     init(canvasId){
         this.canvas = document.getElementById(canvasId);
+        this.canvas.width = 1000;
+        this.canvas.height = 550;
         this.context = this.canvas.getContext('2d');
+        
     
         //TODO Create objects to display
         this.createLevel();
@@ -22,19 +25,35 @@ class Game{
 
     createLevel(){
         this.gameObjects = [
-            new Drop(this.context, 0, 40, 1), //TODO why 40 ? + drop too big
+            new Drop(this.context, 2, 150, 4),
+
+            //Monsters
+            new Soap(this.context, 50, Math.random() * (this.canvas.height - 48 - 148)), //Random between space usable
+            new Soap(this.context, 150, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 250, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 350, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 450, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 550, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 650, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 750, Math.random() * (this.canvas.height - 48 - 148)),
+            new Soap(this.context, 850, Math.random() * (this.canvas.height - 48 - 148)),
+            new MonsterHand(this.context, 100, Math.random() * (this.canvas.height - 128 - 148), -1, 1, 25),
+            new MonsterHand(this.context, 300, Math.random() * (this.canvas.height - 128 - 148), 1, -1, 30),
+            new MonsterHand(this.context, 500, Math.random() * (this.canvas.height - 128 - 148), -1, -1, 40),
+            new MonsterHand(this.context, 700, Math.random() * (this.canvas.height - 128 - 148), 1, 1, 50),
+            new MonsterHand(this.context, 800, Math.random() * (this.canvas.height - 128 - 148), -1, 1, 55),
             new Timer(this.context, 0)
         ];
     }
 
     gameLoop(timeStamp) {
         // Calculate the number of seconds passed since the last frame
-        var secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
+        let secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
         
         // Loop over all game objects to update
-        for(var i=0;i <  this.gameObjects.length;i++){
+        for(let i=0; i <  this.gameObjects.length; i++){
             this.gameObjects[i].update(secondsPassed);
         }
         
@@ -44,7 +63,7 @@ class Game{
         this.clearCanvas();
     
         // Loop over all game objects to draw
-        for(var i=0;i < this.gameObjects.length; i++){
+        for(let i=0; i < this.gameObjects.length; i++){
             this.gameObjects[i].draw();
         }
         
