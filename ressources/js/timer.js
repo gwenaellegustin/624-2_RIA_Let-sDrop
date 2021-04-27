@@ -11,10 +11,10 @@ class Timer
     draw(){
         this.context.beginPath();
         this.context.font = "50px Helvetica";
-	    this.context.textAlign = "left";
-	    this.context.textBaseline = "top";
-	    this.context.fillStyle = "white";
-	    this.context.fillText(this.time, 10, 5);
+        this.context.textAlign = "left";
+        this.context.textBaseline = "top";
+        this.context.fillStyle = "white";
+        this.context.fillText(this.time, 10, 5);
     }
 
     update(secondsPassed){
