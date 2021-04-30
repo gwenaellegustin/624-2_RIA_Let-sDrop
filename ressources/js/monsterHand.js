@@ -13,6 +13,7 @@ class MonsterHand {
     }
 
     draw(){
+        /*
         this.monsterImage.addEventListener('load', (event) => {
             this.monsterReady = true; //The image has been load, we can draw it
         });
@@ -25,6 +26,12 @@ class MonsterHand {
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
+        */
+        
+
+        // Draw a simple square
+        this.context.fillStyle = '#0099b0';
+        this.context.fillRect(this.x, this.y, 50, 100);
     }
 
     update(secondsPassed){

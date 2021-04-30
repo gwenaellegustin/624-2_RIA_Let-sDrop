@@ -10,6 +10,7 @@ class Soap {
     }
 
     draw(){
+        /*
         this.soapImage.addEventListener('load', (event) => {
             this.soapReady = true; //The image has been load, we can draw it
         });
@@ -19,6 +20,14 @@ class Soap {
         if(this.soapReady){
             this.context.drawImage(this.soapImage, this.x, this.y);
         }
+        */
+
+        // Draw a simple square
+        this.context.fillStyle = '#0099b0';
+        this.context.beginPath();
+        this.context.arc(this.x, this.y, 50, 0, 2 * Math.PI); //x,y,radius,starting angle,ending angle
+        this.context.fill();
+        
     }
 
     update(secondsPassed){}
