@@ -25,7 +25,7 @@ class Game {
 
     createLevel(){
         this.gameObjects = [
-            new Drop(this.context, 0, 148, 1),
+            new Drop(this.context, 0, 148, 2),
 
             //Monsters
             new Soap(this.context, 50, Math.random() * (this.canvas.height - 48 - 148)), //Random between space usable
@@ -78,9 +78,9 @@ class Game {
         // EDGES COLLISIONS : Checking collisions for droppy 
         let droppy = this.gameObjects[0];
 
-        if (droppy.x < 0) { //RIGHT EDGE
+        if (droppy.x < 0) { //LEFT EDGE
             droppy.x = 0;
-        } else if (droppy.x > this.canvas.width - droppy.width) { //LEFT EDGE
+        } else if (droppy.x > this.canvas.width - droppy.width) { //RIGHT EDGE
             droppy.x = this.canvas.width - droppy.width;
         }
 
