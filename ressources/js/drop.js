@@ -95,7 +95,6 @@ let Key = {
 
     onKeydown: function(event) {
         this.pressed[event.keyCode] = true;
-        console.log(event.keyCode);
     },
 
     onKeyup: function(event) {
