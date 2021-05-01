@@ -25,7 +25,7 @@ class Game {
 
     createLevel(){
         this.gameObjects = [
-            new Drop(this.context, 2, 150, 4),
+            new Drop(this.context, 0, 148, 2),
 
             //Monsters
             new Soap(this.context, 50, Math.random() * (this.canvas.height - 48 - 148)), //Random between space usable
@@ -57,7 +57,8 @@ class Game {
             this.gameObjects[i].update(secondsPassed);
         }
         
-        // TODO detecter collisions with monsters and edges
+        // Detect collisions with monsters and edges
+        this.detectCollisions();
     
         // Clear canvas
         this.clearCanvas();
@@ -71,6 +72,23 @@ class Game {
         // The loop function has reached it's end
         // Keep requesting new frames
         window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
+    }
+
+    detectCollisions(){        
+        // EDGES COLLISIONS : Checking collisions for droppy 
+        let droppy = this.gameObjects[0];
+
+        if (droppy.x < 0) { //LEFT EDGE
+            droppy.x = 0;
+        } else if (droppy.x > this.canvas.width - droppy.width) { //RIGHT EDGE
+            droppy.x = this.canvas.width - droppy.width;
+        }
+
+        if(droppy.y < 148){ //TOP EDGE
+            droppy.y = 148;
+        } else if(droppy.y > this.canvas.height - droppy.height - 10){ //BOTTOM EDGE
+            droppy.y = this.canvas.height - droppy.height - 10;
+        }
     }
 
     clearCanvas() {
