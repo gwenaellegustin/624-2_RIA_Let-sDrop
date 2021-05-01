@@ -16,14 +16,40 @@ class Game {
         
     
         //TODO Create objects to display
-        this.createLevel();
+        this.createLevel0();
 
         // Request an animation frame for the first time
         // The gameLoop() function will be called as a callback of this request
         window.requestAnimationFrame((timeStamp) => {this.gameLoop(timeStamp)});
     }
 
-    createLevel(){
+    createLevel0(){
+        this.level = 0;
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
+        this.gameObjects = [
+            new StartButton(this.context) // used to test level change
+        ];
+
+        // used to test level change
+        this.canvas.addEventListener('click', (event) => {
+            if (
+                // size of margin left + postion x in canva of start button
+                event.x > canvas.offsetLeft + 300 &&
+                // size of margin left + with of start button + width of start button
+                event.x < canvas.offsetLeft + 300 + 100 && 
+                // position y in canva of start button
+                event.y > 450 && 
+                // position y in canva of start button + height
+                event.y < 450 + 50
+            ) {
+                this.ready = true;
+            }
+        });
+    }
+
+    createLevel1(){
+        this.level = 1;
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')";
         this.gameObjects = [
             new Drop(this.context, 0, 148, 2),
 
@@ -59,6 +85,9 @@ class Game {
         
         // Detect collisions with monsters and edges
         this.detectCollisions();
+
+        // Detecter end of level
+        this.detectChangeLevel(this.level);
     
         // Clear canvas
         this.clearCanvas();
@@ -89,6 +118,25 @@ class Game {
         } else if(droppy.y > this.canvas.height - droppy.height - 10){ //BOTTOM EDGE
             droppy.y = this.canvas.height - droppy.height - 10;
         }
+    }
+
+    detectChangeLevel(lvl){
+        // To change from level 0 to level 1
+        if (lvl === 0 && this.ready === true){
+            this.createLevel1();
+        }
+
+        // To change from level 1 to 2
+        if (lvl === 1){
+            this.context.fillStyle = 'red';
+            this.context.fillRect(900, 300, 100, 100);
+            if(940 < (this.gameObjects[0].x + this.gameObjects[0].width/2) && (this.gameObjects[0].x + this.gameObjects[0].width/2) < 970){
+                if(350 < (this.gameObjects[0].y + this.gameObjects[0].height/2) && (this.gameObjects[0].y + this.gameObjects[0].height/2) < 380){
+                    this.createLevel1(); // TODO change in createLevel2
+                }
+            }   
+        }
+        
     }
 
     clearCanvas() {
