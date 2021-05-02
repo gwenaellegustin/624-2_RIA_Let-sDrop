@@ -4,6 +4,7 @@ class Game {
         this.context = null;
         this.oldTimeStamp = 0;
         this.gameObjects = [];
+        this.level = null;
 
         this.init(canvasId)
     }
@@ -126,6 +127,28 @@ class Game {
         } else if(droppy.y > this.canvas.height - droppy.height - 10){ //BOTTOM EDGE
             droppy.y = this.canvas.height - droppy.height - 10;
         }
+
+        // Reset collision state of all objects
+        for (let i = 0; i < this.gameObjects.length; i++) {
+            this.gameObjects[i].isColliding = false;
+        }
+
+        if(this.level === 1){
+            // MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
+            for (let i = 0; i < this.gameObjects.length; i++)
+            {
+                if(this.gameObjects[i] instanceof MonsterHand){
+                    let monsterHand = this.gameObjects[i];
+
+                    //+8 --> check rectangle around monster hand (monsterHand.js)
+                    let hit = this.collisionRectRect(monsterHand.x+8, monsterHand.y+8, monsterHand.width, monsterHand.height, droppy.x, droppy.y, droppy.width, droppy.height);
+                    if(hit){
+                        monsterHand.isColliding = true;
+                        droppy.isColliding = true;
+                    }
+                }
+            }
+        }
     }
 
     detectChangeLevel(lvl){
@@ -145,6 +168,17 @@ class Game {
             }   
         }
         
+    }
+
+    collisionRectRect(r1x, r1y, r1w, r1h, r2x, r2y, r2w, r2h){
+        // are the sides of one rectangle touching the other?
+        if (r1x + r1w >= r2x &&    // r1 right edge past r2 left
+            r1x <= r2x + r2w &&    // r1 left edge past r2 right
+            r1y + r1h >= r2y &&    // r1 top edge past r2 bottom
+            r1y <= r2y + r2h) {    // r1 bottom edge past r2 top
+            return true;
+        }
+        return false;
     }
 
     clearCanvas() {

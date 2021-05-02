@@ -10,7 +10,7 @@ class Drop {
         this.size = size;
         this.speed = this.size * 30 + 60;
 
-        //this.isColliding = false;
+        this.isColliding = false;
     }
 
     draw(){
@@ -23,11 +23,8 @@ class Drop {
         this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
 
         //Just to see for impact
-        this.context.beginPath();
-        this.context.moveTo(this.x - 8, this.y + this.height);
-        this.context.lineTo(this.x + this.width + 8, this.y + this.height);
-        this.context.lineTo(this.x + this.width / 2, this.y - 10);
-        this.context.fill();
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(this.x, this.y, this.width, this.height);
 
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
@@ -73,11 +70,7 @@ class Drop {
                 this.x += this.speed * secondsPassed;
             }
         }
-
-        
-    }
-
-    
+    }    
 }
 
 let Key = {
