@@ -10,8 +10,6 @@ class MonsterHand {
         this.speed = speed;
         this.directionX = directionX;
         this.directionY = directionY;
-
-        this.isColliding = false;
     }
 
     draw(){
@@ -22,9 +20,6 @@ class MonsterHand {
         });
 
         this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand64x64.png";
-
-        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(this.x+8, this.y+8, this.width, this.height);
 
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
