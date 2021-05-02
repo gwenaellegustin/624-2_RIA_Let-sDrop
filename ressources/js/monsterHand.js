@@ -19,9 +19,6 @@ class MonsterHand {
 
         this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand64x64.png";
 
-        this.context.fillStyle = '#ff8080';
-        this.context.fillRect(this.x + 5, this.y + 5, 53, 53);
-
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }

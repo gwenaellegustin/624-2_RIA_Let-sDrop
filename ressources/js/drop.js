@@ -22,13 +22,6 @@ class Drop {
 
         this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
 
-        //Just to see for impact
-        this.context.beginPath();
-        this.context.moveTo(this.x - 8, this.y + this.height);
-        this.context.lineTo(this.x + this.width + 8, this.y + this.height);
-        this.context.lineTo(this.x + this.width / 2, this.y - 10);
-        this.context.fill();
-
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
         }
