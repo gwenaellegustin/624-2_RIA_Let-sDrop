@@ -50,6 +50,14 @@ class Game {
     createLevel1(){
         this.level = 1;
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')";
+                
+        // Tap over hero and monsters
+        let tap = document.createElement('img');
+        tap.src = "/ressources/images/game/Level1/Tap.png";
+        tap.style.position = 'absolute';
+        tap.style.top = 0;
+        document.getElementById('bg').appendChild(tap);
+        
         this.gameObjects = [
             new Drop(this.context, 0, 148, 2),
 
