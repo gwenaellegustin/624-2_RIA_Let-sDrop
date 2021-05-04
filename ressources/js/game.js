@@ -92,9 +92,10 @@ class Game {
             this.gameObjects[i].update(secondsPassed);
         }
         
-        // Detect collisions with monsters and edges
-        this.detectCollisions();
-
+        // Detect collisions with edges and monsters
+        this.detectCollisionsEdges();
+        this.detectCollisionsMonsters();
+        
         // Detecter end of level
         this.detectChangeLevel();
     
@@ -106,13 +107,12 @@ class Game {
             this.gameObjects[i].draw();
         }
         
-        
         // The loop function has reached it's end
         // Keep requesting new frames
         window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
     }
 
-    detectCollisions(){        
+    detectCollisionsEdges(){
         // EDGES COLLISIONS : Checking collisions for droppy 
         let droppy = this.gameObjects[0];
 
@@ -127,6 +127,10 @@ class Game {
         } else if(droppy.y > this.canvas.height - droppy.height - 10){ //BOTTOM EDGE
             droppy.y = this.canvas.height - droppy.height - 10;
         }
+    }
+
+    detectCollisionsMonsters(){        
+        let droppy = this.gameObjects[0];
 
         if(this.level === 1){
             // MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
@@ -140,30 +144,7 @@ class Game {
                     if(hit && droppy.isColliding === false){
                         droppy.isColliding = true;
 
-                        //Store old size to blink
-                        let oldSize = droppy.size;
-                        
-                        droppy.size = 0;
-                        
-                        //Waiting 100ms before blinking at oldSize
-                        setTimeout(function(){
-                            droppy.size = oldSize;
-                        }, 100);
-                        
-                        //Waiting 100ms more before disappear
-                        setTimeout(function(){
-                            droppy.size = 0;
-                        }, 200);
-
-                        //Waiting 100ms more before blinking at new size
-                        setTimeout(function(){
-                            droppy.size = oldSize+1;
-                        }, 300);
-
-                        //Waiting 1000ms before Droppy can be touched again
-                        setTimeout(function(){
-                            droppy.isColliding = false;
-                        }, 1000);
+                        this.droppyLosesALife(droppy);
                     }
                 }
             }
@@ -187,6 +168,33 @@ class Game {
             }   
         }
         
+    }
+
+    droppyLosesALife(droppy){
+        //Store old size to blink
+        let oldSize = droppy.size;
+                                
+        droppy.size = 0;
+
+        //Waiting 100ms before blinking at oldSize
+        setTimeout(function(){
+            droppy.size = oldSize;
+        }, 100);
+
+        //Waiting 100ms more before disappear
+        setTimeout(function(){
+            droppy.size = 0;
+        }, 200);
+
+        //Waiting 100ms more before blinking at new size
+        setTimeout(function(){
+            droppy.size = oldSize+1;
+        }, 300);
+
+        //Waiting 1000ms before Droppy can be touched again
+        setTimeout(function(){
+            droppy.isColliding = false;
+        }, 1000);
     }
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
