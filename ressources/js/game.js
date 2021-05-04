@@ -96,7 +96,7 @@ class Game {
         this.detectCollisions();
 
         // Detecter end of level
-        this.detectChangeLevel(this.level);
+        this.detectChangeLevel();
     
         // Clear canvas
         this.clearCanvas();
@@ -170,14 +170,14 @@ class Game {
         }
     }
 
-    detectChangeLevel(lvl){
+    detectChangeLevel(){
         // To change from level 0 to level 1
-        if (lvl === 0 && this.ready === true){
+        if (this.level === 0 && this.ready === true){
             this.createLevel1();
         }
 
         // To change from level 1 to 2
-        if (lvl === 1){
+        if (this.level === 1){
             this.context.fillStyle = 'red';
             this.context.fillRect(900, 300, 100, 100);
             if(940 < (this.gameObjects[0].x + this.gameObjects[0].width/2) && (this.gameObjects[0].x + this.gameObjects[0].width/2) < 970){
