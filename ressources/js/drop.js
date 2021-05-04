@@ -11,9 +11,7 @@ class Drop {
         this.speed = this.size * 30 + 60;
 
         //this.isColliding = false;
-    }
 
-    draw(){
         this.dropImage.addEventListener('load', (event) => {
             this.width = this.dropImage.width; //Reduce width of the drop
             this.height = this.dropImage.height;
@@ -21,7 +19,9 @@ class Drop {
         });
 
         this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
+    }
 
+    draw(){
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
         }

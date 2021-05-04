@@ -10,15 +10,16 @@ class MonsterHand {
         this.directionY = directionY;
 
         //this.isColliding = false;
-    }
 
-    draw(){
         this.monsterImage.addEventListener('load', (event) => {
             this.monsterReady = true; //The image has been load, we can draw it
         });
 
         this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand64x64.png";
+        
+    }
 
+    draw(){
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
