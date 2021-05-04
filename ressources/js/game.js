@@ -4,6 +4,7 @@ class Game {
         this.context = null;
         this.oldTimeStamp = 0;
         this.gameObjects = [];
+        this.level = null;
 
         this.init(canvasId)
     }
@@ -59,7 +60,7 @@ class Game {
         document.getElementById('bg').appendChild(tap);
         
         this.gameObjects = [
-            new Drop(this.context, 0, 148, 2),
+            new Drop(this.context, 0, 148, 1),
 
             //Monsters
             new Soap(this.context, 50, Math.random() * (this.canvas.height - 48 - 148)), //Random between space usable
@@ -126,6 +127,47 @@ class Game {
         } else if(droppy.y > this.canvas.height - droppy.height - 10){ //BOTTOM EDGE
             droppy.y = this.canvas.height - droppy.height - 10;
         }
+
+        if(this.level === 1){
+            // MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
+            for (let i = 0; i < this.gameObjects.length; i++)
+            {
+                if(this.gameObjects[i] instanceof MonsterHand){
+                    let monsterHand = this.gameObjects[i];
+
+                    //+8 --> really detect the edges of the monster hand
+                    let hit = this.collisionRectRect(monsterHand.x+8, monsterHand.y+8, monsterHand.width, monsterHand.height, droppy.x, droppy.y, droppy.width, droppy.height);
+                    if(hit && droppy.isColliding === false){
+                        droppy.isColliding = true;
+
+                        //Store old size to blink
+                        let oldSize = droppy.size;
+                        
+                        droppy.size = 0;
+                        
+                        //Waiting 100ms before blinking at oldSize
+                        setTimeout(function(){
+                            droppy.size = oldSize;
+                        }, 100);
+                        
+                        //Waiting 100ms more before disappear
+                        setTimeout(function(){
+                            droppy.size = 0;
+                        }, 200);
+
+                        //Waiting 100ms more before blinking at new size
+                        setTimeout(function(){
+                            droppy.size = oldSize+1;
+                        }, 300);
+
+                        //Waiting 1000ms before Droppy can be touched again
+                        setTimeout(function(){
+                            droppy.isColliding = false;
+                        }, 1000);
+                    }
+                }
+            }
+        }
     }
 
     detectChangeLevel(lvl){
@@ -145,6 +187,17 @@ class Game {
             }   
         }
         
+    }
+
+    collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
+        // are the sides of one rectangle touching the other?
+        if (rect1x + rect1width >= rect2x &&    // r1 right edge past r2 left
+            rect1x <= rect2x + rect2width &&    // r1 left edge past r2 right
+            rect1y + rect1height >= rect2y &&    // r1 top edge past r2 bottom
+            rect1y <= rect2y + rect2height) {    // r1 bottom edge past r2 top
+            return true;
+        }
+        return false;
     }
 
     clearCanvas() {

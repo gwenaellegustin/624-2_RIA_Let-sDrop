@@ -8,9 +8,9 @@ class Drop {
         this.width;
         this.height;
         this.size = size;
-        this.speed = this.size * 30 + 60;
+        this.speed;
 
-        //this.isColliding = false;
+        this.isColliding = false;
     }
 
     draw(){
@@ -23,15 +23,17 @@ class Drop {
         this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
 
         //Just to see for impact
-        this.context.beginPath();
-        this.context.moveTo(this.x - 8, this.y + this.height);
-        this.context.lineTo(this.x + this.width + 8, this.y + this.height);
-        this.context.lineTo(this.x + this.width / 2, this.y - 10);
-        this.context.fill();
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(this.x, this.y, this.width, this.height);
 
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
         }
+
+        this.speed = this.size * 30 + 60;
+
+        //Draw life
+        this.drawLife();
     }
 
     update(secondsPassed){
@@ -73,11 +75,40 @@ class Drop {
                 this.x += this.speed * secondsPassed;
             }
         }
-
-        
     }
 
-    
+    drawLife(){
+        let lifeImage = new Image();
+
+        lifeImage.src = "/ressources/images/game/Life.png";
+
+        let destinationX = 700;
+        let destinationY = 10;
+        let cuttingX;
+        let imageWidth = lifeImage.width;
+        let imageHeight = lifeImage.height;
+        
+        //Depending on the number of lifes, the image is crop
+        switch (this.size) {
+            case 1:
+                this.context.drawImage(lifeImage, 700, 10);
+                break;
+            case 2:
+                cuttingX = 47;
+                this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
+                break;
+            case 3:
+                cuttingX = 88;
+                this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
+                break;
+            case 4:
+                cuttingX = 125;
+                this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 let Key = {
