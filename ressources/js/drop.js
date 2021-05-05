@@ -82,7 +82,7 @@ class Drop {
 
         lifeImage.src = "/ressources/images/game/Life.png";
 
-        let destinationX = 700;
+        let destinationX = 800;
         let destinationY = 10;
         let cuttingX;
         let imageWidth = lifeImage.width;

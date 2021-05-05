@@ -1,38 +1,43 @@
-//TODO reorganize, how it works ?
 class Timer
 {
-    constructor(context, secondsPassed){
+    constructor(context){
         this.context = context;
-        let d = new Date(secondsPassed)
-        this.time = d.getSeconds();
+        this.start = new Date();
+        this.end = 0;
 
+        this.time = null;
     }
 
     draw(){
-        this.context.beginPath();
-        this.context.font = "50px Helvetica";
+        this.context.font = "40px Helvetica";
         this.context.textAlign = "left";
         this.context.textBaseline = "top";
         this.context.fillStyle = "white";
-        this.context.fillText(this.time, 10, 5);
+        
+        this.context.fillText(this.time, 10, 15);
     }
 
     update(secondsPassed){
-        let d = new Date(secondsPassed + Date.now());
-        let h = addZero(d.getHours());
-        let m = addZero(d.getMinutes());
-        let s = addZero(d.getSeconds());
-        let timer = h + ":" + m + ":" + s;
-        this.time = timer;
-        this.context.fillText(secondsPassed, 32, 32 + "\nTitle")
+        this.end = new Date();
+        let diff = this.end - this.start;
+        diff = new Date(diff);
+        let msec = diff.getMilliseconds();
+        let sec = diff.getSeconds();
+        let min = diff.getMinutes();
+        if (min < 10){
+            min = "0" + min
+        }
+        if (sec < 10){
+            sec = "0" + sec
+        }
+        if(msec < 10){
+            msec = "00" +msec
+        }
+        else if(msec < 100){
+            msec = "0" + msec
+        }
+
+        this.time = min + ":" + sec + ":" + msec;
     }
     
 }
-
-// source : https://www.w3schools.com/jsref/jsref_gethours.asp
-function addZero(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  }
