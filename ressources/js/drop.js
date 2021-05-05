@@ -91,7 +91,7 @@ class Drop {
         //Depending on the number of lifes, the image is crop
         switch (this.size) {
             case 1:
-                this.context.drawImage(lifeImage, 700, 10);
+                this.context.drawImage(lifeImage, destinationX, destinationY);
                 break;
             case 2:
                 cuttingX = 47;
