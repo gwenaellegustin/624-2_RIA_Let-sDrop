@@ -11,9 +11,7 @@ class Drop {
         this.speed;
 
         this.isColliding = false;
-    }
 
-    draw(){
         this.dropImage.addEventListener('load', (event) => {
             this.width = this.dropImage.width;
             this.height = this.dropImage.height;
@@ -21,7 +19,9 @@ class Drop {
         });
 
         this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
+    }
 
+    draw(){
         //Just to see for impact
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
         this.context.fillRect(this.x, this.y, this.width, this.height);

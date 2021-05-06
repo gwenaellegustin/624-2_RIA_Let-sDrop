@@ -10,9 +10,7 @@ class MonsterHand {
         this.speed = speed;
         this.directionX = directionX;
         this.directionY = directionY;
-    }
 
-    draw(){
         this.monsterImage.addEventListener('load', (event) => {
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
@@ -20,6 +18,10 @@ class MonsterHand {
         });
 
         this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand48x48.png";
+        
+    }
+
+    draw(){
 
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
@@ -29,7 +31,6 @@ class MonsterHand {
     update(secondsPassed){
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
-
 
         //Touching edges
 
