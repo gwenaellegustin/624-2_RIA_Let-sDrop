@@ -9,7 +9,7 @@ class Timer
     }
 
     draw(){
-        this.context.font = "40px Helvetica";
+        this.context.font = "40px Delius";
         this.context.textAlign = "left";
         this.context.textBaseline = "top";
         this.context.fillStyle = "white";

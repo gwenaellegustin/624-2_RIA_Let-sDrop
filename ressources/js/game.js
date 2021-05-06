@@ -211,7 +211,7 @@ class Game {
     }
 
     setTitle(){
-        this.context.font = "40px Helvetica";
+        this.context.font = "40px Delius";
         this.context.fillStyle = "white";
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
