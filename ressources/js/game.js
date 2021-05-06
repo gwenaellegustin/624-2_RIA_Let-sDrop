@@ -211,7 +211,7 @@ class Game {
     }
 
     setTitle(){
-        this.context.font = "40px Delius";
+        this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
         this.context.fillStyle = "white";
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
