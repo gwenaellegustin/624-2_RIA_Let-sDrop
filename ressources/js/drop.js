@@ -8,12 +8,12 @@ class Drop {
         this.width;
         this.height;
         this.size = size;
-        this.speed = this.size * 30 + 60;
+        this.speed;
 
-        //this.isColliding = false;
+        this.isColliding = false;
 
         this.dropImage.addEventListener('load', (event) => {
-            this.width = this.dropImage.width; //Reduce width of the drop
+            this.width = this.dropImage.width;
             this.height = this.dropImage.height;
             this.dropReady = true; //The image has been load, we can draw it
         });
@@ -22,9 +22,18 @@ class Drop {
     }
 
     draw(){
+        //Just to see for impact
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(this.x, this.y, this.width, this.height);
+
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
         }
+
+        this.speed = this.size * 30 + 60;
+
+        //Draw life
+        this.drawLife();
     }
 
     update(secondsPassed){
@@ -66,11 +75,40 @@ class Drop {
                 this.x += this.speed * secondsPassed;
             }
         }
-
-        
     }
 
-    
+    drawLife(){
+        let lifeImage = new Image();
+
+        lifeImage.src = "/ressources/images/game/Life.png";
+
+        let destinationX = 800;
+        let destinationY = 10;
+        let cuttingX;
+        let imageWidth = lifeImage.width;
+        let imageHeight = lifeImage.height;
+        
+        //Depending on the number of lifes, the image is crop
+        switch (this.size) {
+            case 1:
+                this.context.drawImage(lifeImage, destinationX, destinationY);
+                break;
+            case 2:
+                cuttingX = 47;
+                this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
+                break;
+            case 3:
+                cuttingX = 88;
+                this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
+                break;
+            case 4:
+                cuttingX = 125;
+                this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 let Key = {
@@ -88,7 +126,6 @@ let Key = {
 
     onKeydown: function(event) {
         this.pressed[event.keyCode] = true;
-        console.log(event.keyCode);
     },
 
     onKeyup: function(event) {

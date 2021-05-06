@@ -12,7 +12,7 @@ class Soap {
             this.soapReady = true; //The image has been load, we can draw it
         });
 
-        this.soapImage.src = "/ressources/images/game/Level1/Soap48x48.png";
+        this.soapImage.src = "/ressources/images/game/Level1/Soap34x34.png";
     }
 
     draw(){
