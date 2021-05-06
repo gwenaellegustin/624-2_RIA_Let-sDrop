@@ -17,11 +17,11 @@ class Drop {
             this.height = this.dropImage.height;
             this.dropReady = true; //The image has been load, we can draw it
         });
-
-        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
     }
 
     draw(){
+        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
+
         //Just to see for impact
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
         this.context.fillRect(this.x, this.y, this.width, this.height);
