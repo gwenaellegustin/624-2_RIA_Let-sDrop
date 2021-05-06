@@ -37,9 +37,7 @@ class Drop {
     }
 
     update(secondsPassed){
-        // TODO keyboard reaction
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        
         
         if(Key.pressed.length==2){
             if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){
@@ -75,6 +73,21 @@ class Drop {
                 this.x += this.speed * secondsPassed;
             }
         }
+    }
+
+    upsideDownCommands() {
+        // TODO: random vector with numbers
+        Key.DOWN = 38;
+        Key.UP = 40;
+        Key.LEFT = 39;
+        Key.RIGHT = 37;
+    }
+
+    normalCommands() {
+        Key.LEFT = 37;
+        Key.UP = 38;
+        Key.RIGHT = 39;
+        Key.DOWN = 40;
     }
 
     drawLife(){

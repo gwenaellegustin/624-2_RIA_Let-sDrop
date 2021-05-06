@@ -160,6 +160,22 @@ class Game {
                         this.droppyLosesALife(droppy);
                     }
                 }
+
+                // SOAP COLLISIONS : Checking collisions between Droppy and Soaps
+                if(this.gameObjects[i] instanceof Soap) {
+                    let soap = this.gameObjects[i];
+
+                    let hit = this.collisionRectRect(soap.x, soap.y, soap.width, soap.height, droppy.x, droppy.y, droppy.width, droppy.height);
+                    if (hit && droppy.isColliding === false){
+                        droppy.isColliding = true;
+                        let soapNb = i;
+                        let soapX = soap.x;
+
+                        // soap disappear and appear again somewhere else on the same x axe
+                        this.gameObjects.splice(soapNb, 1, new Soap(this.context, soapX, Math.random() * (this.canvas.height - 48 - 148)));
+                        this.droppyIsUpsideDown(droppy);
+                    }
+                }
             }
         }
     }
@@ -181,6 +197,31 @@ class Game {
             }   
         }
         
+    }
+
+    droppyIsUpsideDown(droppy){
+
+        let oldSize = droppy.size;
+
+        droppy.upsideDownCommands();
+
+        //Waiting 100ms before disappear
+        setTimeout(function(){
+            droppy.size = 0;
+        }, 100);
+
+        //Waiting 100ms before blinking at oldSize
+        setTimeout(function(){
+            droppy.size = oldSize;
+        }, 200);
+
+        setTimeout(function() {
+            droppy.isColliding = false;
+        },1000);
+
+        setTimeout(function(){
+            droppy.normalCommands();
+        },5000);
     }
 
     droppyLosesALife(droppy){
