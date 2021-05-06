@@ -5,6 +5,8 @@ class Game {
         this.oldTimeStamp = 0;
         this.gameObjects = [];
         this.level = null;
+        this.levelName = null;
+        this.timer = null;
 
         this.init(canvasId)
     }
@@ -58,9 +60,16 @@ class Game {
         tap.style.position = 'absolute';
         tap.style.top = 0;
         document.getElementById('bg').appendChild(tap);
+
+        //Launch the timer
+        this.timer = new Timer(this.context);
+
+        //Title
+        this.levelName = 'Clean the drop';
         
         this.gameObjects = [
             new Drop(this.context, 0, 148, 1),
+            this.timer,
 
             //Monsters
             new Soap(this.context, 50, Math.random() * (this.canvas.height - 48 - 148)), //Random between space usable
@@ -76,8 +85,7 @@ class Game {
             new MonsterHand(this.context, 300, Math.random() * (this.canvas.height - 128 - 148), 1, -1, 30),
             new MonsterHand(this.context, 500, Math.random() * (this.canvas.height - 128 - 148), -1, -1, 40),
             new MonsterHand(this.context, 700, Math.random() * (this.canvas.height - 128 - 148), 1, 1, 50),
-            new MonsterHand(this.context, 800, Math.random() * (this.canvas.height - 128 - 148), -1, 1, 55),
-            new Timer(this.context, 0)
+            new MonsterHand(this.context, 800, Math.random() * (this.canvas.height - 128 - 148), -1, 1, 55)
         ];
     }
 
@@ -105,6 +113,11 @@ class Game {
         // Loop over all game objects to draw
         for(let i=0; i < this.gameObjects.length; i++){
             this.gameObjects[i].draw();
+        }
+
+        //Draw level name
+        if(this.levelName != null){
+            this.setTitle();
         }
         
         // The loop function has reached it's end
@@ -195,6 +208,14 @@ class Game {
         setTimeout(function(){
             droppy.isColliding = false;
         }, 1000);
+    }
+
+    setTitle(){
+        this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
+        this.context.fillStyle = "white";
+        this.context.textAlign = "center";
+        this.context.textBaseline = "top";
+        this.context.fillText(this.levelName, this.canvas.width/2, 15);
     }
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
