@@ -5,6 +5,7 @@ class Game {
         this.oldTimeStamp = 0;
         this.gameObjects = [];
         this.level = null;
+        this.isGameOver = false;
 
         this.init(canvasId)
     }
@@ -81,6 +82,21 @@ class Game {
         ];
     }
 
+    createGameOver(){
+        //Remove all objects drawn
+        this.clearCanvas();
+
+        //Remove all images
+        let images = document.querySelectorAll('img');
+        images.forEach(image => {
+            image.remove();
+        });
+
+    
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/GameOver/GameOver.png')";
+
+    }
+
     gameLoop(timeStamp) {
         // Calculate the number of seconds passed since the last frame
         let secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
@@ -107,9 +123,13 @@ class Game {
             this.gameObjects[i].draw();
         }
         
-        // The loop function has reached it's end
-        // Keep requesting new frames
-        window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
+        if(this.isGameOver){
+            this.createGameOver();
+        }
+        else{
+            // The loop function has reached it's end - Keep requesting new frames
+            window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
+        }
     }
 
     detectCollisionsEdges(){
@@ -144,7 +164,12 @@ class Game {
                     if(hit && droppy.isColliding === false){
                         droppy.isColliding = true;
 
-                        this.droppyLosesALife(droppy);
+                        if(droppy.size<4){
+                            this.droppyLosesALife(droppy);
+                        }
+                        else{
+                            this.isGameOver = true;
+                        }
                     }
                 }
             }
