@@ -10,7 +10,7 @@ class Game {
         this.levelName = null;
         this.timer = null;
 
-        this.init(canvasId)
+        this.init(canvasId);
     }
 
     init(canvasId){
@@ -92,18 +92,37 @@ class Game {
     }
 
     createGameOver(){
+        let stoppedTimer = this.timer.time;
+
         //Remove all objects drawn
         this.clearCanvas();
 
         //Remove all images
-        let images = document.querySelectorAll('img');
-        images.forEach(image => {
-            image.remove();
-        });
-
+        this.clearImages();
     
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/GameOver/GameOver.png')";
 
+        //Result
+        let levelOrLevels;
+        if(this.level == 1){
+            levelOrLevels = 'level';
+        }
+        else{
+            levelOrLevels = 'levels'
+        }
+        let text1 = `${this.level} ${levelOrLevels} completed in ${stoppedTimer}`;
+        let text2 = `Press ENTER to restart`;
+
+        this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
+        this.context.fillText(text1, this.canvas.width/2, 400);
+        this.context.fillText(text2, this.canvas.width/2, 470);
+
+        window.addEventListener('keydown', event => { 
+            console.log(event);
+            if(event.code === 'Enter'){
+                document.location.reload();
+            }
+         }, false);
     }
 
     gameLoop(timeStamp) {
@@ -258,5 +277,12 @@ class Game {
     clearCanvas() {
         // Clear the canvas
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    clearImages(){
+        let images = document.querySelectorAll('img');
+        images.forEach(image => {
+            image.remove();
+        });
     }
 }
