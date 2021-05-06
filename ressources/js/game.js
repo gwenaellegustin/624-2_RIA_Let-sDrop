@@ -100,9 +100,11 @@ class Game {
         //Remove all images
         this.clearImages();
     
+        //Display game over background
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/GameOver/GameOver.png')";
 
         //Result
+        //Check if level with s or not
         let levelOrLevels;
         if(this.level == 1){
             levelOrLevels = 'level';
@@ -110,15 +112,15 @@ class Game {
         else{
             levelOrLevels = 'levels'
         }
-        let text1 = `${this.level} ${levelOrLevels} completed in ${stoppedTimer}`;
-        let text2 = `Press ENTER to restart`;
+
+        let firstLine = `${this.level} ${levelOrLevels} completed in ${stoppedTimer}`;
+        let secondLine = `Press ENTER to restart`;
 
         this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
-        this.context.fillText(text1, this.canvas.width/2, 400);
-        this.context.fillText(text2, this.canvas.width/2, 470);
+        this.context.fillText(firstLine, this.canvas.width/2, 400);
+        this.context.fillText(secondLine, this.canvas.width/2, 470);
 
         window.addEventListener('keydown', event => { 
-            console.log(event);
             if(event.code === 'Enter'){
                 document.location.reload();
             }
