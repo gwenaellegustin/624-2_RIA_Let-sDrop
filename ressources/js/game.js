@@ -50,7 +50,7 @@ class Game {
 
     createLevel1(){
         this.level = 1;
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')";
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')"; // Change background
                 
         // Tap over hero and monsters
         let tap = document.createElement('img');
@@ -124,8 +124,8 @@ class Game {
 
         if(droppy.y < 148){ //TOP EDGE
             droppy.y = 148;
-        } else if(droppy.y > this.canvas.height - droppy.height - 10){ //BOTTOM EDGE
-            droppy.y = this.canvas.height - droppy.height - 10;
+        } else if(droppy.y > this.canvas.height - droppy.height){ //BOTTOM EDGE
+            droppy.y = this.canvas.height - droppy.height;
         }
     }
 
@@ -139,8 +139,8 @@ class Game {
                 if(this.gameObjects[i] instanceof MonsterHand){
                     let monsterHand = this.gameObjects[i];
 
-                    //+8 --> really detect the edges of the monster hand
-                    let hit = this.collisionRectRect(monsterHand.x+8, monsterHand.y+8, monsterHand.width, monsterHand.height, droppy.x, droppy.y, droppy.width, droppy.height);
+                    // 10 --> only sponge (not hand)
+                    let hit = this.collisionRectRect(monsterHand.x, monsterHand.y, monsterHand.width, monsterHand.height - 10, droppy.x, droppy.y, droppy.width, droppy.height);
                     if(hit && droppy.isColliding === false){
                         droppy.isColliding = true;
 

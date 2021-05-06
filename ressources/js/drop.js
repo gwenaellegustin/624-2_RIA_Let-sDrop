@@ -15,7 +15,7 @@ class Drop {
 
     draw(){
         this.dropImage.addEventListener('load', (event) => {
-            this.width = this.dropImage.width; //Reduce width of the drop
+            this.width = this.dropImage.width;
             this.height = this.dropImage.height;
             this.dropReady = true; //The image has been load, we can draw it
         });

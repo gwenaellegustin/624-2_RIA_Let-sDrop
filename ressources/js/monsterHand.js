@@ -14,12 +14,12 @@ class MonsterHand {
 
     draw(){
         this.monsterImage.addEventListener('load', (event) => {
-            this.width = this.monsterImage.width - 16;
-            this.height = this.monsterImage.height - 16;
+            this.width = this.monsterImage.width;
+            this.height = this.monsterImage.height;
             this.monsterReady = true; //The image has been load, we can draw it
         });
 
-        this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand64x64.png";
+        this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand48x48.png";
 
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
@@ -32,18 +32,16 @@ class MonsterHand {
 
 
         //Touching edges
-        let canvasWidth = 1000;
-        let canvasHeight = 550;
 
         if (this.x < 0) { //Left side
-           this.x = canvasWidth - 64;
-        } else if (this.x > canvasWidth - 64) { //Right side
+           this.x = this.context.canvas.width - this.width;
+        } else if (this.x > this.context.canvas.width - this.width) { //Right side
             this.x = 0;
         }
 
         if (this.y < 148) { //Top side
-            this.y = canvasHeight - 64;
-        } else if (this.y > canvasHeight - 64) { //Bottom side
+            this.y = this.context.canvas.height - this.height;
+        } else if (this.y > this.context.canvas.height - this.height) { //Bottom side
             this.y = 148;
         }
     }
