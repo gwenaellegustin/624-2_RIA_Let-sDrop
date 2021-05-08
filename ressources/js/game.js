@@ -6,7 +6,7 @@ class Game {
         this.gameObjects = [];
         this.level = null;
         this.isGameOver = false;
-
+        this.isWin = false;
         this.levelName = null;
         this.timer = null;
 
@@ -18,10 +18,19 @@ class Game {
         this.canvas.width = 1000;
         this.canvas.height = 550;
         this.context = this.canvas.getContext('2d');
-        
+
+        //General text style of the game
+        this.context.font = "40px Delius";
+        this.context.fillStyle = "white";
     
-        //TODO Create objects to display
         this.createLevel0();
+
+                // press enter to reload the page
+        window.addEventListener('keydown', event => { 
+            if(event.code === 'Enter'){
+                document.location.reload();
+            }
+         }, false);
 
         // Request an animation frame for the first time
         // The gameLoop() function will be called as a callback of this request
@@ -32,7 +41,7 @@ class Game {
         this.level = 0;
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
         this.gameObjects = [
-            new StartButton(this.context) // used to test level change
+            new StartButton(this.context) // used to test level change TODO: delete after drag and drop implement
         ];
 
         // used to test level change
@@ -41,11 +50,11 @@ class Game {
                 // size of margin left + postion x in canva of start button
                 event.x > canvas.offsetLeft + 300 &&
                 // size of margin left + with of start button + width of start button
-                event.x < canvas.offsetLeft + 300 + 100 && 
+                event.x < canvas.offsetLeft + 300 + 110 && 
                 // position y in canva of start button
-                event.y > 450 && 
+                event.y > 480 && 
                 // position y in canva of start button + height
-                event.y < 450 + 50
+                event.y < 480 + 50
             ) {
                 this.ready = true;
             }
@@ -54,7 +63,8 @@ class Game {
 
     createLevel1(){
         this.level = 1;
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')"; // Change background
+        // Change background
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')";
                 
         // Tap over hero and monsters
         let tap = document.createElement('img');
@@ -91,6 +101,27 @@ class Game {
         ];
     }
 
+    createWinnerScreen(){
+        let stoppedTimer = this.timer.time;
+
+        //Remove all objects drawn
+        this.clearCanvas();
+
+        //Remove all images
+        this.clearImages();
+
+        //Display winner screen background
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/win/Win.png')";
+
+        //Text
+        let firstLine = `You released Droppy in ${stoppedTimer} !`;
+        let secondLine = `Press ENTER to try faster`;
+
+        this.context.fillStyle = "black";
+        this.context.fillText(firstLine, this.canvas.width/2, 20);
+        this.context.fillText(secondLine, this.canvas.width/2, 20 + 70); // 70 = space between lines
+    }
+
     createGameOver(){
         let stoppedTimer = this.timer.time;
 
@@ -116,15 +147,9 @@ class Game {
         let firstLine = `${this.level} ${levelOrLevels} completed in ${stoppedTimer}`;
         let secondLine = `Press ENTER to restart`;
 
-        this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
         this.context.fillText(firstLine, this.canvas.width/2, 400);
-        this.context.fillText(secondLine, this.canvas.width/2, 470);
+        this.context.fillText(secondLine, this.canvas.width/2, 400 + 70); // 70 = space between lines
 
-        window.addEventListener('keydown', event => { 
-            if(event.code === 'Enter'){
-                document.location.reload();
-            }
-         }, false);
     }
 
     gameLoop(timeStamp) {
@@ -160,6 +185,9 @@ class Game {
         
         if(this.isGameOver){
             this.createGameOver();
+        }
+        else if(this.isWin){
+            this.createWinnerScreen();
         }
         else{
             // The loop function has reached it's end - Keep requesting new frames
@@ -223,7 +251,7 @@ class Game {
             this.context.fillRect(900, 300, 100, 100);
             if(940 < (this.gameObjects[0].x + this.gameObjects[0].width/2) && (this.gameObjects[0].x + this.gameObjects[0].width/2) < 970){
                 if(350 < (this.gameObjects[0].y + this.gameObjects[0].height/2) && (this.gameObjects[0].y + this.gameObjects[0].height/2) < 380){
-                    this.createLevel1(); // TODO change in createLevel2
+                    this.isWin = true; // TODO: change in next level
                 }
             }   
         }
@@ -258,8 +286,6 @@ class Game {
     }
 
     setTitle(){
-        this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
-        this.context.fillStyle = "white";
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
         this.context.fillText(this.levelName, this.canvas.width/2, 15);
