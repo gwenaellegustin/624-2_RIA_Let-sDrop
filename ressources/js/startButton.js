@@ -3,8 +3,8 @@ class StartButton
     constructor (context){
         this.context = context;
         this.x = 300;
-        this.y = 450;
-        this.width = 100;
+        this.y = 480;
+        this.width = 110;
         this.height = 50;
     }
 
@@ -17,8 +17,7 @@ class StartButton
 
         //Text in button
         this.context.fillStyle = 'white';
-        this.context.font = '30px Serif';
-        this.context.fillText('Start', this.x +20, this.y + (this.height/2) + 10)
+        this.context.fillText('Start', this.x + 10, this.y + (this.height/2) + 10);
     }
 
     update(secondsPassed){
