@@ -5,10 +5,12 @@ class Game {
         this.oldTimeStamp = 0;
         this.gameObjects = [];
         this.level = null;
+        this.isGameOver = false;
+
         this.levelName = null;
         this.timer = null;
 
-        this.init(canvasId)
+        this.init(canvasId);
     }
 
     init(canvasId){
@@ -89,6 +91,42 @@ class Game {
         ];
     }
 
+    createGameOver(){
+        let stoppedTimer = this.timer.time;
+
+        //Remove all objects drawn
+        this.clearCanvas();
+
+        //Remove all images
+        this.clearImages();
+    
+        //Display game over background
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/GameOver/GameOver.png')";
+
+        //Result
+        //Check if level with s or not
+        let levelOrLevels;
+        if(this.level == 1){
+            levelOrLevels = 'level';
+        }
+        else{
+            levelOrLevels = 'levels'
+        }
+
+        let firstLine = `${this.level} ${levelOrLevels} completed in ${stoppedTimer}`;
+        let secondLine = `Press ENTER to restart`;
+
+        this.context.font = "40px Delius"; //Is redefined in case we add another text with another font
+        this.context.fillText(firstLine, this.canvas.width/2, 400);
+        this.context.fillText(secondLine, this.canvas.width/2, 470);
+
+        window.addEventListener('keydown', event => { 
+            if(event.code === 'Enter'){
+                document.location.reload();
+            }
+         }, false);
+    }
+
     gameLoop(timeStamp) {
         // Calculate the number of seconds passed since the last frame
         let secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
@@ -120,9 +158,13 @@ class Game {
             this.setTitle();
         }
         
-        // The loop function has reached it's end
-        // Keep requesting new frames
-        window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
+        if(this.isGameOver){
+            this.createGameOver();
+        }
+        else{
+            // The loop function has reached it's end - Keep requesting new frames
+            window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
+        }
     }
 
     detectCollisionsEdges(){
@@ -157,7 +199,12 @@ class Game {
                     if(hit && droppy.isColliding === false){
                         droppy.isColliding = true;
 
-                        this.droppyLosesALife(droppy);
+                        if(droppy.size<4){
+                            this.droppyLosesALife(droppy);
+                        }
+                        else{
+                            this.isGameOver = true;
+                        }
                     }
                 }
             }
@@ -232,5 +279,12 @@ class Game {
     clearCanvas() {
         // Clear the canvas
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    clearImages(){
+        let images = document.querySelectorAll('img');
+        images.forEach(image => {
+            image.remove();
+        });
     }
 }
