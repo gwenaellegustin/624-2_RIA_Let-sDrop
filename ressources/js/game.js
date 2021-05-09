@@ -68,7 +68,7 @@ class Game {
         this.levelName = 'Clean the drop';
         
         this.gameObjects = [
-            new Drop(this.context, 0, 148, 1),
+            new Drop(this.context, 0, 148, 1, "blue"),
             this.timer,
 
             //Monsters
@@ -204,16 +204,13 @@ class Game {
         let oldSize = droppy.size;
 
         droppy.upsideDownCommands();
+        droppy.size = 0;
 
-        //Waiting 100ms before disappear
-        setTimeout(function(){
-            droppy.size = 0;
-        }, 100);
-
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 100ms before reappering (blink effect)
         setTimeout(function(){
             droppy.size = oldSize;
-        }, 200);
+            droppy.color = "green";
+        }, 100);
 
         setTimeout(function() {
             droppy.isColliding = false;
@@ -221,6 +218,7 @@ class Game {
 
         setTimeout(function(){
             droppy.normalCommands();
+            droppy.color = "blue";
         },5000);
     }
 

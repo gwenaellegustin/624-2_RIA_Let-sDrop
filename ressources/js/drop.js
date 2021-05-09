@@ -1,5 +1,5 @@
 class Drop {
-    constructor (context, x, y, size){
+    constructor (context, x, y, size, color){
         this.context = context;
         this.dropReady = false;
         this.dropImage = new Image();
@@ -8,6 +8,7 @@ class Drop {
         this.width;
         this.height;
         this.size = size;
+        this.color = color;
         this.speed;
 
         this.isColliding = false;
@@ -20,7 +21,7 @@ class Drop {
     }
 
     draw(){
-        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
+        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + this.color + ".png";
 
         //Just to see for impact
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
