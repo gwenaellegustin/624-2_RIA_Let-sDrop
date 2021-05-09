@@ -5,7 +5,7 @@ class MonsterHand {
         this.monsterImage = new Image();
         this.x = x;
         this.y = y + 148;  //The soap can't appear on a edge of the canvas
-        this.weight = null;
+        this.width = null;
         this.height = null;
         this.speed = speed;
         this.directionX = directionX;

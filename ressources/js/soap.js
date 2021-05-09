@@ -5,10 +5,14 @@ class Soap {
         this.soapImage = new Image();
         this.x = x;
         this.y = y + 148;  //The soap can't appear on a edge of the canvas
+        this.width = null;
+        this.height = null;
 
         //this.isColliding = false;
 
         this.soapImage.addEventListener('load', (event) => {
+            this.height = this.soapImage.height;
+            this.width = this.soapImage.width;
             this.soapReady = true; //The image has been load, we can draw it
         });
 

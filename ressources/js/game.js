@@ -80,7 +80,7 @@ class Game {
         this.levelName = 'Clean the drop';
         
         this.gameObjects = [
-            new Drop(this.context, 0, 148, 1),
+            new Drop(this.context, 0, 148, 1, "blue"),
             this.timer,
 
             //Monsters
@@ -235,6 +235,22 @@ class Game {
                         }
                     }
                 }
+
+                // SOAP COLLISIONS : Checking collisions between Droppy and Soaps
+                if(this.gameObjects[i] instanceof Soap) {
+                    let soap = this.gameObjects[i];
+
+                    let hit = this.collisionRectRect(soap.x, soap.y, soap.width, soap.height, droppy.x, droppy.y, droppy.width, droppy.height);
+                    if (hit && droppy.isColliding === false){
+                        droppy.isColliding = true;
+                        let soapNb = i;
+                        let soapX = soap.x;
+
+                        // soap disappear and appear again somewhere else on the same x axe
+                        this.gameObjects.splice(soapNb, 1, new Soap(this.context, soapX, Math.random() * (this.canvas.height - 48 - 148)));
+                        this.droppyIsUpsideDown(droppy);
+                    }
+                }
             }
         }
     }
@@ -256,6 +272,29 @@ class Game {
             }   
         }
         
+    }
+
+    droppyIsUpsideDown(droppy){
+
+        let oldSize = droppy.size;
+
+        droppy.upsideDownCommands();
+        droppy.size = 0;
+
+        //Waiting 100ms before reappering (blink effect)
+        setTimeout(function(){
+            droppy.size = oldSize;
+            droppy.color = "green";
+        }, 100);
+
+        setTimeout(function() {
+            droppy.isColliding = false;
+        },1000);
+
+        setTimeout(function(){
+            droppy.normalCommands();
+            droppy.color = "blue";
+        },5000);
     }
 
     droppyLosesALife(droppy){

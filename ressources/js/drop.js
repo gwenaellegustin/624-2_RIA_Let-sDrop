@@ -1,5 +1,5 @@
 class Drop {
-    constructor (context, x, y, size){
+    constructor (context, x, y, size, color){
         this.context = context;
         this.dropReady = false;
         this.dropImage = new Image();
@@ -8,6 +8,7 @@ class Drop {
         this.width;
         this.height;
         this.size = size;
+        this.color = color;
         this.speed;
 
         this.isColliding = false;
@@ -20,7 +21,7 @@ class Drop {
     }
 
     draw(){
-        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + ".png";
+        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + this.color + ".png";
 
         //Just to see for impact
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
@@ -37,9 +38,7 @@ class Drop {
     }
 
     update(secondsPassed){
-        // TODO keyboard reaction
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        
         
         if(Key.pressed.length==2){
             if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){
@@ -75,6 +74,21 @@ class Drop {
                 this.x += this.speed * secondsPassed;
             }
         }
+    }
+
+    upsideDownCommands() {
+        // TODO: random vector with numbers
+        Key.DOWN = 38;
+        Key.UP = 40;
+        Key.LEFT = 39;
+        Key.RIGHT = 37;
+    }
+
+    normalCommands() {
+        Key.LEFT = 37;
+        Key.UP = 38;
+        Key.RIGHT = 39;
+        Key.DOWN = 40;
     }
 
     drawLife(){
