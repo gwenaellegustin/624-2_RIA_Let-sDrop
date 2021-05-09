@@ -10,6 +10,18 @@ class Game {
         this.levelName = null;
         this.timer = null;
 
+        // Object
+        this.droppy = null;
+
+        // Music and sounds
+        this.level1Music = new Audio("/ressources/sounds/frightNight.wav"); // will continue through all levels
+        //level1Music.loop = true; // TODO: to uncomment and try when enough levels
+        this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.wav");
+        this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.wav");
+        this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.wav");
+        this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.wav");
+        
+
         this.init(canvasId);
     }
 
@@ -18,7 +30,7 @@ class Game {
         this.canvas.width = 1000;
         this.canvas.height = 550;
         this.context = this.canvas.getContext('2d');
-
+        
         //General text style of the game
         this.context.font = "40px Delius";
         this.context.fillStyle = "white";
@@ -59,6 +71,9 @@ class Game {
                 this.ready = true;
             }
         });
+
+        this.droppy = new Drop(this.context, 0, 148, 1, "blue");
+
     }
 
     createLevel1(){
@@ -76,11 +91,16 @@ class Game {
         //Launch the timer
         this.timer = new Timer(this.context);
 
+        //Music
+        this.level1Music.play(); // TODO: uncomment when finishing issue
+
         //Title
         this.levelName = 'Clean the drop';
         
         this.gameObjects = [
-            new Drop(this.context, 0, 148, 1, "blue"),
+            
+            this.droppy,
+            
             this.timer,
 
             //Monsters
@@ -111,7 +131,12 @@ class Game {
         this.clearImages();
 
         //Display winner screen background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/win/Win.png')";
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Win/Win.png')";
+
+        //Music
+        this.level1Music.muted = true;
+        this.winnerMusic.play();
+        this.winnerSound.play();
 
         //Text
         let firstLine = `You released Droppy in ${stoppedTimer} !`;
@@ -134,6 +159,11 @@ class Game {
         //Display game over background
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/GameOver/GameOver.png')";
 
+        //Music
+        this.level1Music.muted = true;
+        this.gameOverMusic.play();
+        this.gameOverSound.play();
+                
         //Result
         //Check if level with s or not
         let levelOrLevels;
@@ -157,7 +187,6 @@ class Game {
         let secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
-        
         // Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
             this.gameObjects[i].update(secondsPassed);
@@ -197,24 +226,20 @@ class Game {
 
     detectCollisionsEdges(){
         // EDGES COLLISIONS : Checking collisions for droppy 
-        let droppy = this.gameObjects[0];
-
-        if (droppy.x < 0) { //LEFT EDGE
-            droppy.x = 0;
-        } else if (droppy.x > this.canvas.width - droppy.width) { //RIGHT EDGE
-            droppy.x = this.canvas.width - droppy.width;
+        if (this.droppy.x < 0) { //LEFT EDGE
+            this.droppy.x = 0;
+        } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
+            this.droppy.x = this.canvas.width - this.droppy.width;
         }
 
-        if(droppy.y < 148){ //TOP EDGE
-            droppy.y = 148;
-        } else if(droppy.y > this.canvas.height - droppy.height){ //BOTTOM EDGE
-            droppy.y = this.canvas.height - droppy.height;
+        if(this.droppy.y < 148){ //TOP EDGE
+            this.droppy.y = 148;
+        } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
+            this.droppy.y = this.canvas.height - this.droppy.height;
         }
     }
 
     detectCollisionsMonsters(){        
-        let droppy = this.gameObjects[0];
-
         if(this.level === 1){
             // MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
             for (let i = 0; i < this.gameObjects.length; i++)
@@ -223,12 +248,12 @@ class Game {
                     let monsterHand = this.gameObjects[i];
 
                     // 10 --> only sponge (not hand)
-                    let hit = this.collisionRectRect(monsterHand.x, monsterHand.y, monsterHand.width, monsterHand.height - 10, droppy.x, droppy.y, droppy.width, droppy.height);
-                    if(hit && droppy.isColliding === false){
-                        droppy.isColliding = true;
+                    let hit = this.collisionRectRect(monsterHand.x, monsterHand.y, monsterHand.width, monsterHand.height - 10, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height);
+                    if(hit && this.droppy.isColliding === false){
+                        this.droppy.isColliding = true;
 
-                        if(droppy.size<4){
-                            this.droppyLosesALife(droppy);
+                        if(this.droppy.size<4){
+                            this.droppyLosesALife();
                         }
                         else{
                             this.isGameOver = true;
@@ -240,15 +265,15 @@ class Game {
                 if(this.gameObjects[i] instanceof Soap) {
                     let soap = this.gameObjects[i];
 
-                    let hit = this.collisionRectRect(soap.x, soap.y, soap.width, soap.height, droppy.x, droppy.y, droppy.width, droppy.height);
-                    if (hit && droppy.isColliding === false){
-                        droppy.isColliding = true;
+                    let hit = this.collisionRectRect(soap.x, soap.y, soap.width, soap.height, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height);
+                    if (hit && this.droppy.isColliding === false){
+                        this.droppy.isColliding = true;
                         let soapNb = i;
                         let soapX = soap.x;
 
                         // soap disappear and appear again somewhere else on the same x axe
                         this.gameObjects.splice(soapNb, 1, new Soap(this.context, soapX, Math.random() * (this.canvas.height - 48 - 148)));
-                        this.droppyIsUpsideDown(droppy);
+                        this.droppyIsUpsideDown();
                     }
                 }
             }
@@ -265,62 +290,61 @@ class Game {
         if (this.level === 1){
             this.context.fillStyle = 'red';
             this.context.fillRect(900, 300, 100, 100);
-            if(940 < (this.gameObjects[0].x + this.gameObjects[0].width/2) && (this.gameObjects[0].x + this.gameObjects[0].width/2) < 970){
-                if(350 < (this.gameObjects[0].y + this.gameObjects[0].height/2) && (this.gameObjects[0].y + this.gameObjects[0].height/2) < 380){
+            if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
+                if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
                     this.isWin = true; // TODO: change in next level
                 }
             }   
         }
-        
     }
 
-    droppyIsUpsideDown(droppy){
+    droppyIsUpsideDown(){
 
-        let oldSize = droppy.size;
+        let oldSize = this.droppy.size;
 
-        droppy.upsideDownCommands();
-        droppy.size = 0;
+        this.droppy.upsideDownCommands();
+        this.droppy.size = 0;
 
         //Waiting 100ms before reappering (blink effect)
-        setTimeout(function(){
-            droppy.size = oldSize;
-            droppy.color = "green";
+        setTimeout(()=>{
+            this.droppy.size = oldSize;
+            this.droppy.color = "green";
         }, 100);
 
-        setTimeout(function() {
-            droppy.isColliding = false;
+        setTimeout(()=>{
+            this.droppy.isColliding = false;
         },1000);
 
-        setTimeout(function(){
-            droppy.normalCommands();
-            droppy.color = "blue";
+        setTimeout(()=>{
+            this.droppy.normalCommands();
+            this.droppy.color = "blue";
         },5000);
     }
 
-    droppyLosesALife(droppy){
+    droppyLosesALife(){
         //Store old size to blink
-        let oldSize = droppy.size;
+        let oldSize = this.droppy.size;
                                 
-        droppy.size = 0;
+        this.droppy.size = 0;
 
         //Waiting 100ms before blinking at oldSize
-        setTimeout(function(){
-            droppy.size = oldSize;
+        setTimeout(()=>{
+            this.droppy.size = oldSize;
         }, 100);
 
         //Waiting 100ms more before disappear
-        setTimeout(function(){
-            droppy.size = 0;
+        setTimeout(()=>{
+            this.droppy.size = 0;
         }, 200);
 
         //Waiting 100ms more before blinking at new size
-        setTimeout(function(){
-            droppy.size = oldSize+1;
+        setTimeout(()=>{
+            this.droppy.size = oldSize+1;
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
-        setTimeout(function(){
-            droppy.isColliding = false;
+        setTimeout(()=>{
+            this.droppy.isColliding = false;
         }, 1000);
     }
 
