@@ -111,7 +111,7 @@ class Game {
         this.clearImages();
 
         //Display winner screen background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/win/Win.png')";
+        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Win/Win.png')";
 
         //Text
         let firstLine = `You released Droppy in ${stoppedTimer} !`;
