@@ -31,8 +31,6 @@ class Game {
         this.canvas.height = 550;
         this.context = this.canvas.getContext('2d');
         
-        //this.droppy.context = this.context;
-        
         //General text style of the game
         this.context.font = "40px Delius";
         this.context.fillStyle = "white";
@@ -228,8 +226,6 @@ class Game {
 
     detectCollisionsEdges(){
         // EDGES COLLISIONS : Checking collisions for droppy 
-        //let droppy = this.gameObjects[0];
-
         if (this.droppy.x < 0) { //LEFT EDGE
             this.droppy.x = 0;
         } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
@@ -244,8 +240,6 @@ class Game {
     }
 
     detectCollisionsMonsters(){        
-        //let droppy = this.gameObjects[0];
-
         if(this.level === 1){
             // MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
             for (let i = 0; i < this.gameObjects.length; i++)
@@ -330,7 +324,6 @@ class Game {
     droppyLosesALife(){
         //Store old size to blink
         let oldSize = this.droppy.size;
-        console.log("oldsize : " + oldSize);
                                 
         this.droppy.size = 0;
 
