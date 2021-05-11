@@ -4,6 +4,7 @@
     padding:0; 
     border:none; 
     margin:auto;
+    font-family: 'Delius', 'Trebuchet MS', Arial, sans-serif;
 }
 body, html {
     height: 100%;
@@ -32,4 +33,42 @@ canvas {
     margin-top: 0;
     display: block;
     border: 1px solid greenyellow;
+}
+
+
+/* source: https://www.w3schools.com/howto/howto_css_tooltip.asp */
+/* help container */
+#help {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 280px;
+  padding: 5px 12px;
+  border: 1px solid white;
+  border-radius: 100%;
+}
+
+/* help text */
+#help .helptext {
+  visibility: hidden;
+  width: 400px;
+  color: #fff;
+  text-align: center;
+
+  /* Position the help text */
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  right: 0px;
+
+  /* Fade in help */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#help:hover .helptext {
+  visibility: visible;
+  opacity: 1;
 }
