@@ -40,7 +40,7 @@ canvas {
 /* help container */
 #help {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
   z-index: 2;
   top: 10px;
@@ -55,6 +55,7 @@ canvas {
   visibility: hidden;
   width: 400px;
   color: #fff;
+  background-color: black;
   text-align: center;
 
   /* Position the help text */
@@ -71,4 +72,8 @@ canvas {
 #help:hover .helptext {
   visibility: visible;
   opacity: 1;
+}
+
+#help img {
+  width: 200px;
 }
