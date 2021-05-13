@@ -15,7 +15,7 @@ class StartButton
 
         //Text in button
         this.context.fillStyle = 'white';
-        this.context.fillText('Start', this.x + 10, this.y + (this.height/2) + 10);
+        this.context.fillText('Start', this.x + 10, this.y + (this.height/2) + 14);
     }
 
     update(secondsPassed){
