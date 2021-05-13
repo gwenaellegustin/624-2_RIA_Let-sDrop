@@ -4,7 +4,7 @@ class MonsterHand {
         this.monsterReady = false;
         this.monsterImage = new Image();
         this.x = x;
-        this.y = y + 148;  //The soap can't appear on a edge of the canvas
+        this.y = y + 148;  //The soap can't appear on a edge of the canvas TODO: change 150 when no border
         this.width = null;
         this.height = null;
         this.speed = speed;
@@ -30,19 +30,18 @@ class MonsterHand {
     update(secondsPassed){
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
-
+ 
         //Touching edges
-
         if (this.x < 0) { //Left side
            this.x = this.context.canvas.width - this.width;
         } else if (this.x > this.context.canvas.width - this.width) { //Right side
             this.x = 0;
         }
 
-        if (this.y < 148) { //Top side
+        if (this.y < 148) { //Top side TODO: change 150 when no border
             this.y = this.context.canvas.height - this.height;
         } else if (this.y > this.context.canvas.height - this.height) { //Bottom side
-            this.y = 148;
+            this.y = 148; // TODO: change 150 when no border
         }
     }
 }

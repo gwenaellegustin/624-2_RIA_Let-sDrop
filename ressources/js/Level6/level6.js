@@ -39,10 +39,29 @@ class Level6{
 
             //Monsters
             //TODO:
+            new Crab(thisGame.context, 800, 250, thisGame.droppy)
         ];
     }
 
     static detectCollisionsMonsters(thisGame){
         //TODO:
+        let crab = thisGame.gameObjects[2];
+
+        let hit = thisGame.collisionRectRect(crab.x + 5, crab.y + 10, crab.width - 10, crab.height - 20, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+        if(hit && thisGame.droppy.isColliding === false){
+            thisGame.droppy.isColliding = true;
+            thisGame.gameObjects[2].isColliding = true;
+            //Waiting 1000ms before Droppy can be touched again
+            setTimeout(()=>{
+                thisGame.gameObjects[2].isColliding = false;
+            }, 1000);
+            
+            if(thisGame.droppy.size<4){
+                thisGame.droppy.droppyLosesALife();
+            }
+            else{
+                thisGame.isGameOver = true;
+            }
+        }
     }
 }

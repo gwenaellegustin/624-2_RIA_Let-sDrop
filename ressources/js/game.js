@@ -32,7 +32,7 @@ class Game {
         this.context = this.canvas.getContext('2d');
         
         //General text style of the game
-        this.context.font = "40px Delius";
+        this.context.font = "30px Delius";
         this.context.fillStyle = "white";
     
         Level0.createLevel(this);
@@ -120,8 +120,8 @@ class Game {
                     this.droppy.x = this.canvas.width - this.droppy.width;
                 }
 
-                if(this.droppy.y < 148){ //TOP EDGE
-                    this.droppy.y = 148;
+                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
+                    this.droppy.y = 148; // TODO: change 150 when no border
                 } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
@@ -155,29 +155,33 @@ class Game {
     detectChangeLevel(){
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
-            Level6.createLevel(this);
+            Level1.createLevel(this);
         }
 
-        // To change to next level
+        // Zone which define end of the level
         switch(this.level){
             case 1:
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level6.createLevel(this); // TODO: change in level 2
+                        Level6.createLevel(this); //TODO:
                     }
                 }
                 break;
             case 2:
                 //TODO:
+                //Level3.createLevel(this);
                 break;
             case 3: 
                 //TODO:
+                //Level4.createLevel(this);
                 break;
             case 4:
                 //TODO:
+                //Level5.createLevel(this);
                 break;
             case 5:
                 //TODO:
+                //Level6.createLevel(this);
                 break;
             case 6: 
                 if(1000 == (this.droppy.x + this.droppy.width)){
@@ -190,7 +194,7 @@ class Game {
     setTitle(){
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
-        this.context.fillText(this.levelName, this.canvas.width/2, 15);
+        this.context.fillText(this.levelName, this.canvas.width/2, 10);
     }
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
