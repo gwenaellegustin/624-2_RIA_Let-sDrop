@@ -12,6 +12,8 @@ class StartButton
         //Draw button
         this.context.fillStyle = 'black';
         this.context.fillRect(this.x, this.y, this.width, this.height);
+        this.context.clearRect(20, 20, 20, 20);
+        this.context.strokeRect(50, 50, 50, 50);
 
         //Text in button
         this.context.fillStyle = 'white';
@@ -19,5 +21,6 @@ class StartButton
     }
 
     update(secondsPassed){
+       
     }
 }
