@@ -12,9 +12,7 @@ class Crab {
         this.directionX = 0;
         this.directionY = 0;
         this.isColliding = false;
-        // Follow droppy
         this.droppy = droppy;
-        this.stepWidthFactor  = 200;
 
         this.monsterImage.addEventListener('load', (event) => {
             this.width = this.monsterImage.width;
@@ -39,11 +37,11 @@ class Crab {
         this.x += this.speed/20 * (this.x - this.droppy.x) / -100 * secondsPassed;
         this.y += this.speed * (this.y - this.droppy.y) / -100 * secondsPassed;
 
+        // Grab Droppy
         if (this.isColliding == true){
             this.monsterImage.src = "/ressources/images/game/Level6/CrabClosed110x130.png";
         } else {
             this.monsterImage.src = "/ressources/images/game/Level6/Crab110x130.png";
-
         }
 
         //Touching edges
@@ -52,7 +50,6 @@ class Crab {
          } else if (this.x > this.context.canvas.width - this.width) { //Right side
             this.x = this.context.canvas.width - this.width;
          }
- 
          if (this.y < 50) { 
             this.y = 50; 
          } else if (this.y > this.context.canvas.height - this.height) { //Bottom side

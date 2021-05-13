@@ -22,6 +22,6 @@ class Level0{
             }
         });
 
-        thisGame.droppy = new Drop(thisGame.context, 0, 148, 1, "blue");
+        thisGame.droppy = new Drop(thisGame.context, 0, 148, 1, "blue"); // TODO: change 150 when no border
     }
 }

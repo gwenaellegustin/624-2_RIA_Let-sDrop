@@ -26,7 +26,7 @@ class Level1{
             
             thisGame.timer,
 
-            //Monsters
+            //Monsters TODO: change 148 in 150 when no border
             new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 148)), //Random between space usable
             new Soap(thisGame.context, 150, Math.random() * (thisGame.canvas.height - 48 - 148)),
             new Soap(thisGame.context, 250, Math.random() * (thisGame.canvas.height - 48 - 148)),
