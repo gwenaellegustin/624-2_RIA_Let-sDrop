@@ -37,7 +37,7 @@ class Game {
     
         this.createLevel0();
 
-                // press enter to reload the page
+        // press enter to reload the page
         window.addEventListener('keydown', event => { 
             if(event.code === 'Enter'){
                 document.location.reload();
