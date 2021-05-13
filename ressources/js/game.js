@@ -92,6 +92,7 @@ class Game {
     }
 
     detectCollisionsEdges(){
+        // EDGES COLLISIONS : Checking collisions for droppy 
         switch(this.level){
             case 3:
                 //TODO:
@@ -100,10 +101,19 @@ class Game {
                 //TODO:
                 break;
             case 6:
-                //TODO:
+                if (this.droppy.x < 0) { //LEFT EDGE
+                    this.droppy.x = 0;
+                } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
+                    this.droppy.x = this.canvas.width - this.droppy.width;
+                }
+
+                if(this.droppy.y < 50){ //TOP EDGE
+                    this.droppy.y = 50;
+                } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
+                    this.droppy.y = this.canvas.height - this.droppy.height;
+                }
                 break;
             default:
-                // EDGES COLLISIONS : Checking collisions for droppy 
                 if (this.droppy.x < 0) { //LEFT EDGE
                     this.droppy.x = 0;
                 } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
@@ -119,26 +129,62 @@ class Game {
         }
     }
 
-    detectCollisionsMonsters(){        
-        if(this.level === 1){
-            Level1.detectCollisionsMonsters(this);
-        }
+    detectCollisionsMonsters(){       
+        switch(this.level){
+            case 1:
+                Level1.detectCollisionsMonsters(this);
+                break;
+            case 2:
+                //TODO:
+                break;
+            case 3: 
+                //TODO:
+                break;
+            case 4:
+                //TODO:
+                break;
+            case 5:
+                //TODO:
+                break;
+            case 6: 
+                Level6.detectCollisionsMonsters(this);
+                break;
+            }
     }
 
     detectChangeLevel(){
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
-            Level1.createLevel(this);
+            Level6.createLevel(this);
         }
 
-        // To change from level 1 to 2
-        if (this.level === 1){
-            if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
-                if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                    this.isWin = true; // TODO: change in next level
+        // To change to next level
+        switch(this.level){
+            case 1:
+                if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
+                    if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
+                        Level6.createLevel(this); // TODO: change in level 2
+                    }
                 }
+                break;
+            case 2:
+                //TODO:
+                break;
+            case 3: 
+                //TODO:
+                break;
+            case 4:
+                //TODO:
+                break;
+            case 5:
+                //TODO:
+                break;
+            case 6: 
+                if(1000 == (this.droppy.x + this.droppy.width)){
+                    this.isWin = true;
+                }
+                break;
             }
-        }
     }
 
     setTitle(){
