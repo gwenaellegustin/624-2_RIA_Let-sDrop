@@ -9,7 +9,7 @@ class Game {
         this.isWin = false;
         this.levelName = null;
         this.timer = null;
-        this.dropSize = 0 ;
+        this.dropSize ;
         this.ready = false ;
 
         // Object
@@ -104,7 +104,9 @@ class Game {
             case 6:
                 //TODO:
                 break;
-            default:
+            case 1:
+            case 2:
+            case 5:
                 // EDGES COLLISIONS : Checking collisions for droppy 
                 if (this.droppy.x < 0) { //LEFT EDGE
                     this.droppy.x = 0;
