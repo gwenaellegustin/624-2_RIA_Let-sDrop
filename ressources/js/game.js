@@ -9,7 +9,6 @@ class Game {
         this.isWin = false;
         this.levelName = null;
         this.timer = null;
-        this.dropSize ;
         this.ready = false ;
 
         // Object
