@@ -1,5 +1,19 @@
-class Geolocation{
-	static create(thisGame){
+class Geolocation {
+	constructor(context, thisGame){
+		this.context = context;
+		this.town;
+		this.state;
+		this.country;
+
+		this.getCountry();
+	}
+
+	draw(){
+		this.context.fillStyle = "black";
+        this.context.fillText("Escape from ", 100, 400);
+	}
+
+	getCountry(){
 		navigator.geolocation.getCurrentPosition(onSuccess);
 
 		let lat, lng;
@@ -10,12 +24,14 @@ class Geolocation{
 		
 			console.log(lat+","+lng);
 		
-			userAction();
+			getDataFromLatLong();
 		}
 		
-		const userAction = async () => {
+		const getDataFromLatLong = async () => {
 			const response = await fetch('https://nominatim.openstreetmap.org/reverse?lat='+lat+'&lon='+lng+'&format=json');
 			const result = await response.json();
+			//const json = JSON.parse(result);
+
 			console.log(result);
 		}
 	}
