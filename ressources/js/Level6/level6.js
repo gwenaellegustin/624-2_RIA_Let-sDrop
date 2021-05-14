@@ -22,9 +22,6 @@ class Level6{
         thisGame.droppy.x = 0;
         thisGame.droppy.y = 300;
 
-        //Launch the timer
-        thisGame.timer = new Timer(thisGame.context);
-
         //Music
         thisGame.level1Music.play(); // TODO: uncomment when finishing issue
 
