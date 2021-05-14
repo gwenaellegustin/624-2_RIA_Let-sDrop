@@ -10,6 +10,7 @@ class Game {
         this.levelName = null;
         this.timer = null;
         this.canReload = true;
+        this.ready = false ;
 
         // Object
         this.droppy = null;
@@ -114,7 +115,10 @@ class Game {
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
                 break;
-            default:
+            case 1:
+            case 2:
+            case 5:
+                // EDGES COLLISIONS : Checking collisions for droppy 
                 if (this.droppy.x < 0) { //LEFT EDGE
                     this.droppy.x = 0;
                 } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE

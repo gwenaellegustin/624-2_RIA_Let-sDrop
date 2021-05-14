@@ -5,27 +5,42 @@
     border:none; 
     margin:auto;
 }
+
 body, html {
     height: 100%;
     margin: 0;
     background-color: black;
   }
   
-  #bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    border-style: solid;
-    border-width: 1px;
-    border-color: blue;
-    height: 100%;
-    max-width: 1500px;
-    min-height: 600px;
-    max-height: 600px;
+#bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  border-style: solid;
+  border-width: 1px;
+  border-color: blue;
+  height: 100%;
+  max-width: 1500px;
+  min-height: 600px;
+  max-height: 600px;
+  position: relative;
+}
 
-    position: relative;
-  }
-  
+#drop {
+  display: flex;
+  justify-content: center;
+}
+
+#dropzone {
+  /* TODO: DELETE WHEN OK ON 3 DIFF NAV
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;*/
+  height: 135px;
+  width: 700px;
+  position: fixed;
+  top: 415px;
+}
 
 canvas {
     padding: 0;

@@ -1,10 +1,18 @@
 class Level1{
     static createLevel(thisGame){
+        
         thisGame.level = 1;
-        // Change background
+        
+        //Change background
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')";
+
+        //Remove all images
+        thisGame.clearImages();
+
+        //Remove dropZone
+        document.getElementById('dropzone').remove();
                 
-        // Tap over hero and monsters
+        //Tap over hero and monsters
         let tap = document.createElement('img');
         tap.src = "/ressources/images/game/Level1/Tap.png";
         tap.style.position = 'absolute';
@@ -68,13 +76,13 @@ class Level1{
     }
 
     static detectCollisionsMonsters(thisGame){
-        // MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
+        //MONSTER HANDS COLLISIONS : Checking collisions between Droppy and Monster Hands
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof MonsterHand){
                 let monsterHand = thisGame.gameObjects[i];
 
-                // 10 --> only sponge (not hand)
+                //10 --> only sponge (not hand)
                 let hit = thisGame.collisionRectRect(monsterHand.x, monsterHand.y, monsterHand.width, monsterHand.height - 10, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
@@ -88,7 +96,7 @@ class Level1{
                 }
             }
 
-            // SOAP COLLISIONS : Checking collisions between Droppy and Soaps
+            //SOAP COLLISIONS : Checking collisions between Droppy and Soaps
             if(thisGame.gameObjects[i] instanceof Soap) {
                 let soap = thisGame.gameObjects[i];
 
@@ -98,7 +106,7 @@ class Level1{
                     let soapNb = i;
                     let soapX = soap.x;
 
-                    // soap disappear and appear again somewhere else on the same x axe
+                    //soap disappear and appear again somewhere else on the same x axe
                     thisGame.gameObjects.splice(soapNb, 1, new Soap(thisGame.context, soapX, Math.random() * (thisGame.canvas.height - 48 - 148)));
                     this.droppyIsUpsideDown(thisGame);
                 }
