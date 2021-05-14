@@ -32,14 +32,14 @@ body, html {
 }
 
 #dropzone {
+  /* TODO: DELETE WHEN OK ON 3 DIFF NAV
   border-style: solid;
   border-width: 1px;
-  border-color: red;
+  border-color: red;*/
   height: 135px;
   width: 700px;
   position: fixed;
   top: 415px;
-  /*left: 588px;*/
 }
 
 canvas {

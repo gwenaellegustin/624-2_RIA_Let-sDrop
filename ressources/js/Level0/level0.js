@@ -83,7 +83,6 @@ class Level0{
         
         //DropZone
         let dropzone = document.getElementById("dropzone");
-        //dropzone.style.left = thisGame.canvas.offsetLeft + 150 + "px";
         dropzone.ondragover = (e) => {
             e.preventDefault();
         };
