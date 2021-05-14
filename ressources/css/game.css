@@ -26,9 +26,6 @@ body, html {
   }
 
   #dropzone {
-    /*border-style: solid;
-    border-width: 1px;
-    border-color: red;*/
     height: 135px;
     width: 690px;
     position: fixed;
