@@ -15,6 +15,7 @@ class InputUsername{
         this.input.style.left = `${this.x+145}px`;
         this.input.style.height = "30px";
         this.input.style.width = "200px";
+        this.input.style.paddingLeft = "10px";
         document.getElementById('bg').appendChild(this.input);
 
         window.addEventListener('keydown', event => {
@@ -31,6 +32,7 @@ class InputUsername{
             thisGame.clearCanvas();
 
             Winner.drawText(thisGame);
+            this.draw();
         })
     }
 
