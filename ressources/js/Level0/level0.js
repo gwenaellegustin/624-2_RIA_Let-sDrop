@@ -20,7 +20,10 @@ class Level0{
             dropSize = 1 ;
         };
         drop1.ondragend = () => {
-            drop1.style.opacity = '0.5';
+            drop1.style.opacity = '0.8';
+            drop2.style.opacity = '1';
+            drop3.style.opacity = '1';
+            drop4.style.opacity = '1';
         };
         document.getElementById('bg').appendChild(drop1);
         
@@ -35,7 +38,10 @@ class Level0{
             dropSize = 2 ;
         };
         drop2.ondragend = () => {
-            drop2.style.opacity = '0.5';
+            drop1.style.opacity = '1';
+            drop2.style.opacity = '0.8';
+            drop3.style.opacity = '1';
+            drop4.style.opacity = '1';
         };
         document.getElementById('bg').appendChild(drop2);
         
@@ -50,7 +56,10 @@ class Level0{
             dropSize = 3 ;
         };
         drop3.ondragend = () => {
-            drop3.style.opacity = '0.5';
+            drop1.style.opacity = '1';
+            drop2.style.opacity = '1';
+            drop3.style.opacity = '0.8';
+            drop4.style.opacity = '1';
         };
         document.getElementById('bg').appendChild(drop3);
 
@@ -65,12 +74,16 @@ class Level0{
             dropSize = 4 ;
         };
         drop4.ondragend = () => {
-            drop4.style.opacity = '0.5';
+            drop1.style.opacity = '1';
+            drop2.style.opacity = '1';
+            drop3.style.opacity = '1';
+            drop4.style.opacity = '0.8';
         };
         document.getElementById('bg').appendChild(drop4);
         
         //DropZone
         let dropzone = document.getElementById("dropzone");
+        //dropzone.style.left = thisGame.canvas.offsetLeft + 150 + "px";
         dropzone.ondragover = (e) => {
             e.preventDefault();
         };
