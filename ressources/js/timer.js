@@ -4,6 +4,7 @@ class Timer
         this.context = context;
         this.start = new Date();
         this.end = 0;
+        this.diff = null;
 
         this.time = null;
     }
@@ -18,11 +19,11 @@ class Timer
 
     update(secondsPassed){
         this.end = new Date();
-        let diff = this.end - this.start;
-        diff = new Date(diff);
-        let msec = diff.getMilliseconds();
-        let sec = diff.getSeconds();
-        let min = diff.getMinutes();
+        this.diff = this.end - this.start;
+        this.diff = new Date(this.diff);
+        let msec = this.diff.getMilliseconds();
+        let sec = this.diff.getSeconds();
+        let min = this.diff.getMinutes();
         if (min < 10){
             min = "0" + min
         }
