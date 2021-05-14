@@ -32,7 +32,7 @@ class Game {
         this.context = this.canvas.getContext('2d');
         
         //General text style of the game
-        this.context.font = "40px Delius";
+        this.context.font = "30px Delius";
         this.context.fillStyle = "white";
     
         Level0.createLevel(this);
@@ -92,6 +92,7 @@ class Game {
     }
 
     detectCollisionsEdges(){
+        // EDGES COLLISIONS : Checking collisions for droppy 
         switch(this.level){
             case 3:
                 //TODO:
@@ -100,18 +101,27 @@ class Game {
                 //TODO:
                 break;
             case 6:
-                //TODO:
-                break;
-            default:
-                // EDGES COLLISIONS : Checking collisions for droppy 
                 if (this.droppy.x < 0) { //LEFT EDGE
                     this.droppy.x = 0;
                 } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
                     this.droppy.x = this.canvas.width - this.droppy.width;
                 }
 
-                if(this.droppy.y < 148){ //TOP EDGE
-                    this.droppy.y = 148;
+                if(this.droppy.y < 50){ //TOP EDGE
+                    this.droppy.y = 50;
+                } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
+                    this.droppy.y = this.canvas.height - this.droppy.height;
+                }
+                break;
+            default:
+                if (this.droppy.x < 0) { //LEFT EDGE
+                    this.droppy.x = 0;
+                } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
+                    this.droppy.x = this.canvas.width - this.droppy.width;
+                }
+
+                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
+                    this.droppy.y = 148; // TODO: change 150 when no border
                 } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
@@ -119,10 +129,27 @@ class Game {
         }
     }
 
-    detectCollisionsMonsters(){        
-        if(this.level === 1){
-            Level1.detectCollisionsMonsters(this);
-        }
+    detectCollisionsMonsters(){       
+        switch(this.level){
+            case 1:
+                Level1.detectCollisionsMonsters(this);
+                break;
+            case 2:
+                //TODO:
+                break;
+            case 3: 
+                //TODO:
+                break;
+            case 4:
+                //TODO:
+                break;
+            case 5:
+                //TODO:
+                break;
+            case 6: 
+                Level6.detectCollisionsMonsters(this);
+                break;
+            }
     }
 
     detectChangeLevel(){
@@ -131,20 +158,43 @@ class Game {
             Level1.createLevel(this);
         }
 
-        // To change from level 1 to 2
-        if (this.level === 1){
-            if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
-                if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                    this.isWin = true; // TODO: change in next level
+        // Zone which define end of the level
+        switch(this.level){
+            case 1:
+                if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
+                    if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
+                        Level6.createLevel(this); //TODO:
+                    }
                 }
+                break;
+            case 2:
+                //TODO:
+                //Level3.createLevel(this);
+                break;
+            case 3: 
+                //TODO:
+                //Level4.createLevel(this);
+                break;
+            case 4:
+                //TODO:
+                //Level5.createLevel(this);
+                break;
+            case 5:
+                //TODO:
+                //Level6.createLevel(this);
+                break;
+            case 6: 
+                if(1000 == (this.droppy.x + this.droppy.width)){
+                    this.isWin = true;
+                }
+                break;
             }
-        }
     }
 
     setTitle(){
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
-        this.context.fillText(this.levelName, this.canvas.width/2, 15);
+        this.context.fillText(this.levelName, this.canvas.width/2, 10);
     }
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){

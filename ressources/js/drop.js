@@ -24,8 +24,8 @@ class Drop {
         this.dropImage.src = "/ressources/images/game/DropSize" + this.size + this.color + ".png";
 
         //Just to see for impact
-        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(this.x, this.y, this.width, this.height);
+        //this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        //this.context.fillRect(this.x, this.y, this.width, this.height);
 
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
@@ -121,9 +121,9 @@ class Drop {
     drawLife(){
         let lifeImage = new Image();
 
-        lifeImage.src = "/ressources/images/game/Life.png";
+        lifeImage.src = "/ressources/images/game/LifeSmall.png";
 
-        let destinationX = 800;
+        let destinationX = 900;
         let destinationY = 10;
         let cuttingX;
         let imageWidth = lifeImage.width;
@@ -135,15 +135,15 @@ class Drop {
                 this.context.drawImage(lifeImage, destinationX, destinationY);
                 break;
             case 2:
-                cuttingX = 47;
+                cuttingX = 47/2;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             case 3:
-                cuttingX = 88;
+                cuttingX = 88/2;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             case 4:
-                cuttingX = 125;
+                cuttingX = 125/2;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             default:

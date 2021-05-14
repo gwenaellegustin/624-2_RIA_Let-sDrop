@@ -9,12 +9,11 @@ class Timer
     }
 
     draw(){
-        this.context.font = "40px Delius";
         this.context.textAlign = "left";
         this.context.textBaseline = "top";
         this.context.fillStyle = "white";
         
-        this.context.fillText(this.time, 10, 15);
+        this.context.fillText(this.time, 10, 10);
     }
 
     update(secondsPassed){
