@@ -4,7 +4,6 @@ class InputUsername{
         this.x = 200;
         this.y = 280;
         this.timer = timer;
-        this.thisGame = thisGame;
 
         this.results;
 
@@ -22,10 +21,17 @@ class InputUsername{
             //If the input.value is empty, no need to save nothing
             if(event.code === 'Enter' && this.input.value!=""){
                 this.storeUsernameLocalStorage();
-                HallOfFame.createLevel(this.thisGame, this.results);
                 this.input.value = "";
+                HallOfFame.createLevel(thisGame, this.results);
             }
         });
+
+        //Recalculate each time the input is modified
+        document.getElementById('usernameInput').addEventListener('input', () => {
+            thisGame.clearCanvas();
+
+            Winner.drawText(thisGame);
+        })
     }
 
     draw(){
@@ -37,6 +43,7 @@ class InputUsername{
     }
 
     storeUsernameLocalStorage(){
+        //Create userObject
         let userObject = {
             'username': this.input.value,
             'time': this.timer.diff,
@@ -54,6 +61,7 @@ class InputUsername{
 
         localStorage.setItem("Results",JSON.stringify(this.results));
 
+        //In order to highlight the user record, I need to know who it is
         localStorage.setItem("CurrentUsername",this.input.value);
         localStorage.setItem("CurrentTime", this.timer.time);
     }

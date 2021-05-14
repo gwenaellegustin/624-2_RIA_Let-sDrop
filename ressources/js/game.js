@@ -9,6 +9,7 @@ class Game {
         this.isWin = false;
         this.levelName = null;
         this.timer = null;
+        this.canReload = true;
 
         // Object
         this.droppy = null;
@@ -39,7 +40,7 @@ class Game {
 
         // press enter to reload the page
         window.addEventListener('keydown', event => { 
-            if(event.code === 'Space'){
+            if(event.code === 'Space' && this.canReload){
                 document.location.reload();
             }
          }, false);
