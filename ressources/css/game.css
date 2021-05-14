@@ -41,7 +41,6 @@ body, html {
   width: 700px;
   position: fixed;
   top: 415px;
-  
 }
 
 #dropzone p {
@@ -60,6 +59,11 @@ canvas {
     border: 1px solid greenyellow;
 }
 
-#geolocalisation { 
-  height: 1080px; 
+#geolocation { 
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.8em;
+  font-family: 'Delius';
+  color: white;
 }

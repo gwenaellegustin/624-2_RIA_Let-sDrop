@@ -1,38 +1,32 @@
 class Geolocation {
-	constructor(context, thisGame){
-		this.context = context;
-		this.town;
-		this.state;
-		this.country;
+	static draw(){
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-		this.getCountry();
-	}
-
-	draw(){
-		this.context.fillStyle = "black";
-        this.context.fillText("Escape from ", 100, 400);
-	}
-
-	getCountry(){
-		navigator.geolocation.getCurrentPosition(onSuccess);
-
-		let lat, lng;
-		
-		function onSuccess(position){
-			lat = position.coords.latitude;
-			lng = position.coords.longitude;
-		
-			console.log(lat+","+lng);
-		
-			getDataFromLatLong();
+		function onSuccess(position){		
+			getDataFromLatLong(position.coords.latitude, position.coords.longitude);
 		}
-		
-		const getDataFromLatLong = async () => {
+
+		function onError() {
+			document.getElementById('geolocation_region').innerHTML = 'Escape from your reality';
+		}
+
+		const getDataFromLatLong = async (lat, lng) => {
 			const response = await fetch('https://nominatim.openstreetmap.org/reverse?lat='+lat+'&lon='+lng+'&format=json');
 			const result = await response.json();
-			//const json = JSON.parse(result);
+	
+			let town = result['address']['village'];
+			let state = result['address']['state'];
+			let country = result['address']['country'];
 
-			console.log(result);
+			if(!state){
+				document.getElementById('geolocation_region').innerHTML = 'Escape from ' + country;
+			}
+			else if(!town){
+				document.getElementById('geolocation_region').innerHTML = 'Escape from ' + state + ', ' + country;
+			}
+			else{
+				document.getElementById('geolocation_region').innerHTML = 'Escape from ' + town + ' (' + state + ', ' + country + ')';
+			}
 		}
-	}
+	}	
 }

@@ -92,8 +92,8 @@ class Level0{
 
         thisGame.droppy = new Drop(thisGame.context, 0, 148, 4, "blue");
 
-        let geolocation = new Geolocation(thisGame.context, thisGame);
-        geolocation.draw();
+        //Draw the line "Escape from"
+        Geolocation.draw();
     }
 
     static launchGame(thisGame, dropSize) {
