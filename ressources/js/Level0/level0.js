@@ -8,15 +8,20 @@ class Level0{
         //Background to start with
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
 
+        //To work on all navigators, preventDefault() for prevent opening a drag and dropped file in a new tab
+        window.addEventListener("dropover",function(e){
+            e.preventDefault();
+        },false);
+        window.addEventListener("drop",function(e){
+            e.preventDefault();
+        },false);
+
         //Droppies
-        let drop1 = document.createElement('img');
-        drop1.src = "/ressources/images/game/DropSize1blue.png";
-        drop1.style.position = 'absolute';
+        let drop1 = document.getElementById("drop1");
         drop1.style.left = "440px" ;
         drop1.style.top = "355px" ;
-        drop1.setAttribute('draggable', true);
         drop1.ondragstart = () => {
-            drop1.style.opacity = '0';
+            drop1.style.opacity = '0.2';
             dropSize = 1 ;
         };
         drop1.ondragend = () => {
@@ -27,14 +32,11 @@ class Level0{
         };
         document.getElementById('bg').appendChild(drop1);
         
-        let drop2 = document.createElement('img');
-        drop2.src = "/ressources/images/game/DropSize2blue.png";
-        drop2.style.position = 'absolute';
+        let drop2 = document.getElementById("drop2");
         drop2.style.left = "490px" ;
         drop2.style.top = "366px" ;
-        drop2.setAttribute('draggable', true);
         drop2.ondragstart = () => {
-            drop2.style.opacity = '0';
+            drop2.style.opacity = '0.2';
             dropSize = 2 ;
         };
         drop2.ondragend = () => {
@@ -45,14 +47,11 @@ class Level0{
         };
         document.getElementById('bg').appendChild(drop2);
         
-        let drop3 = document.createElement('img');
-        drop3.src = "/ressources/images/game/DropSize3blue.png";
-        drop3.style.position = 'absolute';
+        let drop3 = document.getElementById("drop3");
         drop3.style.left = "532px" ;
         drop3.style.top = "374px" ;
-        drop3.setAttribute('draggable', true);
         drop3.ondragstart = () => {
-            drop3.style.opacity = '0';
+            drop3.style.opacity = '0.2';
             dropSize = 3 ;
         };
         drop3.ondragend = () => {
@@ -63,14 +62,11 @@ class Level0{
         };
         document.getElementById('bg').appendChild(drop3);
 
-        let drop4 = document.createElement('img');
-        drop4.src = "/ressources/images/game/DropSize4blue.png";
-        drop4.style.position = 'absolute';
+        let drop4 = document.getElementById("drop4");
         drop4.style.left = "568px" ;
         drop4.style.top = "382px" ;
-        drop4.setAttribute('draggable', true);
         drop4.ondragstart = () => {
-            drop4.style.opacity = '0';
+            drop4.style.opacity = '0.2';
             dropSize = 4 ;
         };
         drop4.ondragend = () => {

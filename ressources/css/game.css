@@ -32,6 +32,11 @@ body, html {
   justify-content: center;
 }
 
+.droppies {
+  position: absolute;
+  cursor: grab;
+}
+
 #dropzone {
   /* TODO: DELETE WHEN OK ON 3 DIFF NAV
   border-style: solid;
@@ -41,7 +46,6 @@ body, html {
   width: 700px;
   position: fixed;
   top: 415px;
-  
 }
 
 #dropzone p {
