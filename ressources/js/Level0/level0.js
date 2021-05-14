@@ -3,6 +3,7 @@ class Level0{
     static createLevel(thisGame){
 
         thisGame.level = 0;
+        let dropSize;
         
         //Background to start with
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
@@ -16,10 +17,10 @@ class Level0{
         drop1.setAttribute('draggable', true);
         drop1.ondragstart = () => {
             drop1.style.opacity = '0';
+            dropSize = 1 ;
         };
         drop1.ondragend = () => {
-            drop1.style.opacity = '0';
-            this.launchGame(thisGame, 1);
+            drop1.style.opacity = '0.5';
         };
         document.getElementById('bg').appendChild(drop1);
         
@@ -31,10 +32,10 @@ class Level0{
         drop2.setAttribute('draggable', true);
         drop2.ondragstart = () => {
             drop2.style.opacity = '0';
+            dropSize = 2 ;
         };
         drop2.ondragend = () => {
-            drop2.style.opacity = '0';
-            this.launchGame(thisGame, 2);
+            drop2.style.opacity = '0.5';
         };
         document.getElementById('bg').appendChild(drop2);
         
@@ -46,10 +47,10 @@ class Level0{
         drop3.setAttribute('draggable', true);
         drop3.ondragstart = () => {
             drop3.style.opacity = '0';
+            dropSize = 3 ;
         };
         drop3.ondragend = () => {
-            drop3.style.opacity = '0';
-            this.launchGame(thisGame, 3);
+            drop3.style.opacity = '0.5';
         };
         document.getElementById('bg').appendChild(drop3);
 
@@ -61,10 +62,10 @@ class Level0{
         drop4.setAttribute('draggable', true);
         drop4.ondragstart = () => {
             drop4.style.opacity = '0';
+            dropSize = 4 ;
         };
         drop4.ondragend = () => {
-            drop4.style.opacity = '0';
-            this.launchGame(thisGame, 4);
+            drop4.style.opacity = '0.5';
         };
         document.getElementById('bg').appendChild(drop4);
         
@@ -74,10 +75,7 @@ class Level0{
             e.preventDefault();
         };
         dropzone.ondrop = () => {
-            drop1.style.opacity = '0';
-            drop2.style.opacity = '0';
-            drop3.style.opacity = '0';
-            drop4.style.opacity = '0';
+            this.launchGame(thisGame, dropSize);
         };
     }
 
