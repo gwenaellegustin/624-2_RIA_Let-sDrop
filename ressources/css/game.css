@@ -87,7 +87,7 @@ canvas {
   /* Position the help text */
   position: absolute;
   z-index: 1;
-  top: 40px;
+  top: 50px;
   right: 0px;
 
   /* Fade in help */
