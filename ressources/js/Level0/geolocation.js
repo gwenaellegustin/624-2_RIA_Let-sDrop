@@ -1,8 +1,8 @@
 class Geolocation{
-	create(thisGame){
+	static create(thisGame){
 		navigator.geolocation.getCurrentPosition(onSuccess);
 
-		let lat, lng, url;
+		let lat, lng;
 		
 		function onSuccess(position){
 			lat = position.coords.latitude;
