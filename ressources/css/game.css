@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700|Delius:700');
 /* game */
 * {
     box-sizing: border-box;
@@ -40,6 +41,14 @@ body, html {
   width: 700px;
   position: fixed;
   top: 415px;
+  
+}
+
+#dropzone p {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: 'Delius';
+  color: white;
 }
 
 canvas {
