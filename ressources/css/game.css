@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700|Delius:700');
 /* game */
 * {
     box-sizing: border-box;
@@ -6,25 +7,50 @@
     margin:auto;
     font-family: 'Delius', 'Trebuchet MS', Arial, sans-serif;
 }
+
 body, html {
     height: 100%;
     margin: 0;
     background-color: black;
   }
   
-  #bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    border-style: solid;
-    border-width: 1px;
-    border-color: blue;
-    height: 100%;
-    max-width: 1500px;
-    min-height: 600px;
-    max-height: 600px;
-  }
+#bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  border-style: solid;
+  border-width: 1px;
+  border-color: blue;
+  height: 100%;
+  max-width: 1500px;
+  min-height: 600px;
+  max-height: 600px;
+  position: relative;
+}
+
+#drop {
+  display: flex;
+  justify-content: center;
+}
+
+#dropzone {
+  /* TODO: DELETE WHEN OK ON 3 DIFF NAV
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;*/
+  height: 135px;
+  width: 700px;
+  position: fixed;
+  top: 415px;
   
+}
+
+#dropzone p {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: 'Delius';
+  color: white;
+}
 
 canvas {
     padding: 0;
