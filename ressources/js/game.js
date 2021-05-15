@@ -96,6 +96,22 @@ class Game {
     detectCollisionsEdges(){
         // EDGES COLLISIONS : Checking collisions for droppy 
         switch(this.level){
+            case 1:
+            case 2:
+            case 5:
+                // EDGES COLLISIONS : Checking collisions for droppy 
+                if (this.droppy.x < 0) { //LEFT EDGE
+                    this.droppy.x = 0;
+                } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
+                    this.droppy.x = this.canvas.width - this.droppy.width;
+                }
+
+                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
+                    this.droppy.y = 148; // TODO: change 150 when no border
+                } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
+                    this.droppy.y = this.canvas.height - this.droppy.height;
+                }
+                break;
             case 3:
                 //TODO:
                 break;
@@ -111,22 +127,6 @@ class Game {
 
                 if(this.droppy.y < 50){ //TOP EDGE
                     this.droppy.y = 50;
-                } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
-                    this.droppy.y = this.canvas.height - this.droppy.height;
-                }
-                break;
-            case 1:
-            case 2:
-            case 5:
-                // EDGES COLLISIONS : Checking collisions for droppy 
-                if (this.droppy.x < 0) { //LEFT EDGE
-                    this.droppy.x = 0;
-                } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
-                    this.droppy.x = this.canvas.width - this.droppy.width;
-                }
-
-                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
-                    this.droppy.y = 148; // TODO: change 150 when no border
                 } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
@@ -149,7 +149,7 @@ class Game {
                 //TODO:
                 break;
             case 5:
-                //TODO:
+                Level5.detectCollisionsMonsters(this);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
