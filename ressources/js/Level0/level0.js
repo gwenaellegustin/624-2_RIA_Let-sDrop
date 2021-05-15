@@ -10,7 +10,7 @@ class Level0{
 
         //Draw help "?" margin, according to ininital size of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
-        document.getElementById("help").style.marginLeft = `${marginCanvas+955}px`; 
+        document.getElementById("help").style.marginLeft = `${marginCanvas + 955}px`; 
         //To work on all navigators, preventDefault() for prevent opening a drag and dropped file in a new tab
         window.addEventListener("dropover",function(e){
             e.preventDefault();
@@ -21,7 +21,7 @@ class Level0{
 
         //Droppies
         let drop1 = document.getElementById("drop1");
-        drop1.style.left = "440px" ;
+        drop1.style.left = `${marginCanvas + 190}px` ;
         drop1.style.top = "355px" ;
         drop1.ondragstart = () => {
             drop1.style.opacity = '0.2';
@@ -36,7 +36,7 @@ class Level0{
         document.getElementById('bg').appendChild(drop1);
         
         let drop2 = document.getElementById("drop2");
-        drop2.style.left = "490px" ;
+        drop2.style.left = `${marginCanvas + 240}px` ;
         drop2.style.top = "366px" ;
         drop2.ondragstart = () => {
             drop2.style.opacity = '0.2';
@@ -51,7 +51,7 @@ class Level0{
         document.getElementById('bg').appendChild(drop2);
         
         let drop3 = document.getElementById("drop3");
-        drop3.style.left = "532px" ;
+        drop3.style.left = `${marginCanvas + 282}px` ;
         drop3.style.top = "374px" ;
         drop3.ondragstart = () => {
             drop3.style.opacity = '0.2';
@@ -66,7 +66,7 @@ class Level0{
         document.getElementById('bg').appendChild(drop3);
 
         let drop4 = document.getElementById("drop4");
-        drop4.style.left = "568px" ;
+        drop4.style.left = `${marginCanvas + 318}px` ;
         drop4.style.top = "382px" ;
         drop4.ondragstart = () => {
             drop4.style.opacity = '0.2';
