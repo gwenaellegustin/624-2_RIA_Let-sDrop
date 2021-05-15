@@ -8,7 +8,7 @@ class Level0{
         //Background to start with
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
 
-        //Draw help "?" margin, according to ininital size of window
+        //Draw help "?" margin, according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
         document.getElementById("help").style.marginLeft = `${marginCanvas + 955}px`; 
         //To work on all navigators, preventDefault() for prevent opening a drag and dropped file in a new tab

@@ -8,11 +8,12 @@ class InputUsername{
         this.results;
 
         //Create input for username
+        let marginCanvas = document.getElementById("canvas").offsetLeft;
         this.input = document.createElement('INPUT');
         this.input.id = 'usernameInput';
         this.input.style.position = 'absolute';
         this.input.style.top = `${this.y+40}px`;
-        this.input.style.left = `${this.x+145}px`;
+        this.input.style.left = `${marginCanvas+100}px`;
         this.input.style.height = "30px";
         this.input.style.width = "200px";
         this.input.style.paddingLeft = "10px";
