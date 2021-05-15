@@ -35,18 +35,28 @@ class Level5{
             thisGame.droppy,
             thisGame.timer,
 
+            //Lives
+            new Life(thisGame.context, 500, 180),
+            new Life(thisGame.context, 550, 480),
+
             //Monsters
-            new Snail(thisGame.context, (Math.random() * 250)+700, 150, -1, 0, 20),
-            new Snail(thisGame.context, (Math.random() * 250)+700, 280, -1, 0, 10),
-            new Snail(thisGame.context, (Math.random() * 250)+700, 410, -1, 0, 15),
-            new Snail(thisGame.context, Math.random() * 200, 215, 1, 0, 15),
-            new Snail(thisGame.context, Math.random() * 100, 345, 1, 0, 10),
-            new Snail(thisGame.context, Math.random() * 300, 475, 1, 0, 25)
+            new Snail(thisGame.context, (Math.random() * 380)+600, 150, -1, 0, 20),
+            new Snail(thisGame.context, (Math.random() * 380)+600, 280, -1, 0, 10),
+            new Snail(thisGame.context, (Math.random() * 380)+600, 410, -1, 0, 15),
+            new Snail(thisGame.context, Math.random() * 450, 215, 1, 0, 15),
+            new Snail(thisGame.context, Math.random() * 450, 345, 1, 0, 10),
+            new Snail(thisGame.context, Math.random() * 450, 475, 1, 0, 25),
+            new Flower(thisGame.context, 50, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 230, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 410, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 590, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 770, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 950, (Math.random() * 300) + 200, 2)         
         ];
     }
 
     static detectCollisionsMonsters(thisGame){
-        //SNAIL COLLISIONS
+        //MONSTERS COLLISIONS
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof Snail){
@@ -65,7 +75,48 @@ class Level5{
                 }
             }
 
-            // implement flowers here
+            if(thisGame.gameObjects[i] instanceof Flower){
+                let flower = thisGame.gameObjects[i];
+
+                let hit = thisGame.collisionRectRect(flower.x, flower.y, flower.width, flower.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                
+                if(hit && thisGame.droppy.isColliding === false){
+                    thisGame.droppy.isColliding = true;
+                    let flowerNb = i;
+                    let flowerX = flower.x;
+                    let flowerY = flower.y;
+                    let flowerImg = Math.floor((Math.random() * 3) + 3);
+
+                    console.log("i :"+flowerNb+" flowerImg: "+flowerImg+" x: "+flowerX+" y: "+flowerY)
+
+                    thisGame.gameObjects.splice(flowerNb, 1, new Flower(thisGame.context, flowerX, flowerY, flowerImg));
+                                        
+                    if(thisGame.droppy.size<4){
+                        thisGame.droppy.droppyLosesALife();
+                    }
+                    else{
+                        thisGame.isGameOver = true;
+                    }
+                }
+            }
+
+            if(thisGame.gameObjects[i] instanceof Life) {
+                let life = thisGame.gameObjects[i];
+
+                let hit = thisGame.collisionRectRect(life.x, life.y, life.width, life.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                
+                if(hit && thisGame.droppy.isColliding === false){
+                    thisGame.droppy.isColliding = true;
+
+                    if(thisGame.droppy.size>1){
+                        thisGame.droppy.droppyRetrieveALife();
+                        thisGame.gameObjects.splice(i,1);
+                    }
+                    else{
+                        thisGame.gameObjects.splice(i,1);
+                    }
+                }
+            }
             
         }
     }

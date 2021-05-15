@@ -103,6 +103,31 @@ class Drop {
         }, 1000);
     }
 
+    droppyRetrieveALife(){
+        let oldSize = this.size;
+        this.size = 0;
+
+         //Waiting 100ms before blinking at oldSize
+         setTimeout(()=>{
+            this.size = oldSize;
+        }, 100);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 200);
+
+         //Waiting 100ms more before blinking at new size
+         setTimeout(()=>{
+            this.size = oldSize-1;
+        }, 300);
+
+        //Waiting 1000ms before Droppy can be touched again
+        setTimeout(()=>{
+            this.isColliding = false;
+        }, 1000);
+    }
+
     upsideDownCommands() {
         // TODO: random vector with numbers
         Key.DOWN = 38;
