@@ -7,7 +7,7 @@ class Geolocation {
 		}
 
 		function onError() {
-			document.getElementById('geolocation_region').innerHTML = 'Escape from your reality';
+			document.getElementById('geolocation_region').innerHTML = '<br/>' + 'Escape from your reality';
 		}
 
 		const getDataFromLatLong = async (lat, lng) => {
@@ -19,13 +19,13 @@ class Geolocation {
 			let country = result['address']['country'];
 
 			if(!state){
-				document.getElementById('geolocation_region').innerHTML = 'Escape from ' + country;
+				document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + country;
 			}
 			else if(!town){
-				document.getElementById('geolocation_region').innerHTML = 'Escape from ' + state + ', ' + country;
+				document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + '<br/>' + state + ', ' + country;
 			}
 			else{
-				document.getElementById('geolocation_region').innerHTML = 'Escape from ' + town + ' (' + state + ', ' + country + ')';
+				document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + '<br/>' + town + ' (' + state + ', ' + country + ')';
 			}
 		}
 	}	

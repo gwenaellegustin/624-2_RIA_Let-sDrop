@@ -5,6 +5,7 @@
     padding:0; 
     border:none; 
     margin:auto;
+    font-family: 'Delius', 'Trebuchet MS', Arial, sans-serif;
 }
 
 body, html {
@@ -32,11 +33,14 @@ body, html {
   justify-content: center;
 }
 
+#geolocation {
+  position: fixed;
+  padding-left: 850px;
+  width: 1500px;
+  top: 320px;
+}
+
 #dropzone {
-  /* TODO: DELETE WHEN OK ON 3 DIFF NAV
-  border-style: solid;
-  border-width: 1px;
-  border-color: red;*/
   height: 135px;
   width: 700px;
   position: fixed;
@@ -46,7 +50,6 @@ body, html {
 #dropzone p {
   text-align: center;
   font-size: 1.8em;
-  font-family: 'Delius';
   color: white;
 }
 
@@ -60,10 +63,7 @@ canvas {
 }
 
 #geolocation { 
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.8em;
-  font-family: 'Delius';
-  color: white;
+  text-align: left;
+  font-size: 1.6em;
+  color: #86dbff;
 }
