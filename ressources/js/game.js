@@ -15,6 +15,10 @@ class Game {
         // Object
         this.droppy = null;
 
+        // Lives
+        this.health1 = null;
+        this.health2 = null;
+
         // Music and sounds
         this.level1Music = new Audio("/ressources/sounds/frightNight.wav"); // will continue through all levels
         //level1Music.loop = true; // TODO: to uncomment and try when enough levels
@@ -63,7 +67,7 @@ class Game {
         
         // Detect collisions with edges and monsters
         this.detectCollisionsEdges();
-        this.detectCollisionsMonsters();
+        this.detectCollisions();
         
         // Detecter end of level
         this.detectChangeLevel();
@@ -134,7 +138,7 @@ class Game {
         }
     }
 
-    detectCollisionsMonsters(){       
+    detectCollisions(){       
         switch(this.level){
             case 1:
                 Level1.detectCollisionsMonsters(this);
@@ -150,6 +154,7 @@ class Game {
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
+                Level5.retrieveLives(this);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);

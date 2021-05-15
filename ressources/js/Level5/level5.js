@@ -11,6 +11,10 @@ class Level5{
         //Change background
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level5/Level5.png')";
 
+        //Create health Lives
+        thisGame.health1 = new Life(thisGame.context, 500, 180);
+        thisGame.health2 = new Life(thisGame.context, 550, 480);
+
         //Place Droppy depending on his height
         thisGame.droppy.x = 0;
         switch(thisGame.droppy.size) {
@@ -35,9 +39,12 @@ class Level5{
             thisGame.droppy,
             thisGame.timer,
 
+            thisGame.health1,
+            thisGame.health2,
+
             //Lives
-            new Life(thisGame.context, 500, 180),
-            new Life(thisGame.context, 550, 480),
+            /*new Life(thisGame.context, 500, 180),
+            new Life(thisGame.context, 550, 480),*/
 
             //Monsters
             new Snail(thisGame.context, (Math.random() * 380)+600, 150, -1, 0, 20),
@@ -47,11 +54,11 @@ class Level5{
             new Snail(thisGame.context, Math.random() * 450, 345, 1, 0, 10),
             new Snail(thisGame.context, Math.random() * 450, 475, 1, 0, 25),
             new Flower(thisGame.context, 50, (Math.random() * 300) + 200, 2),
-            new Flower(thisGame.context, 230, (Math.random() * 300) + 200, 2),
-            new Flower(thisGame.context, 410, (Math.random() * 300) + 200, 2),
-            new Flower(thisGame.context, 590, (Math.random() * 300) + 200, 2),
-            new Flower(thisGame.context, 770, (Math.random() * 300) + 200, 2),
-            new Flower(thisGame.context, 950, (Math.random() * 300) + 200, 2)         
+            new Flower(thisGame.context, 220, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 390, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 560, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 730, (Math.random() * 300) + 200, 2),
+            new Flower(thisGame.context, 900, (Math.random() * 300) + 200, 2)         
         ];
     }
 
@@ -99,7 +106,12 @@ class Level5{
                     }
                 }
             }
+        }
+    }
 
+    static retrieveLives(thisGame) {
+        for (let i = 0; i < thisGame.gameObjects.length; i++)
+        {
             if(thisGame.gameObjects[i] instanceof Life) {
                 let life = thisGame.gameObjects[i];
 
@@ -114,10 +126,10 @@ class Level5{
                     }
                     else{
                         thisGame.gameObjects.splice(i,1);
+                        thisGame.droppy.isColliding = false;
                     }
                 }
             }
-            
         }
     }
 }
