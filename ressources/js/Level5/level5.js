@@ -12,8 +12,8 @@ class Level5{
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level5/Level5.png')";
 
         //Create health Lives
-        thisGame.health1 = new Life(thisGame.context, 500, 180);
-        thisGame.health2 = new Life(thisGame.context, 550, 480);
+        thisGame.health1 = new Life(thisGame.context, 350, 180);
+        thisGame.health2 = new Life(thisGame.context, 650, 480);
 
         //Place Droppy depending on his height
         thisGame.droppy.x = 0;
