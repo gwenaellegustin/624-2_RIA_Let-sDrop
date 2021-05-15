@@ -118,7 +118,7 @@ class Game {
                 }
                 break;
             case 3:
-                //TODO:
+                Level3.detectCollisionsEdge(this);
                 break;
             case 4:
                 //TODO:
@@ -167,6 +167,7 @@ class Game {
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
             Level1.createLevel(this);
+            Level3.createLevel(this);
         }
 
         // Zone which define end of the level
@@ -174,7 +175,8 @@ class Game {
             case 1:
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level5.createLevel(this); //TODO:
+                        Level3.createLevel(this); //TODO:CHANGE
+                        //Level5.createLevel(this); //TODO:
                     }
                 }
                 break;
