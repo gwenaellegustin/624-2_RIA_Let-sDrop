@@ -15,6 +15,10 @@ class Game {
         // Object
         this.droppy = null;
 
+        // Lives
+        this.health1 = null;
+        this.health2 = null;
+
         // Music and sounds
         this.level1Music = new Audio("/ressources/sounds/frightNight.wav"); // will continue through all levels
         this.level1Music.loop = true; 
@@ -64,7 +68,7 @@ class Game {
         
         // Detect collisions with edges and monsters
         this.detectCollisionsEdges();
-        this.detectCollisionsMonsters();
+        this.detectCollisions();
         
         // Detecter end of level
         this.detectChangeLevel();
@@ -97,6 +101,22 @@ class Game {
     detectCollisionsEdges(){
         // EDGES COLLISIONS : Checking collisions for droppy 
         switch(this.level){
+            case 1:
+            case 2:
+            case 5:
+                // EDGES COLLISIONS : Checking collisions for droppy 
+                if (this.droppy.x < 0) { //LEFT EDGE
+                    this.droppy.x = 0;
+                } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
+                    this.droppy.x = this.canvas.width - this.droppy.width;
+                }
+
+                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
+                    this.droppy.y = 148; // TODO: change 150 when no border
+                } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
+                    this.droppy.y = this.canvas.height - this.droppy.height;
+                }
+                break;
             case 3:
                 //TODO:
                 break;
@@ -116,26 +136,10 @@ class Game {
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
                 break;
-            case 1:
-            case 2:
-            case 5:
-                // EDGES COLLISIONS : Checking collisions for droppy 
-                if (this.droppy.x < 0) { //LEFT EDGE
-                    this.droppy.x = 0;
-                } else if (this.droppy.x > this.canvas.width - this.droppy.width) { //RIGHT EDGE
-                    this.droppy.x = this.canvas.width - this.droppy.width;
-                }
-
-                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
-                    this.droppy.y = 148; // TODO: change 150 when no border
-                } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
-                    this.droppy.y = this.canvas.height - this.droppy.height;
-                }
-                break;
         }
     }
 
-    detectCollisionsMonsters(){       
+    detectCollisions(){       
         switch(this.level){
             case 1:
                 Level1.detectCollisionsMonsters(this);
@@ -150,7 +154,8 @@ class Game {
                 //TODO:
                 break;
             case 5:
-                //TODO:
+                Level5.detectCollisionsMonsters(this);
+                Level5.retrieveLives(this);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
@@ -169,7 +174,7 @@ class Game {
             case 1:
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level6.createLevel(this); //TODO:
+                        Level5.createLevel(this); //TODO:
                     }
                 }
                 break;
@@ -186,8 +191,11 @@ class Game {
                 //Level5.createLevel(this);
                 break;
             case 5:
-                //TODO:
-                //Level6.createLevel(this);
+                if(1000 == (this.droppy.x + this.droppy.width)){
+                    if(490 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 550){
+                        Level6.createLevel(this); //TODO:
+                    }
+                }
                 break;
             case 6: 
                 if(1000 == (this.droppy.x + this.droppy.width)){

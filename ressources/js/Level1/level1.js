@@ -23,8 +23,13 @@ class Level1{
         //Launch the timer
         thisGame.timer = new Timer(thisGame.context);
 
+<<<<<<< HEAD
         //Music
         thisGame.level1Music.play(); 
+=======
+        //Launch Music (no need to do that on each level !)
+        thisGame.level1Music.play();
+>>>>>>> origin/Level5/creationLevel58
 
         //Title
         thisGame.levelName = 'Clean the drop';

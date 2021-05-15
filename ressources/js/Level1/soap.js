@@ -8,8 +8,6 @@ class Soap {
         this.width = null;
         this.height = null;
 
-        //this.isColliding = false;
-
         this.soapImage.addEventListener('load', (event) => {
             this.height = this.soapImage.height;
             this.width = this.soapImage.width;
