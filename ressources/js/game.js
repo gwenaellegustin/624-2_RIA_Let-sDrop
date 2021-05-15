@@ -168,7 +168,7 @@ class Game {
             case 1:
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level6.createLevel(this); //TODO:
+                        Level5.createLevel(this); //TODO:
                     }
                 }
                 break;
@@ -185,8 +185,11 @@ class Game {
                 //Level5.createLevel(this);
                 break;
             case 5:
-                //TODO:
-                //Level6.createLevel(this);
+                if(1000 == (this.droppy.x + this.droppy.width)){
+                    if(490 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 550){
+                        Level6.createLevel(this); //TODO:
+                    }
+                }
                 break;
             case 6: 
                 if(1000 == (this.droppy.x + this.droppy.width)){
