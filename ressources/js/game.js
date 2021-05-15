@@ -17,13 +17,14 @@ class Game {
 
         // Music and sounds
         this.level1Music = new Audio("/ressources/sounds/frightNight.wav"); // will continue through all levels
-        //level1Music.loop = true; // TODO: to uncomment and try when enough levels
+        this.level1Music.loop = true; 
         this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.wav");
         this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.wav");
         this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.wav");
         this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.wav");
+        this.endSound = new Audio("/ressources/sounds/ocean.wav");
+        this.endSound.loop = true;
         
-
         this.init(canvasId);
     }
 

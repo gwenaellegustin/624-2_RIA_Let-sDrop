@@ -6,6 +6,10 @@ class HallOfFame{
         //Remove all images
         thisGame.clearImages();
 
+        //Stop sound of droppy on the boat and start ocean + seagulls
+        thisGame.winnerSound.muted = true;
+        thisGame.endSound.play();
+
         //Delete input from html
         document.getElementById('usernameInput').remove();
 

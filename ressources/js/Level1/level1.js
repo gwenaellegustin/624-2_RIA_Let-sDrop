@@ -24,7 +24,7 @@ class Level1{
         thisGame.timer = new Timer(thisGame.context);
 
         //Music
-        thisGame.level1Music.play(); // TODO: uncomment when finishing issue
+        thisGame.level1Music.play(); 
 
         //Title
         thisGame.levelName = 'Clean the drop';
