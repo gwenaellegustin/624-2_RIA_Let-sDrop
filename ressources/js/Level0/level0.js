@@ -8,6 +8,10 @@ class Level0{
         //Background to start with
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
 
+        //Draw help "?" margin, according to ininital size of window
+        let marginCanvas = document.getElementById("canvas").offsetLeft;
+        document.getElementById("help").style.marginLeft = `${marginCanvas+955}px`; 
+
         //Droppies
         let drop1 = document.createElement('img');
         drop1.src = "/ressources/images/game/DropSize1blue.png";
