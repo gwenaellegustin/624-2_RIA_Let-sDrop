@@ -9,7 +9,7 @@ class Level1{
         //Remove all images
         thisGame.clearImages();
 
-        //Remove dropZone
+        //Remove dropZone and geolocation
         document.getElementById('dropzone').remove();
         document.getElementById('geolocation').remove();
                 
