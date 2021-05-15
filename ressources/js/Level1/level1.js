@@ -11,6 +11,7 @@ class Level1{
 
         //Remove dropZone
         document.getElementById('dropzone').remove();
+        document.getElementById('geolocation').remove();
                 
         //Tap over hero and monsters
         let tap = document.createElement('img');
