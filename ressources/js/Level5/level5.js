@@ -42,10 +42,6 @@ class Level5{
             thisGame.health1,
             thisGame.health2,
 
-            //Lives
-            /*new Life(thisGame.context, 500, 180),
-            new Life(thisGame.context, 550, 480),*/
-
             //Monsters
             new Snail(thisGame.context, (Math.random() * 380)+600, 150, -1, 0, 20),
             new Snail(thisGame.context, (Math.random() * 380)+600, 280, -1, 0, 10),
@@ -93,8 +89,6 @@ class Level5{
                     let flowerX = flower.x;
                     let flowerY = flower.y;
                     let flowerImg = Math.floor((Math.random() * 3) + 3);
-
-                    console.log("i :"+flowerNb+" flowerImg: "+flowerImg+" x: "+flowerX+" y: "+flowerY)
 
                     thisGame.gameObjects.splice(flowerNb, 1, new Flower(thisGame.context, flowerX, flowerY, flowerImg));
                                         
