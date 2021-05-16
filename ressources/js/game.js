@@ -145,7 +145,8 @@ class Game {
                 Level1.detectCollisionsMonsters(this);
                 break;
             case 2:
-                //TODO:
+                Level2.detectCollisionsMonsters(this);
+                Level2.retrieveLives(this);
                 break;
             case 3: 
                 //TODO:

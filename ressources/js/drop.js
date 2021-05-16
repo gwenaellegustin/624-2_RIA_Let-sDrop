@@ -9,7 +9,8 @@ class Drop {
         this.height;
         this.size = size;
         this.color = color;
-        this.speed;
+        this.speed = this.size * 30 + 60;
+
 
         this.isColliding = false;
 
@@ -21,7 +22,7 @@ class Drop {
     }
 
     draw(){
-        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + this.color + ".png";
+        this.dropImage.src = "/ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
         //Just to see for impact
         //this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
@@ -30,9 +31,7 @@ class Drop {
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
         }
-
-        this.speed = this.size * 30 + 60;
-
+        
         //Draw life
         this.drawLife();
     }
@@ -141,6 +140,96 @@ class Drop {
         Key.UP = 38;
         Key.RIGHT = 39;
         Key.DOWN = 40;
+    }
+
+    changeColorAndBlink(thisGame) {
+
+        let level = thisGame.level;
+        let colorWhenTouched;
+
+        switch (level) {
+            case 1:
+                colorWhenTouched = "green";
+                break;
+            case 2:
+                colorWhenTouched = "white";
+                break;
+            case 4:
+                colorWhenTouched = "red";
+                break;
+            case 5:
+                colorWhenTouched = "braun";
+                break;
+        }
+
+        let oldSize = this.size;
+        
+        this.size = 0;
+
+         //Waiting 100ms before blinking at oldSize
+         setTimeout(()=>{
+            this.color = colorWhenTouched;
+            this.size = oldSize;
+        }, 100);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 200);
+
+        //Waiting 100ms more before blinking at oldSize
+         setTimeout(()=>{
+            this.size = oldSize;
+        }, 300);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 400);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 500);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 600);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 700);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 800);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 900);
+
+        //Waiting 1000ms before Droppy can be touched again
+        setTimeout(()=>{
+            this.isColliding = false;
+        }, 1000);
+
+        //Waiting 3000ms before Droppy is blue again
+        setTimeout(()=>{
+            this.color = "blue";
+        }, 5000);
+    }
+
+    slowDownSpeed(thisGame) {
+        thisGame.droppy.speed = 60;
+        
+        // Droppy's speed is back to normal again even when changing level
+        setTimeout(()=>{
+            thisGame.droppy.speed = this.size * 30 + 60;
+        },5000);
     }
 
     drawLife(){
