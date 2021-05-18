@@ -107,7 +107,7 @@ class Drop {
         this.size = 0;
 
          //Waiting 100ms before blinking at oldSize
-         setTimeout(()=>{
+        setTimeout(()=>{
             this.size = oldSize;
         }, 100);
 

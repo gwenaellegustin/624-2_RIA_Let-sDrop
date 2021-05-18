@@ -23,10 +23,10 @@ class Level3 {
             thisGame.timer,
 
             //Monster
-            new Fire(thisGame.context, 122, 87),
-            new Fire(thisGame.context, 495, 432),
-            new Fire(thisGame.context, 660, 59),
-            new Fire(thisGame.context, 740, 330)
+            new Fire(thisGame.context, 122, 87, thisGame),
+            new Fire(thisGame.context, 495, 432, thisGame),
+            new Fire(thisGame.context, 660, 59, thisGame),
+            new Fire(thisGame.context, 740, 330, thisGame)
         ]
 
         this.pipeImage = new Image();
@@ -43,7 +43,6 @@ class Level3 {
         if(this.pipeImageReady){
             thisGame.context.drawImage(this.pipeImage, 0, 0);
         }
-
         
         //TOP
         let pixelData = thisGame.context.getImageData(thisGame.droppy.x, thisGame.droppy.y-1, 1, 1).data;
