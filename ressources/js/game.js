@@ -3,6 +3,7 @@ class Game {
         this.canvas = null;
         this.context = null;
         this.oldTimeStamp = 0;
+        this.secondsPassed;
         this.gameObjects = [];
         this.level = null;
         this.isGameOver = false;
@@ -58,12 +59,12 @@ class Game {
 
     gameLoop(timeStamp) {
         // Calculate the number of seconds passed since the last frame
-        let secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
+        this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
         // Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
-            this.gameObjects[i].update(secondsPassed);
+            this.gameObjects[i].update(this.secondsPassed);
         }
         
         // Detect collisions with edges and monsters

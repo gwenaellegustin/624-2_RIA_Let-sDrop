@@ -21,15 +21,6 @@ class Fire{
         if(this.fireReady){
             this.context.drawImage(this.fireImage, this.x, this.y);
         }
-
-        this.context.fillStyle = 'rgba(255, 255, 255, 0.2)';
-        this.context.fillRect(0, 50, 90, 180); //x,y,longueur,hauteur
-
-        this.context.fillRect(85, 230, 175, 120); //x,y,longueur,hauteur
-
-        this.context.beginPath();
-        this.context.arc(90, 230, 160, 1.5*Math.PI, 0.5*Math.PI); //x,y,radius,starting angle,ending angle
-        this.context.fill();
     }
 
     update(secondsPassed) {}

@@ -39,7 +39,6 @@ class Drop {
 
     update(secondsPassed){
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        
         if(Key.pressed.length==2){
             if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){
                 this.y += this.speed * secondsPassed;
