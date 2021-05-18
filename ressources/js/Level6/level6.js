@@ -8,14 +8,23 @@ class Level6{
         //Remove all images
         thisGame.clearImages();
 
-        // Change background
+        //Change background
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level6/Level6.png')";
                 
-        // Palms over hero and monsters
+        //Calcul placement according to ininital width of window
+        let marginCanvas = document.getElementById("canvas").offsetLeft;
+        let marginPalm = 0;
+        if (marginCanvas <  250){
+            marginPalm = marginCanvas;
+        } else {
+            marginPalm = 250;
+        }
+        //Palms over hero and monsters 
         let palms = document.createElement('img');
         palms.src = "/ressources/images/game/Level6/Palm.png";
         palms.style.position = 'absolute';
         palms.style.top = 0;
+        palms.style.marginLeft = `${marginPalm}px`;
         document.getElementById('bg').appendChild(palms);
 
         //Place Droppy
@@ -29,7 +38,7 @@ class Level6{
             thisGame.droppy,
             thisGame.timer,
             //Monster
-            new Crab(thisGame.context, 800, 250, thisGame.droppy)
+            new Crab(thisGame.context, 800, 500, thisGame.droppy)
         ];
     }
 

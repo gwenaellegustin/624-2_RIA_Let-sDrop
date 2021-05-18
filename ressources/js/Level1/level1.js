@@ -14,11 +14,21 @@ class Level1{
         document.getElementById('help').remove();
         document.getElementById('geolocation').remove();
                 
+        
+        //Calcul placement according to ininital width of window
+        let marginCanvas = document.getElementById("canvas").offsetLeft;
+        let marginTap = 0;
+        if (marginCanvas <  250){
+            marginTap = marginCanvas;
+        } else {
+            marginTap = 250;
+        }
         //Tap over hero and monsters
         let tap = document.createElement('img');
         tap.src = "/ressources/images/game/Level1/Tap.png";
         tap.style.position = 'absolute';
         tap.style.top = 0;
+        tap.style.marginLeft = `${marginTap}px`;
         document.getElementById('bg').appendChild(tap);
 
         //Launch the timer
