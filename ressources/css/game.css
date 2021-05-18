@@ -37,12 +37,14 @@ body, html {
   position: absolute;
   cursor: grab;
 }
+#geolocation {
+  position: fixed;
+  padding-left: 850px;
+  width: 1500px;
+  top: 320px;
+}
 
 #dropzone {
-  /* TODO: DELETE WHEN OK ON 3 DIFF NAV
-  border-style: solid;
-  border-width: 1px;
-  border-color: red;*/
   height: 135px;
   width: 700px;
   position: fixed;
@@ -52,7 +54,6 @@ body, html {
 #dropzone p {
   text-align: center;
   font-size: 1.8em;
-  font-family: 'Delius';
   color: white;
 }
 
@@ -101,4 +102,10 @@ canvas {
 #help:hover .helptext {
   visibility: visible;
   opacity: 1;
+}
+
+#geolocation { 
+  text-align: left;
+  font-size: 1.6em;
+  color: #86dbff;
 }

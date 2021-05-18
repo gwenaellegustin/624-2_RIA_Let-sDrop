@@ -5,6 +5,14 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <title>Let's Drop</title>
         <link rel="stylesheet" href="ressources/css/game.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
     </head>
     <body>
         <div id="bg">
@@ -29,6 +37,9 @@
             <img src="/ressources/images/game/DropSize4blue.png" alt="Droppy size 4" class="droppies" id="drop4" draggable="true"/>
         </div>
         <div id="drop">
+            <div id="geolocation">
+                <p id="geolocation_region"></p>
+            </div>
             <div id="dropzone">
                 <p><br/>Drop your Droppy here to start</p>
             </div>
@@ -39,6 +50,7 @@
         <script src="ressources/js/drop.js"></script>
         <script src="ressources/js/timer.js"></script>
         <script src="ressources/js/life.js"></script>
+        <script src="ressources/js/Level0/geolocation.js"></script>
         <script src="ressources/js/Level1/soap.js"></script>
         <script src="ressources/js/Level1/monsterHand.js"></script>
         <script src="ressources/js/Level5/snail.js"></script>
@@ -65,5 +77,8 @@
                 }
             });
         </script>
+
+
+        
     </body>
 </html>
