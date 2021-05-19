@@ -81,7 +81,7 @@ class Level5{
             if(thisGame.gameObjects[i] instanceof Flower){
                 let flower = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(flower.x, flower.y, flower.width, flower.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionRectRect(flower.x+5, flower.y+5, flower.width-5, flower.height-5, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
