@@ -1,6 +1,7 @@
 class Level6{
     static createLevel(thisGame){
         thisGame.level = 6;
+        thisGame.canReload = false;
 
         //Remove all objects drawn
         thisGame.clearCanvas();
@@ -60,6 +61,42 @@ class Level6{
             }
             else{
                 thisGame.isGameOver = true;
+            }
+        }
+    }
+    static detectDefence(thisGame){
+        window.addEventListener('keyup', event => { 
+            if(event.code === 'Space'){
+                let crab = thisGame.gameObjects[2];
+                let defence;
+                if (thisGame.droppy.x < crab.x){
+                    defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, 1);
+                } else {
+                    defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, -1);
+                }
+                    thisGame.gameObjects.push(defence);
+                    this.interval = 0;
+            }
+         }, false);
+    }
+
+    static detectCollisionsMonsters(thisGame){
+        let crab = thisGame.gameObjects[2];
+        for (let i = 0; i < thisGame.gameObjects.length; i++)
+        {
+            //DEFENCE COLLISIONS : Checking collisions between Crab and defence projectile
+            if(thisGame.gameObjects[i] instanceof Defence) {
+                let defence = thisGame.gameObjects[i];
+
+                let hit = thisGame.collisionRectRect(defence.x, defence.y, defence.width, defence.height, crab.x, crab.y, crab.width, crab.height);
+                if (hit && crab.isColliding === false){
+                    crab.isColliding = true;
+                    thisGame.gameObjects[i].delete;
+                    crab.life = crab.life -1;
+                    setTimeout(()=>{
+                        crab.isColliding = false;
+                    }, 1000);
+                }
             }
         }
     }

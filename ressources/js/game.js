@@ -159,6 +159,7 @@ class Game {
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
+                Level6.detectDefence(this);
                 break;
             }
     }
@@ -174,7 +175,7 @@ class Game {
             case 1:
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level5.createLevel(this); //TODO:
+                        Level6.createLevel(this); //TODO:
                     }
                 }
                 break;
