@@ -94,6 +94,7 @@ class Drop {
         //Waiting 100ms more before blinking at new size
         setTimeout(()=>{
             this.size = oldSize+1;
+            this.speed = this.size * 30 + 60;
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
@@ -119,6 +120,7 @@ class Drop {
          //Waiting 100ms more before blinking at new size
          setTimeout(()=>{
             this.size = oldSize-1;
+            this.speed = this.size * 30 + 60;
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again

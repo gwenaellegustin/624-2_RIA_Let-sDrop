@@ -31,7 +31,7 @@ class SnowflakeSmall {
         this.y += this.speed * this.directionY * secondsPassed;
  
         //Touching bottom
-        if (this.y > this.context.canvas.height - this.height) { //Left side
+        if (this.y > this.context.canvas.height - this.height) { 
            this.y = 50;
         } 
     }
