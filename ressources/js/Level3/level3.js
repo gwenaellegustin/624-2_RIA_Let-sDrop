@@ -30,7 +30,7 @@ class Level3 {
         ]
 
         this.pipeImage = new Image();
-        this.pipeImage.src = '/ressources/images/game/Level3/test.png';
+        this.pipeImage.src = '/ressources/images/game/Level3/Level3_canvas.png';
 
         this.pipeImage.addEventListener('load', (event) => {
             this.pipeImageReady = true; //The image has been load, we can draw it
@@ -44,42 +44,71 @@ class Level3 {
             thisGame.context.drawImage(this.pipeImage, 0, 0);
         }
         
+        let x, x1, x2;
+        let y, y1, y2;
+
+        //VERSION 1///////////////////////////////////////////////////////////////////////////////////////////////
+
         //TOP
-        let pixelData = thisGame.context.getImageData(thisGame.droppy.x, thisGame.droppy.y-1, 1, 1).data;
-        if(pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0 ){
+        ///* JUST UN.COMMENT THE FIRST 2 //
+        x = thisGame.droppy.x; //TOP/BOTTOM - LEFT
+        x1 = thisGame.droppy.x + thisGame.droppy.width / 2; //TOP/BOTTOM - MIDDLE
+        x2 = thisGame.droppy.x + thisGame.droppy.width; //TOP/BOTTOM - RIGHT
+        y = thisGame.droppy.y - 1;
+        if(this.isPixelBlack(thisGame, x, y) || this.isPixelBlack(thisGame, x1, y) || this.isPixelBlack(thisGame, x2, y)){ //I don't want y to be updated more than one time
+            console.log("TOP")
             thisGame.droppy.y += thisGame.droppy.speed * thisGame.secondsPassed;
         }
 
-        //RIGHT
-        pixelData = thisGame.context.getImageData(thisGame.droppy.x+thisGame.droppy.width+1, thisGame.droppy.y, 1, 1).data;
-        if(pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0 ){
-            thisGame.droppy.x -= thisGame.droppy.speed * thisGame.secondsPassed;
+        //BOTTOM
+        y = thisGame.droppy.y + thisGame.droppy.height + 1; //SAME FOR ALL RIGHT
+        if(this.isPixelBlack(thisGame, x, y) || this.isPixelBlack(thisGame, x1, y) || this.isPixelBlack(thisGame, x2, y)){
+            console.log("BOTTOM")
+            thisGame.droppy.y -= thisGame.droppy.speed * thisGame.secondsPassed;
+        }
+        //*/
+
+        //VERSION 2///////////////////////////////////////////////////////////////////////////////////////////////
+        
+
+        //TOP
+        /* JUST UN.COMMENT THE FIRST 2 //
+        x1 = thisGame.droppy.x + thisGame.droppy.width / 2; //TOP/BOTTOM - MIDDLE
+        y = thisGame.droppy.y - 1;
+        if(this.isPixelBlack(thisGame, x1, y)){ //I don't want y to be updated more than one time
+            console.log("TOP")
+            thisGame.droppy.y += thisGame.droppy.speed * thisGame.secondsPassed;
         }
 
         //BOTTOM
-        pixelData = thisGame.context.getImageData(thisGame.droppy.x, thisGame.droppy.y+thisGame.droppy.height+1, 1, 1).data;
-        if(pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0 ){
+        y = thisGame.droppy.y + thisGame.droppy.height + 1; //SAME FOR ALL RIGHT
+        if(this.isPixelBlack(thisGame, x1, y)){
+            console.log("BOTTOM")
             thisGame.droppy.y -= thisGame.droppy.speed * thisGame.secondsPassed;
         }
+        //*/
+        
 
         //LEFT
-        pixelData = thisGame.context.getImageData(thisGame.droppy.x, thisGame.droppy.y, 1, 1).data;
-        if(pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0 ){
+        x = thisGame.droppy.x - 1;
+        y = thisGame.droppy.y; //LEFT/RIGHT - TOP
+        y1 = thisGame.droppy.y + thisGame.droppy.height / 2; //LEFT/RIGHT - MIDDLE
+        y2 = thisGame.droppy.y + thisGame.droppy.height; //LEFT/RIGHT - BOTTOM
+        if(this.isPixelBlack(thisGame, x, y) || this.isPixelBlack(thisGame, x, y1) || this.isPixelBlack(thisGame, x, y2)){
+            console.log("LEFT")
             thisGame.droppy.x += thisGame.droppy.speed * thisGame.secondsPassed;
         }
 
-        //BOTTOM RIGHT
-        pixelData = thisGame.context.getImageData(thisGame.droppy.x+thisGame.droppy.width+1, thisGame.droppy.y+thisGame.droppy.height+1, 1, 1).data;
-        if(pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0 ){
+        //RIGHT
+        x = thisGame.droppy.x + thisGame.droppy.width + 1;
+        if(this.isPixelBlack(thisGame, x, y) || this.isPixelBlack(thisGame, x, y1) || this.isPixelBlack(thisGame, x, y2)){
+            console.log("RIGHT")
             thisGame.droppy.x -= thisGame.droppy.speed * thisGame.secondsPassed;
-            thisGame.droppy.y -= thisGame.droppy.speed * thisGame.secondsPassed;
         }
+    }
 
-        //BOTTOM LEFT
-        pixelData = thisGame.context.getImageData(thisGame.droppy.x-1, thisGame.droppy.y+thisGame.droppy.height+1, 1, 1).data;
-        if(pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0 ){
-            thisGame.droppy.x += thisGame.droppy.speed * thisGame.secondsPassed;
-            thisGame.droppy.y -= thisGame.droppy.speed * thisGame.secondsPassed;
-        }
+    static isPixelBlack(thisGame, x, y){
+        let pixelData = thisGame.context.getImageData(x, y, 1, 1).data;
+        return pixelData[0]==pixelData[1] && pixelData[1]==pixelData[2] && pixelData[2]===0;
     }
 }
