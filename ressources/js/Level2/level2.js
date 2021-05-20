@@ -17,7 +17,7 @@ class Level2{
 
         //Place Droppy
         thisGame.droppy.x = 0;
-        thisGame.droppy.y = 500; // to match exit from Sink
+        thisGame.droppy.y = 500; // to match arrival in pipe
 
 
         //Title

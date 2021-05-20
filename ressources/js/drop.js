@@ -17,7 +17,7 @@ class Drop {
         this.dropImage.addEventListener('load', (event) => {
             this.width = this.dropImage.width;
             this.height = this.dropImage.height;
-            this.dropReady = true; //The image has been load, we can draw it
+            this.dropReady = true; 
         });
     }
 
@@ -91,7 +91,7 @@ class Drop {
             this.size = 0;
         }, 200);
 
-        //Waiting 100ms more before blinking at new size
+        //Waiting 100ms more before blinking at new size + reset speed
         setTimeout(()=>{
             this.size = oldSize+1;
             this.speed = this.size * 30 + 60;
@@ -117,7 +117,7 @@ class Drop {
             this.size = 0;
         }, 200);
 
-         //Waiting 100ms more before blinking at new size
+         //Waiting 100ms more before blinking at new size + reset speed
          setTimeout(()=>{
             this.size = oldSize-1;
             this.speed = this.size * 30 + 60;
@@ -158,9 +158,6 @@ class Drop {
                 break;
             case 4:
                 colorWhenTouched = "red";
-                break;
-            case 5:
-                colorWhenTouched = "braun";
                 break;
         }
 
@@ -228,7 +225,7 @@ class Drop {
     slowDownSpeed(thisGame) {
         thisGame.droppy.speed = 60;
         
-        // Droppy's speed is back to normal again even when changing level
+        // Droppy's speed is back to normal again even in a new level
         setTimeout(()=>{
             thisGame.droppy.speed = this.size * 30 + 60;
         },5000);
@@ -245,7 +242,7 @@ class Drop {
         let imageWidth = lifeImage.width;
         let imageHeight = lifeImage.height;
         
-        //Depending on the number of lifes, the image is crop
+        //Depending on the number of lives, the image is crop
         switch (this.size) {
             case 1:
                 this.context.drawImage(lifeImage, destinationX, destinationY);
