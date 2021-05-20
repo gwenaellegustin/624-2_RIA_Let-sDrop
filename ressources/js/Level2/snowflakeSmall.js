@@ -14,7 +14,7 @@ class SnowflakeSmall {
         this.monsterImage.addEventListener('load', (event) => {
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
-            this.monsterReady = true; //The image has been load, we can draw it
+            this.monsterReady = true; 
         });
 
         this.monsterImage.src = "/ressources/images/game/Level2/Snowflake25x25.png";
