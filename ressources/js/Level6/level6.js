@@ -40,6 +40,7 @@ class Level6{
             thisGame.timer,
             //Monster
             new Crab(thisGame.context, 800, 500, thisGame.droppy)
+            //TODO:add little crab in border
         ];
     }
 
@@ -82,9 +83,29 @@ class Level6{
 
     static detectCollisionsMonsters(thisGame){
         let crab = thisGame.gameObjects[2];
+
+        //Crab and Droppy collisions
+        let hit = thisGame.collisionRectRect(crab.x + 5, crab.y + 10, crab.width - 10, crab.height - 20, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+        if(hit && thisGame.droppy.isColliding === false){
+            thisGame.droppy.isColliding = true;
+
+            //Crab is colliding during 1000ms
+            crab.isColliding = true;
+            setTimeout(()=>{
+                crab.isColliding = false;
+            }, 1000);
+            
+            if(thisGame.droppy.size<4){
+                thisGame.droppy.droppyLosesALife();
+            }
+            else{
+                thisGame.isGameOver = true;
+            }
+        }
+
+        //DEFENCE COLLISIONS : Checking collisions between Crab and defence projectile
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
-            //DEFENCE COLLISIONS : Checking collisions between Crab and defence projectile
             if(thisGame.gameObjects[i] instanceof Defence) {
                 let defence = thisGame.gameObjects[i];
 
@@ -99,5 +120,7 @@ class Level6{
                 }
             }
         }
+
+        
     }
 }

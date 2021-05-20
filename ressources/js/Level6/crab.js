@@ -8,7 +8,7 @@ class Crab {
         this.y = y;
         this.width = null;
         this.height = null;
-        this.speed  = 400;
+        this.speed  = 300;
         this.direction = 'Left';
         this.directionX = -1;
         this.directionY = 1;
@@ -33,7 +33,7 @@ class Crab {
 
     update(secondsPassed){
         if (this.life > 0){ // is alive -> move
-            this.x += this.speed/10 * this.directionX * secondsPassed;
+            this.x += this.speed/5 * this.directionX * secondsPassed;
             this.y += this.speed * this.directionY * secondsPassed;
 
             //Grab Droppy
@@ -58,10 +58,11 @@ class Crab {
             }
 
             // Direction 
-            if (this.droppy.x > this.x){
+            if (this.droppy.x + (this.droppy.width/2) > this.x + (this.width/2)){
                 this.directionX = 1;
                 this.direction = "Right";
             } else {
+                this.directionX = -1;
                 this.direction = "Left";
             }
 
@@ -69,6 +70,7 @@ class Crab {
             this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"Dead110x130.png";
             this.x = this.x;
             this.y = this.y;
+            //TODO: remove little crab
         }
     }
 }
