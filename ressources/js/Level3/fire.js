@@ -32,7 +32,7 @@ class Fire{
         this.interval += secondsPassed;
 
         if(this.collisionCircleRect(this.x, this.y, 200, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
-            if(this.interval > 4){
+            if(this.interval > 2.5){
                 let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);
                 this.thisGame.gameObjects.push(littleFire);
                 this.interval = 0;
