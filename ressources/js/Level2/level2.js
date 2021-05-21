@@ -33,18 +33,18 @@ class Level2{
 
             //Monsters
             //First pipe
-            new SnowflakeBig(thisGame.context, 40, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
             new SnowflakeBig(thisGame.context, 50, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
-            new SnowflakeSmall(thisGame.context, 75, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
-            new SnowflakeSmall(thisGame.context, 110, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
-            new SnowflakeBig(thisGame.context, 120, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
+            new SnowflakeBig(thisGame.context, 60, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
+            new SnowflakeSmall(thisGame.context, 85, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
+            new SnowflakeSmall(thisGame.context, 120, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
             new SnowflakeBig(thisGame.context, 130, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
-            new SnowflakeSmall(thisGame.context, 145, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
-            new SnowflakeSmall(thisGame.context, 180, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
-            new SnowflakeBig(thisGame.context, 190, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
+            new SnowflakeBig(thisGame.context, 140, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
+            new SnowflakeSmall(thisGame.context, 155, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
+            new SnowflakeSmall(thisGame.context, 190, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
             new SnowflakeBig(thisGame.context, 200, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
-            new SnowflakeSmall(thisGame.context, 215, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
-            new SnowflakeSmall(thisGame.context, 250, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
+            new SnowflakeBig(thisGame.context, 210, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
+            new SnowflakeSmall(thisGame.context, 225, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
+            new SnowflakeSmall(thisGame.context, 260, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
 
             //Second pipe
             new SnowflakeSmall(thisGame.context, 380, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
@@ -61,7 +61,7 @@ class Level2{
             new SnowflakeSmall(thisGame.context, 590, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
 
             //Third pipe
-            new SnowflakeBig(thisGame.context, 730, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
+            new SnowflakeBig(thisGame.context, 720, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
             new SnowflakeSmall(thisGame.context, 740, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
             new SnowflakeBig(thisGame.context, 765, Math.random() * 400 + 50, 0, 1, Math.random() * 35 + 30),
             new SnowflakeSmall(thisGame.context, 800, Math.random() * 400 + 50, 0, 1, Math.random() * 25 + 45),
