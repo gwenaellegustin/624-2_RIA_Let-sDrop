@@ -66,16 +66,8 @@ class Level1{
 
     static droppyIsUpsideDown(thisGame){
 
-        let oldSize = thisGame.droppy.size;
-
         thisGame.droppy.upsideDownCommands();
-        thisGame.droppy.size = 0;
-
-        //Waiting 100ms before reappering (blink effect)
-        setTimeout(()=>{
-            thisGame.droppy.size = oldSize;
-            thisGame.droppy.color = "green";
-        }, 100);
+        thisGame.droppy.changeColorAndBlink(thisGame);
 
         setTimeout(()=>{
             thisGame.droppy.isColliding = false;
@@ -83,7 +75,6 @@ class Level1{
 
         setTimeout(()=>{
             thisGame.droppy.normalCommands();
-            thisGame.droppy.color = "blue";
         },5000);
     }
 
