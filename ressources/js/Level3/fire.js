@@ -5,6 +5,7 @@ class Fire{
         this.fireImage = new Image();
         this.x = x;
         this.y = y;
+        this.angle = 0;
         this.width = null;
         this.height = null;
         this.droppy = thisGame.gameObjects[0];
@@ -22,13 +23,24 @@ class Fire{
     }
 
     draw(){
+        //Reapear here after a restore
+        this.context.save();
+
+        // move the origin to the fire center
+        this.context.translate(this.x, this.y);
+        this.context.rotate(this.angle);
+
+        
         if(this.fireReady){
-            this.context.drawImage(this.fireImage, this.x, this.y);
+            this.context.drawImage(this.fireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
         }
+        
+        //this.context.fillStyle = '#ff8080';
+        //this.context.fillRect(0, 0, 100, 75); //x,y,longueur,hauteur
+        this.context.restore();
     }
 
     update(secondsPassed) {
-
         this.interval += secondsPassed;
 
         if(this.collisionCircleRect(this.x, this.y, 500, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
@@ -38,6 +50,12 @@ class Fire{
                 this.interval = 0;
             }
         }
+
+        //Construct angle
+        const dx = this.x - this.droppy.x;
+        const dy = this.y - this.droppy.y;
+        let theta = Math.atan2(dy, dx);
+        this.angle = theta;
     }
 
     collisionCircleRect(circlex, circley, radius, rectx, recty, rectwidth, rectheight){

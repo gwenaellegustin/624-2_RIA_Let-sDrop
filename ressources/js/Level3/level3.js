@@ -24,13 +24,13 @@ class Level3 {
             thisGame.timer,
 
             //Monster
-            new Fire(thisGame.context, 145, 87, thisGame),
+            new Fire(thisGame.context, 140, 90, thisGame),
             new LittleFire(thisGame.context, 129, 87, thisGame.droppy),
-            new Fire(thisGame.context, 96, 358, thisGame),
-            new Fire(thisGame.context, 450, 204, thisGame),
-            new Fire(thisGame.context, 511, 450, thisGame),
-            new Fire(thisGame.context, 650, 60, thisGame),
-            new Fire(thisGame.context, 738, 284, thisGame),
+            new Fire(thisGame.context, 105, 358, thisGame),
+            new Fire(thisGame.context, 465, 204, thisGame),
+            new Fire(thisGame.context, 540, 450, thisGame),
+            new Fire(thisGame.context, 650, 70, thisGame),
+            new Fire(thisGame.context, 750, 284, thisGame),
             new Fire(thisGame.context, 833, 487, thisGame)
         ]
 
