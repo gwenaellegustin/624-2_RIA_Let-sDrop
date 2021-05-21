@@ -12,6 +12,8 @@ class LittleFire{
         this.speed = 50;
         this.droppy = droppy;
 
+        this.secondsAlive = 0;
+
         this.dx = (droppy.x - x);
         this.dy = (droppy.y - y);
         this.mag = Math.sqrt(this.dx * this.dx + this.dy * this.dy);

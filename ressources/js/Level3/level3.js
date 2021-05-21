@@ -24,15 +24,14 @@ class Level3 {
             thisGame.timer,
 
             //Monster
-            new Fire(thisGame.context, 122, 87, thisGame),
-            new LittleFire(thisGame.context, 122, 87, thisGame.droppy),
-            new Fire(thisGame.context, 145, 250, thisGame),
-            new Fire(thisGame.context, 130, 432, thisGame),
-            new Fire(thisGame.context, 495, 432, thisGame),
-            new Fire(thisGame.context, 480, 265, thisGame),
-            new Fire(thisGame.context, 660, 59, thisGame),
-            new Fire(thisGame.context, 740, 330, thisGame),
-            new Fire(thisGame.context, 880, 440, thisGame)
+            new Fire(thisGame.context, 145, 87, thisGame),
+            new LittleFire(thisGame.context, 129, 87, thisGame.droppy),
+            new Fire(thisGame.context, 96, 358, thisGame),
+            new Fire(thisGame.context, 450, 204, thisGame),
+            new Fire(thisGame.context, 511, 450, thisGame),
+            new Fire(thisGame.context, 650, 60, thisGame),
+            new Fire(thisGame.context, 738, 284, thisGame),
+            new Fire(thisGame.context, 833, 487, thisGame)
         ]
 
         this.pipeImage = new Image();
@@ -41,6 +40,10 @@ class Level3 {
         this.pipeImage.addEventListener('load', (event) => {
             this.pipeImageReady = true; //The image has been load, we can draw it
         });
+
+        thisGame.canvas.addEventListener('mousedown', (event) => { //click on mouse
+            console.log(event.x-thisGame.canvas.offsetLeft + ' ' + event.y)
+        })
     }
 
     static detectCollisionsMonsters(thisGame){
@@ -57,11 +60,12 @@ class Level3 {
             if(thisGame.gameObjects[i] instanceof LittleFire){
                 let littleFire = thisGame.gameObjects[i];
 
-                if((littleFire.velocityX < 1 && littleFire.velocityX > -1) || (littleFire.velocityY < 1 && littleFire.velocityY > -1)){
-                    let soapNb = i;
+                littleFire.secondsAlive += thisGame.secondsPassed;
 
-                    thisGame.gameObjects.splice(soapNb,1);
-                    console.log(thisGame.gameObjects);
+                if(littleFire.secondsAlive > 6){
+                    let littleFireNb = i;
+
+                    thisGame.gameObjects.splice(littleFireNb,1);
                 }
             }
         }
