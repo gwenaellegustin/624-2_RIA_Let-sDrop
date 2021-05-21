@@ -11,6 +11,7 @@ class LittleFire{
         this.height = null;
         this.speed = 50;
         this.droppy = droppy;
+        this.angle = 0;
 
         this.secondsAlive = 0;
 
@@ -31,15 +32,19 @@ class LittleFire{
 
     draw(){
         
-        if(this.littleFireReady){
-            this.context.drawImage(this.littleFireImage, this.x, this.y);
-        }
-        
-        /*
+        //Reapear here after a restore
+        this.context.save();
 
-        this.context.fillStyle = '#ff8080';
-        this.context.fillRect(this.x, this.y, 14, 18);
-        */
+        // move the origin to the fire center
+        this.context.translate(this.x, this.y);
+        this.context.rotate(this.angle);
+
+        
+        if(this.littleFireReady){
+            this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
+        }
+
+        this.context.restore();
     }
 
     update(secondsPassed) {
@@ -49,7 +54,8 @@ class LittleFire{
 
         this.x += this.velocityX * secondsPassed * this.directionX;
         this.y += this.velocityY * secondsPassed * this.directionY;
-        
+
+        this.angle = Math.atan2(this.velocityY * this.directionY, this.velocityX * this.directionX);        
     }
 
     collisionsWithBlackPixel(secondsPassed){

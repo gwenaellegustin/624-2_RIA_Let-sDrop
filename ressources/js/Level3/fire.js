@@ -52,8 +52,8 @@ class Fire{
         }
 
         //Construct angle
-        const dx = this.x - this.droppy.x;
-        const dy = this.y - this.droppy.y;
+        let dx = this.x - this.droppy.x;
+        let dy = this.y - this.droppy.y;
         let theta = Math.atan2(dy, dx);
         this.angle = theta;
     }
