@@ -64,7 +64,9 @@ class Game {
 
         // Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
-            this.gameObjects[i].update(this.secondsPassed);
+            if(this.gameObjects[i] != null){
+                this.gameObjects[i].update(this.secondsPassed);
+            } 
         }
         
         // Detect collisions with edges and monsters
@@ -79,7 +81,9 @@ class Game {
     
         // Loop over all game objects to draw
         for(let i=0; i < this.gameObjects.length; i++){
-            this.gameObjects[i].draw();
+            if(this.gameObjects[i] != null){
+                this.gameObjects[i].draw();
+            } 
         }
 
         //Draw level name

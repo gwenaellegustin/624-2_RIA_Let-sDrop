@@ -13,6 +13,7 @@ class LittleFire{
         this.droppy = droppy;
         this.angle = 0;
 
+        this.isAlive = true;
         this.secondsAlive = 0;
 
         this.dx = (droppy.x - x);
@@ -27,11 +28,13 @@ class LittleFire{
             this.littleFireReady = true; //The image has been load, we can draw it
         });
 
+        this.steamWidth = 50;
+        this.steamHeight = 50;
+
         this.littleFireImage.src = "/ressources/images/game/Level3/LittleFire14x18.png";
     }
 
     draw(){
-        
         //Reapear here after a restore
         this.context.save();
 
@@ -39,9 +42,48 @@ class LittleFire{
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
 
-        
-        if(this.littleFireReady){
-            this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
+        if(this.isAlive){
+            
+            if(this.littleFireReady){
+                this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
+            }
+        }
+        else{
+            this.littleFireImage.src = "/ressources/images/game/Level3/Steam250x250.png";
+
+            if(this.littleFireReady){
+                this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2, this.steamWidth, this.steamHeight);
+
+                setTimeout(() => {
+                    this.steamWidth = 52;
+                    this.steamHeight = 52;
+                }, 50)
+
+                setTimeout(() => {
+                    this.steamWidth = 54;
+                    this.steamHeight = 54;
+                }, 100)
+
+                setTimeout(() => {
+                    this.steamWidth = 56;
+                    this.steamHeight = 56;
+                }, 150)
+
+                setTimeout(() => {
+                    this.steamWidth = 58;
+                    this.steamHeight = 58;
+                }, 200)
+
+                setTimeout(() => {
+                    this.steamWidth = 60;
+                    this.steamHeight = 60;
+                }, 250)
+
+                setTimeout(() => {
+                    this.steamWidth = 62;
+                    this.steamHeight = 62;
+                }, 300)
+            }
         }
 
         this.context.restore();
@@ -55,7 +97,7 @@ class LittleFire{
         this.x += this.velocityX * secondsPassed * this.directionX;
         this.y += this.velocityY * secondsPassed * this.directionY;
 
-        this.angle = Math.atan2(this.velocityY * this.directionY, this.velocityX * this.directionX);        
+        this.angle = Math.atan2(this.velocityY * this.directionY, this.velocityX * this.directionX);  
     }
 
     collisionsWithBlackPixel(secondsPassed){

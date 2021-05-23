@@ -34,6 +34,7 @@ class Level3 {
             new Fire(thisGame.context, 833, 487, thisGame)
         ]
 
+        this.pipeImageReady = false;
         this.pipeImage = new Image();
         this.pipeImage.src = '/ressources/images/game/Level3/Level3_canvas.png';
 
@@ -41,9 +42,13 @@ class Level3 {
             this.pipeImageReady = true; //The image has been load, we can draw it
         });
 
-        thisGame.canvas.addEventListener('mousedown', (event) => { //click on mouse
-            console.log(event.x-thisGame.canvas.offsetLeft + ' ' + event.y)
-        })
+        this.steamImageReady = false;
+        this.steamImage = new Image();
+        this.steamImage.src = '/ressources/images/game/Level3/Steam250x250.png';
+
+        this.steamImage.addEventListener('load', (event) => {
+            this.steamImageReady = true; //The image has been load, we can draw it
+        });
     }
 
     static detectCollisionsMonsters(thisGame){
@@ -54,7 +59,7 @@ class Level3 {
 
         this.collisionsWithBlackPixel(thisGame.droppy);
 
-        //LITTLE FIRE STOCKS IN A EDGE SHOULD BE REMOVE
+        //LITTLE FIRE REMOVED AFTER 6 SECONDS ALIVE
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof LittleFire){
@@ -62,13 +67,24 @@ class Level3 {
 
                 littleFire.secondsAlive += thisGame.secondsPassed;
 
-                if(littleFire.secondsAlive > 6){
+                if(littleFire.secondsAlive > 6 && littleFire.isAlive){
                     let littleFireNb = i;
+                    console.log(thisGame.gameObjects)
+                    console.log("in method: " + littleFireNb);
 
-                    thisGame.gameObjects.splice(littleFireNb,1);
+                    littleFire.isAlive = false;
+
+                    this.removeObject(thisGame, littleFireNb);
                 }
             }
         }
+    }
+
+    static removeObject(thisGame, index){
+        setTimeout(function(){
+            console.log("in setTimeOut: " + index);
+            thisGame.gameObjects[index] = null;
+        }, 300);
     }
 
     static drawPipeOnCanvas(){
