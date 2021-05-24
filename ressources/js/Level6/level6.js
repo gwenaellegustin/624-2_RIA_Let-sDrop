@@ -28,6 +28,15 @@ class Level6{
         palms.style.marginLeft = `${marginPalm}px`;
         document.getElementById('bg').appendChild(palms);
 
+        let crabs = document.createElement('img');
+        crabs.src = "/ressources/images/game/Level6/CrabsWall.png";
+        crabs.style.position = 'absolute';
+        crabs.style.top = 0;
+        crabs.style.marginLeft = `${marginPalm+940}px`;
+        crabs.id = 'crabs'
+        document.getElementById('bg').appendChild(crabs);
+
+
         //Place Droppy
         thisGame.droppy.x = 0;
         thisGame.droppy.y = 500; // to match exit from Garden
@@ -103,6 +112,17 @@ class Level6{
             }
         }
 
+        //Crabs wall and Droppy collisions
+        if (thisGame.droppy.x + thisGame.droppy.width > 940 && crab.life > 0){
+            thisGame.droppy.isColliding = true;
+            if(thisGame.droppy.size<4){
+                thisGame.droppy.droppyLosesALife();
+            }
+            else{
+                thisGame.isGameOver = true;
+            }
+        }
+
         //DEFENCE COLLISIONS : Checking collisions between Crab and defence projectile
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
@@ -112,11 +132,15 @@ class Level6{
                 let hit = thisGame.collisionRectRect(defence.x, defence.y, defence.width, defence.height, crab.x, crab.y, crab.width, crab.height);
                 if (hit && crab.isColliding === false){
                     crab.isColliding = true;
-                    thisGame.gameObjects[i].delete;
+                    thisGame.gameObjects.splice(i,i);
                     crab.life = crab.life -1;
                     setTimeout(()=>{
                         crab.isColliding = false;
                     }, 1000);
+                    // remove crabs wall
+                    if (crab.life == 0){ 
+                        document.getElementById('crabs').remove();
+                    }
                 }
             }
         }

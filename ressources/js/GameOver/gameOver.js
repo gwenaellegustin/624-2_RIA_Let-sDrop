@@ -1,6 +1,7 @@
 class GameOver{
     static createLevel(thisGame){
         let stoppedTimer = thisGame.timer.time;
+        thisGame.canReload = true;
 
         //Remove all objects drawn
         thisGame.clearCanvas();

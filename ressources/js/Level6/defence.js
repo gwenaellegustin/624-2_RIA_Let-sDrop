@@ -24,6 +24,7 @@ class Defence{
         if(this.ready){
             this.context.drawImage(this.image, this.x, this.y);
         }
+        this.image.style.zIndex = 3;
     }
 
     update(secondsPassed) {

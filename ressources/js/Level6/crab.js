@@ -14,7 +14,7 @@ class Crab {
         this.directionY = 1;
         this.isColliding = false;
         this.droppy = droppy;
-        this.life = 10;
+        this.life = 5;
 
         this.monsterImage.addEventListener('load', (event) => {
             this.width = this.monsterImage.width;
@@ -70,7 +70,8 @@ class Crab {
             this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"Dead110x130.png";
             this.x = this.x;
             this.y = this.y;
-            //TODO: remove little crab
+            
+            
         }
     }
 }
