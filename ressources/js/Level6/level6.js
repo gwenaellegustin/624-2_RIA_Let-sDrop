@@ -20,14 +20,8 @@ class Level6{
         } else {
             marginPalm = 250;
         }
-        //Palms over hero and monsters 
-        let palms = document.createElement('img');
-        palms.src = "/ressources/images/game/Level6/Palm.png";
-        palms.style.position = 'absolute';
-        palms.style.top = 0;
-        palms.style.marginLeft = `${marginPalm}px`;
-        document.getElementById('bg').appendChild(palms);
 
+        //Crabs wall under plams
         let crabs = document.createElement('img');
         crabs.src = "/ressources/images/game/Level6/CrabsWall.png";
         crabs.style.position = 'absolute';
@@ -36,6 +30,13 @@ class Level6{
         crabs.id = 'crabs'
         document.getElementById('bg').appendChild(crabs);
 
+        //Palms over hero and monsters 
+        let palms = document.createElement('img');
+        palms.src = "/ressources/images/game/Level6/Palm.png";
+        palms.style.position = 'absolute';
+        palms.style.top = 0;
+        palms.style.marginLeft = `${marginPalm}px`;
+        document.getElementById('bg').appendChild(palms);
 
         //Place Droppy
         thisGame.droppy.x = 0;
@@ -74,8 +75,12 @@ class Level6{
             }
         }
     }
+
     static detectDefence(thisGame){
-        window.addEventListener('keyup', event => { 
+        window.addEventListener("keyup", function(event) {
+            if (event.defaultPrevented) {
+              return; // Do nothing if event already handled
+            }
             if(event.code === 'Space'){
                 let crab = thisGame.gameObjects[2];
                 let defence;
@@ -84,10 +89,15 @@ class Level6{
                 } else {
                     defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, -1);
                 }
-                    thisGame.gameObjects.push(defence);
-                    this.interval = 0;
+                thisGame.gameObjects.push(defence);
+                let position = thisGame.gameObjects.length;
+                setTimeout(()=>{
+                    thisGame.gameObjects.splice(position,1);
+                }, 5000)
             }
-         }, false);
+           // Consume the event so it doesn't get handled twice
+            event.preventDefault();
+        }, true);
     }
 
     static detectCollisionsMonsters(thisGame){
@@ -95,7 +105,7 @@ class Level6{
 
         //Crab and Droppy collisions
         let hit = thisGame.collisionRectRect(crab.x + 5, crab.y + 10, crab.width - 10, crab.height - 20, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
-        if(hit && thisGame.droppy.isColliding === false){
+        if(hit && thisGame.droppy.isColliding === false && crab.life > 0){
             thisGame.droppy.isColliding = true;
 
             //Crab is colliding during 1000ms
@@ -113,7 +123,7 @@ class Level6{
         }
 
         //Crabs wall and Droppy collisions
-        if (thisGame.droppy.x + thisGame.droppy.width > 940 && crab.life > 0){
+        if (thisGame.droppy.x + thisGame.droppy.width > 940 && crab.life > 0 && thisGame.droppy.isColliding === false){
             thisGame.droppy.isColliding = true;
             if(thisGame.droppy.size<4){
                 thisGame.droppy.droppyLosesALife();
@@ -132,7 +142,7 @@ class Level6{
                 let hit = thisGame.collisionRectRect(defence.x, defence.y, defence.width, defence.height, crab.x, crab.y, crab.width, crab.height);
                 if (hit && crab.isColliding === false){
                     crab.isColliding = true;
-                    thisGame.gameObjects.splice(i,i);
+                    thisGame.gameObjects.splice(i,1);
                     crab.life = crab.life -1;
                     setTimeout(()=>{
                         crab.isColliding = false;

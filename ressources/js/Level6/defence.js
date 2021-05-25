@@ -18,17 +18,18 @@ class Defence{
         });
 
         this.image.src = "/ressources/images/game/Health17x20.png";
+
     }
 
     draw(){
         if(this.ready){
             this.context.drawImage(this.image, this.x, this.y);
         }
-        this.image.style.zIndex = 3;
     }
 
     update(secondsPassed) {
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
+
     }
 }
