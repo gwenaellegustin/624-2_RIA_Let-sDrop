@@ -8,13 +8,13 @@ class Crab {
         this.y = y;
         this.width = null;
         this.height = null;
-        this.speed  = 300;
+        this.speed  = 250;
         this.direction = 'Left';
         this.directionX = -1;
         this.directionY = 1;
         this.isColliding = false;
         this.droppy = droppy;
-        this.life = 10;
+        this.life = 8;
 
         this.monsterImage.addEventListener('load', (event) => {
             this.width = this.monsterImage.width;
@@ -29,6 +29,9 @@ class Crab {
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
+
+        //Draw life
+        this.drawLife();
     }
 
     update(secondsPassed){
@@ -71,5 +74,20 @@ class Crab {
             this.x = this.x;
             this.y = this.y;
         }
+    }
+
+    drawLife(){
+        let lifeImage = new Image();
+
+        lifeImage.src = "/ressources/images/game/Level6/CrabLife.png";
+
+        let destinationX = 700;
+        let destinationY = 10;
+        let cuttingX  = 20; // width of a crablife
+        let imageWidth = lifeImage.width;
+        let imageHeight = lifeImage.height;
+        
+        this.context.drawImage(lifeImage, cuttingX*(8-this.life), 0, imageWidth, imageHeight, destinationX+cuttingX*(8-this.life), destinationY, imageWidth, imageHeight);
+
     }
 }
