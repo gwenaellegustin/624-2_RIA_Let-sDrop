@@ -22,7 +22,8 @@ class InputUsername{
         window.addEventListener('keydown', event => {
             //If the input.value is empty, no need to save nothing
             if(event.code === 'Enter' && this.input.value!=""){
-                this.storeUsernameLocalStorage();
+                //this.storeUsernameLocalStorage();
+                this.storeUsernameInJsonFile();
                 this.input.value = "";
                 HallOfFame.createLevel(thisGame, this.results);
             }
@@ -67,5 +68,58 @@ class InputUsername{
         //In order to highlight the user record, I need to know who it is
         localStorage.setItem("CurrentUsername",this.input.value);
         localStorage.setItem("CurrentTime", this.timer.time);
+    }
+
+    storeUsernameInJsonFile(){
+        this.results = new Array();
+
+        //Create object
+        let userObject = {
+            'username': this.input.value,
+            'time': this.timer.diff,
+            'timeString': this.timer.time
+        };
+
+        //Charge URL into a variable
+        let requestURL = 'https://6242ria.z22.web.core.windows.net/ressources/json/hallOfFame.json';
+
+        //Instanciate a new XMLHttpRequest and then open a new request
+        let request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+
+        //Tell the server that we're expecting an answer in .json type then send request
+        request.responseType = 'json';
+        request.send();
+
+        //Store the answer into a native variable
+        request.onload = function() {
+            let hallOfFameJson = request.response;
+            this.result = JSON.parse(hallOfFameJson);
+        }
+                
+        //Add last result to the array
+        this.results.push(userObject);
+        console.log(this.results);
+
+        
+
+        /*localStorage.setItem("Results",JSON.stringify(this.results));
+
+        //In order to highlight the user record, I need to know who it is
+        localStorage.setItem("CurrentUsername",this.input.value);
+        localStorage.setItem("CurrentTime", this.timer.time);*/
+
+    }
+
+    fillInHOFArray(jsonObject) {
+        //Put lines from JSON into result ** not finished **
+        let jsonArray = jsonObject['results'];
+        let resultingArray = new Array();
+
+        for (let i = 0; i < jsonArray.length; i++) {
+            resultingArray[i] = JSON.parse(jsonArray[i]);
+        }
+
+        return resultingArray;
     }
 }
