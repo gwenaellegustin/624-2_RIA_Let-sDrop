@@ -41,6 +41,8 @@ class Fire{
     }
 
     update(secondsPassed) {
+        Level3.drawPipeOnCanvas();
+        
         this.interval += secondsPassed;
 
         if(this.collisionCircleRect(this.x, this.y, 500, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){

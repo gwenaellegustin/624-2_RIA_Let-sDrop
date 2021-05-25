@@ -153,7 +153,7 @@ class Game {
                 //TODO:
                 break;
             case 3: 
-                //TODO:
+                Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
                 //TODO:

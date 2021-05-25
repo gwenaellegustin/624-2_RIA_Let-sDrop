@@ -52,11 +52,40 @@ class Level3 {
     }
 
     static detectCollisionsMonsters(thisGame){
+        //LITTLE FIRE COLLISIONS : Checking collisions between Droppy and Little Fire
+        for (let i = 0; i < thisGame.gameObjects.length; i++)
+        {
+            if(thisGame.gameObjects[i] instanceof LittleFire){
+                let littleFire = thisGame.gameObjects[i];
+
+                let hit = thisGame.collisionRectRect(littleFire.x, littleFire.y, littleFire.width, littleFire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                if(hit){
+
+                    thisGame.gameObjects.splice(i,1);
+
+                    new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y)
+                }
+            }
+
+            if(thisGame.gameObjects[i] instanceof Fire){
+                let fire = thisGame.gameObjects[i];
+
+                let hit = thisGame.collisionRectRect(fire.x, fire.y, fire.width, fire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                if(hit && thisGame.droppy.isColliding === false){
+                    thisGame.droppy.isColliding = true;
+
+                    if(thisGame.droppy.size<4){
+                        thisGame.droppy.droppyLosesALife();
+                    }
+                    else{
+                        thisGame.isGameOver = true;
+                    }
+                }
+            }
+        }
     }
 
     static detectCollisionsEdge(thisGame){
-        this.drawPipeOnCanvas();
-
         this.collisionsWithBlackPixel(thisGame.droppy);
 
         //LITTLE FIRE REMOVED AFTER 6 SECONDS ALIVE
@@ -65,26 +94,17 @@ class Level3 {
             if(thisGame.gameObjects[i] instanceof LittleFire){
                 let littleFire = thisGame.gameObjects[i];
 
-                littleFire.secondsAlive += thisGame.secondsPassed;
-
-                if(littleFire.secondsAlive > 6 && littleFire.isAlive){
-                    let littleFireNb = i;
-                    console.log(thisGame.gameObjects)
-                    console.log("in method: " + littleFireNb);
-
-                    littleFire.isAlive = false;
-
-                    this.removeObject(thisGame, littleFireNb);
+                if(littleFire.touchedEdges > 3){
+                    thisGame.gameObjects.splice(i,1);
                 }
             }
         }
-    }
 
-    static removeObject(thisGame, index){
-        setTimeout(function(){
-            console.log("in setTimeOut: " + index);
-            thisGame.gameObjects[index] = null;
-        }, 300);
+        if (thisGame.droppy.x < 0) { //LEFT EDGE
+            thisGame.droppy.x = 0;
+        } else if (thisGame.droppy.x > thisGame.canvas.width - thisGame.droppy.width) { //RIGHT EDGE
+            thisGame.droppy.x += thisGame.droppy.speed * thisGame.secondsPassed;
+        }
     }
 
     static drawPipeOnCanvas(){
@@ -106,14 +126,14 @@ class Level3 {
         x2 = object.x + object.width; //TOP/BOTTOM - RIGHT
         y = object.y - 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
-            console.log("TOP")
+            //console.log("TOP")
             object.y += object.speed * this.thisGame.secondsPassed;
         }
 
         //BOTTOM
         y = object.y + object.height + 1; //SAME FOR ALL RIGHT
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){
-            console.log("BOTTOM")
+            //console.log("BOTTOM")
             object.y -= object.speed * this.thisGame.secondsPassed;
         }
         //*/
@@ -145,14 +165,14 @@ class Level3 {
         y1 = object.y + object.height / 2; //LEFT/RIGHT - MIDDLE
         y2 = object.y + object.height; //LEFT/RIGHT - BOTTOM
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
-            console.log("LEFT")
+            //console.log("LEFT")
             object.x += object.speed * this.thisGame.secondsPassed;
         }
 
         //RIGHT
         x = object.x + object.width + 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
-            console.log("RIGHT")
+            //console.log("RIGHT")
             object.x -= object.speed * this.thisGame.secondsPassed;
         }
     }

@@ -10,11 +10,9 @@ class LittleFire{
         this.width = null;
         this.height = null;
         this.speed = 50;
-        this.droppy = droppy;
         this.angle = 0;
 
-        this.isAlive = true;
-        this.secondsAlive = 0;
+        this.touchedEdges = 0;
 
         this.dx = (droppy.x - x);
         this.dy = (droppy.y - y);
@@ -42,57 +40,15 @@ class LittleFire{
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
 
-        if(this.isAlive){
-            
-            if(this.littleFireReady){
-                this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
-            }
-        }
-        else{
-            this.littleFireImage.src = "/ressources/images/game/Level3/Steam250x250.png";
-
-            if(this.littleFireReady){
-                this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2, this.steamWidth, this.steamHeight);
-
-                setTimeout(() => {
-                    this.steamWidth = 52;
-                    this.steamHeight = 52;
-                }, 50)
-
-                setTimeout(() => {
-                    this.steamWidth = 54;
-                    this.steamHeight = 54;
-                }, 100)
-
-                setTimeout(() => {
-                    this.steamWidth = 56;
-                    this.steamHeight = 56;
-                }, 150)
-
-                setTimeout(() => {
-                    this.steamWidth = 58;
-                    this.steamHeight = 58;
-                }, 200)
-
-                setTimeout(() => {
-                    this.steamWidth = 60;
-                    this.steamHeight = 60;
-                }, 250)
-
-                setTimeout(() => {
-                    this.steamWidth = 62;
-                    this.steamHeight = 62;
-                }, 300)
-            }
+        if(this.littleFireReady){
+            this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
         }
 
         this.context.restore();
     }
 
     update(secondsPassed) {
-        Level3.drawPipeOnCanvas();
-
-        this.collisionsWithBlackPixel(secondsPassed);
+        this.collisionsWithBlackPixel();
 
         this.x += this.velocityX * secondsPassed * this.directionX;
         this.y += this.velocityY * secondsPassed * this.directionY;
@@ -100,9 +56,11 @@ class LittleFire{
         this.angle = Math.atan2(this.velocityY * this.directionY, this.velocityX * this.directionX);  
     }
 
-    collisionsWithBlackPixel(secondsPassed){
+    collisionsWithBlackPixel(){
         let x, x1, x2;
         let y, y1, y2;
+
+        let touched = false;
 
         //VERSION 1///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,27 +69,31 @@ class LittleFire{
         x = this.x; //TOP/BOTTOM - LEFT
         x1 = this.x + this.width / 2; //TOP/BOTTOM - MIDDLE
         x2 = this.x + this.width; //TOP/BOTTOM - RIGHT
-        y = this.y - 1;
+        y = this.y - 5;
         if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
             this.directionY *= -1;
             this.velocityY *= 0.9;
+            touched = true;
         }
 
         //BOTTOM
         y = this.y + this.height + 1; //SAME FOR ALL RIGHT
         if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){
             this.directionY *= -1;
+            this.velocityY *= 0.9;
+            touched = true;
         }
         
 
         //LEFT
-        x = this.x - 1;
+        x = this.x - 5;
         y = this.y; //LEFT/RIGHT - TOP
         y1 = this.y + this.height / 2; //LEFT/RIGHT - MIDDLE
         y2 = this.y + this.height; //LEFT/RIGHT - BOTTOM
         if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x, y1) || Level3.isPixelBlack(x, y2)){
             this.directionX *= -1;
             this.velocityX *= 0.9;
+            touched = true;
         }
 
         //RIGHT
@@ -139,6 +101,11 @@ class LittleFire{
         if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x, y1) || Level3.isPixelBlack(x, y2)){
             this.directionX *= -1;
             this.velocityX *= 0.9;
+            touched = true;
+        }
+
+        if(touched){
+            this.touchedEdges ++;
         }
     }
 }
