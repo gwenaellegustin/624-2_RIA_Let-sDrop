@@ -16,7 +16,6 @@ class Winner{
         thisGame.winnerMusic.play();
         thisGame.winnerSound.play();
 
-
         //Input
         this.input = new InputUsername(thisGame.context, this.stoppedTimer, thisGame);
 

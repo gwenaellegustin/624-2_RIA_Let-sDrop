@@ -85,11 +85,15 @@ class InputUsername{
 
         //Instanciate a new XMLHttpRequest and then open a new request
         let request = new XMLHttpRequest();
+        request.withCredentials = true;
         request.open('GET', requestURL);
 
         //Tell the server that we're expecting an answer in .json type then send request
         request.responseType = 'json';
+        let header = request.getAllResponseHeaders();
+        console.log(header);
         request.send();
+
 
         //Store the answer into a native variable
         request.onload = function() {
