@@ -41,14 +41,6 @@ class Level3 {
         this.pipeImage.addEventListener('load', (event) => {
             this.pipeImageReady = true; //The image has been load, we can draw it
         });
-
-        this.steamImageReady = false;
-        this.steamImage = new Image();
-        this.steamImage.src = '/ressources/images/game/Level3/Steam250x250.png';
-
-        this.steamImage.addEventListener('load', (event) => {
-            this.steamImageReady = true; //The image has been load, we can draw it
-        });
     }
 
     static detectCollisionsMonsters(thisGame){
@@ -61,12 +53,15 @@ class Level3 {
                 let hit = thisGame.collisionRectRect(littleFire.x, littleFire.y, littleFire.width, littleFire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit){
 
+                    //Remove little fire
                     thisGame.gameObjects.splice(i,1);
 
+                    //Add a steam that will be removed after 3seconds
                     new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y)
                 }
             }
 
+            //Droppy touches a fire -> loses a life
             if(thisGame.gameObjects[i] instanceof Fire){
                 let fire = thisGame.gameObjects[i];
 
@@ -100,10 +95,19 @@ class Level3 {
             }
         }
 
+        
         if (thisGame.droppy.x < 0) { //LEFT EDGE
             thisGame.droppy.x = 0;
-        } else if (thisGame.droppy.x > thisGame.canvas.width - thisGame.droppy.width) { //RIGHT EDGE
-            thisGame.droppy.x += thisGame.droppy.speed * thisGame.secondsPassed;
+        }
+
+        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y + thisGame.droppy.height > 225){ //FIRST BOTTOM
+            thisGame.droppy.x = 3.2;
+            thisGame.droppy.y = 225 - thisGame.droppy.height;
+        }
+
+        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y < 50){ //FIRST TOP
+            thisGame.droppy.x = 3.2;
+            thisGame.droppy.y = 50;
         }
     }
 

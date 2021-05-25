@@ -42,9 +42,10 @@ class Fire{
 
     update(secondsPassed) {
         Level3.drawPipeOnCanvas();
-        
+
         this.interval += secondsPassed;
 
+        //Check when droppy is around a big fire to shoot little ones
         if(this.collisionCircleRect(this.x, this.y, 500, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
             if(this.interval > 2.5){
                 let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);

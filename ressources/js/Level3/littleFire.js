@@ -26,9 +26,6 @@ class LittleFire{
             this.littleFireReady = true; //The image has been load, we can draw it
         });
 
-        this.steamWidth = 50;
-        this.steamHeight = 50;
-
         this.littleFireImage.src = "/ressources/images/game/Level3/LittleFire14x18.png";
     }
 
@@ -105,7 +102,7 @@ class LittleFire{
         }
 
         if(touched){
-            this.touchedEdges ++;
+            this.touchedEdges ++; //If a black pixel is touched, adding it to remove little fire after number of touches
         }
     }
 }

@@ -172,7 +172,6 @@ class Game {
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
             Level1.createLevel(this);
-            Level3.createLevel(this); //TODO:CHANGE
         }
 
         // Zone which define end of the level
@@ -181,7 +180,6 @@ class Game {
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
                         Level3.createLevel(this); //TODO:CHANGE
-                        //Level5.createLevel(this); //TODO:
                     }
                 }
                 break;
@@ -190,7 +188,9 @@ class Game {
                 //Level3.createLevel(this);
                 break;
             case 3: 
-                //TODO:
+                if(993 < (this.droppy.x + this.droppy.width)){
+                    Level5.createLevel(this); //TODO:
+                }
                 //Level4.createLevel(this);
                 break;
             case 4:
