@@ -9,19 +9,20 @@ class Drop {
         this.height;
         this.size = size;
         this.color = color;
-        this.speed;
+        this.speed = this.size * 30 + 60;
+
 
         this.isColliding = false;
 
         this.dropImage.addEventListener('load', (event) => {
             this.width = this.dropImage.width;
             this.height = this.dropImage.height;
-            this.dropReady = true; //The image has been load, we can draw it
+            this.dropReady = true; 
         });
     }
 
     draw(){
-        this.dropImage.src = "/ressources/images/game/DropSize" + this.size + this.color + ".png";
+        this.dropImage.src = "/ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
         //Just to see for impact TODO: delete at the end
         //this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
@@ -30,9 +31,7 @@ class Drop {
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y);
         }
-
-        this.speed = this.size * 30 + 60;
-
+        
         //Draw life
         this.drawLife();
     }
@@ -92,9 +91,10 @@ class Drop {
             this.size = 0;
         }, 200);
 
-        //Waiting 100ms more before blinking at new size
+        //Waiting 100ms more before blinking at new size + reset speed
         setTimeout(()=>{
             this.size = oldSize+1;
+            this.speed = this.size * 30 + 60;
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
@@ -117,9 +117,10 @@ class Drop {
             this.size = 0;
         }, 200);
 
-         //Waiting 100ms more before blinking at new size
+         //Waiting 100ms more before blinking at new size + reset speed
          setTimeout(()=>{
             this.size = oldSize-1;
+            this.speed = this.size * 30 + 60;
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
@@ -143,6 +144,93 @@ class Drop {
         Key.DOWN = 40;
     }
 
+    changeColorAndBlink(thisGame) {
+
+        let level = thisGame.level;
+        let colorWhenTouched;
+
+        switch (level) {
+            case 1:
+                colorWhenTouched = "green";
+                break;
+            case 2:
+                colorWhenTouched = "white";
+                break;
+            case 4:
+                colorWhenTouched = "red";
+                break;
+        }
+
+        let oldSize = this.size;
+        
+        this.size = 0;
+
+         //Waiting 100ms before blinking at oldSize
+         setTimeout(()=>{
+            this.color = colorWhenTouched;
+            this.size = oldSize;
+        }, 100);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 200);
+
+        //Waiting 100ms more before blinking at oldSize
+         setTimeout(()=>{
+            this.size = oldSize;
+        }, 300);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 400);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 500);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 600);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 700);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
+            this.size = 0;
+        }, 800);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 900);
+
+        //Waiting 1000ms before Droppy can be touched again
+        setTimeout(()=>{
+            this.isColliding = false;
+        }, 1000);
+
+        //Waiting 3000ms before Droppy is blue again
+        setTimeout(()=>{
+            this.color = "blue";
+        }, 5000);
+    }
+
+    slowDownSpeed(thisGame) {
+        thisGame.droppy.speed = 60;
+        
+        // Droppy's speed is back to normal again even in a new level
+        setTimeout(()=>{
+            thisGame.droppy.speed = this.size * 30 + 60;
+        },5000);
+    }
+
     drawLife(){
         let lifeImage = new Image();
 
@@ -154,7 +242,7 @@ class Drop {
         let imageWidth = lifeImage.width;
         let imageHeight = lifeImage.height;
         
-        //Depending on the number of lifes, the image is crop
+        //Depending on the number of lives, the image is crop
         switch (this.size) {
             case 1:
                 this.context.drawImage(lifeImage, destinationX, destinationY);

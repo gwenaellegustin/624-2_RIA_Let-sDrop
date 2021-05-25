@@ -12,8 +12,8 @@ class Level5{
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level5/Level5.png')";
 
         //Create health Lives
-        thisGame.health1 = new Life(thisGame.context, 500, 180);
-        thisGame.health2 = new Life(thisGame.context, 550, 480);
+        thisGame.health1 = new Life(thisGame.context, 350, 180);
+        thisGame.health2 = new Life(thisGame.context, 650, 480);
 
         //Place Droppy depending on his height
         thisGame.droppy.x = 0;
@@ -41,10 +41,6 @@ class Level5{
 
             thisGame.health1,
             thisGame.health2,
-
-            //Lives
-            /*new Life(thisGame.context, 500, 180),
-            new Life(thisGame.context, 550, 480),*/
 
             //Monsters
             new Snail(thisGame.context, (Math.random() * 380)+600, 150, -1, 0, 20),
@@ -85,7 +81,7 @@ class Level5{
             if(thisGame.gameObjects[i] instanceof Flower){
                 let flower = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(flower.x, flower.y, flower.width, flower.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionRectRect(flower.x+5, flower.y+5, flower.width-5, flower.height-5, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
@@ -93,8 +89,6 @@ class Level5{
                     let flowerX = flower.x;
                     let flowerY = flower.y;
                     let flowerImg = Math.floor((Math.random() * 3) + 3);
-
-                    console.log("i :"+flowerNb+" flowerImg: "+flowerImg+" x: "+flowerX+" y: "+flowerY)
 
                     thisGame.gameObjects.splice(flowerNb, 1, new Flower(thisGame.context, flowerX, flowerY, flowerImg));
                                         
