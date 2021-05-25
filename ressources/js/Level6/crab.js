@@ -8,11 +8,13 @@ class Crab {
         this.y = y;
         this.width = null;
         this.height = null;
-        this.speed  = 300;
-        this.directionX = 0;
-        this.directionY = 0;
+        this.speed  = 250;
+        this.direction = 'Left';
+        this.directionX = -1;
+        this.directionY = 1;
         this.isColliding = false;
         this.droppy = droppy;
+        this.life = 8;
 
         this.monsterImage.addEventListener('load', (event) => {
             this.width = this.monsterImage.width;
@@ -20,42 +22,71 @@ class Crab {
             this.monsterReady = true; //The image has been load, we can draw it
         });
 
-        this.monsterImage.src = "/ressources/images/game/Level6/Crab110x130.png";
+        this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"110x130.png";
     }
 
     draw(){
-        //Just to see for impact
-        //this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        //this.context.fillRect(this.x + 5, this.y + 10, this.width-10, this.height-20);
-
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
+
+        //Draw life
+        this.drawLife();
     }
 
     update(secondsPassed){
-        this.x += this.speed/20 * (this.x - this.droppy.x) / -100 * secondsPassed;
-        this.y += this.speed * (this.y - this.droppy.y) / -100 * secondsPassed;
+        if (this.life > 0){ // is alive -> move
+            this.x += this.speed/5 * this.directionX * secondsPassed;
+            this.y += this.speed * this.directionY * secondsPassed;
 
-        // Grab Droppy
-        if (this.isColliding == true){
-            this.monsterImage.src = "/ressources/images/game/Level6/CrabClosed110x130.png";
-        } else {
-            this.monsterImage.src = "/ressources/images/game/Level6/Crab110x130.png";
+            //Grab Droppy
+            if (this.isColliding == true){
+                this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"Closed110x130.png";
+            } else {
+                this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"110x130.png";
+            }
+
+            //Touching edges
+            if (this.x < 0) { //Left side
+                this.x = 0;
+            } else if (this.x > this.context.canvas.width - this.width) { //Right side
+                this.x = this.context.canvas.width - this.width;
+            }
+            if (this.y < 50) {  //Top side
+                this.y = 50; 
+                this.directionY = 1;
+            } else if (this.y > this.context.canvas.height - this.height) { //Bottom side
+                this.y = this.context.canvas.height - this.height;
+                this.directionY = -1;
+            }
+
+            // Direction 
+            if (this.droppy.x + (this.droppy.width/2) > this.x + (this.width/2)){
+                this.directionX = 1;
+                this.direction = "Right";
+            } else {
+                this.directionX = -1;
+                this.direction = "Left";
+            }
+
+        } else { // is dead -> doesn't move + dead image
+            this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"Dead110x130.png";
+            this.x = this.x;
+            this.y = this.y;
         }
+    }
 
-        //Touching edges
-        if (this.x < 0) { //Left side
-            this.x = 0;
-         } else if (this.x > this.context.canvas.width - this.width) { //Right side
-            this.x = this.context.canvas.width - this.width;
-         }
-         if (this.y < 50) { 
-            this.y = 50; 
-         } else if (this.y > this.context.canvas.height - this.height) { //Bottom side
-            this.y = this.context.canvas.height - this.height;
-         }
+    drawLife(){
+        let lifeImage = new Image();
 
+        lifeImage.src = "/ressources/images/game/Level6/CrabLife.png";
 
+        let destinationX = 700;
+        let destinationY = 10;
+        let cuttingX  = 20; // width of a crablife
+        let imageWidth = lifeImage.width;
+        let imageHeight = lifeImage.height;
+        
+        this.context.drawImage(lifeImage, cuttingX*(8-this.life), 0, imageWidth, imageHeight, destinationX+cuttingX*(8-this.life), destinationY, imageWidth, imageHeight);
     }
 }

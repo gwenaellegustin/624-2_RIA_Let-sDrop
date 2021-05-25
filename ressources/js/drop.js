@@ -24,7 +24,7 @@ class Drop {
     draw(){
         this.dropImage.src = "/ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
-        //Just to see for impact
+        //Just to see for impact TODO: delete at the end
         //this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
         //this.context.fillRect(this.x, this.y, this.width, this.height);
 
@@ -234,7 +234,7 @@ class Drop {
     drawLife(){
         let lifeImage = new Image();
 
-        lifeImage.src = "/ressources/images/game/LifeSmall.png";
+        lifeImage.src = "/ressources/images/game/LifeSmall.png"; //TODO: renamme image
 
         let destinationX = 900;
         let destinationY = 10;

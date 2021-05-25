@@ -160,6 +160,7 @@ class Game {
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
+                Level6.detectDefence(this);
                 break;
             }
     }
@@ -200,7 +201,7 @@ class Game {
                 }
                 break;
             case 6: 
-                if(1000 == (this.droppy.x + this.droppy.width)){
+                if(1000 == (this.droppy.x + this.droppy.width)){ 
                     this.isWin = true;
                 }
                 break;
