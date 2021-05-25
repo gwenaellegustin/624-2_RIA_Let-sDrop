@@ -88,6 +88,5 @@ class Crab {
         let imageHeight = lifeImage.height;
         
         this.context.drawImage(lifeImage, cuttingX*(8-this.life), 0, imageWidth, imageHeight, destinationX+cuttingX*(8-this.life), destinationY, imageWidth, imageHeight);
-
     }
 }

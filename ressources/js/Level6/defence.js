@@ -18,7 +18,6 @@ class Defence{
         });
 
         this.image.src = "/ressources/images/game/Health17x20.png";
-
     }
 
     draw(){
@@ -30,6 +29,5 @@ class Defence{
     update(secondsPassed) {
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
-
     }
 }
