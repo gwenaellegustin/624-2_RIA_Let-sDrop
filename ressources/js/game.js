@@ -187,14 +187,13 @@ class Game {
                 break;
             case 2:
                 if(1000 == (this.droppy.x + this.droppy.width)){
-                    Level5.createLevel(this);
+                    Level3.createLevel(this);
                 }
                 break;
             case 3: 
                 if(993 < (this.droppy.x + this.droppy.width)){
                     Level5.createLevel(this); //TODO:
                 }
-                //Level4.createLevel(this);
                 break;
             case 4:
                 //TODO:
