@@ -124,10 +124,7 @@ class Level3 {
         let x, x1, x2;
         let y, y1, y2;
 
-        //VERSION 1///////////////////////////////////////////////////////////////////////////////////////////////
-
         //TOP
-        ///* JUST UN.COMMENT THE FIRST 2 //
         x = droppy.x; //TOP/BOTTOM - LEFT
         x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
         x2 = droppy.x + droppy.width; //TOP/BOTTOM - RIGHT
@@ -143,28 +140,6 @@ class Level3 {
             //console.log("BOTTOM")
             droppy.y -= droppy.speed * this.thisGame.secondsPassed;
         }
-        //*/
-
-        //VERSION 2///////////////////////////////////////////////////////////////////////////////////////////////
-        
-
-        //TOP
-        /* JUST UN.COMMENT THE FIRST 2 //
-        x1 = object.x + object.width / 2; //TOP/BOTTOM - MIDDLE
-        y = object.y - 1;
-        if(this.isPixelBlack(x1, y, 1,)){ //I don't want y to be updated more than one time
-            console.log("TOP")
-            object.y += object.speed * this.thisGame.secondsPassed;
-        }
-
-        //BOTTOM
-        y = object.y + object.height + 1; //SAME FOR ALL RIGHT
-        if(this.isPixelBlack(x1, y, 1, 1)){
-            console.log("BOTTOM")
-            object.y -= object.speed * this.thisGame.secondsPassed;
-        }
-        //*/
-        
 
         //LEFT
         x = droppy.x - 1;
