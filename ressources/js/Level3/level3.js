@@ -82,9 +82,9 @@ class Level3 {
     }
 
     static detectCollisionsEdge(thisGame){
-        this.collisionsWithBlackPixel(thisGame.droppy);
+        this.collisionsDroppyWithBlackPixel(thisGame.droppy);
 
-        //LITTLE FIRE REMOVED AFTER 6 SECONDS ALIVE
+        //LITTLE FIRE REMOVED AFTER MORE THAN 3 TOUCHING EDGE
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof LittleFire){
@@ -96,17 +96,19 @@ class Level3 {
             }
         }
 
-        
-        if (thisGame.droppy.x < 0) { //LEFT EDGE
+        //HANDLE DROPPY LEAVING FROM LEFT SIDE
+        if (thisGame.droppy.x < 0) {
             thisGame.droppy.x = 0;
         }
 
-        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y + thisGame.droppy.height > 225){ //FIRST BOTTOM
+        //HANDLE DROPPY LEAVING FROM LEFT SIDE / BOTTOM
+        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y + thisGame.droppy.height > 225){
             thisGame.droppy.x = 3.2;
             thisGame.droppy.y = 225 - thisGame.droppy.height;
         }
 
-        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y < 50){ //FIRST TOP
+        //HANDLE DROPPY LEAVING FROM LEFT SIDE / TOP
+        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y < 50){
             thisGame.droppy.x = 3.2;
             thisGame.droppy.y = 50;
         }
@@ -118,7 +120,7 @@ class Level3 {
         }
     }
 
-    static collisionsWithBlackPixel(object){
+    static collisionsDroppyWithBlackPixel(droppy){
         let x, x1, x2;
         let y, y1, y2;
 
@@ -126,20 +128,20 @@ class Level3 {
 
         //TOP
         ///* JUST UN.COMMENT THE FIRST 2 //
-        x = object.x; //TOP/BOTTOM - LEFT
-        x1 = object.x + object.width / 2; //TOP/BOTTOM - MIDDLE
-        x2 = object.x + object.width; //TOP/BOTTOM - RIGHT
-        y = object.y - 1;
+        x = droppy.x; //TOP/BOTTOM - LEFT
+        x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
+        x2 = droppy.x + droppy.width; //TOP/BOTTOM - RIGHT
+        y = droppy.y - 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
             //console.log("TOP")
-            object.y += object.speed * this.thisGame.secondsPassed;
+            droppy.y += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //BOTTOM
-        y = object.y + object.height + 1; //SAME FOR ALL RIGHT
+        y = droppy.y + droppy.height + 1; //SAME FOR ALL RIGHT
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){
             //console.log("BOTTOM")
-            object.y -= object.speed * this.thisGame.secondsPassed;
+            droppy.y -= droppy.speed * this.thisGame.secondsPassed;
         }
         //*/
 
@@ -165,20 +167,20 @@ class Level3 {
         
 
         //LEFT
-        x = object.x - 1;
-        y = object.y; //LEFT/RIGHT - TOP
-        y1 = object.y + object.height / 2; //LEFT/RIGHT - MIDDLE
-        y2 = object.y + object.height; //LEFT/RIGHT - BOTTOM
+        x = droppy.x - 1;
+        y = droppy.y; //LEFT/RIGHT - TOP
+        y1 = droppy.y + droppy.height / 2; //LEFT/RIGHT - MIDDLE
+        y2 = droppy.y + droppy.height; //LEFT/RIGHT - BOTTOM
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
             //console.log("LEFT")
-            object.x += object.speed * this.thisGame.secondsPassed;
+            droppy.x += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //RIGHT
-        x = object.x + object.width + 1;
+        x = droppy.x + droppy.width + 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
             //console.log("RIGHT")
-            object.x -= object.speed * this.thisGame.secondsPassed;
+            droppy.x -= droppy.speed * this.thisGame.secondsPassed;
         }
     }
 
