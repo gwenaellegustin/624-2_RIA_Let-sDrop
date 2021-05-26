@@ -2,7 +2,7 @@ class Steam {
     constructor (context, x, y){
         this.context = context;
         this.x = x;
-        this.y = y;  //The soap can't appear on a edge of the canvas
+        this.y = y;
         this.width = 250;
         this.height = 250;
 

@@ -9,7 +9,7 @@ class LittleFire{
         this.directionY = 1;
         this.width = null;
         this.height = null;
-        this.speed = 50;
+        this.speed = 60;
         this.angle = 0;
 
         this.touchedEdges = 0;

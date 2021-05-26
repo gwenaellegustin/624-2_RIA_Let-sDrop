@@ -24,14 +24,15 @@ class Level3 {
             thisGame.timer,
 
             //Monster
-            new Fire(thisGame.context, 140, 90, thisGame),
+            new Fire(thisGame.context, 140, 90, thisGame, false, false),
             new LittleFire(thisGame.context, 129, 87, thisGame.droppy),
-            new Fire(thisGame.context, 105, 358, thisGame),
-            new Fire(thisGame.context, 465, 204, thisGame),
-            new Fire(thisGame.context, 540, 450, thisGame),
-            new Fire(thisGame.context, 650, 70, thisGame),
-            new Fire(thisGame.context, 750, 284, thisGame),
-            new Fire(thisGame.context, 833, 487, thisGame)
+            new Fire(thisGame.context, 105, 358, thisGame, false, false),
+            new Fire(thisGame.context, 350, 390, thisGame, false, true),
+            new Fire(thisGame.context, 465, 204, thisGame, false, false),
+            new Fire(thisGame.context, 540, 450, thisGame, false, false),
+            new Fire(thisGame.context, 650, 75, thisGame, false, true),
+            new Fire(thisGame.context, 750, 284, thisGame, true, false),
+            new Fire(thisGame.context, 833, 487, thisGame, false, false)
         ]
 
         this.pipeImageReady = false;
