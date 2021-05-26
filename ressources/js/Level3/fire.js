@@ -77,14 +77,12 @@ class Fire{
             y1 = this.y + this.height / 2; //LEFT/RIGHT - MIDDLE
             y2 = this.y + this.height; //LEFT/RIGHT - BOTTOM
             if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x, y1) || Level3.isPixelBlack(x, y2)){
-                console.log('left')
                 this.directionX *= -1;
             }
     
             //RIGHT
             x = this.x + this.width - 10;
             if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x, y1) || Level3.isPixelBlack(x, y2)){
-                console.log('bottom')
                 this.directionX *= -1;
             }
 
@@ -98,14 +96,12 @@ class Fire{
             x2 = this.x + this.width; //TOP/BOTTOM - RIGHT
             y = this.y - 20;
             if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
-                console.log('top')
                 this.directionY *= -1;
             }
     
             //BOTTOM
             y = this.y + this.height; //SAME FOR ALL RIGHT
             if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){
-                console.log('right')
                 this.directionY *= -1;
             }
 
