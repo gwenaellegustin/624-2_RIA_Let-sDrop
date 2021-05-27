@@ -91,7 +91,7 @@ class Level1{
                     thisGame.droppy.isColliding = true;
 
                     if(thisGame.droppy.size<4){
-                        thisGame.droppy.droppyLosesALife();
+                        thisGame.droppy.droppyLosesALife(0);
                     }
                     else{
                         thisGame.isGameOver = true;

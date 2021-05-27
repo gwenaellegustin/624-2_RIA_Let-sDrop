@@ -156,18 +156,18 @@ class Game {
                 break;
             case 2:
                 Level2.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this);
+                Level2.retrieveLives(this, 0);
                 break;
             case 3: 
                 Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
                 Level4.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this);
+                Level2.retrieveLives(this, this.droppy.size+1);
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
-                Level5.retrieveLives(this);
+                Level2.retrieveLives(this, 0);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);

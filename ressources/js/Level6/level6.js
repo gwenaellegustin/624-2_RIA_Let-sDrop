@@ -68,7 +68,7 @@ class Level6{
             }, 1000);
             
             if(thisGame.droppy.size<4){
-                thisGame.droppy.droppyLosesALife();
+                thisGame.droppy.droppyLosesALife(0);
             }
             else{
                 thisGame.isGameOver = true;
@@ -115,7 +115,7 @@ class Level6{
             }, 1000);
             
             if(thisGame.droppy.size<4){
-                thisGame.droppy.droppyLosesALife();
+                thisGame.droppy.droppyLosesALife(0);
             }
             else{
                 thisGame.isGameOver = true;
@@ -126,7 +126,7 @@ class Level6{
         if (thisGame.droppy.x + thisGame.droppy.width > 940 && crab.life > 0 && thisGame.droppy.isColliding === false){
             thisGame.droppy.isColliding = true;
             if(thisGame.droppy.size<4){
-                thisGame.droppy.droppyLosesALife();
+                thisGame.droppy.droppyLosesALife(0);
             }
             else{
                 thisGame.isGameOver = true;

@@ -76,11 +76,11 @@ class Drop {
         }
     }
 
-    droppyLosesALife(){
+    droppyLosesALife(blinkingSize){
         //Store old size to blink
         let oldSize = this.size;
                                 
-        this.size = 0;
+        this.size = blinkingSize;
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
@@ -89,7 +89,7 @@ class Drop {
 
         //Waiting 100ms more before disappear
         setTimeout(()=>{
-            this.size = 0;
+            this.size = blinkingSize;
         }, 200);
 
         //Waiting 100ms more before blinking at new size + reset speed
@@ -104,9 +104,9 @@ class Drop {
         }, 1000);
     }
 
-    droppyRetrieveALife(){
+    droppyRetrieveALife(blinkingSize){
         let oldSize = this.size;
-        this.size = 0;
+        this.size = blinkingSize;
 
          //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
@@ -115,7 +115,7 @@ class Drop {
 
         //Waiting 100ms more before disappear
         setTimeout(()=>{
-            this.size = 0;
+            this.size = blinkingSize;
         }, 200);
 
          //Waiting 100ms more before blinking at new size + reset speed

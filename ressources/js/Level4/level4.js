@@ -75,7 +75,7 @@ class Level4 {
                         thisGame.droppy.isColliding = true;
 
                         if(thisGame.droppy.size<4){
-                            thisGame.droppy.droppyLosesALife();
+                            thisGame.droppy.droppyLosesALife(thisGame.droppy.size+1);
                         }
                         else{
                             thisGame.isGameOver = true;

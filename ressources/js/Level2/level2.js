@@ -88,7 +88,7 @@ class Level2{
                     thisGame.droppy.isColliding = true;
                     
                     if(thisGame.droppy.size<4){
-                        thisGame.droppy.droppyLosesALife();
+                        thisGame.droppy.droppyLosesALife(0);
                     }
                     else{
                         thisGame.isGameOver = true;
@@ -114,7 +114,7 @@ class Level2{
         thisGame.droppy.slowDownSpeed(thisGame);    
     }
 
-    static retrieveLives(thisGame) {
+    static retrieveLives(thisGame, blinkingSize) {
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof Life) {
@@ -126,7 +126,7 @@ class Level2{
                     thisGame.droppy.isColliding = true;
 
                     if(thisGame.droppy.size>1){
-                        thisGame.droppy.droppyRetrieveALife();
+                        thisGame.droppy.droppyRetrieveALife(blinkingSize);
                         thisGame.gameObjects.splice(i,1);
                     }
                     else{
