@@ -4,7 +4,7 @@ class Level1{
         thisGame.level = 1;
         
         //Change background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level1/Level1.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bglevel1url;
 
         //Remove all images
         thisGame.clearImages();

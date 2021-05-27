@@ -14,7 +14,7 @@ class HallOfFame{
         document.getElementById('usernameInput').remove();
 
         //Display winner screen background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/HallOfFame/hallOfFame.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.hallOfFameurl ;
 
         //Sort results
         results.sort(this.sortResults);
