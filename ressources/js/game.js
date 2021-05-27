@@ -163,7 +163,7 @@ class Game {
                 break;
             case 4:
                 Level4.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, this.droppy.size+1);
+                Level2.retrieveLives(this, this.droppy.size-1);
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
@@ -180,7 +180,7 @@ class Game {
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
             Level1.createLevel(this);
-            Level4.createLevel(this);
+            Level3.createLevel(this);
         }
 
         // Zone which define end of the level

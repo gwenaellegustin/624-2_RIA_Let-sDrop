@@ -17,6 +17,9 @@ class Level4 {
         thisGame.droppy.x = 87;
         thisGame.droppy.y = 392;
 
+        //Prevent being lost on the canvas with 2 keys hold
+        thisGame.droppy.canPress2Keys = false;
+
         //Reduce size of all Droppies
         thisGame.droppy.factorWidth = 0.5;
         thisGame.droppy.factorHeight = 0.5;

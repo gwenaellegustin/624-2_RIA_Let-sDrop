@@ -32,6 +32,9 @@ class Level5{
                 break;
         }
 
+        //2 keys can be hold
+        thisGame.droppy.canPress2Keys = true;
+
         //Title
         thisGame.levelName = 'Slurp the drop';
 

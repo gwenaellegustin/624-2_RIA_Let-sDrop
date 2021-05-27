@@ -11,6 +11,8 @@ class Drop {
         this.color = color;
         this.speed = this.size * 30 + 60;
 
+        this.canPress2Keys = true;
+
         this.factorWidth = 1;
         this.factorHeight = 1;
 
@@ -40,27 +42,7 @@ class Drop {
 
     update(secondsPassed){
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        if(Key.pressed.length==2){
-            if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){
-                this.y += this.speed * secondsPassed;
-                this.x += this.speed * secondsPassed;
-            }
-    
-            if (Key.isDown(Key.DOWN) && Key.isDown(Key.LEFT)){
-                this.y += this.speed * secondsPassed;
-                this.x -= this.speed * secondsPassed;
-            }
-    
-            if (Key.isDown(Key.UP) && Key.isDown(Key.RIGHT)){
-                this.y -= this.speed * secondsPassed;
-                this.x += this.speed * secondsPassed;
-            }
-    
-            if (Key.isDown(Key.UP) && Key.isDown(Key.LEFT)){
-                this.y -= this.speed * secondsPassed;
-                this.x -= this.speed * secondsPassed;
-            }
-        } else{
+        if(this.canPress2Keys){
             if (Key.isDown(Key.UP)){
                 this.y -= this.speed * secondsPassed;
             }
@@ -71,6 +53,19 @@ class Drop {
                 this.y += this.speed * secondsPassed;
             }
             if (Key.isDown(Key.RIGHT)){
+                this.x += this.speed * secondsPassed;
+            }
+        } else{ //Soit l'une, soit l'autre, pas 2 touches en même temps
+            if (Key.isDown(Key.UP)){
+                this.y -= this.speed * secondsPassed;
+            }
+            else if (Key.isDown(Key.LEFT)){
+                this.x -= this.speed * secondsPassed;
+            }
+            else if (Key.isDown(Key.DOWN)){
+                this.y += this.speed * secondsPassed;
+            }
+            else if (Key.isDown(Key.RIGHT)){
                 this.x += this.speed * secondsPassed;
             }
         }
@@ -106,7 +101,6 @@ class Drop {
 
     droppyRetrieveALife(blinkingSize){
         let oldSize = this.size;
-        this.size = blinkingSize;
 
          //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
