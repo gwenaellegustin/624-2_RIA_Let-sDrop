@@ -19,6 +19,8 @@ class InputUsername{
         this.input.style.paddingLeft = "10px";
         document.getElementById('bg').appendChild(this.input);
 
+        this.requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
+
         window.addEventListener('keydown', event => {
             //If the input.value is empty, no need to save nothing
             if(event.code === 'Enter' && this.input.value!=""){
@@ -54,68 +56,42 @@ class InputUsername{
             'timeString': this.timer.time
         };
 
-        //Charge URL into a variable
-        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
-
         //Instanciate a new XMLHttpRequest and then open a new request
         let request = new XMLHttpRequest();
-        request.withCredentials = true;
-        request.open('GET', requestURL);
+        request.withCredentials = false;
+        request.open('GET', this.requestURL);
 
         //Tell the server that we're expecting an answer in .json type then send request
         request.responseType = 'json';
         request.send();
 
-
         //Store the answer into a native variable
-        request.onload = function() {
+        request.onload = () => {
             let hallOfFameJson = request.response;
-            console.log(hallOfFameJson);
             this.results = hallOfFameJson;
 
             //Add last result to the array
             this.results.push(userObject);
-            console.log(this.results);
 
-            InputUsername.fillInHOFArray(this.results);
+            this.fillInHOFArray(this.results);
 
             HallOfFame.createLevel(thisGame, this.results);
-        }       
+        }
 
         //In order to highlight the user record, I need to know who it is
         localStorage.setItem("CurrentUsername",this.input.value);
         localStorage.setItem("CurrentTime", this.timer.time);
     }
 
-    static fillInHOFArray(jsonObject) {
-        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
+    fillInHOFArray(jsonObject) {
         let request = new XMLHttpRequest();
-        request.withCredentials = true;
-        request.open('PUT', requestURL, true);
+        request.withCredentials = false;
+        request.open('PUT', this.requestURL, true);
 
-        //request.setRequestHeader('Content-Type', 'application/json');
-        //request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('Content-Type', 'application/json');
         request.setRequestHeader('x-ms-version', '2020-04-08');
         request.setRequestHeader('x-ms-blob-type', 'BlockBlob')
-
-        console.log(JSON.stringify(jsonObject));
-        var blob = new Blob([JSON.stringify(jsonObject)], {type: 'application/json'});
-
         
         request.send(JSON.stringify(jsonObject));
-        
-
-        /*
-        //Put lines from JSON into result ** not finished **
-        let jsonArray = jsonObject['results'];
-        let resultingArray = new Array();
-
-        for (let i = 0; i < jsonArray.length; i++) {
-            resultingArray[i] = JSON.parse(jsonArray[i]);
-        }
-
-        return resultingArray;
-        */
     }
 }
