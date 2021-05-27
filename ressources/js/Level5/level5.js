@@ -15,6 +15,10 @@ class Level5{
         thisGame.health1 = new Life(thisGame.context, 350, 180);
         thisGame.health2 = new Life(thisGame.context, 650, 480);
 
+        //Reset size of all Droppies
+        thisGame.droppy.factorWidth = 1;
+        thisGame.droppy.factorHeight = 1;
+
         //Place Droppy depending on his height
         thisGame.droppy.x = 0;
         switch(thisGame.droppy.size) {
