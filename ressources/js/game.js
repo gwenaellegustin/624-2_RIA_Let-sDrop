@@ -23,12 +23,18 @@ class Game {
         // Music and sounds
         this.level1Music = new Audio("/ressources/sounds/frightNight.wav"); // will continue through all levels
         this.level1Music.loop = true; 
+        this.level1Music.preload = auto;
         this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.wav");
+        this.winnerMusic.preload = auto;
         this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.wav");
+        this.winnerSound.preload = auto;
         this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.wav");
+        this.gameOverMusic.preload = auto;
         this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.wav");
+        this.gameOverSound.preload = auto;
         this.endSound = new Audio("/ressources/sounds/ocean.wav");
         this.endSound.loop = true;
+        this.endSound.preload = auto;
         
         this.init(canvasId);
     }
