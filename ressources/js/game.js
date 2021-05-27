@@ -3,6 +3,7 @@ class Game {
         this.canvas = null;
         this.context = null;
         this.oldTimeStamp = 0;
+        this.secondsPassed;
         this.gameObjects = [];
         this.level = null;
         this.isGameOver = false;
@@ -58,12 +59,14 @@ class Game {
 
     gameLoop(timeStamp) {
         // Calculate the number of seconds passed since the last frame
-        let secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
+        this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
         // Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
-            this.gameObjects[i].update(secondsPassed);
+            if(this.gameObjects[i] != null){
+                this.gameObjects[i].update(this.secondsPassed);
+            } 
         }
         
         // Detect collisions with edges and monsters
@@ -78,7 +81,9 @@ class Game {
     
         // Loop over all game objects to draw
         for(let i=0; i < this.gameObjects.length; i++){
-            this.gameObjects[i].draw();
+            if(this.gameObjects[i] != null){
+                this.gameObjects[i].draw();
+            } 
         }
 
         //Draw level name
@@ -118,7 +123,7 @@ class Game {
                 }
                 break;
             case 3:
-                //TODO:
+                Level3.detectCollisionsEdge(this);
                 break;
             case 4:
                 //TODO:
@@ -149,7 +154,7 @@ class Game {
                 Level2.retrieveLives(this);
                 break;
             case 3: 
-                //TODO:
+                Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
                 //TODO:
@@ -160,6 +165,7 @@ class Game {
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
+                Level6.detectDefence(this);
                 break;
             }
     }
@@ -181,12 +187,13 @@ class Game {
                 break;
             case 2:
                 if(1000 == (this.droppy.x + this.droppy.width)){
-                    Level5.createLevel(this);
+                    Level3.createLevel(this);
                 }
                 break;
             case 3: 
-                //TODO:
-                //Level4.createLevel(this);
+                if(993 < (this.droppy.x + this.droppy.width)){
+                    Level5.createLevel(this); //TODO:
+                }
                 break;
             case 4:
                 //TODO:
@@ -200,7 +207,7 @@ class Game {
                 }
                 break;
             case 6: 
-                if(1000 == (this.droppy.x + this.droppy.width)){
+                if(1000 == (this.droppy.x + this.droppy.width)){ 
                     this.isWin = true;
                 }
                 break;

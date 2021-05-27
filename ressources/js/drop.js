@@ -24,7 +24,7 @@ class Drop {
     draw(){
         this.dropImage.src = "/ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
-        //Just to see for impact
+        //Just to see for impact TODO: delete at the end
         //this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
         //this.context.fillRect(this.x, this.y, this.width, this.height);
 
@@ -38,7 +38,6 @@ class Drop {
 
     update(secondsPassed){
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-        
         if(Key.pressed.length==2){
             if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){
                 this.y += this.speed * secondsPassed;
@@ -108,7 +107,7 @@ class Drop {
         this.size = 0;
 
          //Waiting 100ms before blinking at oldSize
-         setTimeout(()=>{
+        setTimeout(()=>{
             this.size = oldSize;
         }, 100);
 
@@ -234,7 +233,7 @@ class Drop {
     drawLife(){
         let lifeImage = new Image();
 
-        lifeImage.src = "/ressources/images/game/LifeSmall.png";
+        lifeImage.src = "/ressources/images/game/LifeSmall.png"; //TODO: renamme image
 
         let destinationX = 900;
         let destinationY = 10;
