@@ -204,7 +204,7 @@ class Game {
                 break;
             case 4:
                 if(915 < (this.droppy.x + this.droppy.width) && 425 < (this.droppy.y + this.droppy.height)){
-                    Level5.createLevel(this);
+                    Level5.createLevel(this); // TODO: prevent to leave bottom right et top right 
                 }
                 break;
             case 5:

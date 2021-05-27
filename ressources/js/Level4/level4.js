@@ -12,6 +12,7 @@ class Level4 {
         //Change background
         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level4/Level4.png')";
 
+
         //Place Droppy
         thisGame.droppy.x = 87;
         thisGame.droppy.y = 392;
@@ -47,7 +48,7 @@ class Level4 {
 
         this.radiatorReady = false;
         this.radiatorImage = new Image();
-        this.radiatorImage.src = '/ressources/images/game/Level4/Level4_canvas.png';
+        this.radiatorImage.src = '/ressources/images/game/Level4/Level4_detection.png'; //TODO: choose between Level4_canvas and Level4_detection
 
         this.radiatorImage.addEventListener('load', (event) => {
             this.radiatorReady = true; //The image has been load, we can draw it
@@ -126,7 +127,7 @@ class Level4 {
         //TOP
         x = droppy.x; //TOP/BOTTOM - LEFT
         x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
-        x2 = droppy.x + droppy.width; //TOP/BOTTOM - RIGHT
+        x2 = droppy.x + droppy.width / 2; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
             //console.log("TOP")
@@ -134,7 +135,7 @@ class Level4 {
         }
 
         //BOTTOM
-        y = droppy.y + droppy.height + 1; //SAME FOR ALL RIGHT
+        y = droppy.y + droppy.height  / 2 + 1; //SAME FOR ALL RIGHT
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){
             //console.log("BOTTOM")
             droppy.y -= droppy.speed * this.thisGame.secondsPassed;
@@ -144,14 +145,14 @@ class Level4 {
         x = droppy.x - 1;
         y = droppy.y; //LEFT/RIGHT - TOP
         y1 = droppy.y + droppy.height / 2; //LEFT/RIGHT - MIDDLE
-        y2 = droppy.y + droppy.height; //LEFT/RIGHT - BOTTOM
+        y2 = droppy.y + droppy.height / 2; //LEFT/RIGHT - BOTTOM
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
             //console.log("LEFT")
             droppy.x += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //RIGHT
-        x = droppy.x + droppy.width + 1;
+        x = droppy.x + droppy.width / 2 + 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
             //console.log("RIGHT")
             droppy.x -= droppy.speed * this.thisGame.secondsPassed;
