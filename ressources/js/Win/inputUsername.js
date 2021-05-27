@@ -56,7 +56,7 @@ class InputUsername{
         };
 
         //Charge URL into a variable
-        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T12:41:17Z&se=2021-05-27T20:41:17Z&spr=https&sv=2020-02-10&sr=b&sig=bbqXherMiRS7FStWvUhMqbgdWQcfT%2FBflJEFsvOVOWw%3D';
+        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
 
         //Instanciate a new XMLHttpRequest and then open a new request
         let request = new XMLHttpRequest();
@@ -88,9 +88,7 @@ class InputUsername{
     }
 
     static fillInHOFArray(jsonObject) {
-        
-        let sas = '?sv=2020-02-10&ss=bfqt&srt=o&sp=rwdlacuptfx&se=2021-05-27T20:30:38Z&st=2021-05-27T12:30:38Z&spr=https&sig=HfKJmdYoeoR5AqjTlJoW1JtUwFFFYMFs2IIXv1wQe08%3D'
-        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T12:41:17Z&se=2021-05-27T20:41:17Z&spr=https&sv=2020-02-10&sr=b&sig=bbqXherMiRS7FStWvUhMqbgdWQcfT%2FBflJEFsvOVOWw%3D';
+        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
         let request = new XMLHttpRequest();
         request.open('PUT', requestURL, true);
 
