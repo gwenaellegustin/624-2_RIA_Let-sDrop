@@ -71,6 +71,7 @@ class InputUsername{
         //Store the answer into a native variable
         request.onload = function() {
             let hallOfFameJson = request.response;
+            console.log(hallOfFameJson);
             this.results = hallOfFameJson;
 
             //Add last result to the array
@@ -95,13 +96,15 @@ class InputUsername{
 
         //request.setRequestHeader('Content-Type', 'application/json');
         //request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        request.setRequestHeader('Content-Type', 'application/json');
         request.setRequestHeader('x-ms-version', '2020-04-08');
         request.setRequestHeader('x-ms-blob-type', 'BlockBlob')
 
+        console.log(JSON.stringify(jsonObject));
         var blob = new Blob([JSON.stringify(jsonObject)], {type: 'application/json'});
 
         
-        request.send(blob);
+        request.send(JSON.stringify(jsonObject));
         
 
         /*
