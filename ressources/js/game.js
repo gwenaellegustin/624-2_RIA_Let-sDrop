@@ -62,6 +62,11 @@ class Game {
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
+
+        if(this.level === 4){
+            Level4.drawRadiatorOnCanvas();
+        }
+
         // Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
             if(this.gameObjects[i] != null){
@@ -126,7 +131,7 @@ class Game {
                 Level3.detectCollisionsEdge(this);
                 break;
             case 4:
-                //TODO:
+                Level4.detectCollisionsEdge(this);
                 break;
             case 6:
                 if (this.droppy.x < 0) { //LEFT EDGE
@@ -157,7 +162,8 @@ class Game {
                 Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
-                //TODO:
+                Level4.detectCollisionsMonsters(this);
+                Level2.retrieveLives(this);
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
@@ -174,6 +180,7 @@ class Game {
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
             Level1.createLevel(this);
+            Level4.createLevel(this);
         }
 
         // Zone which define end of the level

@@ -11,6 +11,8 @@ class Drop {
         this.color = color;
         this.speed = this.size * 30 + 60;
 
+        this.factorWidth = 1;
+        this.factorHeight = 1;
 
         this.isColliding = false;
 
@@ -29,7 +31,7 @@ class Drop {
         //this.context.fillRect(this.x, this.y, this.width, this.height);
 
         if(this.dropReady){
-            this.context.drawImage(this.dropImage, this.x, this.y);
+            this.context.drawImage(this.dropImage, this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);
         }
         
         //Draw life
