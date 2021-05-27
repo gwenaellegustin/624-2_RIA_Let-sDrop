@@ -90,6 +90,7 @@ class InputUsername{
     static fillInHOFArray(jsonObject) {
         let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
         let request = new XMLHttpRequest();
+        request.withCredentials = true;
         request.open('PUT', requestURL, true);
 
         //request.setRequestHeader('Content-Type', 'application/json');
