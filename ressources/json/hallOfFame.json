@@ -1,18 +1,1 @@
-{
-	"results":
-	[{
-		"username": "Antony",
-		"time": "1970-01-01T00:00:21.969Z",
-		"timeString": "00:51:732"
-	},
-	{
-		"username": "Gwenaëlle",
-		"time": "1970-01-01T00:00:21.969Z",
-		"timeString": "00:57:121"
-	},
-	{
-		"username": "Stéphanie",
-		"time": "1970-01-01T00:00:21.969Z",
-		"timeString": "00:53:922"
-	}]
-}
+[{"username":"Antony","time":"1970-01-01T00:00:34.734Z","timeString":"00:34:734"},{"username":"Antony2","time":"1970-01-01T00:00:08.864Z","timeString":"00:08:864"},{"username":"Jule","time":"1970-01-01T00:00:16.095Z","timeString":"00:16:095"},{"username":"Marie","time":"1970-01-01T00:00:06.680Z","timeString":"00:06:680"},{"username":"Marcus","time":"1970-01-01T00:00:07.091Z","timeString":"00:07:091"}]
