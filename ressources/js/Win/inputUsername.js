@@ -23,9 +23,8 @@ class InputUsername{
             //If the input.value is empty, no need to save nothing
             if(event.code === 'Enter' && this.input.value!=""){
                 //this.storeUsernameLocalStorage();
-                this.storeUsernameInJsonFile();
+                this.storeUsernameInJsonFile(thisGame);
                 this.input.value = "";
-                HallOfFame.createLevel(thisGame, this.results);
             }
         });
 
@@ -46,31 +45,7 @@ class InputUsername{
     update(secondsPassed){
     }
 
-    storeUsernameLocalStorage(){
-        //Create userObject
-        let userObject = {
-            'username': this.input.value,
-            'time': this.timer.diff,
-            'timeString': this.timer.time
-        };
-
-        this.results = new Array();
-
-        //If not null or undefined - get current results from localStorage
-        if(localStorage.getItem("Results")){
-            this.results = JSON.parse(localStorage.getItem("Results"));
-        }
-
-        this.results.push(userObject);
-
-        localStorage.setItem("Results",JSON.stringify(this.results));
-
-        //In order to highlight the user record, I need to know who it is
-        localStorage.setItem("CurrentUsername",this.input.value);
-        localStorage.setItem("CurrentTime", this.timer.time);
-    }
-
-    storeUsernameInJsonFile(){
+    storeUsernameInJsonFile(thisGame){
         this.results = new Array();
 
         //Create object
@@ -81,7 +56,7 @@ class InputUsername{
         };
 
         //Charge URL into a variable
-        let requestURL = 'https://6242ria.z22.web.core.windows.net/ressources/json/hallOfFame.json';
+        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T12:41:17Z&se=2021-05-27T20:41:17Z&spr=https&sv=2020-02-10&sr=b&sig=bbqXherMiRS7FStWvUhMqbgdWQcfT%2FBflJEFsvOVOWw%3D';
 
         //Instanciate a new XMLHttpRequest and then open a new request
         let request = new XMLHttpRequest();
@@ -90,32 +65,47 @@ class InputUsername{
 
         //Tell the server that we're expecting an answer in .json type then send request
         request.responseType = 'json';
-        let header = request.getAllResponseHeaders();
-        console.log(header);
         request.send();
 
 
         //Store the answer into a native variable
         request.onload = function() {
             let hallOfFameJson = request.response;
-            this.result = JSON.parse(hallOfFameJson);
-        }
-                
-        //Add last result to the array
-        this.results.push(userObject);
-        console.log(this.results);
+            this.results = hallOfFameJson;
 
-        
+            //Add last result to the array
+            this.results.push(userObject);
+            console.log(this.results);
 
-        /*localStorage.setItem("Results",JSON.stringify(this.results));
+            InputUsername.fillInHOFArray(this.results);
+
+            HallOfFame.createLevel(thisGame, this.results);
+        }       
 
         //In order to highlight the user record, I need to know who it is
         localStorage.setItem("CurrentUsername",this.input.value);
-        localStorage.setItem("CurrentTime", this.timer.time);*/
-
+        localStorage.setItem("CurrentTime", this.timer.time);
     }
 
-    fillInHOFArray(jsonObject) {
+    static fillInHOFArray(jsonObject) {
+        
+        let sas = '?sv=2020-02-10&ss=bfqt&srt=o&sp=rwdlacuptfx&se=2021-05-27T20:30:38Z&st=2021-05-27T12:30:38Z&spr=https&sig=HfKJmdYoeoR5AqjTlJoW1JtUwFFFYMFs2IIXv1wQe08%3D'
+        let requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T12:41:17Z&se=2021-05-27T20:41:17Z&spr=https&sv=2020-02-10&sr=b&sig=bbqXherMiRS7FStWvUhMqbgdWQcfT%2FBflJEFsvOVOWw%3D';
+        let request = new XMLHttpRequest();
+        request.open('PUT', requestURL, true);
+
+        //request.setRequestHeader('Content-Type', 'application/json');
+        //request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        request.setRequestHeader('x-ms-version', '2020-04-08');
+        request.setRequestHeader('x-ms-blob-type', 'BlockBlob')
+
+        var blob = new Blob([JSON.stringify(jsonObject)], {type: 'application/json'});
+
+        
+        request.send(blob);
+        
+
+        /*
         //Put lines from JSON into result ** not finished **
         let jsonArray = jsonObject['results'];
         let resultingArray = new Array();
@@ -125,5 +115,6 @@ class InputUsername{
         }
 
         return resultingArray;
+        */
     }
 }
