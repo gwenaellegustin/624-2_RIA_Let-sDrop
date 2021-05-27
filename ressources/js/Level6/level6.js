@@ -10,7 +10,7 @@ class Level6{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level6/Level6Fight.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bglevel6url;
                 
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;

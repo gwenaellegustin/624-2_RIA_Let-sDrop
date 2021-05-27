@@ -21,25 +21,63 @@ class Game {
         this.health2 = null;
 
         // Music and sounds
-        this.level1Music = new Audio("/ressources/sounds/frightNight.wav"); // will continue through all levels
+        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); // will continue through all levels
         this.level1Music.loop = true; 
-        this.level1Music.preload = auto;
-        this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.wav");
-        this.winnerMusic.preload = auto;
-        this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.wav");
-        this.winnerSound.preload = auto;
-        this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.wav");
-        this.gameOverMusic.preload = auto;
-        this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.wav");
-        this.gameOverSound.preload = auto;
-        this.endSound = new Audio("/ressources/sounds/ocean.wav");
+        this.level1Music.setAttribute("preload", "auto");
+        this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.mp3");
+        this.winnerMusic.setAttribute("preload", "auto");
+        this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.mp3");
+        this.winnerSound.setAttribute("preload", "auto");
+        this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.mp3");
+        this.gameOverMusic.setAttribute("preload", "auto");
+        this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.mp3");
+        this.gameOverSound.setAttribute("preload", "auto");
+        this.endSound = new Audio("/ressources/sounds/ocean.mp3");
         this.endSound.loop = true;
-        this.endSound.preload = auto;
+        this.endSound.setAttribute("preload", "auto");
+
+        // Backgrounds
+        this.bglevel0img = new Image();
+        this.bglevel0img.setAttribute("src", "/ressources/images/game/Level0/Level0.png");
+        this.bglevel0url = "url('/ressources/images/game/Level0/Level0.png')";
+        
+        this.bglevel1img = new Image();
+        this.bglevel1img.setAttribute("src", "/ressources/images/game/Level1/Level1.png");
+        this.bglevel1url = "url('/ressources/images/game/Level1/Level1.png')";
+
+        this.bglevel2img = new Image();
+        this.bglevel2img.setAttribute("src", "/ressources/images/game/Level2/Level2.png");
+        this.bglevel2url = "url('/ressources/images/game/Level2/Level2.png')";
+
+        this.bglevel3img = new Image();
+        this.bglevel3img.setAttribute("src", "/ressources/images/game/Level3/Level3.png");
+        this.bglevel3url = "url('/ressources/images/game/Level3/Level3.png')";
+
+        this.bglevel5img = new Image();
+        this.bglevel5img.setAttribute("src", "/ressources/images/game/Level5/Level5.png");
+        this.bglevel5url = "url('/ressources/images/game/Level5/Level5.png')";
+
+        this.bglevel6img = new Image();
+        this.bglevel6img.setAttribute("src", "/ressources/images/game/Level6/Level6.png");
+        this.bglevel6url = "url('/ressources/images/game/Level6/Level6.png')";
+
+        this.bgwinimg = new Image();
+        this.bgwinimg.setAttribute("src", "/ressources/images/game/Win/Win.png");
+        this.bgwinurl = "url('/ressources/images/game/Win/Win.png')";
+
+        this.bggameOverimg = new Image();
+        this.bggameOverimg.setAttribute("src", "/ressources/images/game/GameOver/GameOver.png");
+        this.bggameOverurl = "url('/ressources/images/game/GameOver/GameOver.png')";
+
+        this.hallOfFameimg = new Image();
+        this.hallOfFameimg.setAttribute("src", "/ressources/images/game/HallOfFame/hallOfFame.png");
+        this.hallOfFameurl = "url('/ressources/images/game/HallOfFame/hallOfFame.png')";
         
         this.init(canvasId);
     }
 
     init(canvasId){
+
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = 1000;
         this.canvas.height = 550;

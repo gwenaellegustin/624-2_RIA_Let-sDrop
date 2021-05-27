@@ -6,7 +6,7 @@ class Level0{
         let dropSize;
         
         //Background to start with
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level0/Level0.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bglevel0url ;
 
         //Draw help "?" margin, according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
