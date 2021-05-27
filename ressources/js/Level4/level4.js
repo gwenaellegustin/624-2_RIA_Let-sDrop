@@ -26,6 +26,7 @@ class Level4 {
         thisGame.gameObjects = [
             thisGame.droppy,
             thisGame.timer,
+            new Thermometer(thisGame.context, 737, 347),
 
             //Health
             new Life(thisGame.context, 880, 452),
@@ -54,6 +55,38 @@ class Level4 {
     }
 
     static detectCollisionsMonsters(thisGame){
+        //THERMOMETER REACHING HIGH TEMPERATURE
+        for (let i = 0; i < thisGame.gameObjects.length; i++)
+        {
+            if(thisGame.gameObjects[i] instanceof Thermometer){
+                let thermometer = thisGame.gameObjects[i];
+
+                if(Math.floor(Math.abs(thermometer.height) % 20) === 0 && thermometer.isColliding === false){
+                    thermometer.isColliding = true;
+                    
+                    if(Math.abs(thermometer.height) > 160){
+                        thisGame.isGameOver = true;
+                        thermometer.height = -160;
+                    }
+                    else{
+                        thermometer.isColliding = true;
+
+                        thisGame.droppy.isColliding = true;
+
+                        if(thisGame.droppy.size<4){
+                            thisGame.droppy.droppyLosesALife();
+                        }
+                        else{
+                            thisGame.isGameOver = true;
+                        }
+                    }
+
+                    setTimeout(() => {
+                        thermometer.isColliding = false;
+                    }, 500);
+                }
+            }
+        }
     }
 
     static detectCollisionsEdge(thisGame){

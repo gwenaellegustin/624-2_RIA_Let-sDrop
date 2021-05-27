@@ -199,12 +199,13 @@ class Game {
                 break;
             case 3: 
                 if(993 < (this.droppy.x + this.droppy.width)){
-                    Level5.createLevel(this); //TODO:
+                    Level4.createLevel(this);
                 }
                 break;
             case 4:
-                //TODO:
-                //Level5.createLevel(this);
+                if(915 < (this.droppy.x + this.droppy.width) && 425 < (this.droppy.y + this.droppy.height)){
+                    Level5.createLevel(this);
+                }
                 break;
             case 5:
                 if(1000 == (this.droppy.x + this.droppy.width)){
@@ -224,6 +225,7 @@ class Game {
     setTitle(){
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
+        this.context.fillStyle = "white";
         this.context.fillText(this.levelName, this.canvas.width/2, 10);
     }
 
