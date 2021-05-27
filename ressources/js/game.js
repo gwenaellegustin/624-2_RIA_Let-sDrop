@@ -176,7 +176,6 @@ class Game {
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
                     if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
                         Level2.createLevel(this);
-                        this.isWin = true;
                     }
                 }
                 break;
