@@ -22,7 +22,6 @@ class InputUsername{
         window.addEventListener('keydown', event => {
             //If the input.value is empty, no need to save nothing
             if(event.code === 'Enter' && this.input.value!=""){
-                //this.storeUsernameLocalStorage();
                 this.storeUsernameInJsonFile(thisGame);
                 this.input.value = "";
             }
