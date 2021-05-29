@@ -17,9 +17,16 @@ class Crab {
         this.life = 8;
 
         this.monsterImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
             this.monsterReady = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
 
         this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"110x130.png";

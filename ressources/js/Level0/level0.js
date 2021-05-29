@@ -13,9 +13,17 @@ class Level0{
         document.getElementById("help").style.marginLeft = `${marginCanvas + 955}px`; 
         //To work on all navigators, preventDefault() for prevent opening a drag and dropped file in a new tab
         window.addEventListener("dropover",function(e){
+            if (e.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             e.preventDefault();
         },false);
         window.addEventListener("drop",function(e){
+            if (e.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+            
             e.preventDefault();
         },false);
 

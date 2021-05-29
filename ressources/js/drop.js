@@ -16,9 +16,16 @@ class Drop {
         this.isColliding = false;
 
         this.dropImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.width = this.dropImage.width;
             this.height = this.dropImage.height;
-            this.dropReady = true; 
+            this.dropReady = true;
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
     }
 
@@ -302,5 +309,6 @@ let Key = {
     }
 };
 
-window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
-window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
+window.addEventListener('keyup', (event) => {Key.onKeyup(event);}, false);
+
+window.addEventListener('keydown', (event) => {Key.onKeydown(event);}, false);
