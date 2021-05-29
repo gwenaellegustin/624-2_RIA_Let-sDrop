@@ -10,8 +10,9 @@ class Defence{
         this.speed = 300;
         this.directionX = directionX;
         this.directionY = 0;
+        this.angle = 0;
 
-        this.image.addEventListener('load', () => {
+        this.image.addEventListener ('load', () => {
             this.width = this.image.width;
             this.height = this.image.height;
             this.ready = true; //The image has been load, we can draw it
@@ -21,13 +22,23 @@ class Defence{
     }
 
     draw(){
+        this.context.save();
+        this.context.translate(this.x, this.y);
+        this.context.rotate(this.angle);
         if(this.ready){
-            this.context.drawImage(this.image, this.x, this.y);
+            this.context.drawImage(this.image,-this.width/2,-this.height/4);
         }
+        this.context.restore();
     }
 
     update(secondsPassed) {
+        
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
+        if (this.directionX == -1 ){
+            this.angle = -Math.PI/2;
+        } else {
+            this.angle = Math.PI/2;
+        }
     }
 }
