@@ -85,7 +85,7 @@ class Level6{
                 let crab = thisGame.gameObjects[2];
                 let defence;
                 if (thisGame.droppy.x < crab.x){
-                    defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, 1);
+                    defence = new Defence(thisGame.context, thisGame.droppy.x + thisGame.droppy.height/2, thisGame.droppy.y + thisGame.droppy.width/2, 1);
                 } else {
                     defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, -1);
                 }

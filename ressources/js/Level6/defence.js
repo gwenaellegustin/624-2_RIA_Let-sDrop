@@ -26,7 +26,7 @@ class Defence{
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
         if(this.ready){
-            this.context.drawImage(this.image,-this.width/2,-this.height/4);
+            this.context.drawImage(this.image, this.width / -2, this.height / -2);
         }
         this.context.restore();
     }
