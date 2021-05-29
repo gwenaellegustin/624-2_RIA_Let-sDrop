@@ -76,6 +76,7 @@ class Level4 {
 
                         if(thisGame.droppy.size<4){
                             thisGame.droppy.droppyLosesALife(thisGame.droppy.size+1);
+                            thisGame.droppy.color = 'blue';
                         }
                         else{
                             thisGame.isGameOver = true;
@@ -85,6 +86,15 @@ class Level4 {
                     setTimeout(() => {
                         thermometer.isColliding = false;
                     }, 500);
+                }
+
+                //Droppy changes colors when temperature gets hot
+                if(Math.floor(Math.abs(thermometer.height) % 20) === 5){
+                    thisGame.droppy.color = 'white';
+                }else if(Math.floor(Math.abs(thermometer.height) % 20) === 10){
+                    thisGame.droppy.color = 'green';
+                } else if(Math.floor(Math.abs(thermometer.height) % 20) === 15){
+                    thisGame.droppy.color = 'red';
                 }
             }
         }

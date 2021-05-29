@@ -180,6 +180,7 @@ class Game {
         // To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
             Level1.createLevel(this);
+            Level4.createLevel(this);
         }
 
         // Zone which define end of the level
