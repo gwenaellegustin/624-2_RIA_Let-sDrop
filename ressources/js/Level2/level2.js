@@ -19,7 +19,6 @@ class Level2{
         thisGame.droppy.x = 0;
         thisGame.droppy.y = 500; // to match arrival in pipe
 
-
         //Title
         thisGame.levelName = 'Freeze the drop';
 
@@ -111,7 +110,7 @@ class Level2{
 
     static droppySlowsDown(thisGame){
         thisGame.droppy.changeColorAndBlink(thisGame);
-        thisGame.droppy.slowDownSpeed(thisGame);    
+        thisGame.droppy.slowDownSpeed();    
     }
 
     static retrieveLives(thisGame) {

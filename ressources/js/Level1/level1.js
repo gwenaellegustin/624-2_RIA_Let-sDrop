@@ -12,8 +12,7 @@ class Level1{
         //Remove dropZone and geolocation
         document.getElementById('dropzone').remove();
         document.getElementById('help').remove();
-        document.getElementById('geolocation').remove();
-                
+        document.getElementById('geolocation').remove();  
         
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
@@ -23,6 +22,7 @@ class Level1{
         } else {
             marginTap = 250;
         }
+
         //Tap over hero and monsters
         let tap = document.createElement('img');
         tap.src = "/ressources/images/game/Level1/Tap.png";
@@ -43,7 +43,6 @@ class Level1{
         thisGame.gameObjects = [
             
             thisGame.droppy,
-            
             thisGame.timer,
 
             //Monsters TODO: change 148 in 150 when no border
@@ -62,20 +61,6 @@ class Level1{
             new MonsterHand(thisGame.context, 700, Math.random() * (thisGame.canvas.height - 128 - 148), 1, 1, 50),
             new MonsterHand(thisGame.context, 800, Math.random() * (thisGame.canvas.height - 128 - 148), -1, 1, 55)
         ];
-    }
-
-    static droppyIsUpsideDown(thisGame){
-
-        thisGame.droppy.upsideDownCommands();
-        thisGame.droppy.changeColorAndBlink(thisGame);
-
-        setTimeout(()=>{
-            thisGame.droppy.isColliding = false;
-        },1000);
-
-        setTimeout(()=>{
-            thisGame.droppy.normalCommands();
-        },5000);
     }
 
     static detectCollisionsMonsters(thisGame){
@@ -115,5 +100,10 @@ class Level1{
                 }
             }
         }
+    }
+
+    static droppyIsUpsideDown(thisGame){
+        thisGame.droppy.changeColorAndBlink(thisGame);
+        thisGame.droppy.isUpsideDown();
     }
 }
