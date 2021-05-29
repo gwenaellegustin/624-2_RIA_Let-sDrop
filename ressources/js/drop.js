@@ -10,6 +10,7 @@ class Drop {
         this.size = size;
         this.color = color;
         this.speed = this.size * 30 + 60;
+        this.interval = 0; 
 
         this.isTouched = false;
         this.isColliding = false;
@@ -37,6 +38,8 @@ class Drop {
     }
 
     update(secondsPassed){
+        this.interval += secondsPassed;
+        
         // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
         if(Key.pressed.length==2){
             if (Key.isDown(Key.DOWN) && Key.isDown(Key.RIGHT)){

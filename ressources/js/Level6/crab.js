@@ -41,8 +41,10 @@ class Crab {
 
             //Grab Droppy
             if (this.isColliding == true){
+                this.speed = 150;
                 this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"Closed110x130.png";
             } else {
+                this.speed  = 250;
                 this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"110x130.png";
             }
 
