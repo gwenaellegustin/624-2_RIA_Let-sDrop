@@ -90,11 +90,11 @@ class Level4 {
 
                 //Droppy changes colors when temperature gets hot
                 if(Math.floor(Math.abs(thermometer.height) % 20) === 5){
-                    thisGame.droppy.color = 'white';
+                    thisGame.droppy.color = 'red1';
                 }else if(Math.floor(Math.abs(thermometer.height) % 20) === 10){
-                    thisGame.droppy.color = 'green';
+                    thisGame.droppy.color = 'red2';
                 } else if(Math.floor(Math.abs(thermometer.height) % 20) === 15){
-                    thisGame.droppy.color = 'red';
+                    thisGame.droppy.color = 'red3';
                 }
             }
         }
