@@ -62,7 +62,6 @@ class Game {
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
-
         if(this.level === 4){
             Level4.drawRadiatorOnCanvas();
         }

@@ -50,7 +50,7 @@ class Level4 {
 
         this.radiatorReady = false;
         this.radiatorImage = new Image();
-        this.radiatorImage.src = '/ressources/images/game/Level4/Level4_detection.png'; //TODO: choose between Level4_canvas and Level4_detection
+        this.radiatorImage.src = '/ressources/images/game/Level4/Level4_canvas.png';
 
         this.radiatorImage.addEventListener('load', (event) => {
             this.radiatorReady = true; //The image has been load, we can draw it
