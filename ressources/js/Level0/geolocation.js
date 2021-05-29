@@ -1,6 +1,12 @@
 class Geolocation {
 	static draw(){
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		let options = {
+			enableHighAccuracy: false,
+			timeout: 5000,
+			maximumAge: 0
+		}
+
+		navigator.geolocation.watchPosition(onSuccess, onError, options);
 
 		function onSuccess(position){		
 			getDataFromLatLong(position.coords.latitude, position.coords.longitude);
