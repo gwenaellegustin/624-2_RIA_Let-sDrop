@@ -32,7 +32,7 @@ class Geolocation {
 
 	static getOptions(){
 		return options = {
-			enableHighAccuracy: false,
+			enableHighAccuracy: true,
 			timeout: 5000,
 			maximumAge: 0
 		}
