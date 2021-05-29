@@ -10,7 +10,7 @@ class Level3 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bglevel3url;
+        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel3Url;
 
         //Place Droppy
         thisGame.droppy.x = 3;

@@ -11,7 +11,8 @@ class Game {
         this.levelName = null;
         this.timer = null;
         this.canReload = true;
-        this.ready = false ;
+        this.ready = false;
+        this.imgReady = false;
 
         // Object
         this.droppy = null;
@@ -20,58 +21,9 @@ class Game {
         this.health1 = null;
         this.health2 = null;
 
-        // Music and sounds
-        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); // will continue through all levels
-        this.level1Music.loop = true; 
-        this.level1Music.setAttribute("preload", "auto");
-        this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.mp3");
-        this.winnerMusic.setAttribute("preload", "auto");
-        this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.mp3");
-        this.winnerSound.setAttribute("preload", "auto");
-        this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.mp3");
-        this.gameOverMusic.setAttribute("preload", "auto");
-        this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.mp3");
-        this.gameOverSound.setAttribute("preload", "auto");
-        this.endSound = new Audio("/ressources/sounds/ocean.mp3");
-        this.endSound.loop = true;
-        this.endSound.setAttribute("preload", "auto");
-
-        // Backgrounds
-        this.bglevel0img = new Image();
-        this.bglevel0img.setAttribute("src", "/ressources/images/game/Level0/Level0.png");
-        this.bglevel0url = "url('/ressources/images/game/Level0/Level0.png')";
-        
-        this.bglevel1img = new Image();
-        this.bglevel1img.setAttribute("src", "/ressources/images/game/Level1/Level1.png");
-        this.bglevel1url = "url('/ressources/images/game/Level1/Level1.png')";
-
-        this.bglevel2img = new Image();
-        this.bglevel2img.setAttribute("src", "/ressources/images/game/Level2/Level2.png");
-        this.bglevel2url = "url('/ressources/images/game/Level2/Level2.png')";
-
-        this.bglevel3img = new Image();
-        this.bglevel3img.setAttribute("src", "/ressources/images/game/Level3/Level3.png");
-        this.bglevel3url = "url('/ressources/images/game/Level3/Level3.png')";
-
-        this.bglevel5img = new Image();
-        this.bglevel5img.setAttribute("src", "/ressources/images/game/Level5/Level5.png");
-        this.bglevel5url = "url('/ressources/images/game/Level5/Level5.png')";
-
-        this.bglevel6img = new Image();
-        this.bglevel6img.setAttribute("src", "/ressources/images/game/Level6/Level6.png");
-        this.bglevel6url = "url('/ressources/images/game/Level6/Level6.png')";
-
-        this.bgwinimg = new Image();
-        this.bgwinimg.setAttribute("src", "/ressources/images/game/Win/Win.png");
-        this.bgwinurl = "url('/ressources/images/game/Win/Win.png')";
-
-        this.bggameOverimg = new Image();
-        this.bggameOverimg.setAttribute("src", "/ressources/images/game/GameOver/GameOver.png");
-        this.bggameOverurl = "url('/ressources/images/game/GameOver/GameOver.png')";
-
-        this.hallOfFameimg = new Image();
-        this.hallOfFameimg.setAttribute("src", "/ressources/images/game/HallOfFame/hallOfFame.png");
-        this.hallOfFameurl = "url('/ressources/images/game/HallOfFame/hallOfFame.png')";
+        this.chargeMusic();
+        this.chargeBackgrounds();
+        this.chargeObjects();        
         
         this.init(canvasId);
     }
@@ -281,9 +233,129 @@ class Game {
     }
 
     clearImages(){
-        let images = document.querySelectorAll('img');
+        let images = document.querySelectorAll("img");
         images.forEach(image => {
             image.remove();
         });
+    }
+
+    chargeMusic() {
+        // Music and sounds
+        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); // will continue through all levels
+        this.level1Music.loop = true; 
+        this.level1Music.setAttribute("preload", "auto");
+        this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.mp3");
+        this.winnerMusic.setAttribute("preload", "auto");
+        this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.mp3");
+        this.winnerSound.setAttribute("preload", "auto");
+        this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.mp3");
+        this.gameOverMusic.setAttribute("preload", "auto");
+        this.gameOverSound = new Audio("/ressources/sounds/glassBreakExplosion.mp3");
+        this.gameOverSound.setAttribute("preload", "auto");
+        this.endSound = new Audio("/ressources/sounds/ocean.mp3");
+        this.endSound.loop = true;
+        this.endSound.setAttribute("preload", "auto");
+    }
+
+    chargeBackgrounds() {
+        // Backgrounds
+        this.bgLevel0Img = new Image();
+        this.bgLevel0Img.setAttribute("src", "/ressources/images/game/Level0/Level0.png");
+        this.bgLevel0Url = "url('/ressources/images/game/Level0/Level0.png')";
+        
+        this.bgLevel1Img = new Image();
+        this.bgLevel1Img.setAttribute("src", "/ressources/images/game/Level1/Level1.png");
+        this.bglevel1url = "url('/ressources/images/game/Level1/Level1.png')";
+
+        this.bgLevel2Img = new Image();
+        this.bgLevel2Img.setAttribute("src", "/ressources/images/game/Level2/Level2.png");
+        this.bgLevel2Url = "url('/ressources/images/game/Level2/Level2.png')";
+
+        this.bgLevel3Img = new Image();
+        this.bgLevel3Img.setAttribute("src", "/ressources/images/game/Level3/Level3.png");
+        this.bgLevel3Url = "url('/ressources/images/game/Level3/Level3.png')";
+
+        this.bgLevel5Img = new Image();
+        this.bgLevel5Img.setAttribute("src", "/ressources/images/game/Level5/Level5.png");
+        this.bgLevel5Url = "url('/ressources/images/game/Level5/Level5.png')";
+
+        this.bgLevel6Img = new Image();
+        this.bgLevel6Img.setAttribute("src", "/ressources/images/game/Level6/Level6.png");
+        this.bgLevel6Url = "url('/ressources/images/game/Level6/Level6.png')";
+
+        this.bgWinImg = new Image();
+        this.bgWinImg.setAttribute("src", "/ressources/images/game/Win/Win.png");
+        this.bgWinUrl = "url('/ressources/images/game/Win/Win.png')";
+
+        this.bgGameOverImg = new Image();
+        this.bgGameOverImg.setAttribute("src", "/ressources/images/game/GameOver/GameOver.png");
+        this.bgGameOverUrl = "url('/ressources/images/game/GameOver/GameOver.png')";
+
+        this.bgHallOfFameImg = new Image();
+        this.bgHallOfFameImg.setAttribute("src", "/ressources/images/game/HallOfFame/hallOfFame.png");
+        this.bgHallOfFameUrl = "url('/ressources/images/game/HallOfFame/hallOfFame.png')";
+    }
+
+    chargeObjects() {
+        // Droppy
+        let colors = ['green', 'blue', 'white'];
+        let sizes = [0,1,2,3,4];
+        let count = 0;
+        
+        colors.forEach(color => {
+            sizes.forEach(size => {
+                let image = new Image();
+                image.src = "/ressources/images/game/Drop/DropSize" + size + color + ".png";
+                image.addEventListener('load', () => {
+                    count++;
+                });
+            })
+        });
+
+        if(count === (colors.length * sizes.length)){
+            this.imgReady = true;
+        }
+
+        // Monsters
+        let monsterHandImg = new Image();
+        monsterHandImg.setAttribute("src", "/ressources/images/game/Level1/MonsterHand48x48.png");
+        let soapImg = new Image();
+        soapImg.setAttribute("src", "/ressources/images/game/Level1/Soap34x34.png");
+        let tapImg = new Image();
+        tapImg.setAttribute("src", "/ressources/images/game/Level1/Tap.png");
+        let snowflakeBigImg = new Image();
+        snowflakeBigImg.setAttribute("src", "/ressources/images/game/Level2/Snowflake50x50.png");
+        let snowflakeSmallImg = new Image();
+        snowflakeSmallImg.setAttribute("src", "/ressources/images/game/Level2/Snowflake25x25.png");
+        let fireImg = new Image();
+        fireImg.setAttribute("src", "/ressources/images/game/Level3/Fire30x35.png");
+        let littleFireImg = new Image();
+        littleFireImg.setAttribute("src", "/ressources/images/game/Level3/LittleFire14x18.png");
+        let steamImg = new Image();
+        steamImg.setAttribute("src", "/ressources/images/game/Level3/Steam250x250.png");
+        let daisyImg = new Image();
+        daisyImg.setAttribute("src", "/ressources/images/game/Level5/Daisy.png");
+        let leavesImg = new Image();
+        leavesImg.setAttribute("src", "/ressources/images/game/Level5/Leaves.png");
+        let orchidImg = new Image();
+        orchidImg.setAttribute("src", "/ressources/images/game/Level5/Orchid.png");
+        let tulipImg = new Image();
+        tulipImg.setAttribute("src", "/ressources/images/game/Level5/Tulip.png");
+        let snailRightImg = new Image();
+        snailRightImg.setAttribute("src", "/ressources/images/game/Level5/SnailRight.png");
+        let snailLeftImg = new Image();
+        snailLeftImg.setAttribute("src", "/ressources/images/game/Level5/SnailLeft.png");
+        let crabWallImg = new Image();
+        crabWallImg.setAttribute("src", "/ressources/images/game/Level6/CrabsWall.png");
+        let palmImg = new Image();
+        palmImg.setAttribute("src", "/ressources/images/game/Level6/Palm.png");
+
+        // Life & health
+        let lifeImg = new Image();
+        lifeImg.setAttribute("src", "/ressources/images/game/Life.png");
+        let lifeSmallImg = new Image();
+        lifeSmallImg.setAttribute("src", "/ressources/images/game/LifeSmall.png");
+        let healthImg = new Image();
+        healthImg.setAttribute("src", "/ressources/images/game/Health17x20.png");
     }
 }

@@ -10,7 +10,7 @@ class GameOver{
         thisGame.clearImages();
     
         //Display game over background
-        document.getElementById('bg').style.backgroundImage = thisGame.bggameOverurl ;
+        document.getElementById('bg').style.backgroundImage = thisGame.bgGameOverUrl ;
 
         //Music
         thisGame.level1Music.muted = true;
