@@ -251,7 +251,7 @@ class Game {
                 }
                 break;
             case 6: 
-                if(1000 == (this.droppy.x + this.droppy.width)){ 
+                if(1000 == (this.droppy.x + this.droppy.width) && this.droppy.isColliding==false){ 
                     this.isWin = true;
                 }
                 break;
