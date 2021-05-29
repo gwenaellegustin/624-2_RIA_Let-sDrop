@@ -11,7 +11,7 @@ class Drop {
         this.color = color;
         this.speed = this.size * 30 + 60;
 
-
+        this.isTouched = false;
         this.isColliding = false;
 
         this.dropImage.addEventListener('load', (event) => {
@@ -93,7 +93,9 @@ class Drop {
         //Waiting 100ms more before blinking at new size + reset speed
         setTimeout(()=>{
             this.size = oldSize+1;
-            this.speed = this.size * 30 + 60;
+            if(!(this.isTouched)) {
+                this.speed = this.size * 30 + 60;
+            }
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
@@ -119,28 +121,15 @@ class Drop {
          //Waiting 100ms more before blinking at new size + reset speed
          setTimeout(()=>{
             this.size = oldSize-1;
-            this.speed = this.size * 30 + 60;
+            if(!(this.isTouched)) {
+                this.speed = this.size * 30 + 60;
+            }
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
         setTimeout(()=>{
             this.isColliding = false;
         }, 1000);
-    }
-
-    upsideDownCommands() {
-        // TODO: random vector with numbers
-        Key.DOWN = 38;
-        Key.UP = 40;
-        Key.LEFT = 39;
-        Key.RIGHT = 37;
-    }
-
-    normalCommands() {
-        Key.LEFT = 37;
-        Key.UP = 38;
-        Key.RIGHT = 39;
-        Key.DOWN = 40;
     }
 
     changeColorAndBlink(thisGame) {
@@ -221,12 +210,36 @@ class Drop {
         }, 5000);
     }
 
-    slowDownSpeed(thisGame) {
-        thisGame.droppy.speed = 60;
+    isUpsideDown() {
+        this.upsideDownCommands();
+
+        setTimeout(()=>{
+            this.normalCommands();
+        },5000);
+    }
+
+    upsideDownCommands() {
+        Key.DOWN = 38;
+        Key.UP = 40;
+        Key.LEFT = 39;
+        Key.RIGHT = 37;
+    }
+
+    normalCommands() {
+        Key.LEFT = 37;
+        Key.UP = 38;
+        Key.RIGHT = 39;
+        Key.DOWN = 40;
+    }
+
+    slowDownSpeed() {
+        this.speed = 60;
+        this.isTouched = true; // to prevent loseALife or retrieveALife to change speed
         
         // Droppy's speed is back to normal again even in a new level
         setTimeout(()=>{
-            thisGame.droppy.speed = this.size * 30 + 60;
+            this.isTouched = false;
+            this.speed = this.size * 30 + 60;
         },5000);
     }
 
