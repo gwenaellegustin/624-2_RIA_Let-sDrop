@@ -32,21 +32,20 @@ class Level4 {
             thisGame.timer,
             new Thermometer(thisGame.context, 737, 347),
 
-            //Health
-            new Life(thisGame.context, 880, 452),
-            new Life(thisGame.context, 425, 484),
-            new Life(thisGame.context, 380, 455),
-            new Life(thisGame.context, 825, 453),
-            new Life(thisGame.context, 640, 161),
-            new Life(thisGame.context, 570, 345),
-            new Life(thisGame.context, 379, 403),
-            new Life(thisGame.context, 500, 332),
-            new Life(thisGame.context, 302, 403),
-            new Life(thisGame.context, 160, 113),
-            new Life(thisGame.context, 809, 381),
-            new Life(thisGame.context, 466, 70),
-            new Life(thisGame.context, 880, 330)
-
+            //Health in x order
+            new Life(thisGame.context, 168, 116), //1 
+            new Life(thisGame.context, 307, 409), //2
+            new Life(thisGame.context, 384, 409), //3
+            new Life(thisGame.context, 384, 460), //4
+            new Life(thisGame.context, 426, 484), //5 
+            new Life(thisGame.context, 466, 65),  //6
+            new Life(thisGame.context, 503, 338), //7
+            new Life(thisGame.context, 572, 348), //8
+            new Life(thisGame.context, 647, 167), //9
+            new Life(thisGame.context, 817, 387), //10
+            new Life(thisGame.context, 834, 454), //11
+            new Life(thisGame.context, 885, 330), //12
+            new Life(thisGame.context, 885, 454)  //13
         ]
 
         this.radiatorReady = false;
