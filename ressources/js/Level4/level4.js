@@ -30,7 +30,7 @@ class Level4 {
         thisGame.gameObjects = [
             thisGame.droppy,
             thisGame.timer,
-            new Thermometer(thisGame.context, 737, 347),
+            new Thermometer(thisGame.context, 737, 367), //737, 347
 
             //Health in x order
             new Life(thisGame.context, 168, 116), //1 
@@ -67,13 +67,11 @@ class Level4 {
                 if(Math.floor(Math.abs(thermometer.height) % 20) === 0 && thermometer.isColliding === false){
                     thermometer.isColliding = true;
                     
-                    if(Math.abs(thermometer.height) > 160){
+                    if(Math.abs(thermometer.height) > 180){
+                        thermometer.height = -180;
                         thisGame.isGameOver = true;
-                        thermometer.height = -160;
                     }
                     else{
-                        thermometer.isColliding = true;
-
                         thisGame.droppy.isColliding = true;
 
                         if(thisGame.droppy.size<4){
@@ -95,25 +93,6 @@ class Level4 {
     static detectCollisionsEdge(thisGame){
         this.drawRadiatorOnCanvas();
         this.collisionsDroppyWithBlackPixel(thisGame.droppy);
-
-        /*
-        //HANDLE DROPPY LEAVING FROM LEFT SIDE
-        if (thisGame.droppy.x < 0) {
-            thisGame.droppy.x = 0;
-        }
-
-        //HANDLE DROPPY LEAVING FROM LEFT SIDE / BOTTOM
-        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y + thisGame.droppy.height > 225){
-            thisGame.droppy.x = 3.2;
-            thisGame.droppy.y = 225 - thisGame.droppy.height;
-        }
-
-        //HANDLE DROPPY LEAVING FROM LEFT SIDE / TOP
-        if(thisGame.droppy.x < 3.2 && thisGame.droppy.y < 50){
-            thisGame.droppy.x = 3.2;
-            thisGame.droppy.y = 50;
-        }
-        */
     }
 
     static drawRadiatorOnCanvas(){
