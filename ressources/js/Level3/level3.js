@@ -16,9 +16,6 @@ class Level3 {
         thisGame.droppy.x = 3;
         thisGame.droppy.y = 100;
 
-        //Prevent being lost on the canvas with 2 keys hold
-        thisGame.droppy.canPress2Keys = false;
-
         //Title
         thisGame.levelName = 'Burn the drop';
 
