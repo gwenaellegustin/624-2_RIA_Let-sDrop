@@ -88,8 +88,6 @@ class Level0{
         dropzone.ondrop = () => {
             this.launchGame(thisGame, dropSize);
         };
-
-        thisGame.droppy = new Drop(thisGame.context, 0, 148, 4, "blue");
     }
 
     static launchGame(thisGame, dropSize) {
