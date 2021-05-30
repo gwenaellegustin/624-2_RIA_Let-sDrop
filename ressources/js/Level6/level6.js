@@ -82,14 +82,15 @@ class Level6{
               return; // Do nothing if event already handled
             }
 
-            if(event.code === 'Space' && thisGame.droppy.interval > 0.5){
+            if(event.code === 'Space' && thisGame.droppy.interval > 0){
                 let crab = thisGame.gameObjects[2];
                 let defence;
                 if (thisGame.droppy.x < crab.x){
-                    defence = new Defence(thisGame.context, thisGame.droppy.x + thisGame.droppy.height/2, thisGame.droppy.y + thisGame.droppy.width/2, 1);
+                    defence = new Defence(thisGame.context, thisGame.droppy.x + thisGame.droppy.width, thisGame.droppy.y + thisGame.droppy.height/2, 1);
                 } else {
-                    defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, -1);
+                    defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y + thisGame.droppy.height/2, -1);
                 }
+                
                 thisGame.gameObjects.push(defence);
                 let position = thisGame.gameObjects.length;
                 setTimeout(()=>{
@@ -118,7 +119,7 @@ class Level6{
             }, 1000);
             
             if(thisGame.droppy.size<4){
-                thisGame.droppy.droppyLosesALife(0);
+                //thisGame.droppy.droppyLosesALife(0);
             }
             else{
                 thisGame.isGameOver = true;
@@ -142,7 +143,7 @@ class Level6{
             if(thisGame.gameObjects[i] instanceof Defence) {
                 let defence = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(defence.x, defence.y, defence.width, defence.height, crab.x, crab.y, crab.width, crab.height);
+                let hit = thisGame.collisionRectRect(defence.x - defence.width/2 +5, defence.y - defence.height/2 +10, defence.width-10, defence.height-20, crab.x, crab.y, crab.width, crab.height);
                 if (hit && crab.isColliding === false){
                     crab.isColliding = true;
                     thisGame.gameObjects.splice(i,1);

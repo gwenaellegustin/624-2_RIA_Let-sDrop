@@ -33,6 +33,10 @@ class Crab {
     }
 
     draw(){
+        //Just to see for impact TODO: delete at the end
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(this.x + 5, this.y + 10, this.width - 10, this.height - 20);
+        
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }

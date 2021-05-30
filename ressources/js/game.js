@@ -227,7 +227,7 @@ class Game {
                 let exit = this.gameObjects[2];
                 let hit = this.collisionPointCircle(this.droppy.x + this.droppy.width/2, this.droppy.y + this.droppy.height/2, exit.x, exit.y, exit.radius,);
                 if(this.timer.time != null && hit === true){ //if Droppy's center is on pipe's enter
-                    Level5.createLevel(this);
+                    Level2.createLevel(this);
                 }
                 break;
             case 2:

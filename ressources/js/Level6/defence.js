@@ -32,8 +32,13 @@ class Defence{
         this.context.save();
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
+
+        //Just to see for impact TODO: delete at the end
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(-this.width/2, -this.height/2, this.width, this.height);
+        
         if(this.ready){
-            this.context.drawImage(this.image, this.width / -2, this.height / -2);
+            this.context.drawImage(this.image, -this.width/2, -this.height/2);
         }
         this.context.restore();
     }
