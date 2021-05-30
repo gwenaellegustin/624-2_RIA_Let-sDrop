@@ -32,7 +32,7 @@ class Level0{
         drop1.style.left = `${marginCanvas + 190}px` ;
         drop1.style.top = "355px" ;
         drop1.ondragstart = () => {
-            drop1.style.opacity = '0.2';
+            drop1.style.opacity = '0.8';
             dropSize = 1 ;
         };
         drop1.ondragend = () => {
@@ -47,7 +47,7 @@ class Level0{
         drop2.style.left = `${marginCanvas + 240}px` ;
         drop2.style.top = "366px" ;
         drop2.ondragstart = () => {
-            drop2.style.opacity = '0.2';
+            drop2.style.opacity = '0.8';
             dropSize = 2 ;
         };
         drop2.ondragend = () => {
@@ -62,7 +62,7 @@ class Level0{
         drop3.style.left = `${marginCanvas + 282}px` ;
         drop3.style.top = "374px" ;
         drop3.ondragstart = () => {
-            drop3.style.opacity = '0.2';
+            drop3.style.opacity = '0.8';
             dropSize = 3 ;
         };
         drop3.ondragend = () => {
@@ -77,7 +77,7 @@ class Level0{
         drop4.style.left = `${marginCanvas + 318}px` ;
         drop4.style.top = "382px" ;
         drop4.ondragstart = () => {
-            drop4.style.opacity = '0.2';
+            drop4.style.opacity = '0.8';
             dropSize = 4 ;
         };
         drop4.ondragend = () => {
