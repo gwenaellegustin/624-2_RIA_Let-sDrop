@@ -58,7 +58,7 @@ class Game {
         this.bglevel5url = "url('/ressources/images/game/Level5/Level5.png')";
 
         this.bglevel6img = new Image();
-        this.bglevel6img.setAttribute("src", "/ressources/images/game/Level6/Level6.png");
+        this.bglevel6img.setAttribute("src", "/ressources/images/game/Level6/Level6Fight.png");
         this.bglevel6url = "url('/ressources/images/game/Level6/Level6.png')";
 
         this.bgwinimg = new Image();
@@ -251,7 +251,7 @@ class Game {
                 }
                 break;
             case 6: 
-                if(1000 == (this.droppy.x + this.droppy.width)){ 
+                if(1000 == (this.droppy.x + this.droppy.width) && this.droppy.isColliding==false){ 
                     this.isWin = true;
                 }
                 break;
