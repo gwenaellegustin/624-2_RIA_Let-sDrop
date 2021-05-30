@@ -84,9 +84,6 @@ class Drop {
         let oldSize = this.size;
         this.size = blinkingSize;
 
-        //Droppy cannot moved when changing size
-        this.speed = 0;
-
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
@@ -102,8 +99,6 @@ class Drop {
             this.size = oldSize+1;
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
-            } else {
-                this.speed = 60;
             }
         }, 300);
 
@@ -115,9 +110,6 @@ class Drop {
 
     droppyRetrieveALife(blinkingSize){
         let oldSize = this.size;
-
-        //Droppy cannot moved when changing size
-        this.speed = 0;
 
          //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
@@ -134,8 +126,6 @@ class Drop {
             this.size = oldSize-1;
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
-            } else {
-                this.speed = 60;
             }
         }, 300);
 
@@ -155,6 +145,9 @@ class Drop {
                 break;
             case 2:
                 colorWhenTouched = "white";
+                break;
+            case 4:
+                colorWhenTouched = "red";
                 break;
         }
 
