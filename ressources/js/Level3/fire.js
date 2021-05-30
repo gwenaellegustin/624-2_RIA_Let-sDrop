@@ -20,14 +20,14 @@ class Fire{
 
         this.fireImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.fireImage.width;
             this.height = this.fireImage.height;
             this.fireReady = true; //The image has been load, we can draw it
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -40,17 +40,19 @@ class Fire{
         //Reapear here after a restore
         this.context.save();
 
-        // move the origin to the fire center
+        //Move the origin to the fire center
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
 
+        
+        //Just to see for impact TODO: delete at the end
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(-this.width/2, -this.height/2, this.width, this.height);
         
         if(this.fireReady){
             this.context.drawImage(this.fireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
         }
         
-        //this.context.fillStyle = '#ff8080'; //TODO: to delete
-        //this.context.fillRect(0, 0, 100, 75); //x,y,longueur,hauteur
         this.context.restore();
     }
 
