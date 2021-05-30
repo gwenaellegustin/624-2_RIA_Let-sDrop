@@ -10,9 +10,16 @@ class Flower{
         this.height = null;
 
         this.flowerImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.width = this.flowerImage.width;
             this.height = this.flowerImage.height;
             this.flowerReady = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
 
         switch (this.imageSrc) {

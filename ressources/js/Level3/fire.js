@@ -19,9 +19,16 @@ class Fire{
         
 
         this.fireImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.width = this.fireImage.width;
             this.height = this.fireImage.height;
             this.fireReady = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
 
         this.fireImage.src = "/ressources/images/game/Level3/Fire30x35.png";

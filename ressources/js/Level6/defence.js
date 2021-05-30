@@ -12,10 +12,17 @@ class Defence{
         this.directionY = 0;
         this.angle = 0;
 
-        this.image.addEventListener ('load', () => {
+        this.image.addEventListener ('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.width = this.image.width;
             this.height = this.image.height;
             this.ready = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
 
         this.image.src = "/ressources/images/game/Health17x20.png";

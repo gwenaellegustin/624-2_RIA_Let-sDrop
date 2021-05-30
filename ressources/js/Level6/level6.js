@@ -81,6 +81,7 @@ class Level6{
             if (event.defaultPrevented) {
               return; // Do nothing if event already handled
             }
+
             if(event.code === 'Space' && thisGame.droppy.interval > 0.5){
                 let crab = thisGame.gameObjects[2];
                 let defence;
@@ -96,6 +97,7 @@ class Level6{
                 }, 5000)
                 thisGame.droppy.interval = 0;
             }
+            
            // Consume the event so it doesn't get handled twice
             event.preventDefault();
         }, true);
