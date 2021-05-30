@@ -302,8 +302,8 @@ class Game {
 
     chargeObjects() {
         // Droppy
-        let colors = ['green', 'blue', 'white'];
-        let sizes = [0,1,2,3,4];
+        let colors = ['green', 'blue', 'white', 'red1', 'red2', 'red3'];
+        let sizes = [1,2,3,4];
         let count = 0;
         
         colors.forEach(color => {
