@@ -16,8 +16,6 @@ class Fire{
         this.canMoveX = canMoveX;
         this.canMoveY = canMoveY;
 
-        
-
         this.fireImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
@@ -43,7 +41,6 @@ class Fire{
         //Move the origin to the fire center
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
-
         
         //Just to see for impact TODO: delete at the end
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';

@@ -79,7 +79,7 @@ class Level6{
     static detectDefence(thisGame){
         window.addEventListener("keyup", function(event) {
             if (event.defaultPrevented) {
-              return; // Do nothing if event already handled
+              return; //Do nothing if event already handled
             }
 
             if(event.code === 'Space' && thisGame.droppy.interval > 0){
@@ -99,7 +99,7 @@ class Level6{
                 thisGame.droppy.interval = 0;
             }
             
-           // Consume the event so it doesn't get handled twice
+           //Consume the event so it doesn't get handled twice
             event.preventDefault();
         }, true);
     }
@@ -151,7 +151,8 @@ class Level6{
                     setTimeout(()=>{
                         crab.isColliding = false;
                     }, 1000);
-                    // remove crabs wall
+
+                    //Remove crabs wall
                     if (crab.life == 0){ 
                         document.getElementById('crabs').remove();
                         document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level6/Level6.png')";

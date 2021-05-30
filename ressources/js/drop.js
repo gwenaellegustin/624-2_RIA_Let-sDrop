@@ -49,7 +49,7 @@ class Drop {
     update(secondsPassed){
         this.interval += secondsPassed;
         
-        // documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
+        //Documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
         if(this.canPress2Keys){
             if (Key.isDown(Key.UP)){
                 this.y -= this.speed * secondsPassed;
@@ -238,9 +238,9 @@ class Drop {
 
     slowDownSpeed() {
         this.speed = 60;
-        this.isTouched = true; // to prevent loseALife or retrieveALife to change speed
+        this.isTouched = true; //to prevent loseALife or retrieveALife to change speed
         
-        // Droppy's speed is back to normal again even in a new level
+        //Droppy's speed is back to normal again even in a new level
         setTimeout(()=>{
             this.isTouched = false;
             this.speed = this.size * 30 + 60;

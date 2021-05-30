@@ -112,6 +112,4 @@ class Level2{
         thisGame.droppy.changeColorAndBlink(thisGame);
         thisGame.droppy.slowDownSpeed();    
     }
-
-    
 }

@@ -51,6 +51,4 @@ class SnowflakeBig {
            this.y = 50;
         } 
     }
-
-
 }

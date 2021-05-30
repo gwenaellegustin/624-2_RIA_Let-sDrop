@@ -13,14 +13,14 @@ class SnowflakeSmall {
 
         this.monsterImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
             this.monsterReady = true;
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -46,7 +46,7 @@ class SnowflakeSmall {
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
  
-        // Touching bottom
+        //Touching bottom
         if (this.y > this.context.canvas.height - this.height) { 
            this.y = 50;
         } 
