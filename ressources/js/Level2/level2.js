@@ -98,7 +98,7 @@ class Level2{
             if(thisGame.gameObjects[i] instanceof SnowflakeSmall){
                 let snowSmall = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionCircleRect(snowSmall.x + snowSmall.width/2, snowSmall.y+ snowSmall.width/2, snowSmall.width/2, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionCircleRect(snowSmall.x + snowSmall.width/2, snowSmall.y + snowSmall.width/2, snowSmall.width/2, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;            

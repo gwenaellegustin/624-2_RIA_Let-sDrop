@@ -119,7 +119,7 @@ class Level6{
             }, 1000);
             
             if(thisGame.droppy.size<4){
-                //thisGame.droppy.droppyLosesALife(0);
+                thisGame.droppy.droppyLosesALife(0);
             }
             else{
                 thisGame.isGameOver = true;

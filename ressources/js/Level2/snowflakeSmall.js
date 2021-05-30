@@ -28,6 +28,15 @@ class SnowflakeSmall {
     }
 
     draw(){
+        //Just to see for impact TODO: delete at the end
+        this.context.save();
+		this.context.beginPath();
+		this.context.fillStyle = '#ADFF2F';
+		this.context.arc(this.x + this.width/2, this.y + this.width/2, this.width/2, 0, 2 * Math.PI);
+		this.context.closePath();
+		this.context.fill();
+		this.context.restore();
+
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
