@@ -8,6 +8,10 @@
     font-family: 'Delius', 'Trebuchet MS', Arial, sans-serif;
 }
 
+::selection {
+  background-color: rgba(255, 255, 255, 0);
+}
+
 body, html {
     height: 100%;
     margin: 0;
