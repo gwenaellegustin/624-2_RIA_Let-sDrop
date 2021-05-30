@@ -36,7 +36,7 @@ class Drop {
 
         //Just to see for impact TODO: delete at the end
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(this.x, this.y, this.width, this.height);
+        this.context.fillRect(this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);
 
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);

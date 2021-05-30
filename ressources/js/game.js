@@ -195,18 +195,18 @@ class Game {
                 break;
             case 2:
                 Level2.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, 0);
+                this.retrieveLives(0);
                 break;
             case 3: 
                 Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
                 Level4.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, this.droppy.size-1);
+                this.retrieveLives(this.droppy.size-1);
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, 0);
+                this.retrieveLives(0);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
@@ -325,6 +325,30 @@ class Game {
             return true;
         }
         return false;
+    }
+
+    retrieveLives(blinkingSize) {
+        for (let i = 0; i < this.gameObjects.length; i++)
+        {
+            if(this.gameObjects[i] instanceof Life) {
+                let life = this.gameObjects[i];
+
+                let hit = this.collisionRectRect(life.x, life.y, life.width, life.height, this.droppy.x, this.droppy.y, this.droppy.width*this.droppy.factorWidth, this.droppy.height*this.droppy.factorHeight);
+                
+                if(hit){
+                    this.droppy.isColliding = true;
+
+                    if(this.droppy.size>1){
+                        this.droppy.droppyRetrieveALife(blinkingSize);
+                        this.gameObjects.splice(i,1);
+                    }
+                    else{
+                        this.gameObjects.splice(i,1);
+                        this.droppy.isColliding = false;
+                    }
+                }
+            }
+        }
     }
 
     clearCanvas() {
