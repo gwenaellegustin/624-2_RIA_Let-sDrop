@@ -19,21 +19,29 @@ class InputUsername{
         this.input.style.paddingLeft = "10px";
         document.getElementById('bg').appendChild(this.input);
 
+        this.requestURL = 'https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D';
+
         window.addEventListener('keydown', event => {
             //If the input.value is empty, no need to save nothing
             if(event.code === 'Enter' && this.input.value!=""){
-                this.storeUsernameLocalStorage();
+                this.storeUsernameInJsonFile(thisGame);
                 this.input.value = "";
-                HallOfFame.createLevel(thisGame, this.results);
             }
         });
 
         //Recalculate each time the input is modified
-        document.getElementById('usernameInput').addEventListener('input', () => {
+        document.getElementById('usernameInput').addEventListener('input', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             thisGame.clearCanvas();
 
             Winner.drawText(thisGame);
             this.draw();
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         })
     }
 
@@ -45,27 +53,52 @@ class InputUsername{
     update(secondsPassed){
     }
 
-    storeUsernameLocalStorage(){
-        //Create userObject
+    storeUsernameInJsonFile(thisGame){
+        this.results = new Array();
+
+        //Create object
         let userObject = {
             'username': this.input.value,
             'time': this.timer.diff,
             'timeString': this.timer.time
         };
 
-        this.results = new Array();
+        //Instanciate a new XMLHttpRequest and then open a new request
+        let request = new XMLHttpRequest();
+        request.withCredentials = false;
+        request.open('GET', this.requestURL);
 
-        //If not null or undefined - get current results from localStorage
-        if(localStorage.getItem("Results")){
-            this.results = JSON.parse(localStorage.getItem("Results"));
+        //Tell the server that we're expecting an answer in .json type then send request
+        request.responseType = 'json';
+        request.send();
+
+        //Store the answer into a native variable
+        request.onload = () => {
+            let hallOfFameJson = request.response;
+            this.results = hallOfFameJson;
+
+            //Add last result to the array
+            this.results.push(userObject);
+
+            this.fillInHOFArray(this.results);
+
+            HallOfFame.createLevel(thisGame, this.results);
         }
-
-        this.results.push(userObject);
-
-        localStorage.setItem("Results",JSON.stringify(this.results));
 
         //In order to highlight the user record, I need to know who it is
         localStorage.setItem("CurrentUsername",this.input.value);
         localStorage.setItem("CurrentTime", this.timer.time);
+    }
+
+    fillInHOFArray(jsonObject) {
+        let request = new XMLHttpRequest();
+        request.withCredentials = false;
+        request.open('PUT', this.requestURL, true);
+
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader('x-ms-version', '2020-04-08');
+        request.setRequestHeader('x-ms-blob-type', 'BlockBlob')
+        
+        request.send(JSON.stringify(jsonObject));
     }
 }

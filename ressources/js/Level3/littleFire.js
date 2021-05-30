@@ -20,10 +20,17 @@ class LittleFire{
         this.velocityX = (this.dx / this.mag) * this.speed;
         this.velocityY = (this.dy / this.mag) * this.speed;
 
-        this.littleFireImage.addEventListener('load', () => {
+        this.littleFireImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.width = this.littleFireImage.width;
             this.height = this.littleFireImage.height;
             this.littleFireReady = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
 
         this.littleFireImage.src = "/ressources/images/game/Level3/LittleFire14x18.png";

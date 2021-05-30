@@ -53,7 +53,14 @@ class Level4 {
         this.radiatorImage.src = '/ressources/images/game/Level4/Level4_canvas.png';
 
         this.radiatorImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.radiatorReady = true; //The image has been load, we can draw it
+            
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
     }
 

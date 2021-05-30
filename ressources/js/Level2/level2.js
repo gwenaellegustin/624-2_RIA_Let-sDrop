@@ -9,7 +9,7 @@ class Level2{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level2/Level2.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bglevel2url;
 
         //Create health Lives
         thisGame.health1 = new Life(thisGame.context, 330, 180);
@@ -18,7 +18,6 @@ class Level2{
         //Place Droppy
         thisGame.droppy.x = 0;
         thisGame.droppy.y = 500; // to match arrival in pipe
-
 
         //Title
         thisGame.levelName = 'Freeze the drop';
@@ -111,7 +110,7 @@ class Level2{
 
     static droppySlowsDown(thisGame){
         thisGame.droppy.changeColorAndBlink(thisGame);
-        thisGame.droppy.slowDownSpeed(thisGame);    
+        thisGame.droppy.slowDownSpeed();    
     }
 
     static retrieveLives(thisGame, blinkingSize) {

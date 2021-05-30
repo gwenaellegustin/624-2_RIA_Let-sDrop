@@ -10,7 +10,7 @@ class Level3 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level3/Level3.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bglevel3url;
 
         //Place Droppy
         thisGame.droppy.x = 3;
@@ -40,7 +40,14 @@ class Level3 {
         this.pipeImage.src = '/ressources/images/game/Level3/Level3_canvas.png';
 
         this.pipeImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.pipeImageReady = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
     }
 

@@ -10,7 +10,7 @@ class Level6{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level6/Level6spacebar.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bglevel6url;
                 
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
@@ -81,11 +81,12 @@ class Level6{
             if (event.defaultPrevented) {
               return; // Do nothing if event already handled
             }
-            if(event.code === 'Space'){
+
+            if(event.code === 'Space' && thisGame.droppy.interval > 0.5){
                 let crab = thisGame.gameObjects[2];
                 let defence;
                 if (thisGame.droppy.x < crab.x){
-                    defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, 1);
+                    defence = new Defence(thisGame.context, thisGame.droppy.x + thisGame.droppy.height/2, thisGame.droppy.y + thisGame.droppy.width/2, 1);
                 } else {
                     defence = new Defence(thisGame.context, thisGame.droppy.x, thisGame.droppy.y, -1);
                 }
@@ -94,7 +95,9 @@ class Level6{
                 setTimeout(()=>{
                     thisGame.gameObjects.splice(position,1);
                 }, 5000)
+                thisGame.droppy.interval = 0;
             }
+            
            // Consume the event so it doesn't get handled twice
             event.preventDefault();
         }, true);
