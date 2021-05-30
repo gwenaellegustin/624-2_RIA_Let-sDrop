@@ -90,6 +90,9 @@ class Level0{
         };
 
         thisGame.droppy = new Drop(thisGame.context, 0, 148, 4, "blue");
+
+        //Draw the line "Escape from"
+        Geolocation.draw();
     }
 
     static launchGame(thisGame, dropSize) {
