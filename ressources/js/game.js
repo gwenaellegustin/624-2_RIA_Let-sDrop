@@ -281,6 +281,38 @@ class Game {
         return false;
     }
 
+    collisionCircleRect(circlex, circley, radius, rectx, recty, rectwidth, rectheight){
+        // temporary variables to set edges for testing
+        let testX = circlex;
+        let testY = circley;
+
+        // which edge is closest?
+        if (circlex < rectx) {// test left edge
+            testX = rectx;
+        }
+        else if (circlex > rectx+rectwidth) {// right edge
+            testX = rectx+rectwidth;
+        }   
+
+        if (circley < recty) {// top edge
+            testY = recty;
+        }
+        else if (circley > recty+rectheight) {// bottom edge
+            testY = recty+rectheight;   
+        }
+
+        // get distance from closest edges
+        let distX = circlex-testX;
+        let distY = circley-testY;
+        let distance = Math.sqrt( (distX*distX) + (distY*distY) );
+
+        // if the distance is less than the radius, collision!
+        if (distance <= radius) {
+            return true;
+        }
+        return false;
+    }
+
     clearCanvas() {
         // Clear the canvas
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);

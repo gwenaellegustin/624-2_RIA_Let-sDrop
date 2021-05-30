@@ -49,7 +49,7 @@ class Fire{
             this.context.drawImage(this.fireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
         }
         
-        //this.context.fillStyle = '#ff8080';
+        //this.context.fillStyle = '#ff8080'; //TODO: to delete
         //this.context.fillRect(0, 0, 100, 75); //x,y,longueur,hauteur
         this.context.restore();
     }
@@ -60,7 +60,7 @@ class Fire{
         this.interval += secondsPassed;
 
         //Check when droppy is around a big fire to shoot little ones
-        if(this.collisionCircleRect(this.x, this.y, 550, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
+        if(this.thisGame.collisionCircleRect(this.x, this.y, 550, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
             if(this.interval > 2.5){
                 let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);
                 this.thisGame.gameObjects.push(littleFire);
@@ -114,37 +114,5 @@ class Fire{
 
             this.y += this.speed * this.directionY * secondsPassed;
         }
-    }
-
-    collisionCircleRect(circlex, circley, radius, rectx, recty, rectwidth, rectheight){
-        // temporary variables to set edges for testing
-        let testX = circlex;
-        let testY = circley;
-
-        // which edge is closest?
-        if (circlex < rectx) {// test left edge
-            testX = rectx;
-        }
-        else if (circlex > rectx+rectwidth) {// right edge
-            testX = rectx+rectwidth;
-        }   
-
-        if (circley < recty) {// top edge
-            testY = recty;
-        }
-        else if (circley > recty+rectheight) {// bottom edge
-            testY = recty+rectheight;   
-        }
-
-        // get distance from closest edges
-        let distX = circlex-testX;
-        let distY = circley-testY;
-        let distance = Math.sqrt( (distX*distX) + (distY*distY) );
-
-        // if the distance is less than the radius, collision!
-        if (distance <= radius) {
-            return true;
-        }
-        return false;
     }
 }
