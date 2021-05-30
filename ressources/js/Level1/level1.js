@@ -34,7 +34,7 @@ class Level1{
         //Launch the timer
         thisGame.timer = new Timer(thisGame.context);
 
-        //Launch Music (no need to do that on each level !)
+        //Launch Music (no need to do that on each level !) TODO: delete this comment when checked all levels
         thisGame.level1Music.play();
 
         //Title
