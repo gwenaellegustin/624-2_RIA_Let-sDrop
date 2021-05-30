@@ -19,7 +19,6 @@ class Level2{
         thisGame.droppy.x = 0;
         thisGame.droppy.y = 500; // to match arrival in pipe
 
-
         //Title
         thisGame.levelName = 'Freeze the drop';
 
@@ -88,7 +87,7 @@ class Level2{
                     thisGame.droppy.isColliding = true;
                     
                     if(thisGame.droppy.size<4){
-                        thisGame.droppy.droppyLosesALife();
+                        thisGame.droppy.droppyLosesALife(0);
                     }
                     else{
                         thisGame.isGameOver = true;
@@ -111,10 +110,10 @@ class Level2{
 
     static droppySlowsDown(thisGame){
         thisGame.droppy.changeColorAndBlink(thisGame);
-        thisGame.droppy.slowDownSpeed(thisGame);    
+        thisGame.droppy.slowDownSpeed();    
     }
 
-    static retrieveLives(thisGame) {
+    static retrieveLives(thisGame, blinkingSize) {
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof Life) {
@@ -122,11 +121,11 @@ class Level2{
 
                 let hit = thisGame.collisionRectRect(life.x, life.y, life.width, life.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 
-                if(hit && thisGame.droppy.isColliding === false){
+                if(hit){
                     thisGame.droppy.isColliding = true;
 
                     if(thisGame.droppy.size>1){
-                        thisGame.droppy.droppyRetrieveALife();
+                        thisGame.droppy.droppyRetrieveALife(blinkingSize);
                         thisGame.gameObjects.splice(i,1);
                     }
                     else{

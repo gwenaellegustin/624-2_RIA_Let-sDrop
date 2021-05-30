@@ -58,11 +58,13 @@ class Game {
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
+        if(this.level === 4){
+            Level4.drawRadiatorOnCanvas();
+        }
+
         // Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
-            if(this.gameObjects[i] != null){
-                this.gameObjects[i].update(this.secondsPassed);
-            } 
+            this.gameObjects[i].update(this.secondsPassed);
         }
         
         // Detect collisions with edges and monsters
@@ -77,9 +79,7 @@ class Game {
     
         // Loop over all game objects to draw
         for(let i=0; i < this.gameObjects.length; i++){
-            if(this.gameObjects[i] != null){
-                this.gameObjects[i].draw();
-            } 
+            this.gameObjects[i].draw();
         }
 
         //Draw level name
@@ -122,7 +122,7 @@ class Game {
                 Level3.detectCollisionsEdge(this);
                 break;
             case 4:
-                //TODO:
+                Level4.detectCollisionsEdge(this);
                 break;
             case 6:
                 if (this.droppy.x < 0) { //LEFT EDGE
@@ -147,17 +147,18 @@ class Game {
                 break;
             case 2:
                 Level2.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this);
+                Level2.retrieveLives(this, 0);
                 break;
             case 3: 
                 Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
-                //TODO:
+                Level4.detectCollisionsMonsters(this);
+                Level2.retrieveLives(this, this.droppy.size-1);
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
-                Level5.retrieveLives(this);
+                Level2.retrieveLives(this, 0);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
@@ -168,7 +169,7 @@ class Game {
 
     detectChangeLevel(){
         // To change from level 0 to level 1
-        if (this.level === 0 && this.ready === true){ //TODO: Change when drag and drop (do we need this.ready?)
+        if (this.level === 0 && this.ready === true){
             Level1.createLevel(this);
         }
 
@@ -188,22 +189,26 @@ class Game {
                 break;
             case 3: 
                 if(993 < (this.droppy.x + this.droppy.width)){
-                    Level5.createLevel(this); //TODO:
+                    Level4.createLevel(this);
                 }
                 break;
             case 4:
-                //TODO:
-                //Level5.createLevel(this);
+                if(915 < (this.droppy.x + this.droppy.width)){
+                    if((370 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 426)){
+                        this.droppy.color = 'blue';
+                        Level5.createLevel(this); //Prevent to leave bottom right et top right 
+                    }
+                }
                 break;
             case 5:
                 if(1000 == (this.droppy.x + this.droppy.width)){
                     if(490 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 550){
-                        Level6.createLevel(this); //TODO:
+                        Level6.createLevel(this);
                     }
                 }
                 break;
             case 6: 
-                if(1000 == (this.droppy.x + this.droppy.width)){ 
+                if(1000 == (this.droppy.x + this.droppy.width) && this.droppy.isColliding==false){ 
                     this.isWin = true;
                 }
                 break;
@@ -213,6 +218,7 @@ class Game {
     setTitle(){
         this.context.textAlign = "center";
         this.context.textBaseline = "top";
+        this.context.fillStyle = "white";
         this.context.fillText(this.levelName, this.canvas.width/2, 10);
     }
 

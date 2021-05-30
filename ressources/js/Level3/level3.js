@@ -40,7 +40,14 @@ class Level3 {
         this.pipeImage.src = '/ressources/images/game/Level3/Level3_canvas.png';
 
         this.pipeImage.addEventListener('load', (event) => {
+            if (event.defaultPrevented) {
+                return; // Do nothing if event already handled
+            }
+
             this.pipeImageReady = true; //The image has been load, we can draw it
+
+            // Consume the event so it doesn't get handled twice
+            event.preventDefault();
         });
     }
 
@@ -71,7 +78,7 @@ class Level3 {
                     thisGame.droppy.isColliding = true;
 
                     if(thisGame.droppy.size<4){
-                        thisGame.droppy.droppyLosesALife();
+                        thisGame.droppy.droppyLosesALife(thisGame.droppy.size+1);
                     }
                     else{
                         thisGame.isGameOver = true;

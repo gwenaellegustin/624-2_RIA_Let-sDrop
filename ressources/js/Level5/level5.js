@@ -15,6 +15,10 @@ class Level5{
         thisGame.health1 = new Life(thisGame.context, 350, 180);
         thisGame.health2 = new Life(thisGame.context, 650, 480);
 
+        //Reset size of all Droppies
+        thisGame.droppy.factorWidth = 1;
+        thisGame.droppy.factorHeight = 1;
+
         //Place Droppy depending on his height
         thisGame.droppy.x = 0;
         switch(thisGame.droppy.size) {
@@ -31,6 +35,9 @@ class Level5{
                 thisGame.droppy.y = 180;
                 break;
         }
+
+        //2 keys can be hold
+        thisGame.droppy.canPress2Keys = true;
 
         //Title
         thisGame.levelName = 'Slurp the drop';
@@ -70,7 +77,7 @@ class Level5{
                     thisGame.droppy.isColliding = true;
                     
                     if(thisGame.droppy.size<4){
-                        thisGame.droppy.droppyLosesALife();
+                        thisGame.droppy.droppyLosesALife(0);
                     }
                     else{
                         thisGame.isGameOver = true;
@@ -93,34 +100,10 @@ class Level5{
                     thisGame.gameObjects.splice(flowerNb, 1, new Flower(thisGame.context, flowerX, flowerY, flowerImg));
                                         
                     if(thisGame.droppy.size<4){
-                        thisGame.droppy.droppyLosesALife();
+                        thisGame.droppy.droppyLosesALife(0);
                     }
                     else{
                         thisGame.isGameOver = true;
-                    }
-                }
-            }
-        }
-    }
-
-    static retrieveLives(thisGame) {
-        for (let i = 0; i < thisGame.gameObjects.length; i++)
-        {
-            if(thisGame.gameObjects[i] instanceof Life) {
-                let life = thisGame.gameObjects[i];
-
-                let hit = thisGame.collisionRectRect(life.x, life.y, life.width, life.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
-                
-                if(hit && thisGame.droppy.isColliding === false){
-                    thisGame.droppy.isColliding = true;
-
-                    if(thisGame.droppy.size>1){
-                        thisGame.droppy.droppyRetrieveALife();
-                        thisGame.gameObjects.splice(i,1);
-                    }
-                    else{
-                        thisGame.gameObjects.splice(i,1);
-                        thisGame.droppy.isColliding = false;
                     }
                 }
             }

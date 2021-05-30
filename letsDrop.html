@@ -58,6 +58,7 @@
         <script src="ressources/js/Level3/fire.js"></script>
         <script src="ressources/js/Level3/littleFire.js"></script>
         <script src="ressources/js/Level3/steam.js"></script>
+        <script src="ressources/js/Level4/thermometer.js"></script>
         <script src="ressources/js/Level5/snail.js"></script>
         <script src="ressources/js/Level5/flower.js"></script>
         <script src="ressources/js/Level6/defence.js"></script>
@@ -67,6 +68,7 @@
         <script src="ressources/js/Level1/level1.js"></script>
         <script src="ressources/js/Level2/level2.js"></script>
         <script src="ressources/js/Level3/level3.js"></script>
+        <script src="ressources/js/Level4/level4.js"></script>
         <script src="ressources/js/Level5/level5.js"></script>
         <script src="ressources/js/Level6/level6.js"></script>
         <script src="ressources/js/GameOver/gameOver.js"></script>
@@ -77,6 +79,7 @@
         <script>
             window.onload = function(){
                 let game = new Game('canvas');
+                navigator.geolocation.watchPosition(Geolocation.onSuccess, Geolocation.onError, Geolocation.getOptions);
             }
 
             WebFont.load({
@@ -85,8 +88,5 @@
                 }
             });
         </script>
-
-
-        
     </body>
 </html>
