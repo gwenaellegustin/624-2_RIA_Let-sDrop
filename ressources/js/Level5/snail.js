@@ -13,14 +13,14 @@ class Snail {
 
         this.monsterImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
             this.monsterReady = true; //The image has been load, we can draw it
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -33,6 +33,9 @@ class Snail {
     }
 
     draw(){
+        //Just to see for impact TODO: delete at the end
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(this.x + 5, this.y + 15, this.width - 5, this.height - 15);
 
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);

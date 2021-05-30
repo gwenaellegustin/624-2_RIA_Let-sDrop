@@ -72,7 +72,7 @@ class Level5{
             if(thisGame.gameObjects[i] instanceof Snail){
                 let snail = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(snail.x, snail.y, snail.width, snail.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionRectRect(snail.x+5, snail.y+15, snail.width-5, snail.height-15, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
                     
@@ -88,7 +88,7 @@ class Level5{
             if(thisGame.gameObjects[i] instanceof Flower){
                 let flower = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(flower.x+5, flower.y+5, flower.width-5, flower.height-5, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionRectRect(flower.x+5, flower.y+5, flower.width-10, flower.height-10, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
