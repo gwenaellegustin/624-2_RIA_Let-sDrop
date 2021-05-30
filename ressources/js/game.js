@@ -279,9 +279,13 @@ class Game {
         this.bgLevel5Img.setAttribute("src", "/ressources/images/game/Level5/Level5.png");
         this.bgLevel5Url = "url('/ressources/images/game/Level5/Level5.png')";
 
-        this.bgLevel6Img = new Image();
-        this.bgLevel6Img.setAttribute("src", "/ressources/images/game/Level6/Level6.png");
-        this.bgLevel6Url = "url('/ressources/images/game/Level6/Level6.png')";
+        this.bgLevel6Img1 = new Image();
+        this.bgLevel6Img1.setAttribute("src", "/ressources/images/game/Level6/Level6Fight.png");
+        this.bgLevel6Url1 = "url('/ressources/images/game/Level6/Level6Fight.png')";
+        
+        this.bgLevel6Img2 = new Image();
+        this.bgLevel6Img2.setAttribute("src", "/ressources/images/game/Level6/Level6.png");
+        this.bgLevel6Url2 = "url('/ressources/images/game/Level6/Level6.png')";
 
         this.bgWinImg = new Image();
         this.bgWinImg.setAttribute("src", "/ressources/images/game/Win/Win.png");
