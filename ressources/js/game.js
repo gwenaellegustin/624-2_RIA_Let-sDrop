@@ -14,13 +14,14 @@ class Game {
         this.ready = false;
         this.imgReady = false;
 
-        // Object
+        //Object
         this.droppy = null;
 
-        // Lives
+        //Lives
         this.health1 = null;
         this.health2 = null;
 
+        //We charge everything before starting the game
         this.chargeMusic();
         this.chargeBackgrounds();
         this.chargeObjects();        
@@ -41,20 +42,20 @@ class Game {
     
         Level0.createLevel(this);
 
-        // press enter to reload the page
+        //Press enter to reload the page
         window.addEventListener('keydown', event => { 
             if(event.code === 'Space' && this.canReload){
                 document.location.reload();
             }
          }, false);
 
-        // Request an animation frame for the first time
-        // The gameLoop() function will be called as a callback of this request
+        //Request an animation frame for the first time
+        //The gameLoop() function will be called as a callback of this request
         window.requestAnimationFrame((timeStamp) => {this.gameLoop(timeStamp)});
     }
 
     gameLoop(timeStamp) {
-        // Calculate the number of seconds passed since the last frame
+        //Calculate the number of seconds passed since the last frame
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
@@ -62,22 +63,22 @@ class Game {
             Level4.drawRadiatorOnCanvas();
         }
 
-        // Loop over all game objects to update
+        //Loop over all game objects to update
         for(let i=0; i <  this.gameObjects.length; i++){
             this.gameObjects[i].update(this.secondsPassed);
         }
         
-        // Detect collisions with edges and monsters
+        //Detect collisions with edges and monsters
         this.detectCollisionsEdges();
         this.detectCollisions();
         
-        // Detecter end of level
+        //Detecter end of level
         this.detectChangeLevel();
     
-        // Clear canvas
+        //Clear canvas
         this.clearCanvas();
     
-        // Loop over all game objects to draw
+        //Loop over all game objects to draw
         for(let i=0; i < this.gameObjects.length; i++){
             this.gameObjects[i].draw();
         }
@@ -94,13 +95,13 @@ class Game {
             Winner.createLevel(this);
         }
         else{
-            // The loop function has reached it's end - Keep requesting new frames
+            //The loop function has reached it's end - Keep requesting new frames
             window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
         }
     }
 
     detectCollisionsEdges(){
-        // EDGES COLLISIONS : Checking collisions for droppy 
+        //EDGES COLLISIONS : Checking collisions for droppy 
         switch(this.level){
             case 1:
             case 2:
@@ -168,12 +169,12 @@ class Game {
     }
 
     detectChangeLevel(){
-        // To change from level 0 to level 1
+        //To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){
             Level1.createLevel(this);
         }
 
-        // Zone which define end of the level
+        //Zone which define end of the level
         switch(this.level){
             case 1:
                 if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
@@ -223,7 +224,7 @@ class Game {
     }
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
-        // are the sides of one rectangle touching the other?
+        //Are the sides of one rectangle touching the other?
         if (rect1x + rect1width >= rect2x &&    // r1 right edge past r2 left
             rect1x <= rect2x + rect2width &&    // r1 left edge past r2 right
             rect1y + rect1height >= rect2y &&    // r1 top edge past r2 bottom
@@ -234,7 +235,7 @@ class Game {
     }
 
     clearCanvas() {
-        // Clear the canvas
+        //Clear the canvas
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
@@ -246,7 +247,7 @@ class Game {
     }
 
     chargeMusic() {
-        // Music and sounds
+        //Music and sounds
         this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); // will continue through all levels
         this.level1Music.loop = true; 
         this.level1Music.setAttribute("preload", "auto");
@@ -264,7 +265,7 @@ class Game {
     }
 
     chargeBackgrounds() {
-        // Backgrounds
+        //Backgrounds
         this.bgLevel0Img = new Image();
         this.bgLevel0Img.setAttribute("src", "/ressources/images/game/Level0/Level0.png");
         this.bgLevel0Url = "url('/ressources/images/game/Level0/Level0.png')";
@@ -280,6 +281,18 @@ class Game {
         this.bgLevel3Img = new Image();
         this.bgLevel3Img.setAttribute("src", "/ressources/images/game/Level3/Level3.png");
         this.bgLevel3Url = "url('/ressources/images/game/Level3/Level3.png')";
+
+        this.bgLevel3Canvas = new Image();
+        this.bgLevel3Canvas.setAttribute("src", "/ressources/images/game/Level3/Level3_canvas.png");
+        this.bgLevel3CanvasUrl = '/ressources/images/game/Level3/Level3_canvas.png';
+
+        this.bgLevel4Img = new Image();
+        this.bgLevel4Img.setAttribute("src", "/ressources/images/game/Level4/Level4.png");
+        this.bgLevel4Url = "url('/ressources/images/game/Level4/Level4.png')";
+
+        this.bgLevel4Canvas = new Image();
+        this.bgLevel4Canvas.setAttribute("src", "/ressources/images/game/Level4/Level4_canvas.png");
+        this.bgLevel4CanvasUrl = '/ressources/images/game/Level4/Level4_canvas.png';
 
         this.bgLevel5Img = new Image();
         this.bgLevel5Img.setAttribute("src", "/ressources/images/game/Level5/Level5.png");
@@ -307,7 +320,7 @@ class Game {
     }
 
     chargeObjects() {
-        // Droppy
+        //Droppy
         let colors = ['green', 'blue', 'white', 'red1', 'red2', 'red3'];
         let sizes = [1,2,3,4];
         let count = 0;
@@ -326,7 +339,7 @@ class Game {
             this.imgReady = true;
         }
 
-        // Monsters
+        //Monsters
         let monsterHandImg = new Image();
         monsterHandImg.setAttribute("src", "/ressources/images/game/Level1/MonsterHand48x48.png");
         let soapImg = new Image();
@@ -357,10 +370,24 @@ class Game {
         snailLeftImg.setAttribute("src", "/ressources/images/game/Level5/SnailLeft.png");
         let crabWallImg = new Image();
         crabWallImg.setAttribute("src", "/ressources/images/game/Level6/CrabsWall.png");
+        let crabLifeImg = new Image();
+        crabLifeImg.setAttribute("src", "/ressources/images/game/Level6/CrabLife.png");
         let palmImg = new Image();
         palmImg.setAttribute("src", "/ressources/images/game/Level6/Palm.png");
+        let crabLeft110x130Img = new Image();
+        crabLeft110x130Img.setAttribute("src", "/ressources/images/game/Level6/CrabLeft110x130.png");
+        let crabRight110x130Img = new Image();
+        crabRight110x130Img.setAttribute("src", "/ressources/images/game/Level6/CrabRight110x130.png");
+        let crabLeftClosed110x130Img = new Image();
+        crabLeftClosed110x130Img.setAttribute("src", "/ressources/images/game/Level6/CrabLeftClosed110x130.png");
+        let crabRightClosed110x130Img = new Image();
+        crabRightClosed110x130Img.setAttribute("src", "/ressources/images/game/Level6/CrabRightClosed110x130.png");
+        let crabLeftDead110x130Img = new Image();
+        crabLeftDead110x130Img.setAttribute("src", "/ressources/images/game/Level6/CrabLeftDead110x130.png");
+        let crabRightDead110x130Img = new Image();
+        crabRightDead110x130Img.setAttribute("src", "/ressources/images/game/Level6/CrabRightDead110x130.png");
 
-        // Life & health
+        //Life & health
         let lifeImg = new Image();
         lifeImg.setAttribute("src", "/ressources/images/game/Life.png");
         let lifeSmallImg = new Image();

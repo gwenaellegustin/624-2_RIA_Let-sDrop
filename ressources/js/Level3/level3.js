@@ -37,16 +37,16 @@ class Level3 {
 
         this.pipeImageReady = false;
         this.pipeImage = new Image();
-        this.pipeImage.src = '/ressources/images/game/Level3/Level3_canvas.png';
+        this.pipeImage.src = thisGame.bgLevel3CanvasUrl;
 
         this.pipeImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.pipeImageReady = true; //The image has been load, we can draw it
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
     }
