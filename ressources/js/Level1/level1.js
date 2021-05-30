@@ -44,6 +44,7 @@ class Level1{
             
             thisGame.droppy,
             thisGame.timer,
+            new Exit(thisGame.context),
 
             //Monsters TODO: change 148 in 150 when no border
             new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 148)), //Random between space usable
@@ -70,7 +71,7 @@ class Level1{
             if(thisGame.gameObjects[i] instanceof MonsterHand){
                 let monsterHand = thisGame.gameObjects[i];
 
-                //10 --> only sponge (not hand)
+                //10 --> only sponge, not hand
                 let hit = thisGame.collisionRectRect(monsterHand.x, monsterHand.y, monsterHand.width, monsterHand.height - 10, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
@@ -88,7 +89,8 @@ class Level1{
             if(thisGame.gameObjects[i] instanceof Soap) {
                 let soap = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(soap.x, soap.y, soap.width, soap.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                //15 --> only soap, not bubbles
+                let hit = thisGame.collisionRectRect(soap.x, soap.y + 15, soap.width, soap.height - 15, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if (hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
                     let soapNb = i;

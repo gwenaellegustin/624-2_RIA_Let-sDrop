@@ -25,6 +25,10 @@ class Life{
     }
 
     draw(){
+        //Just to see for impact TODO: delete at the end
+        this.context.fillStyle = '#ADFF2F';
+        this.context.fillRect(this.x, this.y, this.width, this.height);
+
         if(this.lifeReady){
             this.context.drawImage(this.lifeImage, this.x, this.y);
         }

@@ -25,9 +25,10 @@ class Soap {
     }
 
     draw(){
-                    //Just to see for impact TODO: delete at the end
-                    this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-                    this.context.fillRect(this.x, this.y, this.width, this.height);
+        //Just to see for impact TODO: delete at the end
+        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
+        this.context.fillRect(this.x, this.y+15, this.width, this.height-15);
+
         if(this.soapReady){
             this.context.drawImage(this.soapImage, this.x, this.y);
         }

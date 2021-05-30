@@ -224,10 +224,10 @@ class Game {
         // Zone which define end of the level
         switch(this.level){
             case 1:
-                if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
-                    if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level2.createLevel(this);
-                    }
+                let exit = this.gameObjects[2];
+                let hit = this.collisionPointCircle(this.droppy.x + this.droppy.width/2, this.droppy.y + this.droppy.height/2, exit.x, exit.y, exit.radius,);
+                if(this.timer.time != null && hit === true){ //if Droppy's center is on pipe's enter
+                    Level2.createLevel(this);
                 }
                 break;
             case 2:
@@ -269,6 +269,20 @@ class Game {
         this.context.fillStyle = "white";
         this.context.fillText(this.levelName, this.canvas.width/2, 10);
     }
+
+    collisionPointCircle(px, py, cerclex, cercley, radius) {
+        // temporary variables to set edges for testing
+        let distX = px - cerclex;
+        let distY = py - cercley;
+        // distance between the point and circle's center
+        let distance = Math.sqrt( (distX*distX) + (distY*distY) );
+      
+        // if the distance is less than the radius, collision!
+        if (distance <= radius) {
+          return true;
+        }
+        return false;
+      }
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
         // are the sides of one rectangle touching the other?

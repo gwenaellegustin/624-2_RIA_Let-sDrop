@@ -47,7 +47,7 @@ class Fire{
         
         //Just to see for impact TODO: delete at the end
         this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(-this.width/2, -this.height/2, this.width, this.height);
+        this.context.fillRect(-this.width/2 + 5, -this.height/2 + 3, this.width - 5, this.height - 6);
         
         if(this.fireReady){
             this.context.drawImage(this.fireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
