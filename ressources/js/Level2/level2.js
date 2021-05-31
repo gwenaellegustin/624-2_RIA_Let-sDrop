@@ -82,7 +82,7 @@ class Level2{
             if(thisGame.gameObjects[i] instanceof SnowflakeBig){
                 let snowBig = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(snowBig.x, snowBig.y, snowBig.width, snowBig.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionCircleRect(snowBig.x + snowBig.width/2, snowBig.y + snowBig.height/2, snowBig.width/2, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
                     
@@ -98,7 +98,7 @@ class Level2{
             if(thisGame.gameObjects[i] instanceof SnowflakeSmall){
                 let snowSmall = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(snowSmall.x, snowSmall.y, snowSmall.width, snowSmall.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionCircleRect(snowSmall.x + snowSmall.width/2, snowSmall.y + snowSmall.width/2, snowSmall.width/2, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;            
@@ -111,29 +111,5 @@ class Level2{
     static droppySlowsDown(thisGame){
         thisGame.droppy.changeColorAndBlink(thisGame);
         thisGame.droppy.slowDownSpeed();    
-    }
-
-    static retrieveLives(thisGame, blinkingSize) {
-        for (let i = 0; i < thisGame.gameObjects.length; i++)
-        {
-            if(thisGame.gameObjects[i] instanceof Life) {
-                let life = thisGame.gameObjects[i];
-
-                let hit = thisGame.collisionRectRect(life.x, life.y, life.width, life.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
-                
-                if(hit){
-                    thisGame.droppy.isColliding = true;
-
-                    if(thisGame.droppy.size>1){
-                        thisGame.droppy.droppyRetrieveALife(blinkingSize);
-                        thisGame.gameObjects.splice(i,1);
-                    }
-                    else{
-                        thisGame.gameObjects.splice(i,1);
-                        thisGame.droppy.isColliding = false;
-                    }
-                }
-            }
-        }
     }
 }

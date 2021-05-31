@@ -23,7 +23,7 @@ class Level3 {
             thisGame.droppy,
             thisGame.timer,
 
-            //Monster
+            //Monsters
             new Fire(thisGame.context, 140, 90, thisGame, false, false),
             new LittleFire(thisGame.context, 129, 87, thisGame.droppy),
             new Fire(thisGame.context, 105, 358, thisGame, false, false),
@@ -58,14 +58,14 @@ class Level3 {
             if(thisGame.gameObjects[i] instanceof LittleFire){
                 let littleFire = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(littleFire.x, littleFire.y, littleFire.width, littleFire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
-                if(hit){
+                let hit = thisGame.collisionRectRect(littleFire.x - littleFire.width/2, littleFire.y - littleFire.height/2, littleFire.width, littleFire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
 
+                if(hit){
                     //Remove little fire
                     thisGame.gameObjects.splice(i,1);
 
                     //Add a steam that will be removed after 3seconds
-                    new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y)
+                    new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y);
                 }
             }
 
@@ -73,7 +73,7 @@ class Level3 {
             if(thisGame.gameObjects[i] instanceof Fire){
                 let fire = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(fire.x, fire.y, fire.width, fire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                let hit = thisGame.collisionRectRect(fire.x - fire.width/2, fire.y - fire.height/2, fire.width, fire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
 
@@ -136,15 +136,13 @@ class Level3 {
         x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
         x2 = droppy.x + droppy.width; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
-        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
-            //console.log("TOP")
+        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ // I don't want y to be updated more than one time
             droppy.y += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //BOTTOM
         y = droppy.y + droppy.height + 1; //SAME FOR ALL RIGHT
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){
-            //console.log("BOTTOM")
             droppy.y -= droppy.speed * this.thisGame.secondsPassed;
         }
 
@@ -154,14 +152,12 @@ class Level3 {
         y1 = droppy.y + droppy.height / 2; //LEFT/RIGHT - MIDDLE
         y2 = droppy.y + droppy.height; //LEFT/RIGHT - BOTTOM
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
-            //console.log("LEFT")
             droppy.x += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //RIGHT
         x = droppy.x + droppy.width + 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
-            //console.log("RIGHT")
             droppy.x -= droppy.speed * this.thisGame.secondsPassed;
         }
     }

@@ -27,7 +27,7 @@ class Soap {
     draw(){
         if(this.soapReady){
             this.context.drawImage(this.soapImage, this.x, this.y);
-        }        
+        }
     }
 
     update(secondsPassed){}

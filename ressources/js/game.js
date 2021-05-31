@@ -147,18 +147,18 @@ class Game {
                 break;
             case 2:
                 Level2.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, 0);
+                this.retrieveLives(0);
                 break;
             case 3: 
                 Level3.detectCollisionsMonsters(this);
                 break;
             case 4:
                 Level4.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, this.droppy.size-1);
+                this.retrieveLives(this.droppy.size-1);
                 break;
             case 5:
                 Level5.detectCollisionsMonsters(this);
-                Level2.retrieveLives(this, 0);
+                this.retrieveLives(0);
                 break;
             case 6: 
                 Level6.detectCollisionsMonsters(this);
@@ -176,10 +176,9 @@ class Game {
         //Zone which define end of the level
         switch(this.level){
             case 1:
-                if(940 < (this.droppy.x + this.droppy.width/2) && (this.droppy.x + this.droppy.width/2) < 970){
-                    if(350 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 380){
-                        Level2.createLevel(this);
-                    }
+                let hit = this.collisionPointCircle(this.droppy.x + this.droppy.width/2, this.droppy.y + this.droppy.height/2, 954, 370, 25);
+                if(hit){ //if Droppy's center is on pipe's enter
+                    Level2.createLevel(this);
                 }
                 break;
             case 2:
@@ -222,6 +221,20 @@ class Game {
         this.context.fillText(this.levelName, this.canvas.width/2, 10);
     }
 
+    collisionPointCircle(px, py, cerclex, cercley, radius) {
+        // temporary variables to set edges for testing
+        let distX = px - cerclex;
+        let distY = py - cercley;
+        // distance between the point and circle's center
+        let distance = Math.sqrt( (distX*distX) + (distY*distY) );
+      
+        // if the distance is less than the radius, collision!
+        if (distance <= radius) {
+          return true;
+        }
+        return false;
+      }
+
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
         //Are the sides of one rectangle touching the other?
         if (rect1x + rect1width >= rect2x &&    // r1 right edge past r2 left
@@ -231,6 +244,62 @@ class Game {
             return true;
         }
         return false;
+    }
+
+    collisionCircleRect(circlex, circley, radius, rectx, recty, rectwidth, rectheight){
+        // temporary variables to set edges for testing
+        let testX = circlex;
+        let testY = circley;
+
+        // which edge is closest?
+        if (circlex < rectx) {// test left edge
+            testX = rectx;
+        }
+        else if (circlex > rectx+rectwidth) {// right edge
+            testX = rectx+rectwidth;
+        }   
+
+        if (circley < recty) {// top edge
+            testY = recty;
+        }
+        else if (circley > recty+rectheight) {// bottom edge
+            testY = recty+rectheight;   
+        }
+
+        // get distance from closest edges
+        let distX = circlex-testX;
+        let distY = circley-testY;
+        let distance = Math.sqrt( (distX*distX) + (distY*distY) );
+
+        // if the distance is less than the radius, collision!
+        if (distance <= radius) {
+            return true;
+        }
+        return false;
+    }
+
+    retrieveLives(blinkingSize) {
+        for (let i = 0; i < this.gameObjects.length; i++)
+        {
+            if(this.gameObjects[i] instanceof Life) {
+                let life = this.gameObjects[i];
+
+                let hit = this.collisionRectRect(life.x, life.y, life.width, life.height, this.droppy.x, this.droppy.y, this.droppy.width*this.droppy.factorWidth, this.droppy.height*this.droppy.factorHeight);
+                
+                if(hit){
+                    this.droppy.isColliding = true;
+
+                    if(this.droppy.size>1){
+                        this.droppy.droppyRetrieveALife(blinkingSize);
+                        this.gameObjects.splice(i,1);
+                    }
+                    else{
+                        this.gameObjects.splice(i,1);
+                        this.droppy.isColliding = false;
+                    }
+                }
+            }
+        }
     }
 
     clearCanvas() {

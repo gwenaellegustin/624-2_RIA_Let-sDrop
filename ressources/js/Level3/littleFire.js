@@ -22,14 +22,14 @@ class LittleFire{
 
         this.littleFireImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.littleFireImage.width;
             this.height = this.littleFireImage.height;
             this.littleFireReady = true; //The image has been load, we can draw it
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -40,7 +40,7 @@ class LittleFire{
         //Reapear here after a restore
         this.context.save();
 
-        // move the origin to the fire center
+        //Move the origin to the fire center
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
 
@@ -87,7 +87,6 @@ class LittleFire{
             this.velocityY *= 0.9;
             touched = true;
         }
-        
 
         //LEFT
         x = this.x - 5;

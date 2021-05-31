@@ -27,8 +27,7 @@ class MonsterHand {
         this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand48x48.png";
     }
 
-    draw(){
-
+    draw(){   
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }

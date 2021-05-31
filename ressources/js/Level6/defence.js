@@ -14,14 +14,14 @@ class Defence{
 
         this.image.addEventListener ('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.image.width;
             this.height = this.image.height;
             this.ready = true; //The image has been load, we can draw it
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -32,8 +32,9 @@ class Defence{
         this.context.save();
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
+        
         if(this.ready){
-            this.context.drawImage(this.image, this.width / -2, this.height / -2);
+            this.context.drawImage(this.image, -this.width/2, -this.height/2);
         }
         this.context.restore();
     }

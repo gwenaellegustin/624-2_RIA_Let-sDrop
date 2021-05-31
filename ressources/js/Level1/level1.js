@@ -70,7 +70,7 @@ class Level1{
             if(thisGame.gameObjects[i] instanceof MonsterHand){
                 let monsterHand = thisGame.gameObjects[i];
 
-                //10 --> only sponge (not hand)
+                //10 --> only sponge, not hand
                 let hit = thisGame.collisionRectRect(monsterHand.x, monsterHand.y, monsterHand.width, monsterHand.height - 10, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if(hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
@@ -88,7 +88,8 @@ class Level1{
             if(thisGame.gameObjects[i] instanceof Soap) {
                 let soap = thisGame.gameObjects[i];
 
-                let hit = thisGame.collisionRectRect(soap.x, soap.y, soap.width, soap.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
+                //15 --> only soap, not bubbles
+                let hit = thisGame.collisionRectRect(soap.x, soap.y + 15, soap.width, soap.height - 15, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
                 if (hit && thisGame.droppy.isColliding === false){
                     thisGame.droppy.isColliding = true;
                     let soapNb = i;
