@@ -12,7 +12,6 @@ class Game {
         this.timer = null;
         this.canReload = true;
         this.ready = false;
-        this.imgReady = false;
 
         //Object
         this.droppy = null;
@@ -323,21 +322,13 @@ class Game {
         //Droppy
         let colors = ['green', 'blue', 'white', 'red1', 'red2', 'red3'];
         let sizes = [1,2,3,4];
-        let count = 0;
         
         colors.forEach(color => {
             sizes.forEach(size => {
                 let image = new Image();
                 image.src = "/ressources/images/game/Drop/DropSize" + size + color + ".png";
-                image.addEventListener('load', () => {
-                    count++;
-                });
             })
         });
-
-        if(count === (colors.length * sizes.length)){
-            this.imgReady = true;
-        }
 
         //Monsters
         let monsterHandImg = new Image();
