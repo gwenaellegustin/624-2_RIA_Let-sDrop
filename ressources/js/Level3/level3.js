@@ -61,12 +61,11 @@ class Level3 {
                 let hit = thisGame.collisionRectRect(littleFire.x - littleFire.width/2, littleFire.y - littleFire.height/2, littleFire.width, littleFire.height, thisGame.droppy.x, thisGame.droppy.y, thisGame.droppy.width, thisGame.droppy.height);
 
                 if(hit){
-
                     //Remove little fire
                     thisGame.gameObjects.splice(i,1);
 
                     //Add a steam that will be removed after 3seconds
-                    //new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y) //TODO: uncomment when test is ok
+                    new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y);
                 }
             }
 

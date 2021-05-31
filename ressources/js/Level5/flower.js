@@ -42,10 +42,6 @@ class Flower{
     }
 
     draw(){
-        //Just to see for impact TODO: delete at the end
-        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(this.x + 5, this.y + 5, this.width - 10, this.height - 10);
-
         if(this.flowerReady){
             this.context.drawImage(this.flowerImage, this.x, this.y);
         }

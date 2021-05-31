@@ -50,7 +50,6 @@ class Level6{
             thisGame.timer,
             //Monster
             new Crab(thisGame.context, 800, 500, thisGame.droppy)
-            //TODO:add little crab in border
         ];
     }
 
@@ -82,7 +81,7 @@ class Level6{
               return; //Do nothing if event already handled
             }
 
-            if(event.code === 'Space' && thisGame.droppy.interval > 0){
+            if(event.code === 'Space' && thisGame.droppy.interval > 0.5){
                 let crab = thisGame.gameObjects[2];
                 let defence;
                 if (thisGame.droppy.x < crab.x){

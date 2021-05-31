@@ -44,10 +44,6 @@ class LittleFire{
         this.context.translate(this.x, this.y);
         this.context.rotate(this.angle);
 
-        //Just to see for impact TODO: delete at the end
-        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(-this.width/2, -this.height/2, this.width, this.height);
-
         if(this.littleFireReady){
             this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
         }
@@ -91,7 +87,6 @@ class LittleFire{
             this.velocityY *= 0.9;
             touched = true;
         }
-        
 
         //LEFT
         x = this.x - 5;

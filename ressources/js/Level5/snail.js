@@ -33,10 +33,6 @@ class Snail {
     }
 
     draw(){
-        //Just to see for impact TODO: delete at the end
-        this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-        this.context.fillRect(this.x + 5, this.y + 15, this.width - 5, this.height - 15);
-
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
@@ -57,6 +53,4 @@ class Snail {
             this.directionX = -1;
         }
     }
-
-
 }

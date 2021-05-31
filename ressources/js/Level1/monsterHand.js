@@ -27,15 +27,10 @@ class MonsterHand {
         this.monsterImage.src = "/ressources/images/game/Level1/MonsterHand48x48.png";
     }
 
-    draw(){
-                //Just to see for impact TODO: delete at the end
-                this.context.fillStyle = this.isColliding ? '#ff8080': '#ADFF2F';
-                this.context.fillRect(this.x, this.y, this.width, this.height-10);
-                
+    draw(){   
         if(this.monsterReady){
             this.context.drawImage(this.monsterImage, this.x, this.y);
         }
-
     }
 
     update(secondsPassed){
