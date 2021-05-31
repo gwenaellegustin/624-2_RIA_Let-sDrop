@@ -83,19 +83,33 @@ class Drop {
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
+        }, 50);
+
+        setTimeout(()=>{
+            this.size = blinkingSize;
         }, 100);
+
+        //Waiting 100ms before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 150);
 
         //Waiting 100ms more before disappear
         setTimeout(()=>{
             this.size = blinkingSize;
         }, 200);
 
+        //Waiting 100ms before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 250);
+
         //Waiting 100ms more before blinking at new size + reset speed
         setTimeout(()=>{
             this.size = oldSize+1;
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
-            }
+            } 
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
@@ -107,15 +121,29 @@ class Drop {
     droppyRetrieveALife(blinkingSize){
         let oldSize = this.size;
 
-         //Waiting 100ms before blinking at oldSize
+        //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
+        }, 50);
+
+        setTimeout(()=>{
+            this.size = blinkingSize;
         }, 100);
+
+        //Waiting 100ms before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 150);
 
         //Waiting 100ms more before disappear
         setTimeout(()=>{
             this.size = blinkingSize;
         }, 200);
+
+        //Waiting 100ms before blinking at oldSize
+        setTimeout(()=>{
+            this.size = oldSize;
+        }, 250);
 
          //Waiting 100ms more before blinking at new size + reset speed
          setTimeout(()=>{
@@ -142,60 +170,40 @@ class Drop {
             case 2:
                 colorWhenTouched = "white";
                 break;
-            case 4:
-                colorWhenTouched = "red";
-                break;
         }
 
         let oldSize = this.size;
         
-        this.size = 0;
-
-         //Waiting 100ms before blinking at oldSize
+        //Waiting 100ms before blinking at oldSize
          setTimeout(()=>{
             this.color = colorWhenTouched;
+            this.size = 0;
+        }, 50);
+
+        //Waiting 100ms more before disappear
+        setTimeout(()=>{
             this.size = oldSize;
         }, 100);
 
+        //Waiting 100ms more before blinking at oldSize
+         setTimeout(()=>{
+            this.size = 0;
+        }, 150);
+
         //Waiting 100ms more before disappear
         setTimeout(()=>{
-            this.size = 0;
+            this.size = oldSize;
         }, 200);
 
         //Waiting 100ms more before blinking at oldSize
-         setTimeout(()=>{
+        setTimeout(()=>{
+            this.size = 0;
+        }, 250);
+
+        //Waiting 100ms more before blinking at oldSize
+        setTimeout(()=>{
             this.size = oldSize;
         }, 300);
-
-        //Waiting 100ms more before disappear
-        setTimeout(()=>{
-            this.size = 0;
-        }, 400);
-
-        //Waiting 100ms more before blinking at oldSize
-        setTimeout(()=>{
-            this.size = oldSize;
-        }, 500);
-
-        //Waiting 100ms more before disappear
-        setTimeout(()=>{
-            this.size = 0;
-        }, 600);
-
-        //Waiting 100ms more before blinking at oldSize
-        setTimeout(()=>{
-            this.size = oldSize;
-        }, 700);
-
-        //Waiting 100ms more before disappear
-        setTimeout(()=>{
-            this.size = 0;
-        }, 800);
-
-        //Waiting 100ms more before blinking at oldSize
-        setTimeout(()=>{
-            this.size = oldSize;
-        }, 900);
 
         //Waiting 1000ms before Droppy can be touched again
         setTimeout(()=>{
