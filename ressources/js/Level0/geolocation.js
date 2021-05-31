@@ -19,8 +19,8 @@ class Geolocation {
                     document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + '<br/>' + town + ' (' + state + ', ' + country + ')';
                 }
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(() => {
+                this.onError();
             });
     }
     static onError() {
