@@ -44,7 +44,6 @@ class Level1{
             
             thisGame.droppy,
             thisGame.timer,
-            new Exit(thisGame.context),
 
             //Monsters TODO: change 148 in 150 when no border
             new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 148)), //Random between space usable
