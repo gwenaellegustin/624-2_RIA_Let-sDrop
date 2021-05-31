@@ -9,7 +9,7 @@ class Winner{
         thisGame.clearImages();
 
         //Display winner screen background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgwinurl ;
+        document.getElementById('bg').style.backgroundImage = thisGame.bgWinUrl ;
 
         //Music
         thisGame.level1Music.muted = true;

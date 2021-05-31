@@ -10,7 +10,7 @@ class Level4 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level4/Level4.png')";
+        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel4Url;
 
 
         //Place Droppy
@@ -50,16 +50,16 @@ class Level4 {
 
         this.radiatorReady = false;
         this.radiatorImage = new Image();
-        this.radiatorImage.src = '/ressources/images/game/Level4/Level4_canvas.png';
+        this.radiatorImage.src = thisGame.bgLevel4CanvasUrl;
 
         this.radiatorImage.addEventListener('load', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.radiatorReady = true; //The image has been load, we can draw it
             
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
     }

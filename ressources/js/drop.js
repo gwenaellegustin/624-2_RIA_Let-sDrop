@@ -82,7 +82,6 @@ class Drop {
     droppyLosesALife(blinkingSize){
         //Store old size to blink
         let oldSize = this.size;
-                                
         this.size = blinkingSize;
 
         //Waiting 100ms before blinking at oldSize
@@ -137,7 +136,6 @@ class Drop {
     }
 
     changeColorAndBlink(thisGame) {
-
         let level = thisGame.level;
         let colorWhenTouched;
 

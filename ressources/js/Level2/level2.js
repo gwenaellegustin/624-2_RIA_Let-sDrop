@@ -9,7 +9,7 @@ class Level2{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bglevel2url;
+        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel2Url;
 
         //Create health Lives
         thisGame.health1 = new Life(thisGame.context, 330, 180);

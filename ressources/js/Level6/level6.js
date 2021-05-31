@@ -10,7 +10,7 @@ class Level6{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bglevel6url;
+        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel6Url1;
                 
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
@@ -153,7 +153,7 @@ class Level6{
                     // remove crabs wall
                     if (crab.life == 0){ 
                         document.getElementById('crabs').remove();
-                        document.getElementById('bg').style.backgroundImage = "url('/ressources/images/game/Level6/Level6.png')";
+                        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel6Url2;
                     }
                 }
             }
