@@ -124,8 +124,8 @@ class Level4 {
 
         //TOP
         x = droppy.x; //TOP/BOTTOM - LEFT
-        x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
-        x2 = droppy.x + droppy.width / 2; //TOP/BOTTOM - RIGHT
+        x1 = droppy.x + droppy.width*droppy.factorWidth / 2; //TOP/BOTTOM - MIDDLE
+        x2 = droppy.x + droppy.width*droppy.factorWidth; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
             //console.log("TOP")
@@ -133,7 +133,7 @@ class Level4 {
         }
 
         //BOTTOM
-        y = droppy.y + droppy.height  / 2 + 1; //SAME FOR ALL RIGHT
+        y = droppy.y + droppy.height*droppy.factorHeight + 1; //SAME FOR ALL RIGHT
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){
             //console.log("BOTTOM")
             droppy.y -= droppy.speed * this.thisGame.secondsPassed;
@@ -142,15 +142,15 @@ class Level4 {
         //LEFT
         x = droppy.x - 1;
         y = droppy.y; //LEFT/RIGHT - TOP
-        y1 = droppy.y + droppy.height / 2; //LEFT/RIGHT - MIDDLE
-        y2 = droppy.y + droppy.height / 2; //LEFT/RIGHT - BOTTOM
+        y1 = droppy.y + droppy.height*droppy.factorHeight / 2; //LEFT/RIGHT - MIDDLE
+        y2 = droppy.y + droppy.height*droppy.factorHeight; //LEFT/RIGHT - BOTTOM
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
             //console.log("LEFT")
             droppy.x += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //RIGHT
-        x = droppy.x + droppy.width / 2 + 1;
+        x = droppy.x + droppy.width*droppy.factorWidth + 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
             //console.log("RIGHT")
             droppy.x -= droppy.speed * this.thisGame.secondsPassed;
