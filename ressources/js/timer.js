@@ -39,5 +39,4 @@ class Timer
 
         this.time = min + ":" + sec + ":" + msec;
     }
-    
 }

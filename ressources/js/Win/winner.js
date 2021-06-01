@@ -42,6 +42,6 @@ class Winner{
             secondLine = `Press ENTER to save your name`;
         }
 
-        thisGame.context.fillText(secondLine, thisGame.canvas.width/2, 20 + 70); // 70 = space between lines
+        thisGame.context.fillText(secondLine, thisGame.canvas.width/2, 20 + 70); //70 = space between lines
     }
 }

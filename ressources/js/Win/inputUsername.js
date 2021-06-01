@@ -32,7 +32,7 @@ class InputUsername{
         //Recalculate each time the input is modified
         document.getElementById('usernameInput').addEventListener('input', (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             thisGame.clearCanvas();
@@ -40,7 +40,7 @@ class InputUsername{
             Winner.drawText(thisGame);
             this.draw();
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         })
     }

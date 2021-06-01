@@ -12,7 +12,6 @@ class Level4 {
         //Change background
         document.getElementById('bg').style.backgroundImage = thisGame.bgLevel4Url;
 
-
         //Place Droppy
         thisGame.droppy.x = 87;
         thisGame.droppy.y = 392;

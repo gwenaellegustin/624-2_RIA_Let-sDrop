@@ -59,7 +59,7 @@ class Drop {
             if (Key.isDown(Key.RIGHT)){
                 this.x += this.speed * secondsPassed;
             }
-        } else{ //Soit l'une, soit l'autre, pas 2 touches en même temps
+        } else{ //Only one key at the same time
             if (Key.isDown(Key.UP)){
                 this.y -= this.speed * secondsPassed;
             }

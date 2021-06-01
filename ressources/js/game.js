@@ -113,7 +113,7 @@ class Game {
                 }
 
                 if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
-                    this.droppy.y = 148; // TODO: change 150 when no border
+                    this.droppy.y = 148; //TODO: change 150 when no border
                 } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
@@ -177,7 +177,7 @@ class Game {
         switch(this.level){
             case 1:
                 let hit = this.collisionPointCircle(this.droppy.x + this.droppy.width/2, this.droppy.y + this.droppy.height/2, 954, 370, 25);
-                if(hit){ //if Droppy's center is on pipe's enter
+                if(hit){ //If Droppy's center is on pipe's enter
                     Level2.createLevel(this);
                 }
                 break;
@@ -222,13 +222,13 @@ class Game {
     }
 
     collisionPointCircle(px, py, cerclex, cercley, radius) {
-        // temporary variables to set edges for testing
+        //Temporary variables to set edges for testing
         let distX = px - cerclex;
         let distY = py - cercley;
         // distance between the point and circle's center
         let distance = Math.sqrt( (distX*distX) + (distY*distY) );
       
-        // if the distance is less than the radius, collision!
+        //If the distance is less than the radius, collision!
         if (distance <= radius) {
           return true;
         }
@@ -237,41 +237,41 @@ class Game {
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
         //Are the sides of one rectangle touching the other?
-        if (rect1x + rect1width >= rect2x &&    // r1 right edge past r2 left
-            rect1x <= rect2x + rect2width &&    // r1 left edge past r2 right
-            rect1y + rect1height >= rect2y &&    // r1 top edge past r2 bottom
-            rect1y <= rect2y + rect2height) {    // r1 bottom edge past r2 top
+        if (rect1x + rect1width >= rect2x &&    //r1 right edge past r2 left
+            rect1x <= rect2x + rect2width &&    //r1 left edge past r2 right
+            rect1y + rect1height >= rect2y &&    //r1 top edge past r2 bottom
+            rect1y <= rect2y + rect2height) {    //r1 bottom edge past r2 top
             return true;
         }
         return false;
     }
 
     collisionCircleRect(circlex, circley, radius, rectx, recty, rectwidth, rectheight){
-        // temporary variables to set edges for testing
+        //Temporary variables to set edges for testing
         let testX = circlex;
         let testY = circley;
 
-        // which edge is closest?
-        if (circlex < rectx) {// test left edge
+        //Which edge is closest?
+        if (circlex < rectx) {//Left edge
             testX = rectx;
         }
-        else if (circlex > rectx+rectwidth) {// right edge
+        else if (circlex > rectx+rectwidth) {//Right edge
             testX = rectx+rectwidth;
         }   
 
-        if (circley < recty) {// top edge
+        if (circley < recty) {//Top edge
             testY = recty;
         }
-        else if (circley > recty+rectheight) {// bottom edge
+        else if (circley > recty+rectheight) {//Bottom edge
             testY = recty+rectheight;   
         }
 
-        // get distance from closest edges
+        //Get distance from closest edges
         let distX = circlex-testX;
         let distY = circley-testY;
         let distance = Math.sqrt( (distX*distX) + (distY*distY) );
 
-        // if the distance is less than the radius, collision!
+        //If the distance is less than the radius, collision!
         if (distance <= radius) {
             return true;
         }
@@ -316,7 +316,7 @@ class Game {
 
     chargeMusic() {
         //Music and sounds
-        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); // will continue through all levels
+        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); //Will continue through all levels
         this.level1Music.loop = true; 
         this.level1Music.setAttribute("preload", "auto");
         this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.mp3");

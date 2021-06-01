@@ -38,7 +38,7 @@ h1 {
 
 /* responsive design */
 
-/* --- mobile ---*/
+/* --- mobile --- */
 @media screen and (max-width: 600px) {
 
     body {
@@ -113,7 +113,7 @@ h1 {
     }
 }
 
-/* --- tablette ---*/
+/* --- tablette --- */
 @media screen and (min-width: 601px) {
     
     .hamburger{
@@ -166,7 +166,7 @@ h1 {
     }
 }
 
-/* --- plus grand ---*/
+/* --- plus grand --- */
 @media screen and (min-width: 769px) { 
     body, figcaption {
         font-size: medium;

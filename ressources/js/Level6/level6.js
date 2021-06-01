@@ -40,7 +40,7 @@ class Level6{
 
         //Place Droppy
         thisGame.droppy.x = 0;
-        thisGame.droppy.y = 500; // to match exit from Garden
+        thisGame.droppy.y = 500; //to match exit from Garden
 
         //Title
         thisGame.levelName = 'Pinch the drop';

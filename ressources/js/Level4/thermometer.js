@@ -11,7 +11,7 @@ class Thermometer{
     }
 
     draw(){
-        this.context.fillStyle = '#f2574e'; //#39b4b2
+        this.context.fillStyle = '#f2574e';
         this.context.fillRect(this.x, this.y, this.width, this.height);
     }
 
