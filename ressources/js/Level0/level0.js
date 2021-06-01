@@ -1,5 +1,10 @@
+/**
+ * © 2021 Baechler Stéphanie, Gustin Gwenaëlle, Marques Antony 
+ * Let's Drop was created as a student project for 624-2 RIA course
+ * from HES-SO Valais Wallis / BSc in Business Information Technology
+ * Please give credit to us if you're using our code. THX!
+ **/
 class Level0{
-
     static createLevel(thisGame){
 
         thisGame.level = 0;

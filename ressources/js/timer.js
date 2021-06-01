@@ -1,11 +1,15 @@
-class Timer
-{
+/**
+ * © 2021 Baechler Stéphanie, Gustin Gwenaëlle, Marques Antony 
+ * Let's Drop was created as a student project for 624-2 RIA course
+ * from HES-SO Valais Wallis / BSc in Business Information Technology
+ * Please give credit to us if you're using our code. THX!
+ **/
+class Timer {
     constructor(context){
         this.context = context;
         this.start = new Date();
         this.end = 0;
         this.diff = null;
-
         this.time = null;
     }
 
