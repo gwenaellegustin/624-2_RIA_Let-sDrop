@@ -20,7 +20,7 @@ class LittleFire{
         this.velocityX = (this.dx / this.mag) * this.speed;
         this.velocityY = (this.dy / this.mag) * this.speed;
 
-        this.littleFireImage.addEventListener('load', (event) => {
+        this.littleFireImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

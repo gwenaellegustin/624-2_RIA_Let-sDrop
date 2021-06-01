@@ -9,14 +9,14 @@ class Crab {
         this.width = null;
         this.height = null;
         this.speed  = 250;
-        this.direction = 'Left';
+        this.direction = "Left";
         this.directionX = -1;
         this.directionY = 1;
         this.isColliding = false;
         this.droppy = droppy;
         this.life = 8;
 
-        this.monsterImage.addEventListener('load', (event) => {
+        this.monsterImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

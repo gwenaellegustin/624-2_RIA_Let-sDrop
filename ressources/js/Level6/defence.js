@@ -12,7 +12,7 @@ class Defence{
         this.directionY = 0;
         this.angle = 0;
 
-        this.image.addEventListener ('load', (event) => {
+        this.image.addEventListener ("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

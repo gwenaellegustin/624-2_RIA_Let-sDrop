@@ -33,7 +33,7 @@ class Game {
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = 1000;
         this.canvas.height = 550;
-        this.context = this.canvas.getContext('2d');
+        this.context = this.canvas.getContext("2d");
         
         //General text style of the game
         this.context.font = "30px Delius";
@@ -42,8 +42,8 @@ class Game {
         Level0.createLevel(this);
 
         //Press enter to reload the page
-        window.addEventListener('keydown', event => { 
-            if(event.code === 'Space' && this.canReload){
+        window.addEventListener("keydown", event => { 
+            if(event.code === "Space" && this.canReload){
                 document.location.reload();
             }
          }, false);
@@ -389,7 +389,7 @@ class Game {
 
     chargeObjects() {
         //Droppy
-        let colors = ['green', 'blue', 'white', 'red1', 'red2', 'red3'];
+        let colors = ["green", "blue", "white", "red1", "red2", "red3"];
         let sizes = [1,2,3,4];
         
         colors.forEach(color => {

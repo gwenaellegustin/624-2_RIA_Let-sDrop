@@ -10,7 +10,7 @@ class Level6{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel6Url1;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel6Url1;
                 
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
@@ -22,28 +22,28 @@ class Level6{
         }
 
         //Crabs wall under plams
-        let crabs = document.createElement('img');
+        let crabs = document.createElement("img");
         crabs.src = "/ressources/images/game/Level6/CrabsWall.png";
-        crabs.style.position = 'absolute';
+        crabs.style.position = "absolute";
         crabs.style.top = 0;
         crabs.style.marginLeft = `${marginPalm+940}px`;
-        crabs.id = 'crabs'
+        crabs.id = "crabs";
         document.getElementById('bg').appendChild(crabs);
 
         //Palms over hero and monsters 
-        let palms = document.createElement('img');
+        let palms = document.createElement("img");
         palms.src = "/ressources/images/game/Level6/Palm.png";
-        palms.style.position = 'absolute';
+        palms.style.position = "absolute";
         palms.style.top = 0;
         palms.style.marginLeft = `${marginPalm}px`;
-        document.getElementById('bg').appendChild(palms);
+        document.getElementById("bg").appendChild(palms);
 
         //Place Droppy
         thisGame.droppy.x = 0;
         thisGame.droppy.y = 500; //to match exit from Garden
 
         //Title
-        thisGame.levelName = 'Pinch the drop';
+        thisGame.levelName = "Pinch the drop";
         
         thisGame.gameObjects = [
             thisGame.droppy,
@@ -81,7 +81,7 @@ class Level6{
               return; //Do nothing if event already handled
             }
 
-            if(event.code === 'Space' && thisGame.droppy.interval > 0.5){
+            if(event.code === "Space" && thisGame.droppy.interval > 0.5){
                 let crab = thisGame.gameObjects[2];
                 let defence;
                 if (thisGame.droppy.x < crab.x){
@@ -153,8 +153,8 @@ class Level6{
 
                     //Remove crabs wall
                     if (crab.life == 0){ 
-                        document.getElementById('crabs').remove();
-                        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel6Url2;
+                        document.getElementById("crabs").remove();
+                        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel6Url2;
                     }
                 }
             }

@@ -16,7 +16,7 @@ class Fire{
         this.canMoveX = canMoveX;
         this.canMoveY = canMoveY;
 
-        this.fireImage.addEventListener('load', (event) => {
+        this.fireImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

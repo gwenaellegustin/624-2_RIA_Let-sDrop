@@ -10,7 +10,7 @@ class GameOver{
         thisGame.clearImages();
     
         //Display game over background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgGameOverUrl ;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgGameOverUrl ;
 
         //Music
         thisGame.level1Music.muted = true;
@@ -21,10 +21,10 @@ class GameOver{
         //Check if level with s or not
         let levelOrLevels;
         if(thisGame.level-1 <= 1){
-            levelOrLevels = 'level';
+            levelOrLevels = "level";
         }
         else{
-            levelOrLevels = 'levels'
+            levelOrLevels = "levels";
         }
 
         let firstLine = `${thisGame.level-1} ${levelOrLevels} completed in ${stoppedTimer}`;

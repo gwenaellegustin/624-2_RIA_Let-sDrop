@@ -10,13 +10,13 @@ class Geolocation {
                 let state = result['address']['state'];
                 let country = result['address']['country'];
                 if(!state){
-                    document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + country;
+                    document.getElementById("geolocation_region").innerHTML = 'Escape from: ' + country;
                 }
                 else if(!town){
-                    document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + '<br/>' + state + ', ' + country;
+                    document.getElementById("geolocation_region").innerHTML = 'Escape from: ' + '<br/>' + state + ', ' + country;
                 }
                 else{
-                    document.getElementById('geolocation_region').innerHTML = 'Escape from: ' + '<br/>' + town + ' (' + state + ', ' + country + ')';
+                    document.getElementById("geolocation_region").innerHTML = 'Escape from: ' + '<br/>' + town + ' (' + state + ', ' + country + ')';
                 }
             })
             .catch(() => {
@@ -24,7 +24,7 @@ class Geolocation {
             });
     }
     static onError() {
-        document.getElementById('geolocation_region').innerHTML = '<br/>' + 'Escape from your reality';
+        document.getElementById("geolocation_region").innerHTML = '<br/>' + 'Escape from your reality';
     }
     static getOptions(){
         return options = {

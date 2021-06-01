@@ -4,15 +4,15 @@ class Level1{
         thisGame.level = 1;
         
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bglevel1url;
+        document.getElementById("bg").style.backgroundImage = thisGame.bglevel1url;
 
         //Remove all images
         thisGame.clearImages();
 
         //Remove dropZone and geolocation
-        document.getElementById('dropzone').remove();
-        document.getElementById('help').remove();
-        document.getElementById('geolocation').remove();  
+        document.getElementById("dropzone").remove();
+        document.getElementById("help").remove();
+        document.getElementById("geolocation").remove();  
         
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
@@ -24,21 +24,21 @@ class Level1{
         }
 
         //Tap over hero and monsters
-        let tap = document.createElement('img');
+        let tap = document.createElement("img");
         tap.src = "/ressources/images/game/Level1/Tap.png";
-        tap.style.position = 'absolute';
+        tap.style.position = "absolute";
         tap.style.top = 0;
         tap.style.marginLeft = `${marginTap}px`;
-        document.getElementById('bg').appendChild(tap);
+        document.getElementById("bg").appendChild(tap);
 
         //Launch the timer
         thisGame.timer = new Timer(thisGame.context);
 
-        //Launch Music (no need to do that on each level !) TODO: delete this comment when checked all levels
+        //Launch Music
         thisGame.level1Music.play();
 
         //Title
-        thisGame.levelName = 'Clean the drop';
+        thisGame.levelName = "Clean the drop";
         
         thisGame.gameObjects = [
             

@@ -9,7 +9,7 @@ class Flower{
         this.width = null;
         this.height = null;
 
-        this.flowerImage.addEventListener('load', (event) => {
+        this.flowerImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

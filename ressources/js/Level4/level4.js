@@ -10,7 +10,7 @@ class Level4 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel4Url;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel4Url;
 
         //Place Droppy
         thisGame.droppy.x = 87;
@@ -24,7 +24,7 @@ class Level4 {
         thisGame.droppy.factorHeight = 0.5;
 
         //Title
-        thisGame.levelName = 'Heat up the drop';
+        thisGame.levelName = "Heat up the drop";
 
         thisGame.gameObjects = [
             thisGame.droppy,
@@ -51,7 +51,7 @@ class Level4 {
         this.radiatorImage = new Image();
         this.radiatorImage.src = thisGame.bgLevel4CanvasUrl;
 
-        this.radiatorImage.addEventListener('load', (event) => {
+        this.radiatorImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }
@@ -82,7 +82,7 @@ class Level4 {
 
                         if(thisGame.droppy.size<4){
                             thisGame.droppy.droppyLosesALife(thisGame.droppy.size+1);
-                            thisGame.droppy.color = 'blue';
+                            thisGame.droppy.color = "blue";
                         }
                         else{
                             thisGame.isGameOver = true;
@@ -96,11 +96,11 @@ class Level4 {
 
                 //Droppy changes colors when temperature gets hot
                 if(Math.floor(Math.abs(thermometer.height) % 20) === 5){
-                    thisGame.droppy.color = 'red1';
+                    thisGame.droppy.color = "red1";
                 }else if(Math.floor(Math.abs(thermometer.height) % 20) === 10){
-                    thisGame.droppy.color = 'red2';
+                    thisGame.droppy.color = "red2";
                 } else if(Math.floor(Math.abs(thermometer.height) % 20) === 15){
-                    thisGame.droppy.color = 'red3';
+                    thisGame.droppy.color = "red3";
                 }
             }
         }

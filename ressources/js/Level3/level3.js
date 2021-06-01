@@ -10,14 +10,14 @@ class Level3 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel3Url;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel3Url;
 
         //Place Droppy
         thisGame.droppy.x = 3;
         thisGame.droppy.y = 100;
 
         //Title
-        thisGame.levelName = 'Burn the drop';
+        thisGame.levelName = "Burn the drop";
 
         thisGame.gameObjects = [
             thisGame.droppy,
@@ -39,7 +39,7 @@ class Level3 {
         this.pipeImage = new Image();
         this.pipeImage.src = thisGame.bgLevel3CanvasUrl;
 
-        this.pipeImage.addEventListener('load', (event) => {
+        this.pipeImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

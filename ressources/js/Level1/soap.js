@@ -8,7 +8,7 @@ class Soap {
         this.width = null;
         this.height = null;
 
-        this.soapImage.addEventListener('load', (event) => {
+        this.soapImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

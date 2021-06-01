@@ -11,10 +11,10 @@ class HallOfFame{
         thisGame.endSound.play();
 
         //Delete input from html
-        document.getElementById('usernameInput').remove();
+        document.getElementById("usernameInput").remove();
 
         //Display winner screen background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgHallOfFameUrl ;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgHallOfFameUrl ;
 
         //Sort results
         results.sort(this.sortResults);
@@ -36,10 +36,10 @@ class HallOfFame{
         thisGame.context.fillRect(150, 50, thisGame.canvas.width-300, thisGame.canvas.height-50);
 
         //Title
-        thisGame.context.fillStyle = 'black';
+        thisGame.context.fillStyle = "black";
         thisGame.context.textAlign = "left";
         thisGame.context.textBaseline = "top";
-        thisGame.context.fillText('Hall of fame', 200, 70);
+        thisGame.context.fillText("Hall of fame", 200, 70);
 
         //Display each row (10max)
         thisGame.context.font = "28px Delius";
@@ -72,10 +72,10 @@ class HallOfFame{
             }
 
             if(localStorage.getItem("CurrentUsername") === element.username && localStorage.getItem("CurrentTime") === element.timeString){
-                thisGame.context.fillStyle = '#ff3232'; //Color in red current 
+                thisGame.context.fillStyle = "#ff3232"; //Color in red current 
             }
             else{
-                thisGame.context.fillStyle = 'black';
+                thisGame.context.fillStyle = "black";
             }
 
             //If username is longer than 12, make it like "AntonyMarque..."

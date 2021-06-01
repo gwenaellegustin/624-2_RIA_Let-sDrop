@@ -305,6 +305,6 @@ let Key = {
     }
 };
 
-window.addEventListener('keyup', (event) => {Key.onKeyup(event);}, false);
+window.addEventListener("keyup", (event) => {Key.onKeyup(event);}, false);
 
-window.addEventListener('keydown', (event) => {Key.onKeydown(event);}, false);
+window.addEventListener("keydown", (event) => {Key.onKeydown(event);}, false);

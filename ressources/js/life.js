@@ -8,7 +8,7 @@ class Life{
         this.width = null;
         this.height = null;
 
-        this.lifeImage.addEventListener('load', (event) => {
+        this.lifeImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }

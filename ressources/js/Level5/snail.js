@@ -11,7 +11,7 @@ class Snail {
         this.directionX = directionX;
         this.directionY = directionY;
 
-        this.monsterImage.addEventListener('load', (event) => {
+        this.monsterImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }
