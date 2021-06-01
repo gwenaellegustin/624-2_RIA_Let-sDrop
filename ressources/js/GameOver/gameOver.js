@@ -20,14 +20,14 @@ class GameOver{
         //Result
         //Check if level with s or not
         let levelOrLevels;
-        if(thisGame.level == 1){
+        if(thisGame.level-1 <= 1){
             levelOrLevels = 'level';
         }
         else{
             levelOrLevels = 'levels'
         }
 
-        let firstLine = `${thisGame.level} ${levelOrLevels} completed in ${stoppedTimer}`;
+        let firstLine = `${thisGame.level-1} ${levelOrLevels} completed in ${stoppedTimer}`;
         let secondLine = `Press SPACEBAR to restart`;
 
         thisGame.context.fillText(firstLine, thisGame.canvas.width/2, 400);

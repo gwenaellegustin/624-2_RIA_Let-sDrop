@@ -3,7 +3,7 @@ class Thermometer{
         this.context = context;
         this.x = x;
         this.y = y;
-        this.width = 7;
+        this.width = 9;
         this.height = -1;
         this.speed = 3;
 
