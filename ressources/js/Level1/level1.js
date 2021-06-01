@@ -45,21 +45,21 @@ class Level1{
             thisGame.droppy,
             thisGame.timer,
 
-            //Monsters TODO: change 148 in 150 when no border
-            new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 148)), //Random between space usable
-            new Soap(thisGame.context, 150, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 250, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 350, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 450, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 550, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 650, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 750, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 850, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new MonsterHand(thisGame.context, 100, Math.random() * (thisGame.canvas.height - 128 - 148), -1, 1, 25),
-            new MonsterHand(thisGame.context, 300, Math.random() * (thisGame.canvas.height - 128 - 148), 1, -1, 30),
-            new MonsterHand(thisGame.context, 500, Math.random() * (thisGame.canvas.height - 128 - 148), -1, -1, 40),
-            new MonsterHand(thisGame.context, 700, Math.random() * (thisGame.canvas.height - 128 - 148), 1, 1, 50),
-            new MonsterHand(thisGame.context, 800, Math.random() * (thisGame.canvas.height - 128 - 148), -1, 1, 55)
+            //Monsters
+            new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 150)), //Random between space usable
+            new Soap(thisGame.context, 150, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 250, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 350, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 450, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 550, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 650, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 750, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 850, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new MonsterHand(thisGame.context, 100, Math.random() * (thisGame.canvas.height - 128 - 150), -1, 1, 25),
+            new MonsterHand(thisGame.context, 300, Math.random() * (thisGame.canvas.height - 128 - 150), 1, -1, 30),
+            new MonsterHand(thisGame.context, 500, Math.random() * (thisGame.canvas.height - 128 - 150), -1, -1, 40),
+            new MonsterHand(thisGame.context, 700, Math.random() * (thisGame.canvas.height - 128 - 150), 1, 1, 50),
+            new MonsterHand(thisGame.context, 800, Math.random() * (thisGame.canvas.height - 128 - 150), -1, 1, 55)
         ];
     }
 
@@ -96,7 +96,7 @@ class Level1{
                     let soapX = soap.x;
 
                     //soap disappear and appear again somewhere else on the same x axe
-                    thisGame.gameObjects.splice(soapNb, 1, new Soap(thisGame.context, soapX, Math.random() * (thisGame.canvas.height - 48 - 148)));
+                    thisGame.gameObjects.splice(soapNb, 1, new Soap(thisGame.context, soapX, Math.random() * (thisGame.canvas.height - 48 - 150)));
                     this.droppyIsUpsideDown(thisGame);
                 }
             }

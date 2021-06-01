@@ -4,7 +4,7 @@ class Soap {
         this.soapReady = false;
         this.soapImage = new Image();
         this.x = x;
-        this.y = y + 148;  //The soap can't appear on a edge of the canvas
+        this.y = y + 150;  //The soap can't appear on a edge of the canvas
         this.width = null;
         this.height = null;
 

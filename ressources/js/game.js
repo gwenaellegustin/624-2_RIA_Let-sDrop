@@ -58,8 +58,8 @@ class Game {
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
-        if(this.level === 4){
-            Level4.drawRadiatorOnCanvas();
+        if(this.level === 4){ 
+            Level4.drawRadiatorOnCanvas(); //TODO: usefull? to delete ?
         }
 
         //Loop over all game objects to update
@@ -112,8 +112,8 @@ class Game {
                     this.droppy.x = this.canvas.width - this.droppy.width;
                 }
 
-                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
-                    this.droppy.y = 148; //TODO: change 150 when no border
+                if(this.droppy.y < 150){ //TOP EDGE
+                    this.droppy.y = 150;
                 } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }

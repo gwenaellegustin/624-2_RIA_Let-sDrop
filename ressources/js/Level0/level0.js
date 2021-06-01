@@ -100,6 +100,6 @@ class Level0{
 
     static launchGame(thisGame, dropSize) {
         thisGame.ready = true;
-        thisGame.droppy = new Drop(thisGame.context, 0, 148, dropSize, "blue");
+        thisGame.droppy = new Drop(thisGame.context, 0, 150, dropSize, "blue");
     }
 }
