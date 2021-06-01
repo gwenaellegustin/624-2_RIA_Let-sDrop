@@ -290,7 +290,7 @@ class Game {
                     this.droppy.isColliding = true;
 
                     if(this.droppy.size>1){
-                        this.droppy.droppyRetrieveALife(blinkingSize);
+                        this.droppy.droppyRetrievesALife(blinkingSize);
                         this.gameObjects.splice(i,1);
                     }
                     else{
