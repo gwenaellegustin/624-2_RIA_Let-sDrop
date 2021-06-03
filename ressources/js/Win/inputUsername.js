@@ -60,7 +60,7 @@ class InputUsername{
         let userObject = {
             "username": this.input.value,
             "time": this.timer.diff,
-            "timeString": this.timer.time
+            "timeString": this.timer.timeWithMilliSeconds
         };
 
         //Instanciate a new XMLHttpRequest and then open a new request
@@ -87,7 +87,7 @@ class InputUsername{
 
         //In order to highlight the user record, I need to know who it is
         localStorage.setItem("CurrentUsername",this.input.value);
-        localStorage.setItem("CurrentTime", this.timer.time);
+        localStorage.setItem("CurrentTime", this.timer.timeWithMilliSeconds);
     }
 
     fillInHOFArray(jsonObject) {

@@ -7,6 +7,7 @@ class Timer
         this.diff = null;
 
         this.time = null;
+        this.timeWithMilliSeconds = null;
     }
 
     draw(){
@@ -37,6 +38,7 @@ class Timer
             msec = "0" + msec
         }
 
-        this.time = min + ":" + sec + ":" + msec;
+        this.time = min + ":" + sec;
+        this.timeWithMilliSeconds = min + ":" + sec + ":" + msec;
     }
 }
