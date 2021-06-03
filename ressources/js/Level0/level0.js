@@ -96,6 +96,8 @@ class Level0{
         dropzone.ondrop = () => {
             this.launchGame(thisGame, dropSize);
         };
+
+        navigator.geolocation.getCurrentPosition(Geolocation.onSuccess, Geolocation.onError, Geolocation.getOptions);
     }
 
     static launchGame(thisGame, dropSize) {
