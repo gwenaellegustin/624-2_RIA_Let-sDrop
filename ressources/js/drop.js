@@ -3,6 +3,8 @@ class Drop {
         this.context = context;
         this.dropReady = false;
         this.dropImage = new Image();
+        this.centerX;
+        this.centerY;
         this.x = x;
         this.y = y;
         this.width;
@@ -34,9 +36,16 @@ class Drop {
     draw(){
         this.dropImage.src = "/ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
+        
+
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);
         }
+
+        this.context.beginPath();
+        this.context.fillStyle = "black";
+        this.context.arc(this.x + this.width/2 * this.factorWidth, this.y + this.height/2 * this.factorHeight, 2, 0, 2 * Math.PI); //x,y,radius,starting angle,ending angle
+        this.context.fill(); 
         
         //Draw life
         this.drawLife();
@@ -108,7 +117,12 @@ class Drop {
 
         //Waiting 100ms more before blinking at new size + reset speed
         setTimeout(()=>{
+            this.centerX = this.x + this.width * this.factorWidth /2;
+            this.centerY = this.y + this.height * this.factorHeight /2;
             this.size = oldSize+1;
+
+            this.recalculateMiddleOfDroppy();
+
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
             } else {
@@ -118,8 +132,33 @@ class Drop {
 
         //Waiting 1000ms before Droppy can be touched again
         setTimeout(()=>{
+            
             this.isColliding = false;
         }, 1000);
+    }
+
+    recalculateMiddleOfDroppy(){
+        switch(this.size){
+            case 4: //Smallest
+                this.width = 28;
+                this.height = 26;
+                break;
+            case 3:
+                this.width = 28;
+                this.height = 34;
+                break;
+            case 2:
+                this.width = 33;
+                this.height = 41;
+                break;
+            case 1:
+                this.width = 42;
+                this.height = 52;
+                break;
+        }
+
+        this.x = this.centerX - this.width * this.factorWidth /2;
+        this.y = this.centerY - this.height * this.factorHeight /2;
     }
 
     droppyRetrievesALife(blinkingSize){
@@ -153,7 +192,10 @@ class Drop {
 
          //Waiting 100ms more before blinking at new size + reset speed
          setTimeout(()=>{
+            this.centerX = this.x + this.width * this.factorWidth /2;
+            this.centerY = this.y + this.height * this.factorHeight /2;
             this.size = oldSize-1;
+            this.recalculateMiddleOfDroppy();
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
             } else {
