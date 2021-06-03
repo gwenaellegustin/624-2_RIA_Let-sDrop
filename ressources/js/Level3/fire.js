@@ -8,7 +8,7 @@ class Fire{
         this.directionY = 1;
         this.directionX = 1;
         this.angle = 0;
-        this.speed = 40;
+        this.speed = 55;
         this.width = null;
         this.height = null;
         this.droppy = thisGame.gameObjects[0];
@@ -52,13 +52,11 @@ class Fire{
     update(secondsPassed) {
         this.interval += secondsPassed;
 
-        //Check when droppy is around a big fire to shoot little ones
-        if(this.thisGame.collisionCircleRect(this.x, this.y, 550, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
-            if(this.interval > 2.5){
-                let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);
-                this.thisGame.gameObjects.push(littleFire);
-                this.interval = 0;
-            }
+        //Shoot little fire each ~2seconds
+        if(this.interval > 2){
+            let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);
+            this.thisGame.gameObjects.push(littleFire);
+            this.interval = 0;
         }
 
         //Construct angle
