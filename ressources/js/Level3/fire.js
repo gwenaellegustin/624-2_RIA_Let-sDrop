@@ -50,8 +50,6 @@ class Fire{
     }
 
     update(secondsPassed) {
-        Level3.drawPipeOnCanvas();
-
         this.interval += secondsPassed;
 
         //Check when droppy is around a big fire to shoot little ones

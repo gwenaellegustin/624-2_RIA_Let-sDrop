@@ -58,8 +58,12 @@ class Game {
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
+        if(this.level === 3){
+            Level3.drawPipeOnCanvas();
+        }
+
         if(this.level === 4){ 
-            Level4.drawRadiatorOnCanvas(); //TODO: usefull? to delete ?
+            Level4.drawRadiatorOnCanvas();
         }
 
         //Loop over all game objects to update

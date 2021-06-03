@@ -107,7 +107,6 @@ class Level4 {
     }
 
     static detectCollisionsEdge(thisGame){
-        this.drawRadiatorOnCanvas();
         this.collisionsDroppyWithBlackPixel(thisGame.droppy);
     }
 
