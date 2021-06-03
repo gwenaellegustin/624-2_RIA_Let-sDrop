@@ -175,7 +175,6 @@ class Game {
         //To change from level 0 to level 1
         if (this.level === 0 && this.ready === true){
             Level1.createLevel(this);
-            Level3.createLevel(this);
         }
 
         //Zone which define end of the level
