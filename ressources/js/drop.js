@@ -36,17 +36,16 @@ class Drop {
     draw(){
         this.dropImage.src = "/ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
-        
-
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);
         }
 
-        this.context.beginPath();
-        this.context.fillStyle = "black";
-        this.context.arc(this.x + this.width/2 * this.factorWidth, this.y + this.height/2 * this.factorHeight, 2, 0, 2 * Math.PI); //x,y,radius,starting angle,ending angle
-        this.context.fill(); 
-        
+        //TODO: delete point when tested
+        //this.context.beginPath();
+        //this.context.fillStyle = "black";
+        //this.context.arc(this.x + this.width/2 * this.factorWidth, this.y + this.height/2 * this.factorHeight, 2, 0, 2 * Math.PI); //x,y,radius,starting angle,ending angle
+        //this.context.fill(); 
+
         //Draw life
         this.drawLife();
     }
@@ -87,41 +86,37 @@ class Drop {
     droppyLosesALife(blinkingSize){
         //Store old size to blink
         let oldSize = this.size;
-        this.size = blinkingSize;
-
+        
+        this.positionDroppyFromCenter(blinkingSize);
         this.speed = 0;
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 50);
 
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 100);
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 150);
 
         //Waiting 100ms more before disappear
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 200);
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 250);
 
         //Waiting 100ms more before blinking at new size + reset speed
         setTimeout(()=>{
-            this.centerX = this.x + this.width * this.factorWidth /2;
-            this.centerY = this.y + this.height * this.factorHeight /2;
-            this.size = oldSize+1;
-
-            this.recalculateMiddleOfDroppy();
+            this.positionDroppyFromCenter(oldSize+1);
 
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
@@ -137,7 +132,11 @@ class Drop {
         }, 1000);
     }
 
-    recalculateMiddleOfDroppy(){
+    positionDroppyFromCenter(newSize){
+        this.centerX = this.x + this.width * this.factorWidth /2;
+        this.centerY = this.y + this.height * this.factorHeight /2;
+        this.size = newSize;
+        
         switch(this.size){
             case 4: //Smallest
                 this.width = 28;
@@ -155,6 +154,10 @@ class Drop {
                 this.width = 42;
                 this.height = 52;
                 break;
+            case 0: //Invisible
+                this.width = 1;
+                this.height = 1;
+                break;
         }
 
         this.x = this.centerX - this.width * this.factorWidth /2;
@@ -162,40 +165,39 @@ class Drop {
     }
 
     droppyRetrievesALife(blinkingSize){
+        //Store old size to blink
         let oldSize = this.size;
 
+        this.positionDroppyFromCenter(blinkingSize);
         this.speed = 0;
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 50);
 
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 100);
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 150);
 
         //Waiting 100ms more before disappear
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 200);
 
         //Waiting 100ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 250);
 
          //Waiting 100ms more before blinking at new size + reset speed
          setTimeout(()=>{
-            this.centerX = this.x + this.width * this.factorWidth /2;
-            this.centerY = this.y + this.height * this.factorHeight /2;
-            this.size = oldSize-1;
-            this.recalculateMiddleOfDroppy();
+            this.positionDroppyFromCenter(oldSize-1);
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
             } else {
