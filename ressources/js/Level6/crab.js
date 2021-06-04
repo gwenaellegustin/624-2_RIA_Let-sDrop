@@ -91,7 +91,7 @@ class Crab {
         lifeImage.src = "/ressources/images/game/Level6/CrabLife.png";
 
         let destinationX = 700;
-        let destinationY = 10;
+        let destinationY = 20;
         let cuttingX  = 20; //width of a crablife
         let imageWidth = lifeImage.width;
         let imageHeight = lifeImage.height;

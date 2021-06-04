@@ -302,9 +302,9 @@ class Drop {
     drawLife(){
         let lifeImage = new Image();
 
-        lifeImage.src = "/ressources/images/game/LifeSmall.png"; //TODO: renamme image
+        lifeImage.src = "/ressources/images/game/Life.png";
 
-        let destinationX = 900;
+        let destinationX = 890;
         let destinationY = 10;
         let cuttingX;
         let imageWidth = lifeImage.width;
@@ -316,15 +316,15 @@ class Drop {
                 this.context.drawImage(lifeImage, destinationX, destinationY);
                 break;
             case 2:
-                cuttingX = 47/2;
+                cuttingX = 30;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             case 3:
-                cuttingX = 88/2;
+                cuttingX = 58;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             case 4:
-                cuttingX = 125/2;
+                cuttingX = 82;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             default:
