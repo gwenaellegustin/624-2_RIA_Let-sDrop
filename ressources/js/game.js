@@ -454,8 +454,6 @@ class Game {
         //Life & health
         let lifeImg = new Image();
         lifeImg.setAttribute("src", "/ressources/images/game/Life.png");
-        let lifeSmallImg = new Image();
-        lifeSmallImg.setAttribute("src", "/ressources/images/game/LifeSmall.png");
         let healthImg = new Image();
         healthImg.setAttribute("src", "/ressources/images/game/Health17x20.png");
     }
