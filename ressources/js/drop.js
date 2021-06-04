@@ -40,12 +40,6 @@ class Drop {
             this.context.drawImage(this.dropImage, this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);
         }
 
-        //TODO: delete point when tested
-        //this.context.beginPath();
-        //this.context.fillStyle = "black";
-        //this.context.arc(this.x + this.width/2 * this.factorWidth, this.y + this.height/2 * this.factorHeight, 2, 0, 2 * Math.PI); //x,y,radius,starting angle,ending angle
-        //this.context.fill(); 
-
         //Draw life
         this.drawLife();
     }
