@@ -84,31 +84,32 @@ class Drop {
         this.positionDroppyFromCenter(blinkingSize);
         this.speed = 0;
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms before blinking at oldSize
         setTimeout(()=>{
             this.positionDroppyFromCenter(oldSize);
         }, 50);
 
+        //Waiting 50ms more before disappear
         setTimeout(()=>{
             this.positionDroppyFromCenter(blinkingSize);
         }, 100);
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
             this.positionDroppyFromCenter(oldSize);
         }, 150);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before disappear
         setTimeout(()=>{
             this.positionDroppyFromCenter(blinkingSize);
         }, 200);
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
             this.positionDroppyFromCenter(oldSize);
         }, 250);
 
-        //Waiting 100ms more before blinking at new size + reset speed
+        //Waiting 50ms more before blinking at new size + reset speed
         setTimeout(()=>{
             this.positionDroppyFromCenter(oldSize+1);
 
@@ -121,7 +122,54 @@ class Drop {
 
         //Waiting 1000ms before Droppy can be touched again
         setTimeout(()=>{
-            
+            this.isColliding = false;
+        }, 1000);
+    }
+
+    droppyRetrievesALife(blinkingSize){
+        //Store old size to blink
+        let oldSize = this.size;
+
+        this.positionDroppyFromCenter(blinkingSize);
+        this.speed = 0;
+
+        //Waiting 50ms before blinking at oldSize
+        setTimeout(()=>{
+            this.positionDroppyFromCenter(oldSize);
+        }, 50);
+
+        //Waiting 50ms more before disappear
+        setTimeout(()=>{
+            this.positionDroppyFromCenter(blinkingSize);
+        }, 100);
+
+        //Waiting 50ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.positionDroppyFromCenter(oldSize);
+        }, 150);
+
+        //Waiting 50ms more before disappear
+        setTimeout(()=>{
+            this.positionDroppyFromCenter(blinkingSize);
+        }, 200);
+
+        //Waiting 50ms more before blinking at oldSize
+        setTimeout(()=>{
+            this.positionDroppyFromCenter(oldSize);
+        }, 250);
+
+         //Waiting 50ms more before blinking at new size + reset speed
+         setTimeout(()=>{
+            this.positionDroppyFromCenter(oldSize-1);
+            if(!(this.isTouched)) {
+                this.speed = this.size * 30 + 60;
+            } else {
+                this.speed = 60;
+            }
+        }, 300);
+
+        //Waiting 1000ms before Droppy can be touched again
+        setTimeout(()=>{
             this.isColliding = false;
         }, 1000);
     }
@@ -158,53 +206,6 @@ class Drop {
         this.y = this.centerY - this.height * this.factorHeight /2;
     }
 
-    droppyRetrievesALife(blinkingSize){
-        //Store old size to blink
-        let oldSize = this.size;
-
-        this.positionDroppyFromCenter(blinkingSize);
-        this.speed = 0;
-
-        //Waiting 100ms before blinking at oldSize
-        setTimeout(()=>{
-            this.positionDroppyFromCenter(oldSize);
-        }, 50);
-
-        setTimeout(()=>{
-            this.positionDroppyFromCenter(blinkingSize);
-        }, 100);
-
-        //Waiting 100ms before blinking at oldSize
-        setTimeout(()=>{
-            this.positionDroppyFromCenter(oldSize);
-        }, 150);
-
-        //Waiting 100ms more before disappear
-        setTimeout(()=>{
-            this.positionDroppyFromCenter(blinkingSize);
-        }, 200);
-
-        //Waiting 100ms before blinking at oldSize
-        setTimeout(()=>{
-            this.positionDroppyFromCenter(oldSize);
-        }, 250);
-
-         //Waiting 100ms more before blinking at new size + reset speed
-         setTimeout(()=>{
-            this.positionDroppyFromCenter(oldSize-1);
-            if(!(this.isTouched)) {
-                this.speed = this.size * 30 + 60;
-            } else {
-                this.speed = 60;
-            }
-        }, 300);
-
-        //Waiting 1000ms before Droppy can be touched again
-        setTimeout(()=>{
-            this.isColliding = false;
-        }, 1000);
-    }
-
     changeColorAndBlink(thisGame) {
         let level = thisGame.level;
         let colorWhenTouched;
@@ -220,33 +221,33 @@ class Drop {
 
         let oldSize = this.size;
         
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms before disappearing
          setTimeout(()=>{
             this.color = colorWhenTouched;
             this.size = 0;
         }, 50);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
         }, 100);
 
-        //Waiting 100ms more before blinking at oldSize
+        //Waiting 50ms more before disappearing
          setTimeout(()=>{
             this.size = 0;
         }, 150);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
         }, 200);
 
-        //Waiting 100ms more before blinking at oldSize
+        //Waiting 50ms more before disappearing
         setTimeout(()=>{
             this.size = 0;
         }, 250);
 
-        //Waiting 100ms more before blinking at oldSize
+        //Waiting 50ms more before retrieving his old size
         setTimeout(()=>{
             this.size = oldSize;
         }, 300);
@@ -288,7 +289,7 @@ class Drop {
         this.speed = 60;
         this.isTouched = true; //to prevent loseALife or retrieveALife to change speed
         
-        //Droppy's speed is back to normal again even in a new level
+        //Droppy's speed is back to normal again after 5 seconds
         setTimeout(()=>{
             this.isTouched = false;
             this.speed = this.size * 30 + 60;
@@ -306,7 +307,7 @@ class Drop {
         let imageWidth = lifeImage.width;
         let imageHeight = lifeImage.height;
         
-        //Depending on the number of lives, the image is crop
+        //Depending on the number of lives, the image is cropped
         switch (this.size) {
             case 1:
                 this.context.drawImage(lifeImage, destinationX, destinationY);
