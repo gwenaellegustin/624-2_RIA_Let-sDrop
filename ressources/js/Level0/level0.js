@@ -1,7 +1,5 @@
 class Level0{
-
     static createLevel(thisGame){
-
         thisGame.level = 0;
         let dropSize;
         
