@@ -10,23 +10,23 @@ class MonsterHand {
         this.monsterReady = false;
         this.monsterImage = new Image();
         this.x = x;
-        this.y = y + 148;  //The soap can't appear on a edge of the canvas TODO: change 150 when no border
+        this.y = y + 150;  //The soap can't appear on a edge of the canvas
         this.width = null;
         this.height = null;
         this.speed = speed;
         this.directionX = directionX;
         this.directionY = directionY;
 
-        this.monsterImage.addEventListener('load', (event) => {
+        this.monsterImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
-            this.monsterReady = true; //The image has been load, we can draw it
+            this.monsterReady = true; //The image has been loaded, we can draw it
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -50,10 +50,10 @@ class MonsterHand {
             this.x = 0;
         }
 
-        if (this.y < 148) { //Top side TODO: change 150 when no border
+        if (this.y < 150) {
             this.y = this.context.canvas.height - this.height;
         } else if (this.y > this.context.canvas.height - this.height) { //Bottom side
-            this.y = 148; // TODO: change 150 when no border
+            this.y = 150;
         }
     }
 }

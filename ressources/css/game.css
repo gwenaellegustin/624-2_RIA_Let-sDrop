@@ -41,10 +41,18 @@ body, html {
   justify-content: center;
 }
 
-.droppies {
+#droppies {
   position: absolute;
-  cursor: grab;
+  z-index: 1;
+  bottom: 190px;
 }
+
+.droppies{
+  cursor: grab;
+  position: relative;
+  margin-left: 10px;
+}
+
 #geolocation {
   position: fixed;
   padding-left: 850px;
@@ -71,7 +79,6 @@ canvas {
     margin: auto;
     margin-top: 0;
     display: block;
-    /*border: 1px solid greenyellow; TODO: delete at the end */
 }
 
 

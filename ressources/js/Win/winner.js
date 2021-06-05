@@ -15,7 +15,7 @@ class Winner{
         thisGame.clearImages();
 
         //Display winner screen background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgWinUrl ;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgWinUrl ;
 
         //Music
         thisGame.level1Music.muted = true;
@@ -48,6 +48,6 @@ class Winner{
             secondLine = `Press ENTER to save your name`;
         }
 
-        thisGame.context.fillText(secondLine, thisGame.canvas.width/2, 20 + 70); // 70 = space between lines
+        thisGame.context.fillText(secondLine, thisGame.canvas.width/2, 20 + 70); //70 = space between lines
     }
 }

@@ -35,11 +35,10 @@ class Game {
     }
 
     init(canvasId){
-
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = 1000;
         this.canvas.height = 550;
-        this.context = this.canvas.getContext('2d');
+        this.context = this.canvas.getContext("2d");
         
         //General text style of the game
         this.context.font = "30px Delius";
@@ -48,8 +47,8 @@ class Game {
         Level0.createLevel(this);
 
         //Press enter to reload the page
-        window.addEventListener('keydown', event => { 
-            if(event.code === 'Space' && this.canReload){
+        window.addEventListener("keydown", event => { 
+            if(event.code === "Space" && this.canReload){
                 document.location.reload();
             }
          }, false);
@@ -64,7 +63,11 @@ class Game {
         this.secondsPassed = (timeStamp - this.oldTimeStamp) / 1000;
         this.oldTimeStamp = timeStamp;
 
-        if(this.level === 4){
+        if(this.level === 3){
+            Level3.drawPipeOnCanvas();
+        }
+
+        if(this.level === 4){ 
             Level4.drawRadiatorOnCanvas();
         }
 
@@ -92,7 +95,8 @@ class Game {
         if(this.levelName != null){
             this.setTitle();
         }
-        
+
+        //Handling if the game continues or ends
         if(this.isGameOver){
             GameOver.createLevel(this);
         }
@@ -100,7 +104,7 @@ class Game {
             Winner.createLevel(this);
         }
         else{
-            //The loop function has reached it's end - Keep requesting new frames
+            //The loop function has reached its end - Keep requesting new frames
             window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
         }
     }
@@ -118,8 +122,8 @@ class Game {
                     this.droppy.x = this.canvas.width - this.droppy.width;
                 }
 
-                if(this.droppy.y < 148){ //TOP EDGE TODO: change 150 when no border
-                    this.droppy.y = 148; // TODO: change 150 when no border
+                if(this.droppy.y < 150){ //TOP EDGE
+                    this.droppy.y = 150;
                 } else if(this.droppy.y > this.canvas.height - this.droppy.height){ //BOTTOM EDGE
                     this.droppy.y = this.canvas.height - this.droppy.height;
                 }
@@ -179,11 +183,11 @@ class Game {
             Level1.createLevel(this);
         }
 
-        //Zone which define end of the level
+        //Zone which define end of each level
         switch(this.level){
             case 1:
                 let hit = this.collisionPointCircle(this.droppy.x + this.droppy.width/2, this.droppy.y + this.droppy.height/2, 954, 370, 25);
-                if(hit){ //if Droppy's center is on pipe's enter
+                if(hit){ //If Droppy enters the sink hole
                     Level2.createLevel(this);
                 }
                 break;
@@ -200,7 +204,7 @@ class Game {
             case 4:
                 if(915 < (this.droppy.x + this.droppy.width)){
                     if((370 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 426)){
-                        this.droppy.color = 'blue';
+                        this.droppy.color = "blue";
                         Level5.createLevel(this); //Prevent to leave bottom right et top right 
                     }
                 }
@@ -228,13 +232,14 @@ class Game {
     }
 
     collisionPointCircle(px, py, cerclex, cercley, radius) {
-        // temporary variables to set edges for testing
+        //Temporary variables to set edges for testing
         let distX = px - cerclex;
         let distY = py - cercley;
-        // distance between the point and circle's center
+
+        //Distance between the point and circle's center
         let distance = Math.sqrt( (distX*distX) + (distY*distY) );
       
-        // if the distance is less than the radius, collision!
+        //If the distance is less than the radius, collision!
         if (distance <= radius) {
           return true;
         }
@@ -243,41 +248,41 @@ class Game {
 
     collisionRectRect(rect1x, rect1y, rect1width, rect1height, rect2x, rect2y, rect2width, rect2height){
         //Are the sides of one rectangle touching the other?
-        if (rect1x + rect1width >= rect2x &&    // r1 right edge past r2 left
-            rect1x <= rect2x + rect2width &&    // r1 left edge past r2 right
-            rect1y + rect1height >= rect2y &&    // r1 top edge past r2 bottom
-            rect1y <= rect2y + rect2height) {    // r1 bottom edge past r2 top
+        if (rect1x + rect1width >= rect2x &&    //r1 right edge past r2 left
+            rect1x <= rect2x + rect2width &&    //r1 left edge past r2 right
+            rect1y + rect1height >= rect2y &&    //r1 top edge past r2 bottom
+            rect1y <= rect2y + rect2height) {    //r1 bottom edge past r2 top
             return true;
         }
         return false;
     }
 
     collisionCircleRect(circlex, circley, radius, rectx, recty, rectwidth, rectheight){
-        // temporary variables to set edges for testing
+        //Temporary variables to set edges for testing
         let testX = circlex;
         let testY = circley;
 
-        // which edge is closest?
-        if (circlex < rectx) {// test left edge
+        //Which edge is the closest?
+        if (circlex < rectx) {//Left edge
             testX = rectx;
         }
-        else if (circlex > rectx+rectwidth) {// right edge
+        else if (circlex > rectx+rectwidth) {//Right edge
             testX = rectx+rectwidth;
         }   
 
-        if (circley < recty) {// top edge
+        if (circley < recty) {//Top edge
             testY = recty;
         }
-        else if (circley > recty+rectheight) {// bottom edge
+        else if (circley > recty+rectheight) {//Bottom edge
             testY = recty+rectheight;   
         }
 
-        // get distance from closest edges
+        //Get distance from closest edges
         let distX = circlex-testX;
         let distY = circley-testY;
         let distance = Math.sqrt( (distX*distX) + (distY*distY) );
 
-        // if the distance is less than the radius, collision!
+        //If the distance is less than the radius, collision!
         if (distance <= radius) {
             return true;
         }
@@ -296,7 +301,7 @@ class Game {
                     this.droppy.isColliding = true;
 
                     if(this.droppy.size>1){
-                        this.droppy.droppyRetrieveALife(blinkingSize);
+                        this.droppy.droppyRetrievesALife(blinkingSize);
                         this.gameObjects.splice(i,1);
                     }
                     else{
@@ -322,7 +327,7 @@ class Game {
 
     chargeMusic() {
         //Music and sounds
-        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); // will continue through all levels
+        this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); //Will continue through all levels
         this.level1Music.loop = true; 
         this.level1Music.setAttribute("preload", "auto");
         this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.mp3");
@@ -395,7 +400,7 @@ class Game {
 
     chargeObjects() {
         //Droppy
-        let colors = ['green', 'blue', 'white', 'red1', 'red2', 'red3'];
+        let colors = ["green", "blue", "white", "red1", "red2", "red3"];
         let sizes = [1,2,3,4];
         
         colors.forEach(color => {
@@ -456,8 +461,6 @@ class Game {
         //Life & health
         let lifeImg = new Image();
         lifeImg.setAttribute("src", "/ressources/images/game/Life.png");
-        let lifeSmallImg = new Image();
-        lifeSmallImg.setAttribute("src", "/ressources/images/game/LifeSmall.png");
         let healthImg = new Image();
         healthImg.setAttribute("src", "/ressources/images/game/Health17x20.png");
     }

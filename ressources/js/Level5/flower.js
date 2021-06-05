@@ -15,16 +15,16 @@ class Flower{
         this.width = null;
         this.height = null;
 
-        this.flowerImage.addEventListener('load', (event) => {
+        this.flowerImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.flowerImage.width;
             this.height = this.flowerImage.height;
-            this.flowerReady = true; //The image has been load, we can draw it
+            this.flowerReady = true; 
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -54,6 +54,4 @@ class Flower{
     }
 
     update(secondsPassed) {}
-
-
 }

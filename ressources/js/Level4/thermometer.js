@@ -9,15 +9,14 @@ class Thermometer{
         this.context = context;
         this.x = x;
         this.y = y;
-        this.width = 7;
+        this.width = 9;
         this.height = -1;
         this.speed = 3;
-
         this.isColliding = false;
     }
 
     draw(){
-        this.context.fillStyle = '#f2574e'; //#39b4b2
+        this.context.fillStyle = "#f2574e";
         this.context.fillRect(this.x, this.y, this.width, this.height);
     }
 

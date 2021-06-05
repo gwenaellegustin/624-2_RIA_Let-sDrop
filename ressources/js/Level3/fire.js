@@ -14,7 +14,7 @@ class Fire{
         this.directionY = 1;
         this.directionX = 1;
         this.angle = 0;
-        this.speed = 40;
+        this.speed = 55;
         this.width = null;
         this.height = null;
         this.droppy = thisGame.gameObjects[0];
@@ -22,14 +22,14 @@ class Fire{
         this.canMoveX = canMoveX;
         this.canMoveY = canMoveY;
 
-        this.fireImage.addEventListener('load', (event) => {
+        this.fireImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }
 
             this.width = this.fireImage.width;
             this.height = this.fireImage.height;
-            this.fireReady = true; //The image has been load, we can draw it
+            this.fireReady = true; //The image has been loaded, we can draw it
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -41,7 +41,7 @@ class Fire{
     }
 
     draw(){
-        //Reapear here after a restore
+        //Reappear here after a restore
         this.context.save();
 
         //Move the origin to the fire center
@@ -49,24 +49,20 @@ class Fire{
         this.context.rotate(this.angle);
         
         if(this.fireReady){
-            this.context.drawImage(this.fireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
+            this.context.drawImage(this.fireImage, -this.width/2, -this.height/2); //Fire rotate from middle right (bottom of the yellow part)
         }
         
         this.context.restore();
     }
 
     update(secondsPassed) {
-        Level3.drawPipeOnCanvas();
-
         this.interval += secondsPassed;
 
-        //Check when droppy is around a big fire to shoot little ones
-        if(this.thisGame.collisionCircleRect(this.x, this.y, 550, this.droppy.x, this.droppy.y, this.droppy.width, this.droppy.height)){
-            if(this.interval > 2.5){
-                let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);
-                this.thisGame.gameObjects.push(littleFire);
-                this.interval = 0;
-            }
+        //Shoot little fires each ~2 seconds
+        if(this.interval > 2){
+            let littleFire = new LittleFire(this.context, this.x, this.y, this.droppy);
+            this.thisGame.gameObjects.push(littleFire);
+            this.interval = 0;
         }
 
         //Construct angle
@@ -103,7 +99,7 @@ class Fire{
             x1 = this.x + this.width / 2; //TOP/BOTTOM - MIDDLE
             x2 = this.x + this.width; //TOP/BOTTOM - RIGHT
             y = this.y - 20;
-            if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
+            if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){ //I don't want y to be updated more than once
                 this.directionY *= -1;
             }
     

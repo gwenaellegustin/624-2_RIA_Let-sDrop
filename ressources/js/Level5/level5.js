@@ -15,7 +15,7 @@ class Level5{
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel5Url;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel5Url;
 
         //Create health Lives
         thisGame.health1 = new Life(thisGame.context, 350, 180);
@@ -42,11 +42,11 @@ class Level5{
                 break;
         }
 
-        //2 keys can be hold
+        //2 keys can be held
         thisGame.droppy.canPress2Keys = true;
 
         //Title
-        thisGame.levelName = 'Slurp the drop';
+        thisGame.levelName = "Slurp the drop";
 
         thisGame.gameObjects = [
             thisGame.droppy,

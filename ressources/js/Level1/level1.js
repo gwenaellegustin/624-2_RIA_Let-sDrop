@@ -6,19 +6,18 @@
  **/
 class Level1{
     static createLevel(thisGame){
-        
         thisGame.level = 1;
         
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bglevel1url;
+        document.getElementById("bg").style.backgroundImage = thisGame.bglevel1url;
 
         //Remove all images
         thisGame.clearImages();
 
         //Remove dropZone and geolocation
-        document.getElementById('dropzone').remove();
-        document.getElementById('help').remove();
-        document.getElementById('geolocation').remove();  
+        document.getElementById("dropzone").remove();
+        document.getElementById("help").remove();
+        document.getElementById("geolocation").remove();  
         
         //Calcul placement according to ininital width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
@@ -30,42 +29,42 @@ class Level1{
         }
 
         //Tap over hero and monsters
-        let tap = document.createElement('img');
+        let tap = document.createElement("img");
         tap.src = "/ressources/images/game/Level1/Tap.png";
-        tap.style.position = 'absolute';
+        tap.style.position = "absolute";
         tap.style.top = 0;
         tap.style.marginLeft = `${marginTap}px`;
-        document.getElementById('bg').appendChild(tap);
+        document.getElementById("bg").appendChild(tap);
 
         //Launch the timer
         thisGame.timer = new Timer(thisGame.context);
 
-        //Launch Music (no need to do that on each level !) TODO: delete this comment when checked all levels
+        //Launch Music
         thisGame.level1Music.play();
 
         //Title
-        thisGame.levelName = 'Clean the drop';
+        thisGame.levelName = "Clean the drop";
         
         thisGame.gameObjects = [
             
             thisGame.droppy,
             thisGame.timer,
 
-            //Monsters TODO: change 148 in 150 when no border
-            new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 148)), //Random between space usable
-            new Soap(thisGame.context, 150, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 250, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 350, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 450, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 550, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 650, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 750, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new Soap(thisGame.context, 850, Math.random() * (thisGame.canvas.height - 48 - 148)),
-            new MonsterHand(thisGame.context, 100, Math.random() * (thisGame.canvas.height - 128 - 148), -1, 1, 25),
-            new MonsterHand(thisGame.context, 300, Math.random() * (thisGame.canvas.height - 128 - 148), 1, -1, 30),
-            new MonsterHand(thisGame.context, 500, Math.random() * (thisGame.canvas.height - 128 - 148), -1, -1, 40),
-            new MonsterHand(thisGame.context, 700, Math.random() * (thisGame.canvas.height - 128 - 148), 1, 1, 50),
-            new MonsterHand(thisGame.context, 800, Math.random() * (thisGame.canvas.height - 128 - 148), -1, 1, 55)
+            //Monsters
+            new Soap(thisGame.context, 50, Math.random() * (thisGame.canvas.height - 48 - 150)), //Random between space usable
+            new Soap(thisGame.context, 150, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 250, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 350, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 450, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 550, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 650, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 750, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new Soap(thisGame.context, 850, Math.random() * (thisGame.canvas.height - 48 - 150)),
+            new MonsterHand(thisGame.context, 100, Math.random() * (thisGame.canvas.height - 128 - 150), -1, 1, 25),
+            new MonsterHand(thisGame.context, 300, Math.random() * (thisGame.canvas.height - 128 - 150), 1, -1, 30),
+            new MonsterHand(thisGame.context, 500, Math.random() * (thisGame.canvas.height - 128 - 150), -1, -1, 40),
+            new MonsterHand(thisGame.context, 700, Math.random() * (thisGame.canvas.height - 128 - 150), 1, 1, 50),
+            new MonsterHand(thisGame.context, 800, Math.random() * (thisGame.canvas.height - 128 - 150), -1, 1, 55)
         ];
     }
 
@@ -102,7 +101,7 @@ class Level1{
                     let soapX = soap.x;
 
                     //soap disappear and appear again somewhere else on the same x axe
-                    thisGame.gameObjects.splice(soapNb, 1, new Soap(thisGame.context, soapX, Math.random() * (thisGame.canvas.height - 48 - 148)));
+                    thisGame.gameObjects.splice(soapNb, 1, new Soap(thisGame.context, soapX, Math.random() * (thisGame.canvas.height - 48 - 150)));
                     this.droppyIsUpsideDown(thisGame);
                 }
             }

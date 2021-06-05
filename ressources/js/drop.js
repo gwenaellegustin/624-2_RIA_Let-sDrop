@@ -9,6 +9,8 @@ class Drop {
         this.context = context;
         this.dropReady = false;
         this.dropImage = new Image();
+        this.centerX;
+        this.centerY;
         this.x = x;
         this.y = y;
         this.width;
@@ -43,7 +45,7 @@ class Drop {
         if(this.dropReady){
             this.context.drawImage(this.dropImage, this.x, this.y, this.width*this.factorWidth, this.height*this.factorHeight);
         }
-        
+
         //Draw life
         this.drawLife();
     }
@@ -65,7 +67,7 @@ class Drop {
             if (Key.isDown(Key.RIGHT)){
                 this.x += this.speed * secondsPassed;
             }
-        } else{ //Soit l'une, soit l'autre, pas 2 touches en même temps
+        } else{ //Only one key at the same time
             if (Key.isDown(Key.UP)){
                 this.y -= this.speed * secondsPassed;
             }
@@ -84,38 +86,44 @@ class Drop {
     droppyLosesALife(blinkingSize){
         //Store old size to blink
         let oldSize = this.size;
-        this.size = blinkingSize;
+        
+        this.positionDroppyFromCenter(blinkingSize);
+        this.speed = 0;
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 50);
 
+        //Waiting 50ms more before disappear
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 100);
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 150);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before disappear
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 200);
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 250);
 
-        //Waiting 100ms more before blinking at new size + reset speed
+        //Waiting 50ms more before blinking at new size + reset speed
         setTimeout(()=>{
-            this.size = oldSize+1;
+            this.positionDroppyFromCenter(oldSize+1);
+
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
-            } 
+            } else {
+                this.speed = 60;
+            }
         }, 300);
 
         //Waiting 1000ms before Droppy can be touched again
@@ -124,38 +132,45 @@ class Drop {
         }, 1000);
     }
 
-    droppyRetrieveALife(blinkingSize){
+    droppyRetrievesALife(blinkingSize){
+        //Store old size to blink
         let oldSize = this.size;
 
-        //Waiting 100ms before blinking at oldSize
+        this.positionDroppyFromCenter(blinkingSize);
+        this.speed = 0;
+
+        //Waiting 50ms before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 50);
 
+        //Waiting 50ms more before disappear
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 100);
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 150);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before disappear
         setTimeout(()=>{
-            this.size = blinkingSize;
+            this.positionDroppyFromCenter(blinkingSize);
         }, 200);
 
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
-            this.size = oldSize;
+            this.positionDroppyFromCenter(oldSize);
         }, 250);
 
-         //Waiting 100ms more before blinking at new size + reset speed
+         //Waiting 50ms more before blinking at new size + reset speed
          setTimeout(()=>{
-            this.size = oldSize-1;
+            this.positionDroppyFromCenter(oldSize-1);
             if(!(this.isTouched)) {
                 this.speed = this.size * 30 + 60;
+            } else {
+                this.speed = 60;
             }
         }, 300);
 
@@ -163,6 +178,38 @@ class Drop {
         setTimeout(()=>{
             this.isColliding = false;
         }, 1000);
+    }
+
+    positionDroppyFromCenter(newSize){
+        this.centerX = this.x + this.width * this.factorWidth /2;
+        this.centerY = this.y + this.height * this.factorHeight /2;
+        this.size = newSize;
+        
+        switch(this.size){
+            case 4: //Smallest
+                this.width = 28;
+                this.height = 26;
+                break;
+            case 3:
+                this.width = 28;
+                this.height = 34;
+                break;
+            case 2:
+                this.width = 33;
+                this.height = 41;
+                break;
+            case 1:
+                this.width = 42;
+                this.height = 52;
+                break;
+            case 0: //Invisible
+                this.width = 1;
+                this.height = 1;
+                break;
+        }
+
+        this.x = this.centerX - this.width * this.factorWidth /2;
+        this.y = this.centerY - this.height * this.factorHeight /2;
     }
 
     changeColorAndBlink(thisGame) {
@@ -180,33 +227,33 @@ class Drop {
 
         let oldSize = this.size;
         
-        //Waiting 100ms before blinking at oldSize
+        //Waiting 50ms before disappearing
          setTimeout(()=>{
             this.color = colorWhenTouched;
             this.size = 0;
         }, 50);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
         }, 100);
 
-        //Waiting 100ms more before blinking at oldSize
+        //Waiting 50ms more before disappearing
          setTimeout(()=>{
             this.size = 0;
         }, 150);
 
-        //Waiting 100ms more before disappear
+        //Waiting 50ms more before blinking at oldSize
         setTimeout(()=>{
             this.size = oldSize;
         }, 200);
 
-        //Waiting 100ms more before blinking at oldSize
+        //Waiting 50ms more before disappearing
         setTimeout(()=>{
             this.size = 0;
         }, 250);
 
-        //Waiting 100ms more before blinking at oldSize
+        //Waiting 50ms more before retrieving his old size
         setTimeout(()=>{
             this.size = oldSize;
         }, 300);
@@ -248,7 +295,7 @@ class Drop {
         this.speed = 60;
         this.isTouched = true; //to prevent loseALife or retrieveALife to change speed
         
-        //Droppy's speed is back to normal again even in a new level
+        //Droppy's speed is back to normal again after 5 seconds
         setTimeout(()=>{
             this.isTouched = false;
             this.speed = this.size * 30 + 60;
@@ -258,29 +305,29 @@ class Drop {
     drawLife(){
         let lifeImage = new Image();
 
-        lifeImage.src = "/ressources/images/game/LifeSmall.png"; //TODO: renamme image
+        lifeImage.src = "/ressources/images/game/Life.png";
 
-        let destinationX = 900;
+        let destinationX = 890;
         let destinationY = 10;
         let cuttingX;
         let imageWidth = lifeImage.width;
         let imageHeight = lifeImage.height;
         
-        //Depending on the number of lives, the image is crop
+        //Depending on the number of lives, the image is cropped
         switch (this.size) {
             case 1:
                 this.context.drawImage(lifeImage, destinationX, destinationY);
                 break;
             case 2:
-                cuttingX = 47/2;
+                cuttingX = 30;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             case 3:
-                cuttingX = 88/2;
+                cuttingX = 58;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             case 4:
-                cuttingX = 125/2;
+                cuttingX = 82;
                 this.context.drawImage(lifeImage, cuttingX, 0, imageWidth, imageHeight, destinationX+cuttingX, destinationY, imageWidth, imageHeight);
                 break;
             default:
@@ -311,6 +358,6 @@ let Key = {
     }
 };
 
-window.addEventListener('keyup', (event) => {Key.onKeyup(event);}, false);
+window.addEventListener("keyup", (event) => {Key.onKeyup(event);}, false);
 
-window.addEventListener('keydown', (event) => {Key.onKeydown(event);}, false);
+window.addEventListener("keydown", (event) => {Key.onKeydown(event);}, false);

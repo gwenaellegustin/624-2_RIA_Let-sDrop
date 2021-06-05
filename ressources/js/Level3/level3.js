@@ -16,14 +16,14 @@ class Level3 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel3Url;
+        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel3Url;
 
         //Place Droppy
         thisGame.droppy.x = 3;
         thisGame.droppy.y = 100;
 
         //Title
-        thisGame.levelName = 'Burn the drop';
+        thisGame.levelName = "Burn the drop";
 
         thisGame.gameObjects = [
             thisGame.droppy,
@@ -31,26 +31,33 @@ class Level3 {
 
             //Monsters
             new Fire(thisGame.context, 140, 90, thisGame, false, false),
-            new LittleFire(thisGame.context, 129, 87, thisGame.droppy),
+            new LittleFire(thisGame.context, 140, 90, thisGame.droppy),
             new Fire(thisGame.context, 105, 358, thisGame, false, false),
+            new LittleFire(thisGame.context, 105, 358, thisGame.droppy),
             new Fire(thisGame.context, 350, 390, thisGame, false, true),
+            new LittleFire(thisGame.context, 350, 390, thisGame.droppy),
             new Fire(thisGame.context, 465, 204, thisGame, false, false),
+            new LittleFire(thisGame.context, 465, 204, thisGame.droppy),
             new Fire(thisGame.context, 540, 450, thisGame, false, false),
+            new LittleFire(thisGame.context, 540, 450, thisGame.droppy),
             new Fire(thisGame.context, 650, 75, thisGame, false, true),
+            new LittleFire(thisGame.context, 650, 75, thisGame.droppy),
             new Fire(thisGame.context, 750, 284, thisGame, true, false),
-            new Fire(thisGame.context, 833, 487, thisGame, false, false)
+            new LittleFire(thisGame.context, 750, 284, thisGame.droppy),
+            new Fire(thisGame.context, 833, 487, thisGame, false, false),
+            new LittleFire(thisGame.context, 833, 487, thisGame.droppy)
         ]
 
         this.pipeImageReady = false;
         this.pipeImage = new Image();
         this.pipeImage.src = thisGame.bgLevel3CanvasUrl;
 
-        this.pipeImage.addEventListener('load', (event) => {
+        this.pipeImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }
 
-            this.pipeImageReady = true; //The image has been load, we can draw it
+            this.pipeImageReady = true; //The image has been loaded, we can draw it
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -70,7 +77,7 @@ class Level3 {
                     //Remove little fire
                     thisGame.gameObjects.splice(i,1);
 
-                    //Add a steam that will be removed after 3seconds
+                    //Add a steam that will be removed after 3 seconds
                     new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y);
                 }
             }
@@ -97,7 +104,7 @@ class Level3 {
     static detectCollisionsEdge(thisGame){
         this.collisionsDroppyWithBlackPixel(thisGame.droppy);
 
-        //LITTLE FIRE REMOVED AFTER MORE THAN 3 TOUCHING EDGE
+        //LITTLE FIRE REMOVED AFTER MORE THAN 3 EDGES TOUCHED
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof LittleFire){
@@ -142,7 +149,7 @@ class Level3 {
         x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
         x2 = droppy.x + droppy.width; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
-        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ // I don't want y to be updated more than one time
+        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ // I don't want y to be updated more than once
             droppy.y += droppy.speed * this.thisGame.secondsPassed;
         }
 

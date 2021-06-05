@@ -5,7 +5,6 @@
  * Please give credit to us if you're using our code. THX!
  **/
 class Crab {
-    
     constructor (context, x, y, droppy){
         this.context = context;
         this.monsterReady = false;
@@ -15,23 +14,23 @@ class Crab {
         this.width = null;
         this.height = null;
         this.speed  = 250;
-        this.direction = 'Left';
+        this.direction = "Left";
         this.directionX = -1;
         this.directionY = 1;
         this.isColliding = false;
         this.droppy = droppy;
         this.life = 8;
 
-        this.monsterImage.addEventListener('load', (event) => {
+        this.monsterImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
-                return; // Do nothing if event already handled
+                return; //Do nothing if event already handled
             }
 
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
-            this.monsterReady = true; //The image has been load, we can draw it
+            this.monsterReady = true; 
 
-            // Consume the event so it doesn't get handled twice
+            //Consume the event so it doesn't get handled twice
             event.preventDefault();
         });
 
@@ -48,7 +47,7 @@ class Crab {
     }
 
     update(secondsPassed){
-        if (this.life > 0){ // is alive -> move
+        if (this.life > 0){ //is alive -> move
             this.x += this.speed/5 * this.directionX * secondsPassed;
             this.y += this.speed * this.directionY * secondsPassed;
 
@@ -75,7 +74,7 @@ class Crab {
                 this.directionY = -1;
             }
 
-            // Direction 
+            //Direction 
             if (this.droppy.x + (this.droppy.width/2) > this.x + (this.width/2)){
                 this.directionX = 1;
                 this.direction = "Right";
@@ -84,7 +83,7 @@ class Crab {
                 this.direction = "Left";
             }
 
-        } else { // is dead -> doesn't move + dead image
+        } else { //is dead -> doesn't move + dead image
             this.monsterImage.src = "/ressources/images/game/Level6/Crab"+this.direction+"Dead110x130.png";
             this.x = this.x;
             this.y = this.y;
@@ -93,12 +92,11 @@ class Crab {
 
     drawLife(){
         let lifeImage = new Image();
-
         lifeImage.src = "/ressources/images/game/Level6/CrabLife.png";
 
         let destinationX = 700;
-        let destinationY = 10;
-        let cuttingX  = 20; // width of a crablife
+        let destinationY = 20;
+        let cuttingX  = 20; //width of a crablife
         let imageWidth = lifeImage.width;
         let imageHeight = lifeImage.height;
         

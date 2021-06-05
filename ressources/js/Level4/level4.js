@@ -16,14 +16,13 @@ class Level4 {
         thisGame.clearImages();
 
         //Change background
-        document.getElementById('bg').style.backgroundImage = thisGame.bgLevel4Url;
-
+        document.getElementById("bg").style.backgroundImage = thisGame.bgLevel4Url;
 
         //Place Droppy
         thisGame.droppy.x = 87;
         thisGame.droppy.y = 392;
 
-        //Prevent being lost on the canvas with 2 keys hold
+        //Prevent being lost on the canvas with 2 keys held
         thisGame.droppy.canPress2Keys = false;
 
         //Reduce size of all Droppies
@@ -31,12 +30,14 @@ class Level4 {
         thisGame.droppy.factorHeight = 0.5;
 
         //Title
-        thisGame.levelName = 'Heat up the drop';
+        thisGame.levelName = "Heat up the drop";
 
         thisGame.gameObjects = [
+
             thisGame.droppy,
             thisGame.timer,
-            new Thermometer(thisGame.context, 737, 367), //737, 347
+            
+            new Thermometer(thisGame.context, 737, 367),
 
             //Health in x order
             new Life(thisGame.context, 168, 116), //1 
@@ -58,12 +59,12 @@ class Level4 {
         this.radiatorImage = new Image();
         this.radiatorImage.src = thisGame.bgLevel4CanvasUrl;
 
-        this.radiatorImage.addEventListener('load', (event) => {
+        this.radiatorImage.addEventListener("load", (event) => {
             if (event.defaultPrevented) {
                 return; //Do nothing if event already handled
             }
 
-            this.radiatorReady = true; //The image has been load, we can draw it
+            this.radiatorReady = true; //The image has been loaded, we can draw it
             
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -89,7 +90,7 @@ class Level4 {
 
                         if(thisGame.droppy.size<4){
                             thisGame.droppy.droppyLosesALife(thisGame.droppy.size+1);
-                            thisGame.droppy.color = 'blue';
+                            thisGame.droppy.color = "blue";
                         }
                         else{
                             thisGame.isGameOver = true;
@@ -101,20 +102,19 @@ class Level4 {
                     }, 500);
                 }
 
-                //Droppy changes colors when temperature gets hot
+                //Droppy changes colors when temperature rises
                 if(Math.floor(Math.abs(thermometer.height) % 20) === 5){
-                    thisGame.droppy.color = 'red1';
+                    thisGame.droppy.color = "red1";
                 }else if(Math.floor(Math.abs(thermometer.height) % 20) === 10){
-                    thisGame.droppy.color = 'red2';
+                    thisGame.droppy.color = "red2";
                 } else if(Math.floor(Math.abs(thermometer.height) % 20) === 15){
-                    thisGame.droppy.color = 'red3';
+                    thisGame.droppy.color = "red3";
                 }
             }
         }
     }
 
     static detectCollisionsEdge(thisGame){
-        this.drawRadiatorOnCanvas();
         this.collisionsDroppyWithBlackPixel(thisGame.droppy);
     }
 
@@ -133,15 +133,13 @@ class Level4 {
         x1 = droppy.x + droppy.width*droppy.factorWidth / 2; //TOP/BOTTOM - MIDDLE
         x2 = droppy.x + droppy.width*droppy.factorWidth; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
-        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
-            //console.log("TOP")
+        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than once
             droppy.y += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //BOTTOM
         y = droppy.y + droppy.height*droppy.factorHeight + 1; //SAME FOR ALL RIGHT
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){
-            //console.log("BOTTOM")
             droppy.y -= droppy.speed * this.thisGame.secondsPassed;
         }
 
@@ -151,14 +149,12 @@ class Level4 {
         y1 = droppy.y + droppy.height*droppy.factorHeight / 2; //LEFT/RIGHT - MIDDLE
         y2 = droppy.y + droppy.height*droppy.factorHeight; //LEFT/RIGHT - BOTTOM
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
-            //console.log("LEFT")
             droppy.x += droppy.speed * this.thisGame.secondsPassed;
         }
 
         //RIGHT
         x = droppy.x + droppy.width*droppy.factorWidth + 1;
         if(this.isPixelBlack(x, y) || this.isPixelBlack(x, y1) || this.isPixelBlack(x, y2)){
-            //console.log("RIGHT")
             droppy.x -= droppy.speed * this.thisGame.secondsPassed;
         }
     }
