@@ -1,6 +1,5 @@
 class Level1{
     static createLevel(thisGame){
-        
         thisGame.level = 1;
         
         //Change background
