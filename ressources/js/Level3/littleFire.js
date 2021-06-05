@@ -27,7 +27,7 @@ class LittleFire{
 
             this.width = this.littleFireImage.width;
             this.height = this.littleFireImage.height;
-            this.littleFireReady = true; //The image has been load, we can draw it
+            this.littleFireReady = true; //The image has been loaded, we can draw it
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -37,7 +37,7 @@ class LittleFire{
     }
 
     draw(){
-        //Reapear here after a restore
+        //Reappear here after a restore
         this.context.save();
 
         //Move the origin to the fire center
@@ -45,7 +45,7 @@ class LittleFire{
         this.context.rotate(this.angle);
 
         if(this.littleFireReady){
-            this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //If wanna rotate on middle right (middle bottom of fire), -this.width, -this.height/2
+            this.context.drawImage(this.littleFireImage, -this.width/2, -this.height/2); //Fire rotate from middle right (bottom of the yellow part)
         }
 
         this.context.restore();
@@ -74,7 +74,7 @@ class LittleFire{
         x1 = this.x + this.width / 2; //TOP/BOTTOM - MIDDLE
         x2 = this.x + this.width; //TOP/BOTTOM - RIGHT
         y = this.y - 5;
-        if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
+        if(Level3.isPixelBlack(x, y) || Level3.isPixelBlack(x1, y) || Level3.isPixelBlack(x2, y)){ //I don't want y to be updated more than once
             this.directionY *= -1;
             this.velocityY *= 0.9;
             touched = true;

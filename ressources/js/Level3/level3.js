@@ -51,7 +51,7 @@ class Level3 {
                 return; //Do nothing if event already handled
             }
 
-            this.pipeImageReady = true; //The image has been load, we can draw it
+            this.pipeImageReady = true; //The image has been loaded, we can draw it
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -71,7 +71,7 @@ class Level3 {
                     //Remove little fire
                     thisGame.gameObjects.splice(i,1);
 
-                    //Add a steam that will be removed after 3seconds
+                    //Add a steam that will be removed after 3 seconds
                     new Steam(thisGame.context, thisGame.droppy.x, thisGame.droppy.y);
                 }
             }
@@ -98,7 +98,7 @@ class Level3 {
     static detectCollisionsEdge(thisGame){
         this.collisionsDroppyWithBlackPixel(thisGame.droppy);
 
-        //LITTLE FIRE REMOVED AFTER MORE THAN 3 TOUCHING EDGE
+        //LITTLE FIRE REMOVED AFTER MORE THAN 3 EDGES TOUCHED
         for (let i = 0; i < thisGame.gameObjects.length; i++)
         {
             if(thisGame.gameObjects[i] instanceof LittleFire){
@@ -143,7 +143,7 @@ class Level3 {
         x1 = droppy.x + droppy.width / 2; //TOP/BOTTOM - MIDDLE
         x2 = droppy.x + droppy.width; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
-        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ // I don't want y to be updated more than one time
+        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ // I don't want y to be updated more than once
             droppy.y += droppy.speed * this.thisGame.secondsPassed;
         }
 

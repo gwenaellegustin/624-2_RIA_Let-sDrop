@@ -21,7 +21,6 @@ class Steam {
         setTimeout(() => {
             this.remove();
         }, 3000)
-
     }
 
     remove(){
