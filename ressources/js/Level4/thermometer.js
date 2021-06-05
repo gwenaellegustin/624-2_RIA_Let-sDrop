@@ -6,7 +6,6 @@ class Thermometer{
         this.width = 9;
         this.height = -1;
         this.speed = 3;
-
         this.isColliding = false;
     }
 

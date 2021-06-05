@@ -16,7 +16,7 @@ class Level4 {
         thisGame.droppy.x = 87;
         thisGame.droppy.y = 392;
 
-        //Prevent being lost on the canvas with 2 keys hold
+        //Prevent being lost on the canvas with 2 keys held
         thisGame.droppy.canPress2Keys = false;
 
         //Reduce size of all Droppies
@@ -27,9 +27,11 @@ class Level4 {
         thisGame.levelName = "Heat up the drop";
 
         thisGame.gameObjects = [
+
             thisGame.droppy,
             thisGame.timer,
-            new Thermometer(thisGame.context, 737, 367), //737, 347
+            
+            new Thermometer(thisGame.context, 737, 367),
 
             //Health in x order
             new Life(thisGame.context, 168, 116), //1 
@@ -56,7 +58,7 @@ class Level4 {
                 return; //Do nothing if event already handled
             }
 
-            this.radiatorReady = true; //The image has been load, we can draw it
+            this.radiatorReady = true; //The image has been loaded, we can draw it
             
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -94,7 +96,7 @@ class Level4 {
                     }, 500);
                 }
 
-                //Droppy changes colors when temperature gets hot
+                //Droppy changes colors when temperature rises
                 if(Math.floor(Math.abs(thermometer.height) % 20) === 5){
                     thisGame.droppy.color = "red1";
                 }else if(Math.floor(Math.abs(thermometer.height) % 20) === 10){
@@ -125,7 +127,7 @@ class Level4 {
         x1 = droppy.x + droppy.width*droppy.factorWidth / 2; //TOP/BOTTOM - MIDDLE
         x2 = droppy.x + droppy.width*droppy.factorWidth; //TOP/BOTTOM - RIGHT
         y = droppy.y - 1;
-        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than one time
+        if(this.isPixelBlack(x, y) || this.isPixelBlack(x1, y) || this.isPixelBlack(x2, y)){ //I don't want y to be updated more than once
             droppy.y += droppy.speed * this.thisGame.secondsPassed;
         }
 
