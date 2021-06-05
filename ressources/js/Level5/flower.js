@@ -16,7 +16,7 @@ class Flower{
 
             this.width = this.flowerImage.width;
             this.height = this.flowerImage.height;
-            this.flowerReady = true; //The image has been load, we can draw it
+            this.flowerReady = true; 
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();

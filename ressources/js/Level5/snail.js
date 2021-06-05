@@ -18,7 +18,7 @@ class Snail {
 
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
-            this.monsterReady = true; //The image has been load, we can draw it
+            this.monsterReady = true; 
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -29,7 +29,6 @@ class Snail {
         } else {
             this.monsterImage.src = "/ressources/images/game/Level5/SnailLeft.png";
         }
-
     }
 
     draw(){

@@ -36,7 +36,7 @@ class Level5{
                 break;
         }
 
-        //2 keys can be hold
+        //2 keys can be held
         thisGame.droppy.canPress2Keys = true;
 
         //Title
