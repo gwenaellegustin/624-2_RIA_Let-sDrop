@@ -1,5 +1,4 @@
 class Crab {
-    
     constructor (context, x, y, droppy){
         this.context = context;
         this.monsterReady = false;
@@ -23,7 +22,7 @@ class Crab {
 
             this.width = this.monsterImage.width;
             this.height = this.monsterImage.height;
-            this.monsterReady = true; //The image has been load, we can draw it
+            this.monsterReady = true; 
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -87,7 +86,6 @@ class Crab {
 
     drawLife(){
         let lifeImage = new Image();
-
         lifeImage.src = "/ressources/images/game/Level6/CrabLife.png";
 
         let destinationX = 700;

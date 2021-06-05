@@ -12,7 +12,7 @@ class Level6{
         //Change background
         document.getElementById("bg").style.backgroundImage = thisGame.bgLevel6Url1;
                 
-        //Calcul placement according to ininital width of window
+        //Calculate placement according to initial width of window
         let marginCanvas = document.getElementById("canvas").offsetLeft;
         let marginPalm = 0;
         if (marginCanvas <  250){
@@ -21,7 +21,7 @@ class Level6{
             marginPalm = 250;
         }
 
-        //Crabs wall under plams
+        //Wall of small crabs
         let crabs = document.createElement("img");
         crabs.src = "/ressources/images/game/Level6/CrabsWall.png";
         crabs.style.position = "absolute";
@@ -46,8 +46,10 @@ class Level6{
         thisGame.levelName = "Pinch the drop";
         
         thisGame.gameObjects = [
+
             thisGame.droppy,
             thisGame.timer,
+            
             //Monster
             new Crab(thisGame.context, 800, 500, thisGame.droppy)
         ];
@@ -151,7 +153,7 @@ class Level6{
                         crab.isColliding = false;
                     }, 1000);
 
-                    //Remove crabs wall
+                    //Remove wall of crabs
                     if (crab.life == 0){ 
                         document.getElementById("crabs").remove();
                         document.getElementById("bg").style.backgroundImage = thisGame.bgLevel6Url2;

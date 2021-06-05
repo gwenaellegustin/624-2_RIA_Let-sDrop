@@ -19,7 +19,7 @@ class Defence{
 
             this.width = this.image.width;
             this.height = this.image.height;
-            this.ready = true; //The image has been load, we can draw it
+            this.ready = true; 
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
@@ -40,7 +40,6 @@ class Defence{
     }
 
     update(secondsPassed) {
-        
         this.x += this.speed * this.directionX * secondsPassed;
         this.y += this.speed * this.directionY * secondsPassed;
         if (this.directionX == -1 ){
