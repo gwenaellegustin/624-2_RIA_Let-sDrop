@@ -5,7 +5,6 @@ class Timer
         this.start = new Date();
         this.end = 0;
         this.diff = null;
-
         this.time = null;
         this.timeWithMilliSeconds = null;
     }

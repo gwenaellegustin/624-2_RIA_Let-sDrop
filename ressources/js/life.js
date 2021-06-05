@@ -15,7 +15,7 @@ class Life{
 
             this.width = this.lifeImage.width;
             this.height = this.lifeImage.height;
-            this.lifeReady = true; //The image has been load, we can draw it
+            this.lifeReady = true; //The image has been loaded, we can draw it
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
