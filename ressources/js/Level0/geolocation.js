@@ -4,6 +4,7 @@ class Geolocation {
             const response = await fetch('https://nominatim.openstreetmap.org/reverse?lat='+lat+'&lon='+lng+'&format=json');
             return await response.json();   
         }
+
         getDataFromLatLong(position.coords.latitude, position.coords.longitude)
             .then(result => {
                 let town = result['address']['village'];
@@ -23,9 +24,11 @@ class Geolocation {
                 this.onError();
             });
     }
+
     static onError() {
         document.getElementById("geolocation_region").innerHTML = '<br/>' + 'Escape from your reality';
     }
+    
     static getOptions(){
         return options = {
             enableHighAccuracy: true,
