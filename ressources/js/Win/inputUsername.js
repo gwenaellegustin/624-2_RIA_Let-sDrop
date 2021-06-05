@@ -4,7 +4,6 @@ class InputUsername{
         this.x = 200;
         this.y = 280;
         this.timer = timer;
-
         this.results;
 
         //Create input for username
@@ -42,7 +41,7 @@ class InputUsername{
 
             //Consume the event so it doesn't get handled twice
             event.preventDefault();
-        })
+        });
     }
 
     draw(){
