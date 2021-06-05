@@ -29,7 +29,6 @@ class Game {
     }
 
     init(canvasId){
-
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = 1000;
         this.canvas.height = 550;
@@ -90,7 +89,8 @@ class Game {
         if(this.levelName != null){
             this.setTitle();
         }
-        
+
+        //Handling if the game continues or ends
         if(this.isGameOver){
             GameOver.createLevel(this);
         }
@@ -98,7 +98,7 @@ class Game {
             Winner.createLevel(this);
         }
         else{
-            //The loop function has reached it's end - Keep requesting new frames
+            //The loop function has reached its end - Keep requesting new frames
             window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
         }
     }
@@ -177,11 +177,11 @@ class Game {
             Level1.createLevel(this);
         }
 
-        //Zone which define end of the level
+        //Zone which define end of each level
         switch(this.level){
             case 1:
                 let hit = this.collisionPointCircle(this.droppy.x + this.droppy.width/2, this.droppy.y + this.droppy.height/2, 954, 370, 25);
-                if(hit){ //If Droppy's center is on pipe's enter
+                if(hit){ //If Droppy enters the sink hole
                     Level2.createLevel(this);
                 }
                 break;
@@ -198,7 +198,7 @@ class Game {
             case 4:
                 if(915 < (this.droppy.x + this.droppy.width)){
                     if((370 < (this.droppy.y + this.droppy.height/2) && (this.droppy.y + this.droppy.height/2) < 426)){
-                        this.droppy.color = 'blue';
+                        this.droppy.color = "blue";
                         Level5.createLevel(this); //Prevent to leave bottom right et top right 
                     }
                 }
@@ -229,7 +229,8 @@ class Game {
         //Temporary variables to set edges for testing
         let distX = px - cerclex;
         let distY = py - cercley;
-        // distance between the point and circle's center
+
+        //Distance between the point and circle's center
         let distance = Math.sqrt( (distX*distX) + (distY*distY) );
       
         //If the distance is less than the radius, collision!
@@ -255,7 +256,7 @@ class Game {
         let testX = circlex;
         let testY = circley;
 
-        //Which edge is closest?
+        //Which edge is the closest?
         if (circlex < rectx) {//Left edge
             testX = rectx;
         }
