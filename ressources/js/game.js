@@ -384,30 +384,20 @@ class Game {
 
   chargeMusic() {
     //Music and sounds
-    this.level1Music = new Audio(
-      "/ressources/images/game/ressources/sounds/frightNight.mp3"
-    ); //Will continue through all levels
+    this.level1Music = new Audio("/ressources/sounds/frightNight.mp3"); //Will continue through all levels
     this.level1Music.loop = true;
     this.level1Music.setAttribute("preload", "auto");
-    this.winnerMusic = new Audio(
-      "/ressources/images/game/ressources/sounds/Happy_Home.mp3"
-    );
+    this.winnerMusic = new Audio("/ressources/sounds/Happy_Home.mp3");
     this.winnerMusic.setAttribute("preload", "auto");
-    this.winnerSound = new Audio(
-      "/ressources/images/game/ressources/sounds/woodenShipOnTheSea.mp3"
-    );
+    this.winnerSound = new Audio("/ressources/sounds/woodenShipOnTheSea.mp3");
     this.winnerSound.setAttribute("preload", "auto");
-    this.gameOverMusic = new Audio(
-      "/ressources/images/game/ressources/sounds/twilightRain.mp3"
-    );
+    this.gameOverMusic = new Audio("/ressources/sounds/twilightRain.mp3");
     this.gameOverMusic.setAttribute("preload", "auto");
     this.gameOverSound = new Audio(
-      "/ressources/images/game/ressources/sounds/glassBreakExplosion.mp3"
+      "/ressources/sounds/glassBreakExplosion.mp3"
     );
     this.gameOverSound.setAttribute("preload", "auto");
-    this.endSound = new Audio(
-      "/ressources/images/game/ressources/sounds/ocean.mp3"
-    );
+    this.endSound = new Audio("/ressources/sounds/ocean.mp3");
     this.endSound.loop = true;
     this.endSound.setAttribute("preload", "auto");
   }
