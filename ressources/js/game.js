@@ -192,7 +192,7 @@ class Game {
   detectChangeLevel() {
     //To change from level 0 to level 1
     if (this.level === 0 && this.ready === true) {
-      Level6.createLevel(this);
+      Level1.createLevel(this);
     }
 
     //Zone which define end of each level
