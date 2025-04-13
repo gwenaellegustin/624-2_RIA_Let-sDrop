@@ -4,8 +4,28 @@
  * from HES-SO Valais Wallis / BSc in Business Information Technology
  * Please give credit to us if you're using our code. THX!
  **/
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import {
+  getDatabase,
+  onValue,
+  ref,
+  set,
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+
+const firebaseConfig = {
+  databaseURL:
+    "https://let-s-drop-default-rtdb.europe-west1.firebasedatabase.app/",
+};
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.onload = function () {
+  let game = new Game("canvas", db);
+};
+
 class Game {
-  constructor(canvasId) {
+  constructor(canvasId, db) {
     this.canvas = null;
     this.context = null;
     this.oldTimeStamp = 0;
@@ -30,6 +50,8 @@ class Game {
     this.chargeMusic();
     this.chargeBackgrounds();
     this.chargeObjects();
+
+    this.getHallOfFame(db);
 
     this.init(canvasId);
   }
@@ -106,7 +128,7 @@ class Game {
     if (this.isGameOver) {
       GameOver.createLevel(this);
     } else if (this.isWin) {
-      Winner.createLevel(this);
+      Winner.createLevel(this, db);
     } else {
       //The loop function has reached its end - Keep requesting new frames
       window.requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp));
@@ -207,7 +229,7 @@ class Game {
         );
         if (hit) {
           //If Droppy enters the sink hole
-          Level2.createLevel(this);
+          Level6.createLevel(this);
         }
         break;
       case 2:
@@ -605,5 +627,27 @@ class Game {
     lifeImg.setAttribute("src", "ressources/images/game/Life.png");
     let healthImg = new Image();
     healthImg.setAttribute("src", "ressources/images/game/Health17x20.png");
+  }
+
+  getHallOfFame(db) {
+    const hallOfFameRef = ref(db, "hallOfFame/");
+    onValue(hallOfFameRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      return data;
+    });
+  }
+
+  writeUserData(user, timeWithMilliSeconds, end, db) {
+    const now = Math.floor(new Date().getTime() / 1000.0);
+    console.log("id", now + user);
+    console.log("user", user);
+    console.log("time", timeWithMilliSeconds);
+    console.log("timestamp", end.toString());
+    set(ref(db, "hallOfFame/" + now + user), {
+      user: user,
+      time: timeWithMilliSeconds,
+      timestamp: end.toString(),
+    });
   }
 }

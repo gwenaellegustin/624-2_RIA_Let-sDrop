@@ -88,7 +88,7 @@
         <p><br />Drop your Droppy here to start</p>
       </div>
     </div>
-    <script src="/ressources/js/game.js"></script>
+    <script type="module" src="/ressources/js/game.js"></script>
     <script src="/ressources/js/Win/inputUsername.js"></script>
     <!--CHARACTERS-->
     <script src="/ressources/js/drop.js"></script>
@@ -121,10 +121,6 @@
     <!--DEPENDANCES-->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
-      window.onload = function () {
-        let game = new Game("canvas");
-      };
-
       WebFont.load({
         google: {
           families: ["Delius"],

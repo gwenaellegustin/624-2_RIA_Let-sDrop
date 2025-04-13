@@ -4,8 +4,9 @@
  * from HES-SO Valais Wallis / BSc in Business Information Technology
  * Please give credit to us if you're using our code. THX!
  **/
+
 class InputUsername {
-  constructor(context, timer, thisGame) {
+  constructor(context, timer, thisGame, db) {
     this.context = context;
     this.x = 200;
     this.y = 280;
@@ -24,14 +25,15 @@ class InputUsername {
     this.input.style.paddingLeft = "10px";
     document.getElementById("bg").appendChild(this.input);
 
-    //Todo: link to db
-    this.requestURL =
-      "https://6242ria.blob.core.windows.net/$web/ressources/json/hallOfFame.json?sp=racwd&st=2021-05-27T16:29:39Z&se=2025-10-31T01:29:39Z&sv=2020-02-10&sr=b&sig=M1BcLE2%2BkRHmG5U64ZgxQdPPMs5wEjlVs1g1kA%2Fq4mQ%3D";
-
     window.addEventListener("keydown", (event) => {
       //If the input.value is empty, no need to save nothing
       if (event.code === "Enter" && this.input.value != "") {
-        this.storeUsernameInJsonFile(thisGame);
+        thisGame.writeUserData(
+          this.input.value,
+          thisGame.timer.timeWithMilliSeconds,
+          thisGame.timer.end,
+          db
+        );
         this.input.value = "";
       }
     });
@@ -59,54 +61,54 @@ class InputUsername {
     this.context.fillText("Your name: ", this.x, this.y);
   }
 
-  update(secondsPassed) {}
+  // update(secondsPassed) {}
 
-  storeUsernameInJsonFile(thisGame) {
-    this.results = new Array();
+  // storeUsernameInJsonFile(thisGame) {
+  //   this.results = new Array();
 
-    //Create object
-    let userObject = {
-      username: this.input.value,
-      time: this.timer.diff,
-      timeString: this.timer.timeWithMilliSeconds,
-    };
+  //   //Create object
+  //   let userObject = {
+  //     username: this.input.value,
+  //     time: this.timer.diff,
+  //     timeString: this.timer.timeWithMilliSeconds,
+  //   };
 
-    //Instanciate a new XMLHttpRequest and then open a new request
-    let request = new XMLHttpRequest();
-    request.withCredentials = false;
-    request.open("GET", this.requestURL);
+  //   //Instanciate a new XMLHttpRequest and then open a new request
+  //   let request = new XMLHttpRequest();
+  //   request.withCredentials = false;
+  //   request.open("GET", this.requestURL);
 
-    //Tell the server that we're expecting an answer in .json type then send request
-    request.responseType = "json";
-    request.send();
+  //   //Tell the server that we're expecting an answer in .json type then send request
+  //   request.responseType = "json";
+  //   request.send();
 
-    //Store the answer into a native variable
-    request.onload = () => {
-      let hallOfFameJson = request.response;
-      this.results = hallOfFameJson;
+  //   //Store the answer into a native variable
+  //   request.onload = () => {
+  //     let hallOfFameJson = request.response;
+  //     this.results = hallOfFameJson;
 
-      //Add last result to the array
-      this.results.push(userObject);
+  //     //Add last result to the array
+  //     this.results.push(userObject);
 
-      this.fillInHOFArray(this.results);
+  //     this.fillInHOFArray(this.results);
 
-      HallOfFame.createLevel(thisGame, this.results);
-    };
+  //     HallOfFame.createLevel(thisGame, this.results);
+  //   };
 
-    //In order to highlight the user record, I need to know who it is
-    localStorage.setItem("CurrentUsername", this.input.value);
-    localStorage.setItem("CurrentTime", this.timer.timeWithMilliSeconds);
-  }
+  //   //In order to highlight the user record, I need to know who it is
+  //   localStorage.setItem("CurrentUsername", this.input.value);
+  //   localStorage.setItem("CurrentTime", this.timer.timeWithMilliSeconds);
+  // }
 
-  fillInHOFArray(jsonObject) {
-    let request = new XMLHttpRequest();
-    request.withCredentials = false;
-    request.open("PUT", this.requestURL, true);
+  // fillInHOFArray(jsonObject) {
+  //   let request = new XMLHttpRequest();
+  //   request.withCredentials = false;
+  //   request.open("PUT", this.requestURL, true);
 
-    request.setRequestHeader("Content-Type", "application/json");
-    request.setRequestHeader("x-ms-version", "2020-04-08");
-    request.setRequestHeader("x-ms-blob-type", "BlockBlob");
+  //   request.setRequestHeader("Content-Type", "application/json");
+  //   request.setRequestHeader("x-ms-version", "2020-04-08");
+  //   request.setRequestHeader("x-ms-blob-type", "BlockBlob");
 
-    request.send(JSON.stringify(jsonObject));
-  }
+  //   request.send(JSON.stringify(jsonObject));
+  // }
 }
