@@ -35,8 +35,7 @@ class Fire {
       event.preventDefault();
     });
 
-    this.fireImage.src =
-      "/ressources/images/game/ressources/images/game/Level3/Fire30x35.png";
+    this.fireImage.src = "ressources/images/game/Level3/Fire30x35.png";
 
     this.interval = 0; //Time between each little fire
   }

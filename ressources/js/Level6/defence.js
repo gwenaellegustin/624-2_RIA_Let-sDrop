@@ -31,8 +31,7 @@ class Defence {
       event.preventDefault();
     });
 
-    this.image.src =
-      "/ressources/images/game/ressources/images/game/Health17x20.png";
+    this.image.src = "ressources/images/game/Health17x20.png";
   }
 
   draw() {

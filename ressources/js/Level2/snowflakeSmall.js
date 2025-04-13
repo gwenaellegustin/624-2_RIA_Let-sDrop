@@ -30,8 +30,7 @@ class SnowflakeSmall {
       event.preventDefault();
     });
 
-    this.monsterImage.src =
-      "/ressources/images/game/ressources/images/game/Level2/Snowflake25x25.png";
+    this.monsterImage.src = "ressources/images/game/Level2/Snowflake25x25.png";
   }
 
   draw() {

@@ -41,10 +41,7 @@ class Drop {
 
   draw() {
     this.dropImage.src =
-      "/ressources/images/game/ressources/images/game/Drop/DropSize" +
-      this.size +
-      this.color +
-      ".png";
+      "ressources/images/game/Drop/DropSize" + this.size + this.color + ".png";
 
     if (this.dropReady) {
       this.context.drawImage(
@@ -313,7 +310,7 @@ class Drop {
   drawLife() {
     let lifeImage = new Image();
 
-    lifeImage.src = "/ressources/images/game/ressources/images/game/Life.png";
+    lifeImage.src = "ressources/images/game/Life.png";
 
     let destinationX = 890;
     let destinationY = 10;

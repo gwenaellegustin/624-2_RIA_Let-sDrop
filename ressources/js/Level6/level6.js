@@ -29,8 +29,7 @@ class Level6 {
 
     //Wall of small crabs
     let crabs = document.createElement("img");
-    crabs.src =
-      "/ressources/images/game/ressources/images/game/Level6/CrabsWall.png";
+    crabs.src = "ressources/images/game/Level6/CrabsWall.png";
     crabs.style.position = "absolute";
     crabs.style.top = 0;
     crabs.style.marginLeft = `${marginPalm + 940}px`;
@@ -39,8 +38,7 @@ class Level6 {
 
     //Palms over hero and monsters
     let palms = document.createElement("img");
-    palms.src =
-      "/ressources/images/game/ressources/images/game/Level6/Palm.png";
+    palms.src = "ressources/images/game/Level6/Palm.png";
     palms.style.position = "absolute";
     palms.style.top = 0;
     palms.style.marginLeft = `${marginPalm}px`;

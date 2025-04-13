@@ -13,8 +13,7 @@ class Steam {
     this.height = 250;
 
     this.steam = document.createElement("img");
-    this.steam.src =
-      "/ressources/images/game/ressources/images/game/Level3/Steam250x250.png";
+    this.steam.src = "ressources/images/game/Level3/Steam250x250.png";
     this.steam.style.position = "absolute";
     this.steam.style.top = 0;
     let marginLeft = document.getElementById("canvas").offsetLeft;

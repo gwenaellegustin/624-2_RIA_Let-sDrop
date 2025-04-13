@@ -31,7 +31,7 @@ class MonsterHand {
     });
 
     this.monsterImage.src =
-      "/ressources/images/game/ressources/images/game/Level1/MonsterHand48x48.png";
+      "ressources/images/game/Level1/MonsterHand48x48.png";
   }
 
   draw() {

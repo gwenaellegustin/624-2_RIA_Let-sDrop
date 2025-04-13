@@ -27,8 +27,7 @@ class Life {
       event.preventDefault();
     });
 
-    this.lifeImage.src =
-      "/ressources/images/game/ressources/images/game/Health17x20.png";
+    this.lifeImage.src = "ressources/images/game/Health17x20.png";
   }
 
   draw() {

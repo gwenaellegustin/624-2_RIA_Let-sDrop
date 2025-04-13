@@ -27,8 +27,7 @@ class Soap {
       event.preventDefault();
     });
 
-    this.soapImage.src =
-      "/ressources/images/game/ressources/images/game/Level1/Soap34x34.png";
+    this.soapImage.src = "ressources/images/game/Level1/Soap34x34.png";
   }
 
   draw() {
