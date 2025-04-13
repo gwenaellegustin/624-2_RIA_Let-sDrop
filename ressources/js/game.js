@@ -192,7 +192,7 @@ class Game {
   detectChangeLevel() {
     //To change from level 0 to level 1
     if (this.level === 0 && this.ready === true) {
-      Level1.createLevel(this);
+      Level6.createLevel(this);
     }
 
     //Zone which define end of each level
@@ -385,28 +385,28 @@ class Game {
   chargeMusic() {
     //Music and sounds
     this.level1Music = new Audio(
-      "/624-2_RIA_Let-sDrop/ressources/sounds/frightNight.mp3"
+      "/ressources/images/game/ressources/sounds/frightNight.mp3"
     ); //Will continue through all levels
     this.level1Music.loop = true;
     this.level1Music.setAttribute("preload", "auto");
     this.winnerMusic = new Audio(
-      "/624-2_RIA_Let-sDrop/ressources/sounds/Happy_Home.mp3"
+      "/ressources/images/game/ressources/sounds/Happy_Home.mp3"
     );
     this.winnerMusic.setAttribute("preload", "auto");
     this.winnerSound = new Audio(
-      "/624-2_RIA_Let-sDrop/ressources/sounds/woodenShipOnTheSea.mp3"
+      "/ressources/images/game/ressources/sounds/woodenShipOnTheSea.mp3"
     );
     this.winnerSound.setAttribute("preload", "auto");
     this.gameOverMusic = new Audio(
-      "/624-2_RIA_Let-sDrop/ressources/sounds/twilightRain.mp3"
+      "/ressources/images/game/ressources/sounds/twilightRain.mp3"
     );
     this.gameOverMusic.setAttribute("preload", "auto");
     this.gameOverSound = new Audio(
-      "/624-2_RIA_Let-sDrop/ressources/sounds/glassBreakExplosion.mp3"
+      "/ressources/images/game/ressources/sounds/glassBreakExplosion.mp3"
     );
     this.gameOverSound.setAttribute("preload", "auto");
     this.endSound = new Audio(
-      "/624-2_RIA_Let-sDrop/ressources/sounds/ocean.mp3"
+      "/ressources/images/game/ressources/sounds/ocean.mp3"
     );
     this.endSound.loop = true;
     this.endSound.setAttribute("preload", "auto");
@@ -417,106 +417,106 @@ class Game {
     this.bgLevel0Img = new Image();
     this.bgLevel0Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level0/Level0.png"
+      "/ressources/images/game/ressources/images/game/Level0/Level0.png"
     );
     this.bgLevel0Url =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level0/Level0.png')";
+      "url('/ressources/images/game/ressources/images/game/Level0/Level0.png')";
 
     this.bgLevel1Img = new Image();
     this.bgLevel1Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Level1.png"
+      "/ressources/images/game/ressources/images/game/Level1/Level1.png"
     );
     this.bglevel1url =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Level1.png')";
+      "url('/ressources/images/game/ressources/images/game/Level1/Level1.png')";
 
     this.bgLevel2Img = new Image();
     this.bgLevel2Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Level2.png"
+      "/ressources/images/game/ressources/images/game/Level2/Level2.png"
     );
     this.bgLevel2Url =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Level2.png')";
+      "url('/ressources/images/game/ressources/images/game/Level2/Level2.png')";
 
     this.bgLevel3Img = new Image();
     this.bgLevel3Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Level3.png"
+      "/ressources/images/game/ressources/images/game/Level3/Level3.png"
     );
     this.bgLevel3Url =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Level3.png')";
+      "url('/ressources/images/game/ressources/images/game/Level3/Level3.png')";
 
     this.bgLevel3Canvas = new Image();
     this.bgLevel3Canvas.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Level3_canvas.png"
+      "/ressources/images/game/ressources/images/game/Level3/Level3_canvas.png"
     );
     this.bgLevel3CanvasUrl =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Level3_canvas.png";
+      "/ressources/images/game/ressources/images/game/Level3/Level3_canvas.png";
 
     this.bgLevel4Img = new Image();
     this.bgLevel4Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level4/Level4.png"
+      "/ressources/images/game/ressources/images/game/Level4/Level4.png"
     );
     this.bgLevel4Url =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level4/Level4.png')";
+      "url('/ressources/images/game/ressources/images/game/Level4/Level4.png')";
 
     this.bgLevel4Canvas = new Image();
     this.bgLevel4Canvas.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level4/Level4_canvas.png"
+      "/ressources/images/game/ressources/images/game/Level4/Level4_canvas.png"
     );
     this.bgLevel4CanvasUrl =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level4/Level4_canvas.png";
+      "/ressources/images/game/ressources/images/game/Level4/Level4_canvas.png";
 
     this.bgLevel5Img = new Image();
     this.bgLevel5Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Level5.png"
+      "/ressources/images/game/ressources/images/game/Level5/Level5.png"
     );
     this.bgLevel5Url =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Level5.png')";
+      "url('/ressources/images/game/ressources/images/game/Level5/Level5.png')";
 
     this.bgLevel6Img1 = new Image();
     this.bgLevel6Img1.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6Fight.png"
+      "/ressources/images/game/ressources/images/game/Level6/Level6Fight.png"
     );
     this.bgLevel6Url1 =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6Fight.png')";
+      "url('/ressources/images/game/ressources/images/game/Level6/Level6Fight.png')";
 
     this.bgLevel6Img2 = new Image();
     this.bgLevel6Img2.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6.png"
+      "/ressources/images/game/ressources/images/game/Level6/Level6.png"
     );
     this.bgLevel6Url2 =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6.png')";
+      "url('/ressources/images/game/ressources/images/game/Level6/Level6.png')";
 
     this.bgWinImg = new Image();
     this.bgWinImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Win/Win.png"
+      "/ressources/images/game/ressources/images/game/Win/Win.png"
     );
     this.bgWinUrl =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Win/Win.png')";
+      "url('/ressources/images/game/ressources/images/game/Win/Win.png')";
 
     this.bgGameOverImg = new Image();
     this.bgGameOverImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/GameOver/GameOver.png"
+      "/ressources/images/game/ressources/images/game/GameOver/GameOver.png"
     );
     this.bgGameOverUrl =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/GameOver/GameOver.png')";
+      "url('/ressources/images/game/ressources/images/game/GameOver/GameOver.png')";
 
     this.bgHallOfFameImg = new Image();
     this.bgHallOfFameImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/HallOfFame/hallOfFame.png"
+      "/ressources/images/game/ressources/images/game/HallOfFame/hallOfFame.png"
     );
     this.bgHallOfFameUrl =
-      "url('/624-2_RIA_Let-sDrop/ressources/images/game/HallOfFame/hallOfFame.png')";
+      "url('/ressources/images/game/ressources/images/game/HallOfFame/hallOfFame.png')";
   }
 
   chargeObjects() {
@@ -528,7 +528,7 @@ class Game {
       sizes.forEach((size) => {
         let image = new Image();
         image.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Drop/DropSize" +
+          "/ressources/images/game/ressources/images/game/Drop/DropSize" +
           size +
           color +
           ".png";
@@ -539,129 +539,129 @@ class Game {
     let monsterHandImg = new Image();
     monsterHandImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/MonsterHand48x48.png"
+      "/ressources/images/game/ressources/images/game/Level1/MonsterHand48x48.png"
     );
     let soapImg = new Image();
     soapImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Soap34x34.png"
+      "/ressources/images/game/ressources/images/game/Level1/Soap34x34.png"
     );
     let tapImg = new Image();
     tapImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Tap.png"
+      "/ressources/images/game/ressources/images/game/Level1/Tap.png"
     );
     let snowflakeBigImg = new Image();
     snowflakeBigImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Snowflake50x50.png"
+      "/ressources/images/game/ressources/images/game/Level2/Snowflake50x50.png"
     );
     let snowflakeSmallImg = new Image();
     snowflakeSmallImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Snowflake25x25.png"
+      "/ressources/images/game/ressources/images/game/Level2/Snowflake25x25.png"
     );
     let fireImg = new Image();
     fireImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Fire30x35.png"
+      "/ressources/images/game/ressources/images/game/Level3/Fire30x35.png"
     );
     let littleFireImg = new Image();
     littleFireImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/LittleFire14x18.png"
+      "/ressources/images/game/ressources/images/game/Level3/LittleFire14x18.png"
     );
     let steamImg = new Image();
     steamImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Steam250x250.png"
+      "/ressources/images/game/ressources/images/game/Level3/Steam250x250.png"
     );
     let daisyImg = new Image();
     daisyImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Daisy.png"
+      "/ressources/images/game/ressources/images/game/Level5/Daisy.png"
     );
     let leavesImg = new Image();
     leavesImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Leaves.png"
+      "/ressources/images/game/ressources/images/game/Level5/Leaves.png"
     );
     let orchidImg = new Image();
     orchidImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Orchid.png"
+      "/ressources/images/game/ressources/images/game/Level5/Orchid.png"
     );
     let tulipImg = new Image();
     tulipImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Tulip.png"
+      "/ressources/images/game/ressources/images/game/Level5/Tulip.png"
     );
     let snailRightImg = new Image();
     snailRightImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/SnailRight.png"
+      "/ressources/images/game/ressources/images/game/Level5/SnailRight.png"
     );
     let snailLeftImg = new Image();
     snailLeftImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/SnailLeft.png"
+      "/ressources/images/game/ressources/images/game/Level5/SnailLeft.png"
     );
     let crabWallImg = new Image();
     crabWallImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabsWall.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabsWall.png"
     );
     let crabLifeImg = new Image();
     crabLifeImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabLife.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabLife.png"
     );
     let palmImg = new Image();
     palmImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Palm.png"
+      "/ressources/images/game/ressources/images/game/Level6/Palm.png"
     );
     let crabLeft110x130Img = new Image();
     crabLeft110x130Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabLeft110x130.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabLeft110x130.png"
     );
     let crabRight110x130Img = new Image();
     crabRight110x130Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabRight110x130.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabRight110x130.png"
     );
     let crabLeftClosed110x130Img = new Image();
     crabLeftClosed110x130Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabLeftClosed110x130.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabLeftClosed110x130.png"
     );
     let crabRightClosed110x130Img = new Image();
     crabRightClosed110x130Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabRightClosed110x130.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabRightClosed110x130.png"
     );
     let crabLeftDead110x130Img = new Image();
     crabLeftDead110x130Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabLeftDead110x130.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabLeftDead110x130.png"
     );
     let crabRightDead110x130Img = new Image();
     crabRightDead110x130Img.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabRightDead110x130.png"
+      "/ressources/images/game/ressources/images/game/Level6/CrabRightDead110x130.png"
     );
 
     //Life & health
     let lifeImg = new Image();
     lifeImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Life.png"
+      "/ressources/images/game/ressources/images/game/Life.png"
     );
     let healthImg = new Image();
     healthImg.setAttribute(
       "src",
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Health17x20.png"
+      "/ressources/images/game/ressources/images/game/Health17x20.png"
     );
   }
 }

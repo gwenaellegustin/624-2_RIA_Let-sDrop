@@ -30,7 +30,7 @@ class Level1 {
 
     //Tap over hero and monsters
     let tap = document.createElement("img");
-    tap.src = "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Tap.png";
+    tap.src = "/ressources/images/game/ressources/images/game/Level1/Tap.png";
     tap.style.position = "absolute";
     tap.style.top = 0;
     tap.style.marginLeft = `${marginTap}px`;

@@ -28,7 +28,7 @@ class Life {
     });
 
     this.lifeImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Health17x20.png";
+      "/ressources/images/game/ressources/images/game/Health17x20.png";
   }
 
   draw() {

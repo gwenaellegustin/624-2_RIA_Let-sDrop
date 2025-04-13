@@ -31,7 +31,7 @@ class SnowflakeSmall {
     });
 
     this.monsterImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Snowflake25x25.png";
+      "/ressources/images/game/ressources/images/game/Level2/Snowflake25x25.png";
   }
 
   draw() {

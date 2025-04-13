@@ -31,23 +31,23 @@ class Flower {
     switch (this.imageSrc) {
       case 1:
         this.flowerImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Plantation.png";
+          "/ressources/images/game/ressources/images/game/Level5/Plantation.png";
         break;
       case 2:
         this.flowerImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Leaves.png";
+          "/ressources/images/game/ressources/images/game/Level5/Leaves.png";
         break;
       case 3:
         this.flowerImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Daisy.png";
+          "/ressources/images/game/ressources/images/game/Level5/Daisy.png";
         break;
       case 4:
         this.flowerImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Tulip.png";
+          "/ressources/images/game/ressources/images/game/Level5/Tulip.png";
         break;
       case 5:
         this.flowerImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Orchid.png";
+          "/ressources/images/game/ressources/images/game/Level5/Orchid.png";
         break;
     }
   }

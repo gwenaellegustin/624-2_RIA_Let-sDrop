@@ -41,7 +41,7 @@ class Drop {
 
   draw() {
     this.dropImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Drop/DropSize" +
+      "/ressources/images/game/ressources/images/game/Drop/DropSize" +
       this.size +
       this.color +
       ".png";
@@ -313,7 +313,7 @@ class Drop {
   drawLife() {
     let lifeImage = new Image();
 
-    lifeImage.src = "/624-2_RIA_Let-sDrop/ressources/images/game/Life.png";
+    lifeImage.src = "/ressources/images/game/ressources/images/game/Life.png";
 
     let destinationX = 890;
     let destinationY = 10;

@@ -28,7 +28,7 @@ class Soap {
     });
 
     this.soapImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Soap34x34.png";
+      "/ressources/images/game/ressources/images/game/Level1/Soap34x34.png";
   }
 
   draw() {

@@ -36,7 +36,7 @@ class Fire {
     });
 
     this.fireImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Fire30x35.png";
+      "/ressources/images/game/ressources/images/game/Level3/Fire30x35.png";
 
     this.interval = 0; //Time between each little fire
   }

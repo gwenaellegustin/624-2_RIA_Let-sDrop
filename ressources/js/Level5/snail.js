@@ -32,10 +32,10 @@ class Snail {
 
     if (this.x < 500) {
       this.monsterImage.src =
-        "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/SnailRight.png";
+        "/ressources/images/game/ressources/images/game/Level5/SnailRight.png";
     } else {
       this.monsterImage.src =
-        "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/SnailLeft.png";
+        "/ressources/images/game/ressources/images/game/Level5/SnailLeft.png";
     }
   }
 
@@ -54,13 +54,13 @@ class Snail {
       //Left side
       this.x = 0;
       this.monsterImage.src =
-        "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/SnailRight.png";
+        "/ressources/images/game/ressources/images/game/Level5/SnailRight.png";
       this.directionX = 1;
     } else if (this.x > this.context.canvas.width - this.width) {
       //Right side
       this.x = this.context.canvas.width - this.width;
       this.monsterImage.src =
-        "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/SnailLeft.png";
+        "/ressources/images/game/ressources/images/game/Level5/SnailLeft.png";
       this.directionX = -1;
     }
   }

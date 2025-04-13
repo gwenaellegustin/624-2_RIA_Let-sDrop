@@ -31,7 +31,7 @@ class MonsterHand {
     });
 
     this.monsterImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/MonsterHand48x48.png";
+      "/ressources/images/game/ressources/images/game/Level1/MonsterHand48x48.png";
   }
 
   draw() {

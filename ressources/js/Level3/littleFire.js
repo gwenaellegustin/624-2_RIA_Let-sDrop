@@ -40,7 +40,7 @@ class LittleFire {
     });
 
     this.littleFireImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/LittleFire14x18.png";
+      "/ressources/images/game/ressources/images/game/Level3/LittleFire14x18.png";
   }
 
   draw() {

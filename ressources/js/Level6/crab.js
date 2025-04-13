@@ -35,7 +35,7 @@ class Crab {
     });
 
     this.monsterImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Crab" +
+      "/ressources/images/game/ressources/images/game/Level6/Crab" +
       this.direction +
       "110x130.png";
   }
@@ -59,13 +59,13 @@ class Crab {
       if (this.isColliding == true) {
         this.speed = 150;
         this.monsterImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Crab" +
+          "/ressources/images/game/ressources/images/game/Level6/Crab" +
           this.direction +
           "Closed110x130.png";
       } else {
         this.speed = 250;
         this.monsterImage.src =
-          "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Crab" +
+          "/ressources/images/game/ressources/images/game/Level6/Crab" +
           this.direction +
           "110x130.png";
       }
@@ -99,7 +99,7 @@ class Crab {
     } else {
       //is dead -> doesn't move + dead image
       this.monsterImage.src =
-        "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Crab" +
+        "/ressources/images/game/ressources/images/game/Level6/Crab" +
         this.direction +
         "Dead110x130.png";
       this.x = this.x;
@@ -110,7 +110,7 @@ class Crab {
   drawLife() {
     let lifeImage = new Image();
     lifeImage.src =
-      "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/CrabLife.png";
+      "/ressources/images/game/ressources/images/game/Level6/CrabLife.png";
 
     let destinationX = 700;
     let destinationY = 20;
