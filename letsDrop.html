@@ -1,95 +1,135 @@
-<!doctype html>
-<!-- © 2021 Baechler Stéphanie, Gustin Gwenaëlle, Marques Antony 
+<!DOCTYPE html>
+<!-- © 2021 Baechler Stéphanie, Gustin Gwenaëlle, Marques Antony
  * Let's Drop was created as a student project for 624-2 RIA course
  * from HES-SO Valais Wallis / BSc in Business Information Technology
  * Please give credit to us if you're using our code. THX! -->
 <html>
-    <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-        <title>Let's Drop</title>
-        <link rel="stylesheet" href="ressources/css/game.css">
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Let's Drop</title>
+    <link rel="stylesheet" href="ressources/css/game.css" />
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
-        <!-- Make sure you put this AFTER Leaflet's CSS -->
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    </head>
-    <body>
-        <div id="bg">
-            <canvas id="canvas">
-            Your browser does not support the HTML5 canvas tag.
-            </canvas>
-            <div id="help">?
-                <span class="helptext">
-                    <P>Your goal is to finish the game as fast as you can.</p>
-                        <p>Watch out, you have only 4 lives!</p>
-                        <p>The smaller Droppy is, the faster it goes, but it will also have less lives.</p>
-                        <p>Avoid any obstacles using the 4 ARROW KEYS.</p>
-                        <p>Do you want to restart? Press SPACEBAR at anytime.</p>
-                    <img src="ressources/images/game/Level0/controls.jpg" alt="Controls: 4 arrow keys and spacebar">
-                </span>
-            </div>
-            <div id="droppies">
-                <img src="/ressources/images/game/Drop/DropSize1blue.png" alt="Droppy size 1" class="droppies" id="drop1" draggable="true"/>
-                <img src="/ressources/images/game/Drop/DropSize2blue.png" alt="Droppy size 2" class="droppies" id="drop2" draggable="true"/>
-                <img src="/ressources/images/game/Drop/DropSize3blue.png" alt="Droppy size 3" class="droppies" id="drop3" draggable="true"/>
-                <img src="/ressources/images/game/Drop/DropSize4blue.png" alt="Droppy size 4" class="droppies" id="drop4" draggable="true"/>
-            </div>
-        </div>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <div id="bg">
+      <canvas id="canvas">
+        Your browser does not support the HTML5 canvas tag.
+      </canvas>
+      <div id="help">
+        ?
+        <span class="helptext">
+          <p>Your goal is to finish the game as fast as you can.</p>
+          <p>Watch out, you have only 4 lives!</p>
+          <p>
+            The smaller Droppy is, the faster it goes, but it will also have
+            less lives.
+          </p>
+          <p>Avoid any obstacles using the 4 ARROW KEYS.</p>
+          <p>Do you want to restart? Press SPACEBAR at anytime.</p>
+          <img
+            src="ressources/images/game/Level0/controls.jpg"
+            alt="Controls: 4 arrow keys and spacebar"
+          />
+        </span>
+      </div>
+      <div id="droppies">
+        <img
+          src="/ressources/images/game/Drop/DropSize1blue.png"
+          alt="Droppy size 1"
+          class="droppies"
+          id="drop1"
+          draggable="true"
+        />
+        <img
+          src="/ressources/images/game/Drop/DropSize2blue.png"
+          alt="Droppy size 2"
+          class="droppies"
+          id="drop2"
+          draggable="true"
+        />
+        <img
+          src="/ressources/images/game/Drop/DropSize3blue.png"
+          alt="Droppy size 3"
+          class="droppies"
+          id="drop3"
+          draggable="true"
+        />
+        <img
+          src="/ressources/images/game/Drop/DropSize4blue.png"
+          alt="Droppy size 4"
+          class="droppies"
+          id="drop4"
+          draggable="true"
+        />
+      </div>
+    </div>
 
-        <div id="drop">
-            <div id="geolocation">
-                <p id="geolocation_region"></p>
-            </div>
-            <div id="dropzone">
-                <p><br/>Drop your Droppy here to start</p>
-            </div>
-        </div>
-        <script src="ressources/js/game.js"></script>        
-        <script src="ressources/js/Win/inputUsername.js"></script>
-        <!--CHARACTERS-->
-        <script src="ressources/js/drop.js"></script>
-        <script src="ressources/js/timer.js"></script>
-        <script src="ressources/js/life.js"></script>
-        <script src="ressources/js/Level0/geolocation.js"></script>
-        <script src="ressources/js/Level1/soap.js"></script>
-        <script src="ressources/js/Level1/monsterHand.js"></script>
-        <script src="ressources/js/Level2/snowflakeBig.js"></script>
-        <script src="ressources/js/Level2/snowflakeSmall.js"></script>
-        <script src="ressources/js/Level3/fire.js"></script>
-        <script src="ressources/js/Level3/littleFire.js"></script>
-        <script src="ressources/js/Level3/steam.js"></script>
-        <script src="ressources/js/Level4/thermometer.js"></script>
-        <script src="ressources/js/Level5/snail.js"></script>
-        <script src="ressources/js/Level5/flower.js"></script>
-        <script src="ressources/js/Level6/defence.js"></script>
-        <script src="ressources/js/Level6/crab.js"></script>
-        <!--LEVELS FILES-->
-        <script src="ressources/js/Level0/level0.js"></script>
-        <script src="ressources/js/Level1/level1.js"></script>
-        <script src="ressources/js/Level2/level2.js"></script>
-        <script src="ressources/js/Level3/level3.js"></script>
-        <script src="ressources/js/Level4/level4.js"></script>
-        <script src="ressources/js/Level5/level5.js"></script>
-        <script src="ressources/js/Level6/level6.js"></script>
-        <script src="ressources/js/GameOver/gameOver.js"></script>
-        <script src="ressources/js/Win/winner.js"></script>
-        <script src="ressources/js/HallOfFame/hallOfFame.js"></script>
-        <!--DEPENDANCES-->
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-        <script>
-            window.onload = function(){
-                let game = new Game('canvas');
-            }
+    <div id="drop">
+      <div id="geolocation">
+        <p id="geolocation_region"></p>
+      </div>
+      <div id="dropzone">
+        <p><br />Drop your Droppy here to start</p>
+      </div>
+    </div>
+    <script src="ressources/js/game.js"></script>
+    <script src="ressources/js/Win/inputUsername.js"></script>
+    <!--CHARACTERS-->
+    <script src="ressources/js/drop.js"></script>
+    <script src="ressources/js/timer.js"></script>
+    <script src="ressources/js/life.js"></script>
+    <script src="ressources/js/Level0/geolocation.js"></script>
+    <script src="ressources/js/Level1/soap.js"></script>
+    <script src="ressources/js/Level1/monsterHand.js"></script>
+    <script src="ressources/js/Level2/snowflakeBig.js"></script>
+    <script src="ressources/js/Level2/snowflakeSmall.js"></script>
+    <script src="ressources/js/Level3/fire.js"></script>
+    <script src="ressources/js/Level3/littleFire.js"></script>
+    <script src="ressources/js/Level3/steam.js"></script>
+    <script src="ressources/js/Level4/thermometer.js"></script>
+    <script src="ressources/js/Level5/snail.js"></script>
+    <script src="ressources/js/Level5/flower.js"></script>
+    <script src="ressources/js/Level6/defence.js"></script>
+    <script src="ressources/js/Level6/crab.js"></script>
+    <!--LEVELS FILES-->
+    <script src="ressources/js/Level0/level0.js"></script>
+    <script src="ressources/js/Level1/level1.js"></script>
+    <script src="ressources/js/Level2/level2.js"></script>
+    <script src="ressources/js/Level3/level3.js"></script>
+    <script src="ressources/js/Level4/level4.js"></script>
+    <script src="ressources/js/Level5/level5.js"></script>
+    <script src="ressources/js/Level6/level6.js"></script>
+    <script src="ressources/js/GameOver/gameOver.js"></script>
+    <script src="ressources/js/Win/winner.js"></script>
+    <script src="ressources/js/HallOfFame/hallOfFame.js"></script>
+    <!--DEPENDANCES-->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+      window.onload = function () {
+        let game = new Game("canvas");
+      };
 
-            WebFont.load({
-                google: {
-                    families: ['Delius']
-                }
-            });
-        </script>
-    </body>
+      WebFont.load({
+        google: {
+          families: ["Delius"],
+        },
+      });
+    </script>
+  </body>
 </html>

@@ -1,189 +1,237 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-
-<head>
+  <head>
     <title>624-2 - HTML/CSS/JavaScript</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="ressources/css/style.css">
-</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="ressources/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-        <nav>
-            <!-- Hamburger -->
-            <ul>
-                <li class="hamburger">
-                    <img src="ressources/images/site/hamburger_icon.svg" alt="icone hamburger">
-                </li>
-                <li>
-                    <a href="description_start.html">Description</a>
-                </li>
-                <li>
-                    <a href="maquettes_start.html">Maquettes</a>
-                </li>
-                <li>
-                    <a href="mockup_start.html">Mockup</a>
-                </li>
-                <li class="active">
-                    <a href="flux_start.html">Flux</a>
-                </li>
-                <li>
-                    <a href="journal_de_bord_start.html">Journal de bord</a>
-                </li>
-                <li>
-                    <a href="jeu.html">Jeu</a>
-                </li>
-            </ul>
-        </nav>
+      <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+      <nav>
+        <!-- Hamburger -->
+        <ul>
+          <li class="hamburger">
+            <img
+              src="ressources/images/site/hamburger_icon.svg"
+              alt="icone hamburger"
+            />
+          </li>
+          <li>
+            <a href="description_start.html">Description</a>
+          </li>
+          <li>
+            <a href="maquettes_start.html">Maquettes</a>
+          </li>
+          <li>
+            <a href="mockup_start.html">Mockup</a>
+          </li>
+          <li class="active">
+            <a href="flux_start.html">Flux</a>
+          </li>
+          <li>
+            <a href="journal_de_bord_start.html">Journal de bord</a>
+          </li>
+          <li>
+            <a href="jeu.html">Jeu</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <!-- Début zone pour votre contenu -->
-        <section id="articles">
-            <article>
-                <header>
-                    <h2>Flux et sitemap de votre projet</h2>
-                    <p>Par Stéphanie Baechler le 06/04/2021 à 16:10</p>
-                </header>
-                <h3>Sitemap</h3>
-                <div>
-                    <a href="ressources/images/site/sitemap400.png" target="_blank"><img class="flux"
-                            src="ressources/images/site/sitemap200.png" alt="sitemap de notre projet"
-                            title="Cliquez pour agrandir" /></a>
-                </div>
-                <h3>Processus</h3>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_0_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Départ du jeu : </li>
-                        <li>Chaque écran indique</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Le timer</li>
-                                <li>Le nombre de vies restantes</li>
-                                <li>Le nom du niveau</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_1_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Niveau 1 : Clean the drop</li>
-                        <li>Décor : évier</li>
-                        <li>Obstacles :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Main qui essaie avec papier essuie-tout <br />de sécher la goutte (déplacement)</li>
-                                <li>Savon fixe qui induit un effet si touché</li>
-                            </ul>
-                        </li>
-                        <li>Impact :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Main touchée : perd une vie</li>
-                                <li>Savon touché : désoriente les touches</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_2_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Niveau 2 : Cool the drop</li>
-                        <li>Décor : tuyauterie</li>
-                        <li>Obstacle : neige qui tombe (petits et gros flocons)</li>
-                        <li>Impact :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Petit flocon touché : ralentit la goutte</li>
-                                <li>Gros flocon touché : perd une vie</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_3_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Niveau 3 : Burn the drop</li>
-                        <li>Décor : tuyauterie</li>
-                        <li>Obstacle : feux qui tirent sur la goutte</li>
-                        <li>Impact :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Boule de feu touchée : effet buée (plus de vision pendant 3 secondes) ; si touché
-                                    une deuxième fois : perd une vie</li>
-                                <li>Monstre feu touché : perd une vie</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_4_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Niveau 4 : Heat up the drop </li>
-                        <li>Décor : labyrinthe radiateur</li>
-                        <li>Obstacle : la température augmente progressivement </li>
-                        <li>Impact :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Chaque cran du thermomètre atteint : une vie perdue</li>
-                            </ul>
-                        </li>
-                        <li>Défense :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Des vies peuvent être récupérées dans le labyrinthe</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_5_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Niveau 5 : Slurp the drop</li>
-                        <li>Décor : sort du robinet pour entrer dans le jardin</li>
-                        <li>Obstacle :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Escargots ayant soif qui se déplace dans le niveau</li>
-                                <li>Plante verte ayant soif qui apparaissent aléatoirement</li>
-                            </ul>
-                        </li>
-                        <li>Impact :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Escargot touché : une vie perdue</li>
-                                <li>Plante verte touchée : la plante fleurit et une vie perdue</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <img class="sequence" src="ressources/images/site/Sequence_6_400.png" alt="sequence de jeu général" />
-                    <ul class="around">
-                        <li class="title">Niveau 6 : Pinch the drop</li>
-                        <li>Décor : sort du jardin et arrive sur la plage</li>
-                        <li>Obstacle : crabe agitant ses pinces qui tente d'attraper la goutte</li>
-                        <li>Impact :</li>
-                        <li class="nope">
-                            <ul>
-                                <li>Crabe touché : perd une vie</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-        </section>
-        <!-- >Fin zone pour votre contenu -->
+      <!-- Début zone pour votre contenu -->
+      <section id="articles">
+        <article>
+          <header>
+            <h2>Flux et sitemap de votre projet</h2>
+            <p>Par Stéphanie Baechler le 06/04/2021 à 16:10</p>
+          </header>
+          <h3>Sitemap</h3>
+          <div>
+            <a href="ressources/images/site/sitemap400.png" target="_blank"
+              ><img
+                class="flux"
+                src="ressources/images/site/sitemap200.png"
+                alt="sitemap de notre projet"
+                title="Cliquez pour agrandir"
+            /></a>
+          </div>
+          <h3>Processus</h3>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_0_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Départ du jeu :</li>
+              <li>Chaque écran indique</li>
+              <li class="nope">
+                <ul>
+                  <li>Le timer</li>
+                  <li>Le nombre de vies restantes</li>
+                  <li>Le nom du niveau</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_1_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Niveau 1 : Clean the drop</li>
+              <li>Décor : évier</li>
+              <li>Obstacles :</li>
+              <li class="nope">
+                <ul>
+                  <li>
+                    Main qui essaie avec papier essuie-tout <br />de sécher la
+                    goutte (déplacement)
+                  </li>
+                  <li>Savon fixe qui induit un effet si touché</li>
+                </ul>
+              </li>
+              <li>Impact :</li>
+              <li class="nope">
+                <ul>
+                  <li>Main touchée : perd une vie</li>
+                  <li>Savon touché : désoriente les touches</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_2_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Niveau 2 : Cool the drop</li>
+              <li>Décor : tuyauterie</li>
+              <li>Obstacle : neige qui tombe (petits et gros flocons)</li>
+              <li>Impact :</li>
+              <li class="nope">
+                <ul>
+                  <li>Petit flocon touché : ralentit la goutte</li>
+                  <li>Gros flocon touché : perd une vie</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_3_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Niveau 3 : Burn the drop</li>
+              <li>Décor : tuyauterie</li>
+              <li>Obstacle : feux qui tirent sur la goutte</li>
+              <li>Impact :</li>
+              <li class="nope">
+                <ul>
+                  <li>
+                    Boule de feu touchée : effet buée (plus de vision pendant 3
+                    secondes) ; si touché une deuxième fois : perd une vie
+                  </li>
+                  <li>Monstre feu touché : perd une vie</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_4_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Niveau 4 : Heat up the drop</li>
+              <li>Décor : labyrinthe radiateur</li>
+              <li>Obstacle : la température augmente progressivement</li>
+              <li>Impact :</li>
+              <li class="nope">
+                <ul>
+                  <li>Chaque cran du thermomètre atteint : une vie perdue</li>
+                </ul>
+              </li>
+              <li>Défense :</li>
+              <li class="nope">
+                <ul>
+                  <li>Des vies peuvent être récupérées dans le labyrinthe</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_5_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Niveau 5 : Slurp the drop</li>
+              <li>Décor : sort du robinet pour entrer dans le jardin</li>
+              <li>Obstacle :</li>
+              <li class="nope">
+                <ul>
+                  <li>Escargots ayant soif qui se déplace dans le niveau</li>
+                  <li>
+                    Plante verte ayant soif qui apparaissent aléatoirement
+                  </li>
+                </ul>
+              </li>
+              <li>Impact :</li>
+              <li class="nope">
+                <ul>
+                  <li>Escargot touché : une vie perdue</li>
+                  <li>
+                    Plante verte touchée : la plante fleurit et une vie perdue
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img
+              class="sequence"
+              src="ressources/images/site/Sequence_6_400.png"
+              alt="sequence de jeu général"
+            />
+            <ul class="around">
+              <li class="title">Niveau 6 : Pinch the drop</li>
+              <li>Décor : sort du jardin et arrive sur la plage</li>
+              <li>
+                Obstacle : crabe agitant ses pinces qui tente d'attraper la
+                goutte
+              </li>
+              <li>Impact :</li>
+              <li class="nope">
+                <ul>
+                  <li>Crabe touché : perd une vie</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+      <!-- >Fin zone pour votre contenu -->
     </main>
 
     <footer>
-        <img id="logo" src="ressources/images/site/logo.png" alt="logo HES-SO Valais Wallis">
+      <img
+        id="logo"
+        src="ressources/images/site/logo.png"
+        alt="logo HES-SO Valais Wallis"
+      />
     </footer>
-
-</body>
-
+  </body>
 </html>
