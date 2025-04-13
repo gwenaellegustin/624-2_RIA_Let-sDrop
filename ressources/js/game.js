@@ -419,28 +419,32 @@ class Game {
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level0/Level0.png"
     );
-    this.bgLevel0Url = "url('/ressources/images/game/Level0/Level0.png')";
+    this.bgLevel0Url =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level0/Level0.png')";
 
     this.bgLevel1Img = new Image();
     this.bgLevel1Img.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Level1.png"
     );
-    this.bglevel1url = "url('/ressources/images/game/Level1/Level1.png')";
+    this.bglevel1url =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level1/Level1.png')";
 
     this.bgLevel2Img = new Image();
     this.bgLevel2Img.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Level2.png"
     );
-    this.bgLevel2Url = "url('/ressources/images/game/Level2/Level2.png')";
+    this.bgLevel2Url =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level2/Level2.png')";
 
     this.bgLevel3Img = new Image();
     this.bgLevel3Img.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Level3.png"
     );
-    this.bgLevel3Url = "url('/ressources/images/game/Level3/Level3.png')";
+    this.bgLevel3Url =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level3/Level3.png')";
 
     this.bgLevel3Canvas = new Image();
     this.bgLevel3Canvas.setAttribute(
@@ -455,7 +459,8 @@ class Game {
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level4/Level4.png"
     );
-    this.bgLevel4Url = "url('/ressources/images/game/Level4/Level4.png')";
+    this.bgLevel4Url =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level4/Level4.png')";
 
     this.bgLevel4Canvas = new Image();
     this.bgLevel4Canvas.setAttribute(
@@ -470,35 +475,40 @@ class Game {
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Level5.png"
     );
-    this.bgLevel5Url = "url('/ressources/images/game/Level5/Level5.png')";
+    this.bgLevel5Url =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level5/Level5.png')";
 
     this.bgLevel6Img1 = new Image();
     this.bgLevel6Img1.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6Fight.png"
     );
-    this.bgLevel6Url1 = "url('/ressources/images/game/Level6/Level6Fight.png')";
+    this.bgLevel6Url1 =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6Fight.png')";
 
     this.bgLevel6Img2 = new Image();
     this.bgLevel6Img2.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6.png"
     );
-    this.bgLevel6Url2 = "url('/ressources/images/game/Level6/Level6.png')";
+    this.bgLevel6Url2 =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Level6/Level6.png')";
 
     this.bgWinImg = new Image();
     this.bgWinImg.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/Win/Win.png"
     );
-    this.bgWinUrl = "url('/ressources/images/game/Win/Win.png')";
+    this.bgWinUrl =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/Win/Win.png')";
 
     this.bgGameOverImg = new Image();
     this.bgGameOverImg.setAttribute(
       "src",
       "/624-2_RIA_Let-sDrop/ressources/images/game/GameOver/GameOver.png"
     );
-    this.bgGameOverUrl = "url('/ressources/images/game/GameOver/GameOver.png')";
+    this.bgGameOverUrl =
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/GameOver/GameOver.png')";
 
     this.bgHallOfFameImg = new Image();
     this.bgHallOfFameImg.setAttribute(
@@ -506,7 +516,7 @@ class Game {
       "/624-2_RIA_Let-sDrop/ressources/images/game/HallOfFame/hallOfFame.png"
     );
     this.bgHallOfFameUrl =
-      "url('/ressources/images/game/HallOfFame/hallOfFame.png')";
+      "url('/624-2_RIA_Let-sDrop/ressources/images/game/HallOfFame/hallOfFame.png')";
   }
 
   chargeObjects() {
