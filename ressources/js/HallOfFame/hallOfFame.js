@@ -30,7 +30,7 @@ class HallOfFame {
     document.getElementById("bg").style.backgroundImage =
       thisGame.bgHallOfFameUrl;
 
-    let results = thisGame.hallOfFame;
+    let results = await thisGame.hallOfFame;
 
     this.draw(thisGame, results);
 
