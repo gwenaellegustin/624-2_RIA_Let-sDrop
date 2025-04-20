@@ -7,6 +7,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import {
+  get,
   getDatabase,
   onValue,
   ref,
@@ -39,7 +40,7 @@ class Game {
     this.canReload = true;
     this.ready = false;
     this.hallOfFameRef = ref(db, "hallOfFame/");
-    this.hallOfFame = null;
+    this.hallOfFame = this.getHallOfFame(); // TODO: why this and the update at each modification is necessary ?
 
     //Object
     this.droppy = null;
@@ -649,16 +650,16 @@ class Game {
   }
 
   // version without update
-  // async getHallOfFame() {
-  //   return await get(this.hallOfFameRef)
-  //     .then((snapshot) => {
-  //       const dataJSON = snapshot.val();
-  //       return this.sortHallOfFame(dataJSON);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error); //@TODO
-  //     });
-  // }
+  async getHallOfFame() {
+    return await get(this.hallOfFameRef)
+      .then((snapshot) => {
+        const dataJSON = snapshot.val();
+        return this.sortHallOfFame(dataJSON);
+      })
+      .catch((error) => {
+        console.error(error); //@TODO
+      });
+  }
 
   sortHallOfFame(dataJSON) {
     let dataArray = new Array();
