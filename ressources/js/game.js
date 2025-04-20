@@ -237,7 +237,7 @@ class Game {
         );
         if (hit) {
           //If Droppy enters the sink hole
-          Level6.createLevel(this);
+          Level2.createLevel(this);
         }
         break;
       case 2:
