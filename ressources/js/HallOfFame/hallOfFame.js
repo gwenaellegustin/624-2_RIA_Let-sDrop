@@ -5,19 +5,26 @@
  * Please give credit to us if you're using our code. THX!
  **/
 class HallOfFame {
-  static async createLevel(thisGame, db) {
+  static async createLevel(thisGame) {
     //Remove all objects drawn
     thisGame.clearCanvas();
 
     //Remove all images
     thisGame.clearImages();
 
-    //Stop sound of droppy on the boat and start ocean + seagulls
-    thisGame.winnerSound.muted = true;
-    thisGame.endSound.play();
-
-    //Delete input from html
-    document.getElementById("usernameInput").remove();
+    if (thisGame.level) {
+      //Delete input from html
+      document.getElementById("usernameInput").remove();
+      //Stop sound of droppy on the boat and start ocean + seagulls
+      thisGame.level1Music.muted = true;
+      thisGame.endSound.play();
+    } else {
+      //Remove dropZone and geolocation
+      document.getElementById("dropzone").remove();
+      document.getElementById("help").remove();
+      document.getElementById("geolocation").remove();
+      thisGame.winnerSound.muted = true;
+    }
 
     //Display winner screen background
     document.getElementById("bg").style.backgroundImage =

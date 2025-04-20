@@ -74,7 +74,17 @@ class Game {
     this.context.font = "30px Delius";
     this.context.fillStyle = "white";
 
-    Level0.createLevel(this);
+    if (window.location.href.indexOf("letsDrop.html?halloffame") != -1) {
+      HallOfFame.createLevel(this);
+    } else {
+      Level0.createLevel(this);
+
+      //Request an animation frame for the first time
+      //The gameLoop() function will be called as a callback of this request
+      window.requestAnimationFrame((timeStamp) => {
+        this.gameLoop(timeStamp);
+      });
+    }
 
     //Press enter to reload the page
     window.addEventListener(
@@ -82,16 +92,19 @@ class Game {
       (event) => {
         if (event.code === "Space" && this.canReload) {
           document.location.reload();
+          //reset url in case of restart from url /letsDrop.html?halloffame
+          let url = new URL(window.location.href);
+          window.location.replace(url.origin + url.pathname);
+          // change previous url to prevent error not found
+          window.history.pushState(
+            { prevUrl: window.location.href },
+            null,
+            url.pathname
+          );
         }
       },
       false
     );
-
-    //Request an animation frame for the first time
-    //The gameLoop() function will be called as a callback of this request
-    window.requestAnimationFrame((timeStamp) => {
-      this.gameLoop(timeStamp);
-    });
   }
 
   gameLoop(timeStamp) {
@@ -642,7 +655,6 @@ class Game {
     return await get(this.hallOfFameRef)
       .then((snapshot) => {
         const dataJSON = snapshot.val();
-        console.log("getHallOfFame (without synchro)", dataJSON);
         return this.sortHallOfFame(dataJSON);
       })
       .catch((error) => {

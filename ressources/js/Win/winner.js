@@ -24,12 +24,7 @@ class Winner {
     thisGame.winnerSound.play();
 
     //Input
-    this.input = new InputUsername(
-      thisGame.context,
-      this.stoppedTimer,
-      thisGame,
-      db
-    );
+    this.input = new InputUsername(thisGame, this.stoppedTimer, db);
 
     this.drawText(thisGame);
 

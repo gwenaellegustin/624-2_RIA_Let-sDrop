@@ -6,8 +6,8 @@
  **/
 
 class InputUsername {
-  constructor(context, timer, thisGame, db) {
-    this.context = context;
+  constructor(thisGame, timer, db) {
+    this.context = thisGame.context;
     this.x = 200;
     this.y = 280;
     this.timer = timer;
@@ -65,7 +65,7 @@ class InputUsername {
       db
     );
 
-    HallOfFame.createLevel(thisGame, db);
+    HallOfFame.createLevel(thisGame);
 
     //In order to highlight the user record, I need to know who it is
     localStorage.setItem("CurrentUsername", this.input.value);
