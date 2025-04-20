@@ -7,8 +7,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import {
+  get,
   getDatabase,
-  onValue,
   ref,
   set,
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
@@ -38,6 +38,8 @@ class Game {
     this.timer = null;
     this.canReload = true;
     this.ready = false;
+    this.hallOfFameRef = ref(db, "hallOfFame/");
+    this.hallOfFame = this.getHallOfFame();
 
     //Object
     this.droppy = null;
@@ -51,9 +53,15 @@ class Game {
     this.chargeBackgrounds();
     this.chargeObjects();
 
-    this.getHallOfFame(db);
-
     this.init(canvasId);
+
+    // //@tODO: implement autoupdate in halloffame page
+    // return onValue(this.hallOfFameRef, (snapshot) => {
+    //   const dataJSON = snapshot.val();
+    //   console.log("auto update hall of fame", dataJSON);
+    //   this.hallOfFame = this.sortHallOfFame(dataJSON);
+    //   console.log(this.hallOfFame);
+    // });
   }
 
   init(canvasId) {
@@ -629,25 +637,47 @@ class Game {
     healthImg.setAttribute("src", "ressources/images/game/Health17x20.png");
   }
 
-  getHallOfFame(db) {
-    const hallOfFameRef = ref(db, "hallOfFame/");
-    onValue(hallOfFameRef, (snapshot) => {
-      const data = snapshot.val();
-      console.log(data);
-      return data;
+  // version without update
+  async getHallOfFame() {
+    return await get(this.hallOfFameRef)
+      .then((snapshot) => {
+        const dataJSON = snapshot.val();
+        console.log("getHallOfFame (without synchro)", dataJSON);
+        return this.sortHallOfFame(dataJSON);
+      })
+      .catch((error) => {
+        console.error(error); //@TODO
+      });
+  }
+
+  sortHallOfFame(dataJSON) {
+    let dataArray = new Array();
+    Object.keys(dataJSON).forEach((key) => {
+      dataArray.push({
+        ...dataJSON[key],
+        id: key,
+      });
     });
+
+    dataArray.sort(function (a, b) {
+      return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
+    });
+    return dataArray;
   }
 
   writeUserData(user, timeWithMilliSeconds, end, db) {
     const now = Math.floor(new Date().getTime() / 1000.0);
-    console.log("id", now + user);
-    console.log("user", user);
-    console.log("time", timeWithMilliSeconds);
-    console.log("timestamp", end.toString());
-    set(ref(db, "hallOfFame/" + now + user), {
+    const id = now + user;
+    set(ref(db, "hallOfFame/" + id), {
       user: user,
       time: timeWithMilliSeconds,
       timestamp: end.toString(),
-    });
+    })
+      .then(() => {
+        return id;
+      })
+      .catch((error) => {
+        console.error(error); //@TODO
+      });
   }
 }

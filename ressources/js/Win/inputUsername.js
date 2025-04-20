@@ -28,12 +28,7 @@ class InputUsername {
     window.addEventListener("keydown", (event) => {
       //If the input.value is empty, no need to save nothing
       if (event.code === "Enter" && this.input.value != "") {
-        thisGame.writeUserData(
-          this.input.value,
-          thisGame.timer.timeWithMilliSeconds,
-          thisGame.timer.end,
-          db
-        );
+        this.saveResult(thisGame, db);
         this.input.value = "";
       }
     });
@@ -61,54 +56,20 @@ class InputUsername {
     this.context.fillText("Your name: ", this.x, this.y);
   }
 
-  // update(secondsPassed) {}
+  saveResult(thisGame, db) {
+    // Save result
+    const id = thisGame.writeUserData(
+      this.input.value,
+      thisGame.timer.timeWithMilliSeconds,
+      thisGame.timer.end,
+      db
+    );
 
-  // storeUsernameInJsonFile(thisGame) {
-  //   this.results = new Array();
+    HallOfFame.createLevel(thisGame, db);
 
-  //   //Create object
-  //   let userObject = {
-  //     username: this.input.value,
-  //     time: this.timer.diff,
-  //     timeString: this.timer.timeWithMilliSeconds,
-  //   };
-
-  //   //Instanciate a new XMLHttpRequest and then open a new request
-  //   let request = new XMLHttpRequest();
-  //   request.withCredentials = false;
-  //   request.open("GET", this.requestURL);
-
-  //   //Tell the server that we're expecting an answer in .json type then send request
-  //   request.responseType = "json";
-  //   request.send();
-
-  //   //Store the answer into a native variable
-  //   request.onload = () => {
-  //     let hallOfFameJson = request.response;
-  //     this.results = hallOfFameJson;
-
-  //     //Add last result to the array
-  //     this.results.push(userObject);
-
-  //     this.fillInHOFArray(this.results);
-
-  //     HallOfFame.createLevel(thisGame, this.results);
-  //   };
-
-  //   //In order to highlight the user record, I need to know who it is
-  //   localStorage.setItem("CurrentUsername", this.input.value);
-  //   localStorage.setItem("CurrentTime", this.timer.timeWithMilliSeconds);
-  // }
-
-  // fillInHOFArray(jsonObject) {
-  //   let request = new XMLHttpRequest();
-  //   request.withCredentials = false;
-  //   request.open("PUT", this.requestURL, true);
-
-  //   request.setRequestHeader("Content-Type", "application/json");
-  //   request.setRequestHeader("x-ms-version", "2020-04-08");
-  //   request.setRequestHeader("x-ms-blob-type", "BlockBlob");
-
-  //   request.send(JSON.stringify(jsonObject));
-  // }
+    //In order to highlight the user record, I need to know who it is
+    localStorage.setItem("CurrentUsername", this.input.value);
+    localStorage.setItem("CurrentTime", this.timer.timeWithMilliSeconds);
+    localStorage.setItem("CurrentID", id);
+  }
 }
