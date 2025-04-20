@@ -61,7 +61,13 @@ class Game {
     });
   }
 
-  init(canvasId) {
+  async init(canvasId) {
+    let browserAllowed = await this.checkBrowser();
+    if (!browserAllowed) {
+      let url = new URL(window.location.href);
+      window.location.replace(url.origin + "/jeu.html");
+    }
+
     this.canvas = document.getElementById(canvasId);
     this.canvas.width = 1000;
     this.canvas.height = 550;
@@ -645,6 +651,14 @@ class Game {
     lifeImg.setAttribute("src", "ressources/images/game/Life.png");
     let healthImg = new Image();
     healthImg.setAttribute("src", "ressources/images/game/Health17x20.png");
+  }
+
+  async checkBrowser() {
+    let isBrave = navigator.brave && (await navigator.brave.isBrave());
+    if (isBrave) return false;
+
+    let isChrome = navigator.userAgent.indexOf("Chrome") != -1;
+    return isChrome;
   }
 
   // version without update
