@@ -1,1189 +1,764 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-
-<head>
+  <head>
     <title>624-2 - HTML/CSS/JavaScript</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="ressources/css/style.css">
-</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="ressources/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-        <nav>
-            <!-- Hamburger -->
-            <ul>
-                <li class="hamburger">
-                    <img src="ressources/images/site/hamburger_icon.svg" alt="icone hamburger">
-                </li>
-                <li>
-                    <a href="description_start.html">Description</a>
-                </li>
-                <li>
-                    <a href="maquettes_start.html">Maquettes</a>
-                </li>
-                <li>
-                    <a href="mockup_start.html">Mockup</a>
-                </li>
-                <li>
-                    <a href="flux_start.html">Flux</a>
-                </li>
-                <li class="active">
-                    <a href="journal_de_bord_start.html">Journal de bord</a>
-                </li>
-                <li>
-                    <a href="jeu.html">Jeu</a>
-                </li>
-            </ul>
-        </nav>
+      <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+      <nav>
+        <!-- Hamburger -->
+        <ul>
+          <li class="hamburger">
+            <img
+              src="ressources/images/site/hamburger_icon.svg"
+              alt="icone hamburger"
+            />
+          </li>
+          <li>
+            <a href="/">Description</a>
+          </li>
+          <li>
+            <a href="maquettes_start.html">Maquettes</a>
+          </li>
+          <li>
+            <a href="mockup_start.html">Mockup</a>
+          </li>
+          <li>
+            <a href="flux_start.html">Flux</a>
+          </li>
+          <li class="active">
+            <a href="journal_de_bord_start.html">Journal de bord</a>
+          </li>
+          <li>
+            <a href="jeu.html">Jeu</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <!-- Début zone pour votre contenu -->
-        <section id="articles">
-            <article>
-                <header>
-                    <h2>Journal de bord</h2>
-                    <p>Par Stéphanie Baechler le 04/04/2021 à 11:35</p>
-                </header>
-                <p>Nous avons regroupé ci-dessous les différentes heures effectuées, problèmes et solutions, ainsi que
-                    les différentes interrogations rencontrées
-                    tout au long du développement de notre projet :</p>
-                <table>  
-                    <caption>Synthèse de nos logbooks
-                    </caption>  
-                    <thead>    
-                        <tr>      
-                        <th>Date
-                        </th>      
-                        <th>Who
-                        </th>      
-                        <th>Working on
-                        </th>      
-                        <th>Main topic
-                        </th>            
-                        <th>Hours
-                        </th>    
-                        </tr>  
-                    </thead>  
-                    <tbody>    
-                        <tr>      
-                        <td class="date">03.03.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Organisation du projet
-                        </td>      
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">10.03.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Concept jeu et premiers niveaux
-                        </td>           
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">10.03.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Brainstorming sur les idées de jeu et sur les niveaux supplémentaires
-                        </td>         
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">12.03.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">CSS
-                        </td>      
-                        <td>Titre et Navbar
-                        </td>         
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">18.03.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Organisation
-                        </td>         
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">20.03.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">CSS
-                        </td>      
-                        <td>Title and Navbar
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">21.03.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">CSS
-                        </td>      
-                        <td>Body and Footer
-                        </td>           
-                        <td class="hours">3h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">23.03.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">CSS
-                        </td>      
-                        <td>Menu hamburger mobile
-                        </td>        
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">24.03.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">CSS
-                        </td>      
-                        <td>Body and Footer
-                        </td>         
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">24.03.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">CSS
-                        </td>      
-                        <td>Menu interactif et responsive design
-                        </td>          
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">25.03.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Organisation
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">25.03.2021
-                        </td>      
-                        <td class="who">Anto+Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Thinking about processus at each level
-                        </td>         
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">26.03.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Thinking about processus at each level + sitemap
-                        </td>      
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">29.03.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Game mockup: level 1 to 4
-                        </td>         
-                        <td class="hours">3h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">29.03.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Check visuels
-                        </td>         
-                        <td class="hours">0h15
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">30.03.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Questions about the project to be answered by the teacher
-                        </td>           
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">01.04.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Validation + organisation
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>    
-                        <tr>      
-                        <td class="date">03.04.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game + website
-                        </td>      
-                        <td>Version 1 game + sitemap + processus de jeu
-                        </td>           
-                        <td class="hours">1h45
-                        </td>    
-                        </tr>
-                        <tr>      
-                        <td class="date">04.04.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">HTML + CSS
-                        </td>      
-                        <td>Logbook + Flux + Game
-                        </td>        
-                        <td class="hours">4h15
-                        </td>    
-                        </tr>
-                        <tr>      
-                        <td class="date">05.04.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Game mockup : level 1 to 3 wider 
-                        </td>           
-                        <td class="hours">3h00
-                        </td>    
-                        </tr> 
-                        <tr>      
-                        <td class="date">05.04.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Mise en commun des différentes parties
-                        </td>         
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>
-                        <tr>
-                        <td class="date">05.04.2021
-                        </td>
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Website
-                        </td>
-                        <td>SiteMap + processus jeu
-                        </td>
-                        <td class="hours">2h00
-                        </td>
-                        </tr>
-                        <tr>
-                        <td class="date">06.04.2021
-                        </td>
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">HTML + CSS
-                        </td>
-                        <td>Finish Flux + Process page
-                        </td>
-                        <td class="hours">2h30
-                        </td>
-                        </tr>
-                        <tr>      
-                        <td class="date">06.04.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Game mockup : level 4 to 6 + ending + test js
-                        </td>          
-                        <td class="hours">6h00
-                        </td>    
-                        </tr>  
-                        <tr>
-                        <td class="date">07.04.2021
-                        </td>
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">HTML + CSS
-                        </td>
-                        <td>Finish Maquette + jeu + check sitemap and process
-                        </td>
-                        <td class="hours">3h00
-                        </td>
-                        </tr>
-                        <tr>
-                        <td class="date">08.04.2021
-                        </td>
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>
-                        <td>Validation + présentation CSS
-                        </td>
-                        <td class="hours">2h00
-                        </td>
-                        </tr>
-                        <tr>
-                        <td class="date">08.04.2021
-                        </td>
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Site
-                        </td>
-                        <td>Finir processus + logbook
-                        </td>
-                        <td class="hours">0h30
-                        </td>
-                        </tr>
-                        <tr>      
-                        <td class="date">08.04.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Game mockup : snail + hall of fame + player + lvl2 pipe
-                        </td>          
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>
-                    <tr>      
-                        <td class="date">08.04.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">HTML + CSS
-                        </td>      
-                        <td>Responsive design + problems
-                        </td>          
-                        <td class="hours">4h00
-                        </td>    
-                        </tr>
-                        <tr>      
-                        <td class="date">09.04.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Website
-                        </td>      
-                        <td>Game and site mockups
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>
-                        <tr>      
-                        <td class="date">10.04.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Website
-                        </td>      
-                        <td>Relecture
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>
-                    <tr>      
-                        <td class="date">10.04.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Git
-                        </td>      
-                        <td>Page + readme + envoi PP1
-                        </td>          
-                        <td class="hours">0h30
-                        </td>    
-                        </tr>
-                    <tr>      
-                        <td class="date">18.04.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Découpage + procédures
-                        </td>          
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>   
-                    <tr>      
-                        <td class="date">18.04.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Website
-                        </td>      
-                        <td>Déployement sur Azure à chaque merge request (on master)
-                        </td>          
-                        <td class="hours">2h45
-                        </td>    
-                        </tr>       
-                    <tr>      
-                        <td class="date">25.04.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Organisation suite JS
-                        </td>          
-                        <td class="hours">1h15
-                        </td>    
-                        </tr>  
-                    <tr>      
-                        <td class="date">25.04.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Progression sur issues #31 et #45
-                        </td>          
-                        <td class="hours">9h00
-                        </td>    
-                        </tr>  
-                    <tr>      
-                        <td class="date">26.04.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Progression sur #32
-                        </td>          
-                        <td class="hours">8h45
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">26.04.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Présentation base level 1 (#31) + créer personnages avec actions (#32)
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>  
-                    <tr>      
-                        <td class="date">28.04.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Collisions avec canvas #34, Bug fixing #51, under the tap #47
-                        </td>          
-                        <td class="hours">1h45
-                        </td>    
-                        </tr>
-                    <tr>      
-                        <td class="date">01.05.2021
-                        </td>      
-                        <td class="who">Gwenaëlle
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Images smaller for #51, Change level #36, Under the tap #47
-                        </td>          
-                        <td class="hours">6h00
-                        </td>    
-                        </tr>  
-                    <tr>      
-                        <td class="date">01.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Collision soap #49
-                        </td>          
-                        <td class="hours">4h30
-                        </td>    
-                        </tr>  
-                    <tr>      
-                        <td class="date">02.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>try bug fixing #51, Collisions with Monster hand #33
-                        </td>          
-                        <td class="hours">4h30
-                        </td>    
-                        </tr>   
-                    <tr>      
-                        <td class="date">04.05.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Meeting
-                        </td>      
-                        <td>Point de situation
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>   
-                    <tr>      
-                        <td class="date">04.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Bug #51, Adjustments #52
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>   
-                    <tr>      
-                        <td class="date">05.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Adjustments images #53, add lvl2 background #55, add lvl3 all images #56, gameover image #50
-                        </td>          
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>  
-                    <tr>      
-                        <td class="date">06.05.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Point de situation
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">06.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Timer #34, GameOver #50
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">06.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #49 collision Soap
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">08.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Winner screen #54
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">08.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #39
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">09.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #61 Droppy class object + #40 sound
-                        </td>          
-                        <td class="hours">4h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">09.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #39 + merge + aide Stéphanie
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">11.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #39 + Geolocation #42
-                        </td>          
-                        <td class="hours">3h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">11.05.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Point de situation
-                        </td>          
-                        <td class="hours">1h15
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">12.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Creation images level 5-6 (#58 #59)
-                        </td>          
-                        <td class="hours">2h30
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">13.05.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Organisation files 
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>
-                    <tr>      
-                        <td class="date">13.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #39
-                        </td>          
-                        <td class="hours">6h00
-                        </td>    
-                        </tr>
-                    <tr>      
-                        <td class="date">13.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 6 #59
-                        </td>          
-                        <td class="hours">6h00
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">13.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Drag and drop level0 #37
-                        </td>          
-                        <td class="hours">4h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">14.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Finish Drag and Drop #37 + text #69 + fix bug #71
-                        </td>          
-                        <td class="hours">5h30
-                        </td>    
-                        </tr> 
-                    <tr>      
-                        <td class="date">14.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Input #39 + geolocation #42 + help
-                        </td>          
-                        <td class="hours">6h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">15.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Place of text #42 + Level5 #58
-                        </td>          
-                        <td class="hours">7h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">15.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Help menu #60 + placement according to width screen #72
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">15.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Starting level2 #55
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">16.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Finish creation of level2 #55
-                        </td>          
-                        <td class="hours">5h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">18.05.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Point de situation
-                        </td>          
-                        <td class="hours">1h30
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">18.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Changing places of Snowflakes #55
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">19.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 3 #56 + check code
-                        </td>          
-                        <td class="hours">3h30
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">19.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>New version of level 6 #77
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">19.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Randomising more the Snowflakes #55
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">20.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 3 #56 + check code
-                        </td>          
-                        <td class="hours">3h30
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">20.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Last changes of code and deleting comments #55
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">21.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 3 #56
-                        </td>          
-                        <td class="hours">3h15
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">21.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 3 testing #56 + JSON Storage #62
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">23.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>JSON Storage #62 + #83
-                        </td>          
-                        <td class="hours">3h15
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">25.05.2021
-                        </td>      
-                        <td class="who">Gwen + Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>New version of level 6 #77 debug
-                        </td>          
-                        <td class="hours">2h30
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">25.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 3 #56
-                        </td>          
-                        <td class="hours">3h15
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">25.05.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Meeting
-                        </td>          
-                        <td class="hours">1h15
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">25.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 4 : placement of health drops in maze
-                        </td>          
-                        <td class="hours">1h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">26.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 3 #56
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">27.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 4 #57 et json #62
-                        </td>          
-                        <td class="hours">7h45
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">29.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 4 : placement of health drops in maze + debug level 2 #84 + start loading images #88
-                        </td>          
-                        <td class="hours">4h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">29.05.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Geolocation bug #74, Level 4 #57, Handle Event Listener #86, Word (documentation)
-                        </td>          
-                        <td class="hours">4h45
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">29.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Level 6 corrections #87
-                        </td>          
-                        <td class="hours">2h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">30.05.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Merge requests with Antony + PreLoad images #88 + Bug Droppy escapes Maze #92 + testing phase with Kiddo
-                        </td>          
-                        <td class="hours">4h00
-                        </td>    
-                        </tr>
-                    <tr>    
-                        <td class="date">30.05.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Corrections detections of monsters #89
-                        </td>          
-                        <td class="hours">5h00
-                        </td>
-                    <tr>    
-                        <td class="date">01.06.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Copyright #81 + correct speed on #79
-                        </td>          
-                        <td class="hours">1h00
-                        </td>     
-                        </tr>
-                    <tr>    
-                        <td class="date">04.06.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Ajustements finaux #79
-                        </td>          
-                        <td class="hours">1h45
-                        </td>     
-                        </tr>
-                    <tr>    
-                        <td class="date">04.06.2021
-                        </td>      
-                        <td class="who">Gwen
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Ajustements finaux #79
-                        </td>          
-                        <td class="hours">2h00
-                        </td>     
-                        </tr>
-                    <tr>    
-                        <td class="date">05.06.2021
-                        </td>      
-                        <td class="who">Antony
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Word documentation 
-                        </td>          
-                        <td class="hours">0h30
-                        </td>     
-                        </tr>
-                    <tr>    
-                        <td class="date">05.06.2021
-                        </td>      
-                        <td class="who">Stéphanie
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Relecture code, corrections + merge #79
-                        </td>          
-                        <td class="hours">2h00
-                        </td>     
-                        </tr>
-                    <tr>    
-                        <td class="date">10.06.2021
-                        </td>      
-                        <td class="who">Tous
-                        </td>      
-                        <td class="what">Game
-                        </td>      
-                        <td>Derniers ajustements
-                        </td>          
-                        <td class="hours">2h00
-                        </td>     
-                        </tr>
-                    </tbody>
-                    </table>
-                <p class="link">Notre logbook se trouve aussi sur <a
-                        href="https://gitlab.com/hesantonymarques/604_3/624-2-ria/-/wikis/Logbook%20commun">gitlab</a>.</p>
-            </article>
-        </section>
-        <!-- >Fin zone pour votre contenu -->
+      <!-- Début zone pour votre contenu -->
+      <section id="articles">
+        <article>
+          <header>
+            <h2>Journal de bord</h2>
+            <p>Par Stéphanie Baechler le 04/04/2021 à 11:35</p>
+          </header>
+          <p>
+            Nous avons regroupé ci-dessous les différentes heures effectuées,
+            problèmes et solutions, ainsi que les différentes interrogations
+            rencontrées tout au long du développement de notre projet :
+          </p>
+          <table>
+            <caption>
+              Synthèse de nos logbooks
+            </caption>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Who</th>
+                <th>Working on</th>
+                <th>Main topic</th>
+                <th>Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="date">03.03.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Organisation du projet</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">10.03.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>Concept jeu et premiers niveaux</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">10.03.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>
+                  Brainstorming sur les idées de jeu et sur les niveaux
+                  supplémentaires
+                </td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">12.03.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">CSS</td>
+                <td>Titre et Navbar</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">18.03.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Organisation</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">20.03.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">CSS</td>
+                <td>Title and Navbar</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">21.03.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">CSS</td>
+                <td>Body and Footer</td>
+                <td class="hours">3h00</td>
+              </tr>
+              <tr>
+                <td class="date">23.03.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">CSS</td>
+                <td>Menu hamburger mobile</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">24.03.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">CSS</td>
+                <td>Body and Footer</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">24.03.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">CSS</td>
+                <td>Menu interactif et responsive design</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">25.03.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Organisation</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">25.03.2021</td>
+                <td class="who">Anto+Gwen</td>
+                <td class="what">Game</td>
+                <td>Thinking about processus at each level</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">26.03.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Thinking about processus at each level + sitemap</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">29.03.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>Game mockup: level 1 to 4</td>
+                <td class="hours">3h00</td>
+              </tr>
+              <tr>
+                <td class="date">29.03.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Check visuels</td>
+                <td class="hours">0h15</td>
+              </tr>
+              <tr>
+                <td class="date">30.03.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Meeting</td>
+                <td>
+                  Questions about the project to be answered by the teacher
+                </td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">01.04.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Validation + organisation</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">03.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game + website</td>
+                <td>Version 1 game + sitemap + processus de jeu</td>
+                <td class="hours">1h45</td>
+              </tr>
+              <tr>
+                <td class="date">04.04.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">HTML + CSS</td>
+                <td>Logbook + Flux + Game</td>
+                <td class="hours">4h15</td>
+              </tr>
+              <tr>
+                <td class="date">05.04.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>Game mockup : level 1 to 3 wider</td>
+                <td class="hours">3h00</td>
+              </tr>
+              <tr>
+                <td class="date">05.04.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Mise en commun des différentes parties</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">05.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Website</td>
+                <td>SiteMap + processus jeu</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">06.04.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">HTML + CSS</td>
+                <td>Finish Flux + Process page</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">06.04.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>Game mockup : level 4 to 6 + ending + test js</td>
+                <td class="hours">6h00</td>
+              </tr>
+              <tr>
+                <td class="date">07.04.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">HTML + CSS</td>
+                <td>Finish Maquette + jeu + check sitemap and process</td>
+                <td class="hours">3h00</td>
+              </tr>
+              <tr>
+                <td class="date">08.04.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Validation + présentation CSS</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">08.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Site</td>
+                <td>Finir processus + logbook</td>
+                <td class="hours">0h30</td>
+              </tr>
+              <tr>
+                <td class="date">08.04.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>Game mockup : snail + hall of fame + player + lvl2 pipe</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">08.04.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">HTML + CSS</td>
+                <td>Responsive design + problems</td>
+                <td class="hours">4h00</td>
+              </tr>
+              <tr>
+                <td class="date">09.04.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Website</td>
+                <td>Game and site mockups</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">10.04.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Website</td>
+                <td>Relecture</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">10.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Git</td>
+                <td>Page + readme + envoi PP1</td>
+                <td class="hours">0h30</td>
+              </tr>
+              <tr>
+                <td class="date">18.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Découpage + procédures</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">18.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Website</td>
+                <td>
+                  Déployement sur Azure à chaque merge request (on master)
+                </td>
+                <td class="hours">2h45</td>
+              </tr>
+              <tr>
+                <td class="date">25.04.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Organisation suite JS</td>
+                <td class="hours">1h15</td>
+              </tr>
+              <tr>
+                <td class="date">25.04.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>Progression sur issues #31 et #45</td>
+                <td class="hours">9h00</td>
+              </tr>
+              <tr>
+                <td class="date">26.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Progression sur #32</td>
+                <td class="hours">8h45</td>
+              </tr>
+              <tr>
+                <td class="date">26.04.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>
+                  Présentation base level 1 (#31) + créer personnages avec
+                  actions (#32)
+                </td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">28.04.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>
+                  Collisions avec canvas #34, Bug fixing #51, under the tap #47
+                </td>
+                <td class="hours">1h45</td>
+              </tr>
+              <tr>
+                <td class="date">01.05.2021</td>
+                <td class="who">Gwenaëlle</td>
+                <td class="what">Game</td>
+                <td>
+                  Images smaller for #51, Change level #36, Under the tap #47
+                </td>
+                <td class="hours">6h00</td>
+              </tr>
+              <tr>
+                <td class="date">01.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Collision soap #49</td>
+                <td class="hours">4h30</td>
+              </tr>
+              <tr>
+                <td class="date">02.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>try bug fixing #51, Collisions with Monster hand #33</td>
+                <td class="hours">4h30</td>
+              </tr>
+              <tr>
+                <td class="date">04.05.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Meeting</td>
+                <td>Point de situation</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">04.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Bug #51, Adjustments #52</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">05.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>
+                  Adjustments images #53, add lvl2 background #55, add lvl3 all
+                  images #56, gameover image #50
+                </td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">06.05.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Game</td>
+                <td>Point de situation</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">06.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Timer #34, GameOver #50</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">06.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Input #49 collision Soap</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">08.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Winner screen #54</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">08.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Input #39</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">09.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Input #61 Droppy class object + #40 sound</td>
+                <td class="hours">4h00</td>
+              </tr>
+              <tr>
+                <td class="date">09.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Input #39 + merge + aide Stéphanie</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">11.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Input #39 + Geolocation #42</td>
+                <td class="hours">3h00</td>
+              </tr>
+              <tr>
+                <td class="date">11.05.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Game</td>
+                <td>Point de situation</td>
+                <td class="hours">1h15</td>
+              </tr>
+              <tr>
+                <td class="date">12.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Creation images level 5-6 (#58 #59)</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">13.05.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Game</td>
+                <td>Organisation files</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">13.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Input #39</td>
+                <td class="hours">6h00</td>
+              </tr>
+              <tr>
+                <td class="date">13.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Level 6 #59</td>
+                <td class="hours">6h00</td>
+              </tr>
+              <tr>
+                <td class="date">13.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Drag and drop level0 #37</td>
+                <td class="hours">4h00</td>
+              </tr>
+              <tr>
+                <td class="date">14.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Finish Drag and Drop #37 + text #69 + fix bug #71</td>
+                <td class="hours">5h30</td>
+              </tr>
+              <tr>
+                <td class="date">14.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Input #39 + geolocation #42 + help</td>
+                <td class="hours">6h00</td>
+              </tr>
+              <tr>
+                <td class="date">15.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Place of text #42 + Level5 #58</td>
+                <td class="hours">7h00</td>
+              </tr>
+              <tr>
+                <td class="date">15.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Help menu #60 + placement according to width screen #72</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">15.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Starting level2 #55</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">16.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Finish creation of level2 #55</td>
+                <td class="hours">5h00</td>
+              </tr>
+              <tr>
+                <td class="date">18.05.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Game</td>
+                <td>Point de situation</td>
+                <td class="hours">1h30</td>
+              </tr>
+              <tr>
+                <td class="date">18.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Changing places of Snowflakes #55</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">19.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Level 3 #56 + check code</td>
+                <td class="hours">3h30</td>
+              </tr>
+              <tr>
+                <td class="date">19.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>New version of level 6 #77</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">19.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Randomising more the Snowflakes #55</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">20.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Level 3 #56 + check code</td>
+                <td class="hours">3h30</td>
+              </tr>
+              <tr>
+                <td class="date">20.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Last changes of code and deleting comments #55</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">21.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Level 3 #56</td>
+                <td class="hours">3h15</td>
+              </tr>
+              <tr>
+                <td class="date">21.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Level 3 testing #56 + JSON Storage #62</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">23.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>JSON Storage #62 + #83</td>
+                <td class="hours">3h15</td>
+              </tr>
+              <tr>
+                <td class="date">25.05.2021</td>
+                <td class="who">Gwen + Stéphanie</td>
+                <td class="what">Game</td>
+                <td>New version of level 6 #77 debug</td>
+                <td class="hours">2h30</td>
+              </tr>
+              <tr>
+                <td class="date">25.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Level 3 #56</td>
+                <td class="hours">3h15</td>
+              </tr>
+              <tr>
+                <td class="date">25.05.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Game</td>
+                <td>Meeting</td>
+                <td class="hours">1h15</td>
+              </tr>
+              <tr>
+                <td class="date">25.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Level 4 : placement of health drops in maze</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">26.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Level 3 #56</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">27.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Level 4 #57 et json #62</td>
+                <td class="hours">7h45</td>
+              </tr>
+              <tr>
+                <td class="date">29.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>
+                  Level 4 : placement of health drops in maze + debug level 2
+                  #84 + start loading images #88
+                </td>
+                <td class="hours">4h00</td>
+              </tr>
+              <tr>
+                <td class="date">29.05.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>
+                  Geolocation bug #74, Level 4 #57, Handle Event Listener #86,
+                  Word (documentation)
+                </td>
+                <td class="hours">4h45</td>
+              </tr>
+              <tr>
+                <td class="date">29.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Level 6 corrections #87</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">30.05.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>
+                  Merge requests with Antony + PreLoad images #88 + Bug Droppy
+                  escapes Maze #92 + testing phase with Kiddo
+                </td>
+                <td class="hours">4h00</td>
+              </tr>
+              <tr>
+                <td class="date">30.05.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Corrections detections of monsters #89</td>
+                <td class="hours">5h00</td>
+              </tr>
+
+              <tr>
+                <td class="date">01.06.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Copyright #81 + correct speed on #79</td>
+                <td class="hours">1h00</td>
+              </tr>
+              <tr>
+                <td class="date">04.06.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Ajustements finaux #79</td>
+                <td class="hours">1h45</td>
+              </tr>
+              <tr>
+                <td class="date">04.06.2021</td>
+                <td class="who">Gwen</td>
+                <td class="what">Game</td>
+                <td>Ajustements finaux #79</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">05.06.2021</td>
+                <td class="who">Antony</td>
+                <td class="what">Game</td>
+                <td>Word documentation</td>
+                <td class="hours">0h30</td>
+              </tr>
+              <tr>
+                <td class="date">05.06.2021</td>
+                <td class="who">Stéphanie</td>
+                <td class="what">Game</td>
+                <td>Relecture code, corrections + merge #79</td>
+                <td class="hours">2h00</td>
+              </tr>
+              <tr>
+                <td class="date">10.06.2021</td>
+                <td class="who">Tous</td>
+                <td class="what">Game</td>
+                <td>Derniers ajustements</td>
+                <td class="hours">2h00</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="link">
+            Notre logbook se trouve aussi sur
+            <a
+              href="https://gitlab.com/hesantonymarques/604_3/624-2-ria/-/wikis/Logbook%20commun"
+              >gitlab</a
+            >.
+          </p>
+        </article>
+      </section>
+      <!-- >Fin zone pour votre contenu -->
     </main>
 
     <footer>
-        <img id="logo" src="ressources/images/site/logo.png" alt="logo HES-SO Valais Wallis">
+      <img
+        id="logo"
+        src="ressources/images/site/logo.png"
+        alt="logo HES-SO Valais Wallis"
+      />
     </footer>
-
-</body>
-
+  </body>
 </html>
