@@ -5,7 +5,7 @@
  * Please give credit to us if you're using our code. THX!
  **/
 class HallOfFame {
-  static async createLevel(thisGame) {
+  static createLevel(thisGame) {
     //Remove all objects drawn
     thisGame.clearCanvas();
 
@@ -30,14 +30,13 @@ class HallOfFame {
     document.getElementById("bg").style.backgroundImage =
       thisGame.bgHallOfFameUrl;
 
-    let results = await thisGame.hallOfFame;
-
-    this.draw(thisGame, results);
+    this.draw(thisGame);
 
     thisGame.canReload = true;
   }
 
-  static draw(thisGame, results) {
+  static async draw(thisGame) {
+    let results = await thisGame.getHallOfFame();
     //Draw hall of fame rect
     thisGame.context.fillStyle = "rgba(255,255,255,0.7)";
     thisGame.context.fillRect(
