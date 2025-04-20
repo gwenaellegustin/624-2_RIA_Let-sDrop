@@ -7,8 +7,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import {
+  get,
   getDatabase,
-  onValue,
   ref,
   set,
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
@@ -26,6 +26,8 @@ window.onload = function () {
 
 class Game {
   constructor(canvasId, db) {
+    // Update at each modification
+
     this.canvas = null;
     this.context = null;
     this.oldTimeStamp = 0;
@@ -52,13 +54,14 @@ class Game {
     this.chargeBackgrounds();
     this.chargeObjects();
 
-    this.init(canvasId);
+    // @Todo: implement auto update
+    // onValue(this.hallOfFameRef, (snapshot) => {
+    //   const dataJSON = snapshot.val();
+    //   this.hallOfFame = this.sortHallOfFame(dataJSON);
+    //   console.log("onValue", this.hallOfFame);
+    // });
 
-    // Update at each modification
-    onValue(this.hallOfFameRef, (snapshot) => {
-      const dataJSON = snapshot.val();
-      this.hallOfFame = this.sortHallOfFame(dataJSON);
-    });
+    this.init(canvasId);
   }
 
   async init(canvasId) {
@@ -662,16 +665,16 @@ class Game {
   }
 
   // version without update
-  // async getHallOfFame() {
-  //   return await get(this.hallOfFameRef)
-  //     .then((snapshot) => {
-  //       const dataJSON = snapshot.val();
-  //       return this.sortHallOfFame(dataJSON);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error); //@TODO
-  //     });
-  // }
+  async getHallOfFame() {
+    return await get(this.hallOfFameRef)
+      .then((snapshot) => {
+        const dataJSON = snapshot.val();
+        return this.sortHallOfFame(dataJSON);
+      })
+      .catch((error) => {
+        console.error(error); //@TODO
+      });
+  }
 
   sortHallOfFame(dataJSON) {
     let dataArray = new Array();
