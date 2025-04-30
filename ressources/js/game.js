@@ -688,7 +688,17 @@ class Game {
     dataArray.sort(function (a, b) {
       return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
     });
-    return dataArray;
+
+    let users = new Set([]);
+    let uniqueScoreByUser = [];
+    dataArray.forEach((item) => {
+      if (!users.has(item.user)) {
+        uniqueScoreByUser.push(item);
+        users.add(item.user);
+      }
+    });
+
+    return uniqueScoreByUser;
   }
 
   writeUserData(user, timeWithMilliSeconds, end, db) {
