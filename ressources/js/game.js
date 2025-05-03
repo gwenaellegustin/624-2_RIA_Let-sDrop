@@ -76,6 +76,14 @@ class Game {
     this.canvas.height = 550;
     this.context = this.canvas.getContext("2d");
 
+    if (
+      this.canvas.width > window.innerWidth ||
+      this.canvas.height > window.innerHeight
+    ) {
+      let url = new URL(window.location.href);
+      window.location.replace(url.origin + "/jeu.html");
+    }
+
     //General text style of the game
     this.context.font = "30px Delius";
     this.context.fillStyle = "white";
