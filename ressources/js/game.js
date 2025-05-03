@@ -689,13 +689,23 @@ class Game {
       return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
     });
 
-    let users = new Set([]);
+    let users = new Map([]);
     let uniqueScoreByUser = [];
     dataArray.forEach((item) => {
-      if (!users.has(item.user)) {
+      // If in top 10, add to user tabs
+      if (!users.has(item.user) && users.size < 10) {
         uniqueScoreByUser.push(item);
-        users.add(item.user);
+        users.set(item.user, 1);
+        // Store number of try of top 10 user
+      } else if (users.has(item.user)) {
+        const numberOfTry = users.get(item.user);
+        users.set(item.user, numberOfTry + 1);
       }
+    });
+
+    // Add number of try next to the name
+    uniqueScoreByUser.forEach((result) => {
+      result.user = result.user + " (" + users.get(result.user) + ")";
     });
 
     return uniqueScoreByUser;
