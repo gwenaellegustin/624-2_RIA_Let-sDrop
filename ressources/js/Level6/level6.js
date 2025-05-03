@@ -92,6 +92,23 @@ class Level6 {
 
   static detectDefence(thisGame) {
     window.addEventListener(
+      "mouseup",
+      function (event) {
+        if (event.defaultPrevented) {
+          return; //Do nothing if event already handled
+        }
+
+        if (thisGame.droppy.interval > 0.5) {
+          this.shoot(thisGame);
+        }
+
+        //Consume the event so it doesn't get handled twice
+        event.preventDefault();
+      },
+      true
+    );
+
+    window.addEventListener(
       "keyup",
       function (event) {
         if (event.defaultPrevented) {
@@ -99,30 +116,7 @@ class Level6 {
         }
 
         if (event.code === "Space" && thisGame.droppy.interval > 0.5) {
-          let crab = thisGame.gameObjects[2];
-          let defence;
-          if (thisGame.droppy.x < crab.x) {
-            defence = new Defence(
-              thisGame.context,
-              thisGame.droppy.x + thisGame.droppy.width,
-              thisGame.droppy.y + thisGame.droppy.height / 2,
-              1
-            );
-          } else {
-            defence = new Defence(
-              thisGame.context,
-              thisGame.droppy.x,
-              thisGame.droppy.y + thisGame.droppy.height / 2,
-              -1
-            );
-          }
-
-          thisGame.gameObjects.push(defence);
-          let position = thisGame.gameObjects.length;
-          setTimeout(() => {
-            thisGame.gameObjects.splice(position, 1);
-          }, 5000);
-          thisGame.droppy.interval = 0;
+          this.shoot(thisGame);
         }
 
         //Consume the event so it doesn't get handled twice
@@ -209,4 +203,31 @@ class Level6 {
       }
     }
   }
+}
+
+function shoot(thisGame) {
+  let crab = thisGame.gameObjects[2];
+  let defence;
+  if (thisGame.droppy.x < crab.x) {
+    defence = new Defence(
+      thisGame.context,
+      thisGame.droppy.x + thisGame.droppy.width,
+      thisGame.droppy.y + thisGame.droppy.height / 2,
+      1
+    );
+  } else {
+    defence = new Defence(
+      thisGame.context,
+      thisGame.droppy.x,
+      thisGame.droppy.y + thisGame.droppy.height / 2,
+      -1
+    );
+  }
+
+  thisGame.gameObjects.push(defence);
+  let position = thisGame.gameObjects.length;
+  setTimeout(() => {
+    thisGame.gameObjects.splice(position, 1);
+  }, 5000);
+  thisGame.droppy.interval = 0;
 }
