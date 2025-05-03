@@ -62,27 +62,27 @@ class Drop {
 
     //Documentation: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
     if (this.canPress2Keys) {
-      if (Key.isDown(Key.UP)) {
+      if (Key.isDown(Key.UP) || Key.isDown(Key.W)) {
         this.y -= this.speed * secondsPassed;
       }
-      if (Key.isDown(Key.LEFT)) {
+      if (Key.isDown(Key.LEFT) || Key.isDown(Key.A)) {
         this.x -= this.speed * secondsPassed;
       }
-      if (Key.isDown(Key.DOWN)) {
+      if (Key.isDown(Key.DOWN) || Key.isDown(Key.S)) {
         this.y += this.speed * secondsPassed;
       }
-      if (Key.isDown(Key.RIGHT)) {
+      if (Key.isDown(Key.RIGHT) || Key.isDown(Key.D)) {
         this.x += this.speed * secondsPassed;
       }
     } else {
       //Only one key at the same time
-      if (Key.isDown(Key.UP)) {
+      if (Key.isDown(Key.UP) || Key.isDown(Key.W)) {
         this.y -= this.speed * secondsPassed;
-      } else if (Key.isDown(Key.LEFT)) {
+      } else if (Key.isDown(Key.LEFT) || Key.isDown(Key.A)) {
         this.x -= this.speed * secondsPassed;
-      } else if (Key.isDown(Key.DOWN)) {
+      } else if (Key.isDown(Key.DOWN) || Key.isDown(Key.S)) {
         this.y += this.speed * secondsPassed;
-      } else if (Key.isDown(Key.RIGHT)) {
+      } else if (Key.isDown(Key.RIGHT) || Key.isDown(Key.D)) {
         this.x += this.speed * secondsPassed;
       }
     }
@@ -282,18 +282,26 @@ class Drop {
     }, 5000);
   }
 
-  upsideDownCommands() {
-    Key.DOWN = 38;
-    Key.UP = 40;
-    Key.LEFT = 39;
-    Key.RIGHT = 37;
-  }
-
   normalCommands() {
     Key.LEFT = 37;
     Key.UP = 38;
     Key.RIGHT = 39;
     Key.DOWN = 40;
+    Key.A = 65;
+    Key.W = 87;
+    Key.D = 68;
+    Key.S = 83;
+  }
+
+  upsideDownCommands() {
+    Key.LEFT = 39;
+    Key.UP = 40;
+    Key.RIGHT = 37;
+    Key.DOWN = 38;
+    Key.A = 68;
+    Key.W = 83;
+    Key.D = 65;
+    Key.S = 87;
   }
 
   slowDownSpeed() {
@@ -378,6 +386,10 @@ let Key = {
   UP: 38,
   RIGHT: 39,
   DOWN: 40,
+  A: 65,
+  W: 87,
+  D: 68,
+  S: 83,
 
   isDown: function (keyCode) {
     return this.pressed[keyCode];
@@ -385,6 +397,7 @@ let Key = {
 
   onKeydown: function (event) {
     this.pressed[event.keyCode] = true;
+    console.log(event.keyCode);
   },
 
   onKeyup: function (event) {
