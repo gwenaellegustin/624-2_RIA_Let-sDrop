@@ -8,8 +8,5 @@ Dans le cadre du cours 624-2 RIA de la formation Bachelor ès Science en Informa
 - Gustin Gwenaëlle : Designer, coder
 - Baechler Stéphanie : Editor, layout
 
-## Liens
-
-- [Logbooks](https://gitlab.com/hesantonymarques/604_3/624-2-ria/-/wikis/home)
-- [Notre website]([https://6242ria.z22.web.core.windows.net/](https://letsdrop.gwengustin.ch/letsDrop.html))
-- [Documentation word](https://docs.google.com/document/d/1hoEp4Y1Dx_Zwk8uhKFAJlqTOxV5Kl8hniuU9uk9wsBY/edit?usp=sharing)
+## Lien
+- [Notre website](https://letsdrop.gwengustin.ch/letsDrop.html)
